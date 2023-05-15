@@ -1,12 +1,18 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  
+  --color-black: rgb(0, 0, 0);
+  --color-white: rgb(255,255,255);
 
+  
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+::-webkit-scrollbar{
+  display: none;
 }
 
 *,
@@ -19,4 +25,18 @@
 
 html {
   font-size: 62.5%;
+}
+
+
+
+.going-down {
+  height: 100%;
+  transform: translate3d(0px, -50%, 0px);
+  transition: 1s;
+}
+
+.going-up {
+  height: 100%;
+  transform: translate3d(0px, 50%, 0px);
+  transition: 1s;
 }

@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+
 import Navigation from "./component/navigation/navigation.component";
 import HomePage from "./routes/homePage/homePage.component";
 import AboutPage from "./routes/aboutPage/aboutPage.component"
@@ -6,8 +7,6 @@ import AccountPage from "./routes/accountPage/accountPage.component";
 import ContactPage from "./routes/contactPage/contactPage.component";
 import LookbookPage from "./routes/lookbookPage/lookbookPage.component";
 import ProductPage from "./routes/productPage/productPage.component";
-
-// TODO path="/" for homePage will become index after putting the navigation
 
 
 function App() {
