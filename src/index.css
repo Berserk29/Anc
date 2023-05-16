@@ -2,6 +2,11 @@
   --color-black: rgb(0, 0, 0);
   --color-white: rgb(255,255,255);
 
+  /*TODO TESTING COLOR CAN CHANGE LATER */
+  --color-hover-white: #828282;
+  --filter-hover-white: invert(59%) sepia(11%) saturate(20%) hue-rotate(95deg) brightness(85%) contrast(93%);
+
+
   
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-synthesis: none;

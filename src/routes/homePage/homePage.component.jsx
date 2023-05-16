@@ -1,9 +1,23 @@
 import { useRef, useEffect} from "react";
+import Heading, { HeadingType } from "../../component/heading/heading.component";
+import PageIndex from "../../component/pageIndex/pageIndex.component";
+
 import { 
     HomePageContainer,
+    Header,
+    TitleContainer,
+    NewContainer,
     HomeContainer,
+    ScrollContainer,
+    ArrowDown,
     HomeContainerTest
- } from "./homePage.styled";
+} from "./homePage.styled";
+
+import arrowDown from '../../assets/icon/arrow-down.png'
+
+// TESTING
+import headerImg from '../../assets/home/main_carousel-0.png'
+
 
 const sectionArray = [
     {
@@ -34,7 +48,7 @@ const sectionArray = [
         
         const container = containerRef.current;
         const containerScrollTop = container.scrollTop;
-        const scrollDistance = event.deltaY * 1.5
+        const scrollDistance = event.deltaY * 2
 
         container.scrollTo({
             top: containerScrollTop + scrollDistance,
@@ -53,12 +67,28 @@ const sectionArray = [
         };
     }, [])
 
+    const handleDiscover = () => refs.current[2].scrollIntoView({behavior: 'smooth'})
+
+
     return (
         <HomePageContainer tabIndex={0}  ref={containerRef}>
-            <HomeContainer ref={(element) => {refs.current[1] = element}}>
-                <h1>Header</h1>
-            </HomeContainer>
-            {sectionArray.map((el) => <HomeContainerTest key={el.id} ref={(element) => {refs.current[el.id] = element}}>{el.heading}</HomeContainerTest>)}
+            <Header ref={(element) => {refs.current[1] = element}} image={headerImg}>
+                <TitleContainer>
+                    <Heading size='8.6' type={HeadingType.main} flex='center' marginRight='6.5' title='Always'/>
+                    <NewContainer>
+                        <Heading size='8.6' type={HeadingType.arial} title='New'/>
+                        <Heading size='1.4' type={HeadingType.subArial} title='Urban Style'/>
+                    </NewContainer>
+                    <Heading size='8.6' type={HeadingType.main} flex='end' title='Creative'/>
+                </TitleContainer>
+                <PageIndex page='1'/>
+                <ScrollContainer onClick={handleDiscover}>
+                    <Heading size='1.4' type={HeadingType.hoverArial} title='Scroll to discover' />
+                    <ArrowDown src={arrowDown} alt="arrow" />
+                </ScrollContainer>
+            </Header>
+            {sectionArray.map((el) => <HomeContainerTest key={el.id} ref={(element) => {refs.current[el.id] = element}}
+            >{el.heading}</HomeContainerTest>)}
             <HomeContainer ref={(element) => {refs.current[6] = element}}>
                 <h1>Footer</h1>
             </HomeContainer>
