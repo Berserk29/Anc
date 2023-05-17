@@ -6,6 +6,7 @@ export const HomePageContainer = styled.div`
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
     scroll-snap-stop: always;
+    scroll-behavior: smooth;
 `
 
 export const Header = styled.div`
@@ -24,18 +25,6 @@ export const Header = styled.div`
     background-position: center;
 `
 
-export const TitleContainer = styled.div`
-    width: 55rem;
-    display: flex;
-    flex-direction: column;
-`
-
-export const NewContainer = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 2.4rem;
-`
-
 export const ScrollContainer = styled.div`
     position: absolute;
     display: flex;
@@ -49,25 +38,13 @@ export const ArrowDown = styled.img`
     width: 1.2rem;
 `
 
-
-export const HomeContainer = styled.div`
+export const HomeFooter = styled.div`
+    position: relative;
     scroll-snap-align: start;
     height: 100vh;
     width: 100%;
     background-color: black;
-    font-size: 3rem;
-    color: white;
     display: flex;
+    align-items: end;
     justify-content: center;
-    align-items: center;
-`
-export const HomeContainerTest = styled.div`
-    height: 100vh;
-    width: 100%;
-    scroll-snap-align: start;
-    background-color: red;
-    font-size: 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 `

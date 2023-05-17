@@ -41,3 +41,24 @@ export const HoverArialHeading = styled(SubArialHeading)`
         color: var(--color-hover-white);
     }
 `
+
+export const HeadingMain = styled.h2`
+    display: inline;
+    font-size : ${props => props.size}rem;
+    margin-right: ${props => props.marginRight}rem;
+    margin-left: ${props => props.marginLeft}rem;
+    font-family: 'Scheherazade';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--color-white);
+`
+
+export const HeadingArial = styled(HeadingMain)`
+    font-size : ${props => props.size - .3}rem;
+    font-weight: 700;
+    font-family: 'Arial';
+    letter-spacing: -0.01em;
+`

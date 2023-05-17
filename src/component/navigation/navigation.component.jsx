@@ -1,30 +1,34 @@
 import { Fragment } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet} from "react-router-dom";
 import { 
     NavbarContainer,
     NavIcon,
     HamIcon,
-    AncLogo,
     HamContainer,
     IconContainer,
  } from "./navigation.styled";
 
 import hamIcon from '../../assets/icon/hamburger.png' 
-import ancLogo from '../../assets/icon/anc.png' 
 import userIcon from '../../assets/icon/user.png' 
 import heartIcon from '../../assets/icon/heart.png' 
-import shopIcon from '../../assets/icon/shopping-bag.png' 
+import shopIcon from '../../assets/icon/shopping-bag.png'
+
 import Heading, { HeadingType } from "../heading/heading.component";
+import AncLogo from "../ancLogo/ancLogo.component";
+
+// TODO DropMenu after clicked Hamburger
+// TODO Created the different stuff after clicking on the navLogo
 
 const Navigation = () => {
+
     return (
         <Fragment>
             <NavbarContainer>
                 <HamContainer>
                     <HamIcon src={hamIcon} alt="Ham Icon" />
-                    <Heading size='1.6' type={HeadingType.hoverArial} title='Menu' marginLeft='1.4'/>
+                    <Heading size='1.6' type={HeadingType.subArial} title='Menu' marginLeft='1.4'/>
                 </HamContainer>
-                <AncLogo src={ancLogo} alt="Anc Logo" />
+                <AncLogo haveLink={true} />
                 <IconContainer>
                     <NavIcon src={userIcon} alt="User Icon" />
                     <NavIcon src={heartIcon} alt="Heart Icon" />

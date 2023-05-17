@@ -10,4 +10,5 @@ export const PageContainer = styled.span`
     color: var(--color-white);
     transform-origin: left top;
     transform: rotate(-90deg);
+    z-index: 100;
 `

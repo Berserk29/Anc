@@ -19,10 +19,6 @@ export const HamContainer = styled.div`
     width: 11.4rem;
     align-items: center;
     cursor: pointer;
-    :hover, NavIcon {
-        transition: filter .3s;
-        filter: var(--filter-hover-white);
-    }
 `
 
 export const IconContainer = styled.div`
@@ -38,12 +34,8 @@ export const NavIcon = styled.img`
         filter: var(--filter-hover-white);
     }
 `
-export const HamIcon = styled(NavIcon)`
-    margin-bottom: 2px;
-`
-
-
-export const AncLogo = styled.img`
-    width: 10rem;
+export const HamIcon = styled.img`
+    width: 2rem;
     cursor: pointer;
+    margin-bottom: 2px;
 `
