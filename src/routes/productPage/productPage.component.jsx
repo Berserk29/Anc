@@ -1,8 +1,9 @@
+import NavFooter from "../../component/navFooter/navFooter.component";
+
 const ProductPage = () => {
     return (
-        <div>
-            <h1>ProductPage</h1>
-        </div>
+        <NavFooter>
+        </NavFooter>
     )
 }
 

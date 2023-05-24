@@ -1,17 +1,20 @@
-import { Fragment, forwardRef } from "react";
+import { Fragment, useContext, useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+import { useAnimation } from "framer-motion";
+import NumContext from "../../context/numIndex.context";
+
+import Typo, {TypoType} from "../typo/typo.component";
+import ViewBtn from "../viewBtn/viewBtn.component";
+
 import { 
     Section,
     HalfImage,
     HalfText,
     TextContainer,
-    TextCss,
     FullText,
     FullImage,
     InstaContainer,
 } from "./sectionHome.styled";
-import Heading, { HeadingType } from "../heading/heading.component";
-import PageIndex from "../pageIndex/pageIndex.component";
-import ViewBtn from "../viewBtn/viewBtn.component";
 
 export const SectionType = {
     left: 'left',
@@ -20,9 +23,21 @@ export const SectionType = {
     noImg: 'noImg',
 } 
 
-const SectionHome = forwardRef(({props}, ref) => {
+const SectionHome = ({props}) => {
     const {imageUrl, type, text, heading, id, link = false } = props;
-
+    const {ref: sectionRef, inView} = useInView({threshold: 0.5});
+    const controls = useAnimation();
+    const { setNumIndex } = useContext(NumContext)
+    
+    useEffect(() => {
+        if(inView) {
+            setNumIndex(id)
+            controls.start('visible');
+        } else {
+            controls.start('hidden');
+        }
+    }, [controls, inView, setNumIndex, id])
+    
     const SectionChoice = () => {
         if(type === 'left' || type === 'right') 
         return (
@@ -30,8 +45,8 @@ const SectionHome = forwardRef(({props}, ref) => {
                 {type === 'left' && <HalfImage image={imageUrl}/>}
                 <HalfText>
                     <TextContainer>
-                        <Heading size='4' type={HeadingType.double} title={heading}/>
-                        <TextCss>{text}</TextCss>
+                        <Typo type={TypoType.double}>{heading}</Typo>
+                        <Typo type={TypoType.body_4}>{text}</Typo>
                         {link && <ViewBtn link={link}/>}
                     </TextContainer>
                 </HalfText>
@@ -42,8 +57,6 @@ const SectionHome = forwardRef(({props}, ref) => {
         if(type === 'full') 
         return (
             <FullImage image={imageUrl}>
-                <Heading size='6.5' type={HeadingType.subMain} title={heading}/>
-                <Heading size='1.4' type={HeadingType.subArial} title={text}/>
                 {link && <ViewBtn link={link}/>}
             </FullImage>
         )
@@ -52,8 +65,8 @@ const SectionHome = forwardRef(({props}, ref) => {
         return (
             <FullText>
                 <InstaContainer>
-                    <Heading size='3.6' type={HeadingType.double} title={heading}/>
-                    <TextCss>{text}</TextCss>
+                    <Typo type={TypoType.double}>{heading}</Typo>
+                    <Typo type={TypoType.body_4}>{text}</Typo>
                     {link && <ViewBtn link={link} text="Follow us"/>}
                 </InstaContainer>
             </FullText>
@@ -61,13 +74,10 @@ const SectionHome = forwardRef(({props}, ref) => {
     }
 
     return(
-        <Section ref={ref}>
-            {/* <PageIndex page={id}/> */}
+        <Section ref={sectionRef}>
             <SectionChoice />
         </Section>
     )
-});
-
-SectionHome.displayName = 'SectionHome';
+};
 
 export default SectionHome;

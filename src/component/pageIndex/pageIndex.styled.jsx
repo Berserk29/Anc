@@ -2,13 +2,9 @@ import styled from "styled-components";
 
 export const PageContainer = styled.span`
     position: absolute;
-    bottom: 28px;
-    left: 80px;
-    font-family: 'Arial';
-    font-weight: 700;
-    font-size: 1.4rem;
-    color: var(--color-white);
+    bottom: 20px;
+    left: 75px;
+    z-index: 100;
     transform-origin: left top;
     transform: rotate(-90deg);
-    z-index: 100;
 `

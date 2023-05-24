@@ -32,7 +32,6 @@ export const ScrollContainer = styled.div`
     align-items: center;
     gap: 1.4rem;
     bottom: 40px;
-    cursor: pointer;
 `
 export const ArrowDown = styled.img`
     width: 1.2rem;

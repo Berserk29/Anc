@@ -1,41 +1,53 @@
-import { Fragment } from "react";
-import { Outlet} from "react-router-dom";
+import { Fragment, useState } from "react";
+import { hamLogo, navLogoArray } from "./navigation.data";
+
+import DropMenu from "../dropMenu/dropMenu.component";
+
 import { 
     NavbarContainer,
     NavIcon,
     HamIcon,
     HamContainer,
     IconContainer,
+    MenuBtn
  } from "./navigation.styled";
 
-import hamIcon from '../../assets/icon/hamburger.png' 
-import userIcon from '../../assets/icon/user.png' 
-import heartIcon from '../../assets/icon/heart.png' 
-import shopIcon from '../../assets/icon/shopping-bag.png'
-
-import Heading, { HeadingType } from "../heading/heading.component";
 import AncLogo from "../ancLogo/ancLogo.component";
 
 // TODO DropMenu after clicked Hamburger
 // TODO Created the different stuff after clicking on the navLogo
 
-const Navigation = () => {
+const Navigation = ({color = 'white'}) => {
+    const [dropMenuOn, setDropMenuOn] = useState(false);
+    const [dropMenuAni, setDropMenuAni] = useState(false)
+
+    const hamHandler = () => {
+        if(!dropMenuOn) {
+            setDropMenuOn(true)
+            setDropMenuAni(true)
+        } 
+        else {
+            setDropMenuAni(false)
+            setTimeout(() => {
+                setDropMenuOn(false)
+            }, 1000)
+        } 
+    }
 
     return (
         <Fragment>
             <NavbarContainer>
-                <HamContainer>
-                    <HamIcon src={hamIcon} alt="Ham Icon" />
-                    <Heading size='1.6' type={HeadingType.subArial} title='Menu' marginLeft='1.4'/>
+                <HamContainer onClick={hamHandler}>
+                    <HamIcon src={color === 'white' ? hamLogo.white : hamLogo.black} alt="Ham Icon" />
+                    {/* Create the Menu button by styled */}
+                    <MenuBtn>Menu</MenuBtn>
                 </HamContainer>
-                <AncLogo haveLink={true} />
+                <AncLogo haveLink={true} color={color}/>
                 <IconContainer>
-                    <NavIcon src={userIcon} alt="User Icon" />
-                    <NavIcon src={heartIcon} alt="Heart Icon" />
-                    <NavIcon src={shopIcon} alt="Shop Icon" />
+                    {navLogoArray.map((el,i) => <NavIcon key={i} src={color === 'white' ? el.white : el.black}/>)}
                 </IconContainer>
             </NavbarContainer>
-            <Outlet/>
+            {dropMenuOn && <DropMenu isOpen={dropMenuAni}/>}
         </Fragment>
         
     )

@@ -10,8 +10,7 @@ export const NavbarContainer = styled.div`
     width: 100%;
     padding: 4rem 8rem;
     background-color: transparent;
-    color: var(--color-white);
-    z-index: 100;
+    z-index: 1000;
 `
 
 export const HamContainer = styled.div`
@@ -19,6 +18,7 @@ export const HamContainer = styled.div`
     width: 11.4rem;
     align-items: center;
     cursor: pointer;
+    gap: 1.4rem;
 `
 
 export const IconContainer = styled.div`
@@ -38,4 +38,16 @@ export const HamIcon = styled.img`
     width: 2rem;
     cursor: pointer;
     margin-bottom: 2px;
+`
+
+export const MenuBtn = styled.button`
+    font-weight: 'Arial';
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-white);
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
 `

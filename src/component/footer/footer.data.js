@@ -5,18 +5,18 @@ export const footerArray = [
     },
     {
         heading: 'about',
-        link: 'about'
+        link: '/about'
     },
     {
         heading: 'lookbook',
-        link: 'lookbook'
+        link: '/lookbook'
     },
     {
         heading: 'products',
-        link: 'product'
+        link: '/product'
     },
     {
         heading: 'contact',
-        link: 'contact'
+        link: '/contact'
     },
 ]

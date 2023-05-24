@@ -1,8 +1,13 @@
+import ImgFull from "../../component/imgFull/imgFull.component";
+import NavFooter from "../../component/navFooter/navFooter.component";
+import { headerLook } from "./lookbookPage.data";
+
 const LookbookPage = () => {
     return (
-        <div>
-            <h1>LookbookPage</h1>
-        </div>
+      <NavFooter>
+        
+        <ImgFull image={headerLook} position="left"/>
+      </NavFooter>
     )
 }
 

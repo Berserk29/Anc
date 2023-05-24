@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const TitleContainer = styled.div`
-    width: 55rem;
+    width: 54.8rem;
     display: flex;
     flex-direction: column;
 `

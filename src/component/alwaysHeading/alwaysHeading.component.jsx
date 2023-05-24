@@ -1,16 +1,16 @@
-import Heading, { HeadingType } from "../../component/heading/heading.component";
+import Typo, {TypoType} from "../typo/typo.component";
 import { TitleContainer, NewContainer } from "./alwaysHeading.styled";
 
 const AlwaysHeading = () => {
 
     return (
     <TitleContainer>
-        <Heading size='8.6' type={HeadingType.main} flex='center' marginRight='6.5' title='Always'/>
+        <Typo type={TypoType.title_1} flex='center' marginRight='6'>Always</Typo>
         <NewContainer>
-            <Heading size='8.6' type={HeadingType.arial} title='New'/>
-            <Heading size='1.4' type={HeadingType.subArial} title='Urban Style'/>
+            <Typo type={TypoType.title_3}>New</Typo>
+            <Typo type={TypoType.body_3}>Urban style</Typo>
         </NewContainer>
-        <Heading size='8.6' type={HeadingType.main} flex='end' title='Creative'/>
+        <Typo type={TypoType.title_1} flex='end'>Creative</Typo>
     </TitleContainer>  
     )
 }

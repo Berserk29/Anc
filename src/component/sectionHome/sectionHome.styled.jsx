@@ -49,11 +49,3 @@ export const InstaContainer = styled(TextContainer)`
     align-items: center;
     text-align: center;
 `
-
-export const TextCss = styled.p`
-    color: var(--color-white);
-    font-family: 'Arial';
-    font-size: 1.4rem;
-    line-height: 160%;
-    letter-spacing: -1%;
-`

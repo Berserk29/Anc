@@ -1,12 +1,13 @@
-import { useRef, useEffect} from "react";
+import { useRef, useEffect, useContext} from "react";
+import { useInView } from "react-intersection-observer";
+import NumContext from "../../context/numIndex.context";
 
-
-import Heading, { HeadingType } from "../../component/heading/heading.component";
+import Typo, {TypoType} from "../../component/typo/typo.component";
 import SectionHome from "../../component/sectionHome/sectionHome.component";
 import PageIndex from "../../component/pageIndex/pageIndex.component";
 import AlwaysHeading from "../../component/alwaysHeading/alwaysHeading.component";
 import Footer from "../../component/footer/footer.component";
-import { sectionArray } from "./homePage.data";
+import { sectionArray, arrowDown, headerImg, totalPage } from "./homePage.data";
 
 import { 
     HomePageContainer,
@@ -15,15 +16,18 @@ import {
     ArrowDown,
     HomeFooter
 } from "./homePage.styled";
-
-import arrowDown from '../../assets/icon/arrow-down.png'
-// TODO PUT REAL HEADER IMG
-import headerImg from '../../assets/home/main_carousel-0.png'
-
+import Navigation from "../../component/navigation/navigation.component";
 
  const HomePage = () => {
     const containerRef = useRef(null)
-    const refs = useRef([]);
+    const {ref: ref1, inView: inView1} = useInView({threshold: 0.5})
+    const {ref: ref6, inView: inView6} = useInView({threshold: 0.5})
+    const {setNumIndex} = useContext(NumContext)
+
+    useEffect(() => {
+        if(inView1) return setNumIndex(1)
+        if(inView6) return setNumIndex(totalPage)
+    },[inView1, inView6, setNumIndex])
 
     const smoothScroll = event => {
         event.preventDefault();
@@ -48,29 +52,30 @@ import headerImg from '../../assets/home/main_carousel-0.png'
             container.removeEventListener('wheel', smoothScroll);
         };
     }, [])
-    
-    const handleDiscover = () => refs.current[2].scrollIntoView({behavior: 'smooth'})
 
-    // TODO MAKE CHANGE THE PAGEINDEX BY KNOWING WITCH REF YOU ARE PRESENTLY
 
     return (
         <HomePageContainer tabIndex={0}  ref={containerRef}>
-            <PageIndex page='99'/>
-            <Header ref={(element) => {refs.current[1] = element}} tabIndex={1} image={headerImg}>
+            <Navigation />
+            <PageIndex/>
+            <Header ref={ref1} image={headerImg}>
                 <AlwaysHeading/>
-                <ScrollContainer onClick={handleDiscover}>
-                    <Heading size='1.4' type={HeadingType.hoverArial} title='Scroll to discover' />
+                <ScrollContainer>
+                    <Typo type={TypoType.body_3}>Scroll to discover</Typo>
                     <ArrowDown src={arrowDown} alt="arrow" />
                 </ScrollContainer>
             </Header>
-            {sectionArray.map((el) => <SectionHome key={el.id} props={el} ref={(element) => {refs.current[el.id] = element}}/>)}
-            <HomeFooter ref={(element) => {refs.current[6] = element}}>
-                <Footer />
+            {sectionArray.map((el) => <SectionHome key={el.id} props={el} />)}
+            <HomeFooter ref={ref6}>
+                <Footer/>
             </HomeFooter>
         </HomePageContainer>
     )
 }
 
 export default HomePage;
-
+// ref={(element) => {refs.current[6] = element}}
 // TODO delete all npm package not used  
+
+
+  

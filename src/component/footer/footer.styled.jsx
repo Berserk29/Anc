@@ -36,14 +36,3 @@ export const AddressContainer = styled.div`
     flex-direction: column;
     gap: .8rem;
 `
-
-export const TextFooter = styled.p`
-    font-weight: 'Arial';
-    font-weight: 400;
-    font-size: 1.3rem;
-    line-height: 160%;
-    letter-spacing: -1%;
-    text-transform: capitalize;
-    text-align: center;
-    color: var(--color-grey)
-`

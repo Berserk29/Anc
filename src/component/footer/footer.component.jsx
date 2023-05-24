@@ -1,5 +1,7 @@
 import AncLogo from "../ancLogo/ancLogo.component";
-import { FooterContainer, FooterLink, FooterLinkContainer, AddressContainer, TextFooter } from "./footer.styled";
+import Typo , {TypoType} from "../typo/typo.component";
+
+import { FooterContainer, FooterLink, FooterLinkContainer, AddressContainer} from "./footer.styled";
 import { useNavigate } from 'react-router-dom';
 
 
@@ -20,10 +22,10 @@ const Footer = () => {
                 {footerArray.map((el,i) => <FooterLink key={i} onClick={() => linkHandler(el.link)}>{el.heading}</FooterLink>)}
             </FooterLinkContainer>
             <AddressContainer>
-                <TextFooter>CHEMIN NOTRE-DAME, CRU #716, Mirabel, Quebec J7J 0T1</TextFooter>
-                <TextFooter>+1 855-272-7007</TextFooter>
+                <Typo type={TypoType.body_5} color='var(--color-grey)'>CHEMIN NOTRE-DAME, CRU #716, Mirabel, Quebec J7J 0T1</Typo >
+                <Typo type={TypoType.body_5} color='var(--color-grey)' flex='center'>+1 855-272-7007</Typo>
             </AddressContainer>
-            <TextFooter>anc 2023. all rights reserved</TextFooter>
+            <Typo type={TypoType.body_5} color='var(--color-grey)'>anc 2023. all rights reserved</Typo>
         </FooterContainer>
     )
 }
