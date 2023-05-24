@@ -40,7 +40,7 @@ export const TypoType = {
     double: 'double',  
 };
 
-const Typo = ({type, color, flex, marginLeft, marginRight, opacity, hover, children}) => {
+const Typo = ({type, color, flex, marginLeft, marginRight, opacity, hover, maxWidth , children}) => {
 
     const commonProps = {
         color: color || undefined,
@@ -49,6 +49,7 @@ const Typo = ({type, color, flex, marginLeft, marginRight, opacity, hover, child
         marginRight: marginRight || undefined,
         opacity: opacity || undefined,
         hover: hover || undefined,
+        maxWidth: maxWidth || undefined,
       };
 
     const TypoChoice = () => {
