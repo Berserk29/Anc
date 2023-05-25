@@ -153,6 +153,12 @@ export const Body06 = styled.p`
     font-size: 1.3rem;
 `
 
+export const Body07 = styled.p`
+    ${ArialTheme}
+    font-size: 1.1rem;
+    text-transform: capitalize;
+`
+
 
 
 

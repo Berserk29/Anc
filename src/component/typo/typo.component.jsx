@@ -16,6 +16,7 @@ import {
     Body04,
     Body05,
     Body06,
+    Body07,
     Double01,
     Double02,
     DoubleContainer,
@@ -37,6 +38,7 @@ export const TypoType = {
     body_4: 'body_4',  
     body_5: 'body_5',  
     body_6: 'body_6',
+    body_7: 'body_7',
     double: 'double',  
 };
 
@@ -68,6 +70,7 @@ const Typo = ({type, color, flex, marginLeft, marginRight, opacity, hover, maxWi
         if(type === 'body_4') return <Body04 {...commonProps}>{children}</Body04>
         if(type === 'body_5') return <Body05 {...commonProps}>{children}</Body05>
         if(type === 'body_6') return <Body06 {...commonProps}>{children}</Body06>
+        if(type === 'body_7') return <Body07 {...commonProps}>{children}</Body07>
         if(type === 'double') return (
             <DoubleContainer>
                 <Double01 {...commonProps}>{children.slice(0, 2)}</Double01>

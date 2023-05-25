@@ -21,6 +21,8 @@ const cardCss = css`
     width: 100%;
     height: 42.5rem;
     cursor: pointer;
+    display: flex;
+    justify-content: space-between;
 `
 
 export const CardImg = styled.div`
@@ -35,4 +37,13 @@ export const CardImg = styled.div`
 export const CardHover = styled.div`
     ${cardCss}
     z-index: 1;
+`
+
+export const NewContainer = styled.div`
+    height: 4rem;
+    width: 4rem;
+    background-color: var(--color-grey);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `

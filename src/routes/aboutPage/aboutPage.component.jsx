@@ -16,7 +16,8 @@ import {
 } from "./aboutPage.styled";
 
 import { ProductsContext } from "../../context/products.context";
-import ProductCard from "../../component/productCard/productCard.component";
+
+import CardProduct from "../../component/cardProduct/cardProduct.component";
 
 const AboutPage = () => {
   const {productsMap, isLoading} = useContext(ProductsContext)
@@ -24,7 +25,24 @@ const AboutPage = () => {
   console.log(productsMap)
   console.log(isLoading)
 
-  const aboutCard = [productsMap.outer?.[0], productsMap.top?.[0], productsMap.knit?.[0], productsMap.outer?.[1]]
+  const aboutCard = [
+    {
+    product: productsMap.outer?.[0],
+    aboutTitle: 'Modern'
+    },
+    {
+    product: productsMap.top?.[0],
+    aboutTitle: 'Urban'  
+    },
+    {
+    product: productsMap.knit?.[0],
+    aboutTitle: 'Comfort'  
+    },
+    {
+    product: productsMap.outer?.[1],
+    aboutTitle: 'Casual'  
+    },
+  ]
 
 
   return (
@@ -42,7 +60,7 @@ const AboutPage = () => {
           </AboutSection>
         <AlwaysHeading/>
         <CardContainer>
-          {aboutCard.map((el,i) => <ProductCard key={i} props={el}/>)}
+          {aboutCard.map((el,i) => <CardProduct key={i} props={el.product} aboutPage={el.aboutTitle}/>)}
         </CardContainer>
       </AboutContainer>
     </NavFooter>
