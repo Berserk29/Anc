@@ -28,3 +28,8 @@ export const TextSection = styled.div`
     gap: 4rem;
     width: 51rem;
 `
+
+export const CardContainer = styled.div`
+    display: flex;
+    gap: 2rem;
+`

@@ -1,3 +1,4 @@
+import { useContext} from "react";
 import AlwaysHeading from "../../component/alwaysHeading/alwaysHeading.component";
 import ImgFull from "../../component/imgFull/imgFull.component";
 import InfoSection from "../../component/infoSection/infoSection.component";
@@ -9,11 +10,22 @@ import { headerAbout, aboutImg2, aboutInfoArray } from "./aboutPage.data";
 import { 
   AboutContainer,
   AboutSection,
+  CardContainer,
   ImgSection,
   TextSection,
 } from "./aboutPage.styled";
 
+import { ProductsContext } from "../../context/products.context";
+import ProductCard from "../../component/productCard/productCard.component";
+
 const AboutPage = () => {
+  const {productsMap, isLoading} = useContext(ProductsContext)
+
+  console.log(productsMap)
+  console.log(isLoading)
+
+  const aboutCard = [productsMap.outer?.[0], productsMap.top?.[0], productsMap.knit?.[0], productsMap.outer?.[1]]
+
 
   return (
     <NavFooter color="black">
@@ -26,10 +38,12 @@ const AboutPage = () => {
                 {aboutInfoArray.map( el => <InfoSection key={el.id} props={el}/>)}
               </div>
             </TextSection>
-            <ImgSection src={aboutImg2} alt="" />
+            <ImgSection src={aboutImg2} alt="image section" />
           </AboutSection>
         <AlwaysHeading/>
-        
+        <CardContainer>
+          {aboutCard.map((el,i) => <ProductCard key={i} props={el}/>)}
+        </CardContainer>
       </AboutContainer>
     </NavFooter>
   );
