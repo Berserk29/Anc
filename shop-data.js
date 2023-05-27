@@ -10,15 +10,17 @@ const SHOP_DATA = [
           price: 65,
           size: ['S', 'M', 'L'],
           isNew: true,
+          type: 'outer',
         },
         {
           id: 2,
           name: 'Denim Jacket',
           imageUrl: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_JacketJean_1.jpg?alt=media&token=e7ef7c52-9b2f-4ef6-b30c-cd95e5c8bba8',
-          imageUrlHover: 'https://i.ibb.co/https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_JacketJean_2.jpg?alt=media&token=bac2167d-d4aa-4fbd-be21-187b4902e1ab/brown-cowboy.png',
+          imageUrlHover: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_JacketJean_2.jpg?alt=media&token=bac2167d-d4aa-4fbd-be21-187b4902e1ab',
           price: 120,
           size: ['S', 'M', 'L'],
           isNew: true,
+          type: 'outer',
         },
         {
           id: 3,
@@ -28,6 +30,7 @@ const SHOP_DATA = [
           price: 85,
           size: ['S', 'M', 'L'],
           isNew: false,
+          type: 'outer',
         },
         {
           id: 4,
@@ -37,15 +40,17 @@ const SHOP_DATA = [
           price: 95,
           size: ['S', 'M', 'L'],
           isNew: false,
+          type: 'outer',
         },
         {
           id: 5,
           name: 'Goose Down Jacket',
           imageUrl: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_JacketGoose_1.jpg?alt=media&token=870f8fc5-0646-412f-a11d-d318f99e8f4f',
-          imageUrlHover: 'https://i.ibb.co/https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_JacketGoose_2.jpg?alt=media&token=feed3449-6095-4c3b-ae61-3b1802ee6ec5/brown-cowboy.png',
+          imageUrlHover: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_JacketGoose_2.jpg?alt=media&token=feed3449-6095-4c3b-ae61-3b1802ee6ec5',
           price: 220,
           size: ['S', 'M', 'L'],
           isNew: false,
+          type: 'outer',
         },
         {
           id: 6,
@@ -55,6 +60,7 @@ const SHOP_DATA = [
           price: 120,
           size: ['S', 'M', 'L'],
           isNew: false,
+          type: 'outer',
         },
       ],
     },
@@ -69,6 +75,7 @@ const SHOP_DATA = [
           price: 80,
           size: ['S', 'M', 'L'],
           isNew: true,
+          type: 'knit',
         },
         {
           id: 8,
@@ -78,6 +85,7 @@ const SHOP_DATA = [
           price: 45,
           size: ['S', 'M', 'L'],
           isNew: true,
+          type: 'knit',
         },
         {
           id: 9,
@@ -87,6 +95,7 @@ const SHOP_DATA = [
           price: 90,
           size: ['S', 'M', 'L'],
           isNew: false,
+          type: 'knit',
         },
         {
           id: 10,
@@ -96,6 +105,7 @@ const SHOP_DATA = [
           price: 90,
           size: ['S', 'M', 'L'],
           isNew: false,
+          type: 'knit',
         },
       ],
     },
@@ -110,6 +120,7 @@ const SHOP_DATA = [
         price: 70,
         size: ['S', 'M', 'L'],
         isNew: true,
+        type: 'top',
         },
         {
           id: 12,
@@ -119,6 +130,7 @@ const SHOP_DATA = [
           price: 60,
           size: ['S', 'M', 'L'],
           isNew: true,
+          type: 'top',
         },
         {
           id: 13,
@@ -128,6 +140,7 @@ const SHOP_DATA = [
           price: 35,
           size: ['S', 'M', 'L'],
           isNew: false,
+          type: 'top',
         },
         {
           id: 14,
@@ -137,6 +150,7 @@ const SHOP_DATA = [
           price: 40,
           size: ['S', 'M', 'L'],
           isNew: false,
+          type: 'top',
         },
         {
           id: 15,
@@ -146,6 +160,7 @@ const SHOP_DATA = [
           price: 40,
           size: ['S', 'M', 'L'],
           isNew: false,
+          type: 'top',
         },
         {
           id: 16,
@@ -155,6 +170,7 @@ const SHOP_DATA = [
           price: 40,
           size: ['S', 'M', 'L'],
           isNew: false,
+          type: 'top',
         },
       ],
     },
@@ -169,6 +185,7 @@ const SHOP_DATA = [
         price: 75,
         size: [30, 32, 34, 36],
         isNew: true,
+        type: 'bottom',
         },
         {
           id: 18,
@@ -178,6 +195,7 @@ const SHOP_DATA = [
           price: 65,
           size: [30, 32, 34, 36],
           isNew: false,
+          type: 'bottom',
         },
         {
           id: 19,
@@ -187,6 +205,7 @@ const SHOP_DATA = [
           price: 55,
           size: [30, 32, 34, 36],
           isNew: false,
+          type: 'bottom',
         },
       ],
     },
@@ -201,6 +220,7 @@ const SHOP_DATA = [
           price: 25,
           size: [],
           isNew: true,
+          type: 'acc',
         },
         {
           id: 21,
@@ -210,6 +230,7 @@ const SHOP_DATA = [
           price: 25,
           size: [],
           isNew: true,
+          type: 'acc',
         },
         {
           id: 22,
@@ -219,6 +240,7 @@ const SHOP_DATA = [
           price: 35,
           size: ['S', 'M'],
           isNew: false,
+          type: 'acc',
         },
         {
           id: 23,
@@ -228,6 +250,7 @@ const SHOP_DATA = [
           price: 35,
           size: ['S', 'M'],
           isNew: false,
+          type: 'acc',
         },
         {
           id: 24,
@@ -237,9 +260,108 @@ const SHOP_DATA = [
           price: 60,
           size: [10,11,12],
           isNew: false,
+          type: 'acc',
         },
       ],
     },
   ];
 
 export default SHOP_DATA;
+
+export const isNewData = [
+  {
+    title: 'new',
+      items: [
+        {
+          id: 1,
+          name: 'Blue Cotton Jacket',
+          imageUrl: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_JacketBlue_1.jpg?alt=media&token=0d11bcee-62c2-4ab5-a543-6569d935bfec',
+          imageUrlHover: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_JacketBlue_2.jpg?alt=media&token=5a9a24e5-e120-4744-8dd2-3e8f6353f004',
+          price: 65,
+          size: ['S', 'M', 'L'],
+          isNew: true,
+          type: 'outer',
+        },
+        {
+          id: 2,
+          name: 'Denim Jacket',
+          imageUrl: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_JacketJean_1.jpg?alt=media&token=e7ef7c52-9b2f-4ef6-b30c-cd95e5c8bba8',
+          imageUrlHover: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_JacketJean_2.jpg?alt=media&token=bac2167d-d4aa-4fbd-be21-187b4902e1ab',
+          price: 120,
+          size: ['S', 'M', 'L'],
+          isNew: true,
+          type: 'outer',
+        },
+        {
+          id: 7,
+          name: 'Bluish Green Knit',
+          imageUrl: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_KnitGreen_1.jpg?alt=media&token=7d835341-6af5-4669-94fc-637eece6ded1',
+          imageUrlHover: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_KnitGreen_2.jpg?alt=media&token=ea07fe80-4f98-41da-bf30-5f3bb8eba4ea',
+          price: 80,
+          size: ['S', 'M', 'L'],
+          isNew: true,
+          type: 'knit',
+        },
+        {
+          id: 8,
+          name: 'Ivory Knit Vest',
+          imageUrl: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_KnitIvory_1.jpg?alt=media&token=c05abbd3-8412-43bc-86b6-24e2ffef0ca3',
+          imageUrlHover: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_KnitIvory_2.jpg?alt=media&token=a0ed2593-65c5-498d-ad5c-3e530c1ea9d6',
+          price: 45,
+          size: ['S', 'M', 'L'],
+          isNew: true,
+          type: 'knit',
+        },
+        {
+          id: 11,
+          name: 'Corduroy Khaki Shirt',
+          imageUrl: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_KakiShirt_1.jpg?alt=media&token=4d414b67-26b6-40b0-aa35-7bb5cfbb9188',
+          imageUrlHover: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_KakiShirt_2.jpg?alt=media&token=4e3438ca-39c8-43a5-8524-c32e3616be4e',
+          price: 70,
+          size: ['S', 'M', 'L'],
+          isNew: true,
+          type: 'top',
+          },
+          {
+            id: 12,
+            name: 'Black Cotton Shirt',
+            imageUrl: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_BlackTop_1.jpg?alt=media&token=4863a3a4-8f16-440a-8bbb-cfad3ef566ef',
+            imageUrlHover: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_BlackTop_2.jpg?alt=media&token=bcebb486-cf56-4580-80b8-0c3a7b75ee54',
+            price: 60,
+            size: ['S', 'M', 'L'],
+            isNew: true,
+            type: 'top',
+          },
+          {
+            id: 17,
+            name: 'Corduroy Cream Pants',
+            imageUrl: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_CreamPant_1.jpg?alt=media&token=e4bd1efb-2333-4105-91d5-98453052110b',
+            imageUrlHover: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_CreamPant_2.jpg?alt=media&token=75fdab42-7146-4af7-83a8-0b9c8f5f8df2',
+            price: 75,
+            size: [30, 32, 34, 36],
+            isNew: true,
+            type: 'bottom',
+            },
+            {
+              id: 20,
+              name: 'Bold Glasses',
+              imageUrl: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_BoldGlase_1.jpg?alt=media&token=c0f9fdbd-7111-47a5-a89c-05d9eb1a2bfd',
+              imageUrlHover: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_BoldGlase_2.jpg?alt=media&token=7ab1e4ac-d148-44b1-8876-b42092946e4d',
+              price: 25,
+              size: [],
+              isNew: true,
+              type: 'acc',
+            },
+            {
+              id: 21,
+              name: 'Wood Glasses',
+              imageUrl: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_WoodGlasse_1.jpg?alt=media&token=dfea43e2-78b9-467f-b86e-da87747514bf',
+              imageUrlHover: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_WoodGlasse_2.jpg?alt=media&token=a55d4715-4379-4722-8de6-ceb13144d2a7',
+              price: 25,
+              size: [],
+              isNew: true,
+              type: 'acc',
+            },
+      ]    
+  }
+]

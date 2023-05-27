@@ -8,7 +8,7 @@ export const dropMenuArray = [
     {
         id: 2,
         title: 'Shop',
-        link: '/product'
+        link: '/shop'
     },
     {
         id: 3,

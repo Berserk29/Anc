@@ -21,7 +21,7 @@ export const sectionArray = [
     {
         id: 3,
         heading: 'Shop',
-        link: 'product',
+        link: 'shop',
         imageUrl: homeImg3,
         type: SectionType.right, 
         text: '2023 Collection Lookbook ANC',

@@ -1,7 +1,10 @@
 import { createContext, useState, useEffect } from "react";
 import { getProductsAndDocuments } from "../utiles/firebase/firebase.utiles";
+
 // import SHOP_DATA from "../../shop-data";
+// import { isNewData } from "../../shop-data";
 // import { addCollectionAndDocuments } from "../utiles/firebase/firebase.utiles";
+
 
 
 export const ProductsContext = createContext({
@@ -16,7 +19,7 @@ export const ProductsProvider = ({children}) => {
     
     // Only use one time for sending Shop_Data to Firebase //
     // useEffect(() => {
-    //     addCollectionAndDocuments('products', SHOP_DATA )
+    //     addCollectionAndDocuments('products', isNewData )
     // }, [])
 
     useEffect(() => {

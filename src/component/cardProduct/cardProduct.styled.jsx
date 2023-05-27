@@ -18,6 +18,7 @@ const cardCss = css`
     left: 0;
     background-image: url(${props => props.image});
     background-size: cover;
+    background-position: center;
     width: 100%;
     height: 42.5rem;
     cursor: pointer;

@@ -12,8 +12,8 @@ export const footerArray = [
         link: '/lookbook'
     },
     {
-        heading: 'products',
-        link: '/product'
+        heading: 'shop',
+        link: '/shop'
     },
     {
         heading: 'contact',

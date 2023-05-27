@@ -8,13 +8,12 @@ const CardProduct = ({props, aboutPage = false}) => {
 
     if(props === undefined) return ''
     
-    const {imageUrl, imageUrlHover, name, price, isNew } = props;
-    const linkHandler = () => navigate('/product')
+    const {imageUrl, imageUrlHover, name, price, isNew, id, type} = props;
+    const linkHandler = () => navigate(`/shop/${type}${id}`)
 
     const IsNewChoice = () => {
         if(isNew) return <NewContainer><Typo type={TypoType.body_7}>New</Typo></NewContainer>
     }
-
 
     return (
         <CardContainer>
