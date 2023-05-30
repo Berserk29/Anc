@@ -13,7 +13,7 @@ const ArialTheme = css`
     margin-left: ${props => props.marginLeft}rem;
     max-width: ${props => props.maxWidth}rem;
     opacity: ${props => props.opacity};
-
+    user-select: ${props => props.userSelect};
     ${props => props.hover && `
         cursor: pointer;
         transition: color .3s;
@@ -129,8 +129,8 @@ export const Body03 = styled.p`
 
 export const BodyDash03 = styled.p`
     ${ArialTheme}
-    font-size: 1.4rem;
-    font-weight: 400;
+    font-size: 1.6rem;
+    font-weight: 700;
     text-decoration-line: line-through;
     letter-spacing: -0.02em;
 `
@@ -157,6 +157,23 @@ export const Body07 = styled.p`
     ${ArialTheme}
     font-size: 1.1rem;
     text-transform: capitalize;
+`
+
+export const NotoSans = styled.p`
+    font-family: 'Noto Sans';
+    font-style: italic;
+    font-weight: 200;
+    font-size: 36px;
+    line-height: 100%;
+    color: ${props => props.color || 'white'};
+    align-self : ${props => props.flex };
+    margin-right: ${props => props.marginRight}rem;
+    margin-left: ${props => props.marginLeft}rem;
+    max-width: ${props => props.maxWidth}rem;
+    opacity: ${props => props.opacity};
+    text-align: right;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
 `
 
 

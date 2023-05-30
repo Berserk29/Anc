@@ -1,9 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 import { getProductsAndDocuments } from "../utiles/firebase/firebase.utiles";
-
-// import SHOP_DATA from "../../shop-data";
-// import { isNewData } from "../../shop-data";
 // import { addCollectionAndDocuments } from "../utiles/firebase/firebase.utiles";
+// import SHOP_DATA, { isNewData } from "../../shop-data";
 
 
 
@@ -14,10 +12,11 @@ export const ProductsContext = createContext({
 
 export const ProductsProvider = ({children}) => {
     const [productsMap, setProductsMap] = useState({});
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(true);
 
     
     // Only use one time for sending Shop_Data to Firebase //
+    
     // useEffect(() => {
     //     addCollectionAndDocuments('products', isNewData )
     // }, [])
@@ -31,6 +30,8 @@ export const ProductsProvider = ({children}) => {
         }
         getProductsMap();
     }, [])
+
+
 
     const value = { productsMap, isLoading };
     return (

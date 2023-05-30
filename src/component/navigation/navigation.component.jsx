@@ -38,13 +38,13 @@ const Navigation = ({color = 'white'}) => {
         <Fragment>
             <NavbarContainer>
                 <HamContainer onClick={hamHandler}>
-                    <HamIcon src={color === 'white' ? hamLogo.white : hamLogo.black} alt="Ham Icon" />
+                    <HamIcon src={color === 'white' || dropMenuOn ? hamLogo.white : hamLogo.black} alt="Ham Icon" />
                     {/* Create the Menu button by styled */}
-                    <MenuBtn>Menu</MenuBtn>
+                    <MenuBtn color={color === 'white' || dropMenuOn ? 'white' : 'black'}>Menu</MenuBtn>
                 </HamContainer>
-                <AncLogo haveLink={true} color={color}/>
+                <AncLogo haveLink={true} color={color} isDropMenuOn={dropMenuOn}/>
                 <IconContainer>
-                    {navLogoArray.map((el,i) => <NavIcon key={i} src={color === 'white' ? el.white : el.black}/>)}
+                    {navLogoArray.map((el,i) => <NavIcon key={i} src={color === 'white' || dropMenuOn ? el.white : el.black}/>)}
                 </IconContainer>
             </NavbarContainer>
             {dropMenuOn && <DropMenu isOpen={dropMenuAni}/>}

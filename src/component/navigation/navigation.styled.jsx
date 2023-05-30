@@ -44,7 +44,7 @@ export const MenuBtn = styled.button`
     font-weight: 'Arial';
     font-size: 1.6rem;
     font-weight: 700;
-    color: var(--color-white);
+    color: ${props => props.color};
     letter-spacing: -0.02em;
     text-transform: uppercase;
     border: none;

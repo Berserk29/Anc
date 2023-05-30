@@ -20,6 +20,7 @@ import {
     Double01,
     Double02,
     DoubleContainer,
+    NotoSans,
 } from "./typo.styled";
 
 export const TypoType = {
@@ -39,10 +40,11 @@ export const TypoType = {
     body_5: 'body_5',  
     body_6: 'body_6',
     body_7: 'body_7',
-    double: 'double',  
+    double: 'double',
+    notoSans: 'notoSans',  
 };
 
-const Typo = ({type, color, flex, marginLeft, marginRight, opacity, hover, maxWidth , children}) => {
+const Typo = ({type, color, flex, marginLeft, marginRight, opacity, hover, maxWidth , children, userSelect}) => {
 
     const commonProps = {
         color: color || undefined,
@@ -52,6 +54,7 @@ const Typo = ({type, color, flex, marginLeft, marginRight, opacity, hover, maxWi
         opacity: opacity || undefined,
         hover: hover || undefined,
         maxWidth: maxWidth || undefined,
+        userSelect: userSelect || undefined,
       };
 
     const TypoChoice = () => {
@@ -71,6 +74,7 @@ const Typo = ({type, color, flex, marginLeft, marginRight, opacity, hover, maxWi
         if(type === 'body_5') return <Body05 {...commonProps}>{children}</Body05>
         if(type === 'body_6') return <Body06 {...commonProps}>{children}</Body06>
         if(type === 'body_7') return <Body07 {...commonProps}>{children}</Body07>
+        if(type === 'notoSans') return <NotoSans {...commonProps}>{children}</NotoSans>
         if(type === 'double') return (
             <DoubleContainer>
                 <Double01 {...commonProps}>{children.slice(0, 2)}</Double01>

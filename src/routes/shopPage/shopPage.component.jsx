@@ -15,11 +15,17 @@ const ShopPage = () => {
 
     const productHandler = (product) => setProductChoice(product)
 
+    // Change new to be the first in the array
+    const newTitleOrder = [
+        Object.keys(productsMap).find(el => el === 'new'),
+        ...Object.keys(productsMap).filter(el => el !== 'new')
+    ]
+
     return (
         <NavFooter>
              <ProductContainer>
                 <SubTitleContainer>
-                    {Object.keys(productsMap).map((el,i) => {
+                    {newTitleOrder.map((el,i) => {
                         if(el === productChoice) return <BtnActive key={i}>{el}</BtnActive> 
                            return  <ProductBtn key={i} onClick={() => productHandler(el)}>{el}</ProductBtn>
                         }

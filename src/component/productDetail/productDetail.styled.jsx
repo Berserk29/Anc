@@ -4,7 +4,6 @@ export const ProductContainer = styled.div`
     display: flex;
     width: 100%;
     gap: 12.8rem;
-    align-items: center;
     padding: 8rem;
     background-color: var(--color-black);
 `
@@ -22,9 +21,3 @@ export const ImgProduct = styled.div`
     background-position: center;
     background-size: cover;
 `
-
-export const PriceContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-`
-

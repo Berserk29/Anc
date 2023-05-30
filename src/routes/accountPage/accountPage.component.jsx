@@ -1,8 +1,10 @@
+import NavFooter from "../../component/navFooter/navFooter.component";
+
 const AccountPage = () => {
     return (
-        <div>
-            <h1>AccountPage</h1>
-        </div>
+        <NavFooter color="white">
+
+        </NavFooter>
     )
 }
 

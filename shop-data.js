@@ -10,6 +10,7 @@ const SHOP_DATA = [
           price: 65,
           size: ['S', 'M', 'L'],
           isNew: true,
+          isLiked: false,
           type: 'outer',
         },
         {
@@ -20,6 +21,7 @@ const SHOP_DATA = [
           price: 120,
           size: ['S', 'M', 'L'],
           isNew: true,
+          isLiked: false,
           type: 'outer',
         },
         {
@@ -30,6 +32,7 @@ const SHOP_DATA = [
           price: 85,
           size: ['S', 'M', 'L'],
           isNew: false,
+          isLiked: false,
           type: 'outer',
         },
         {
@@ -40,6 +43,7 @@ const SHOP_DATA = [
           price: 95,
           size: ['S', 'M', 'L'],
           isNew: false,
+          isLiked: false,
           type: 'outer',
         },
         {
@@ -50,6 +54,7 @@ const SHOP_DATA = [
           price: 220,
           size: ['S', 'M', 'L'],
           isNew: false,
+          isLiked: false,
           type: 'outer',
         },
         {
@@ -60,6 +65,7 @@ const SHOP_DATA = [
           price: 120,
           size: ['S', 'M', 'L'],
           isNew: false,
+          isLiked: false,
           type: 'outer',
         },
       ],
@@ -75,6 +81,7 @@ const SHOP_DATA = [
           price: 80,
           size: ['S', 'M', 'L'],
           isNew: true,
+          isLiked: false,
           type: 'knit',
         },
         {
@@ -85,6 +92,7 @@ const SHOP_DATA = [
           price: 45,
           size: ['S', 'M', 'L'],
           isNew: true,
+          isLiked: false,
           type: 'knit',
         },
         {
@@ -95,6 +103,7 @@ const SHOP_DATA = [
           price: 90,
           size: ['S', 'M', 'L'],
           isNew: false,
+          isLiked: false,
           type: 'knit',
         },
         {
@@ -105,6 +114,7 @@ const SHOP_DATA = [
           price: 90,
           size: ['S', 'M', 'L'],
           isNew: false,
+          isLiked: false,
           type: 'knit',
         },
       ],
@@ -120,6 +130,7 @@ const SHOP_DATA = [
         price: 70,
         size: ['S', 'M', 'L'],
         isNew: true,
+        isLiked: false,
         type: 'top',
         },
         {
@@ -130,6 +141,7 @@ const SHOP_DATA = [
           price: 60,
           size: ['S', 'M', 'L'],
           isNew: true,
+          isLiked: false,
           type: 'top',
         },
         {
@@ -140,6 +152,7 @@ const SHOP_DATA = [
           price: 35,
           size: ['S', 'M', 'L'],
           isNew: false,
+          isLiked: false,
           type: 'top',
         },
         {
@@ -150,6 +163,7 @@ const SHOP_DATA = [
           price: 40,
           size: ['S', 'M', 'L'],
           isNew: false,
+          isLiked: false,
           type: 'top',
         },
         {
@@ -160,6 +174,7 @@ const SHOP_DATA = [
           price: 40,
           size: ['S', 'M', 'L'],
           isNew: false,
+          isLiked: false,
           type: 'top',
         },
         {
@@ -170,6 +185,7 @@ const SHOP_DATA = [
           price: 40,
           size: ['S', 'M', 'L'],
           isNew: false,
+          isLiked: false,
           type: 'top',
         },
       ],
@@ -185,6 +201,7 @@ const SHOP_DATA = [
         price: 75,
         size: [30, 32, 34, 36],
         isNew: true,
+        isLiked: false,
         type: 'bottom',
         },
         {
@@ -195,6 +212,7 @@ const SHOP_DATA = [
           price: 65,
           size: [30, 32, 34, 36],
           isNew: false,
+          isLiked: false,
           type: 'bottom',
         },
         {
@@ -205,6 +223,7 @@ const SHOP_DATA = [
           price: 55,
           size: [30, 32, 34, 36],
           isNew: false,
+          isLiked: false,
           type: 'bottom',
         },
       ],
@@ -220,6 +239,7 @@ const SHOP_DATA = [
           price: 25,
           size: [],
           isNew: true,
+          isLiked: false,
           type: 'acc',
         },
         {
@@ -230,6 +250,7 @@ const SHOP_DATA = [
           price: 25,
           size: [],
           isNew: true,
+          isLiked: false,
           type: 'acc',
         },
         {
@@ -240,6 +261,7 @@ const SHOP_DATA = [
           price: 35,
           size: ['S', 'M'],
           isNew: false,
+          isLiked: false,
           type: 'acc',
         },
         {
@@ -250,6 +272,7 @@ const SHOP_DATA = [
           price: 35,
           size: ['S', 'M'],
           isNew: false,
+          isLiked: false,
           type: 'acc',
         },
         {
@@ -260,6 +283,7 @@ const SHOP_DATA = [
           price: 60,
           size: [10,11,12],
           isNew: false,
+          isLiked: false,
           type: 'acc',
         },
       ],
@@ -280,6 +304,7 @@ export const isNewData = [
           price: 65,
           size: ['S', 'M', 'L'],
           isNew: true,
+          isLiked: false,
           type: 'outer',
         },
         {
@@ -290,6 +315,7 @@ export const isNewData = [
           price: 120,
           size: ['S', 'M', 'L'],
           isNew: true,
+          isLiked: false,
           type: 'outer',
         },
         {
@@ -300,6 +326,7 @@ export const isNewData = [
           price: 80,
           size: ['S', 'M', 'L'],
           isNew: true,
+          isLiked: false,
           type: 'knit',
         },
         {
@@ -310,6 +337,7 @@ export const isNewData = [
           price: 45,
           size: ['S', 'M', 'L'],
           isNew: true,
+          isLiked: false,
           type: 'knit',
         },
         {
@@ -320,6 +348,7 @@ export const isNewData = [
           price: 70,
           size: ['S', 'M', 'L'],
           isNew: true,
+          isLiked: false,
           type: 'top',
           },
           {
@@ -330,6 +359,7 @@ export const isNewData = [
             price: 60,
             size: ['S', 'M', 'L'],
             isNew: true,
+            isLiked: false,
             type: 'top',
           },
           {
@@ -340,6 +370,7 @@ export const isNewData = [
             price: 75,
             size: [30, 32, 34, 36],
             isNew: true,
+            isLiked: false,
             type: 'bottom',
             },
             {
@@ -350,6 +381,7 @@ export const isNewData = [
               price: 25,
               size: [],
               isNew: true,
+              isLiked: false,
               type: 'acc',
             },
             {
@@ -360,6 +392,7 @@ export const isNewData = [
               price: 25,
               size: [],
               isNew: true,
+              isLiked: false,
               type: 'acc',
             },
       ]    
