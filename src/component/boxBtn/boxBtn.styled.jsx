@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-// TESTING
 export const RadioBtn = styled.button`
     width: ${props => props.w}rem;
     height: ${props => props.h}rem;
@@ -10,6 +9,10 @@ export const RadioBtn = styled.button`
     background-color: transparent;
     border: 1px solid var(--color-white);
     cursor: pointer;
+    transition: all .3s;
+    :active {
+        background-color: var(--color-white);
+    }
 `
 
 export const RadioBtnActive = styled(RadioBtn)`
@@ -24,6 +27,13 @@ export const FlexContainer = styled.div`
 export const SumBtn = styled(RadioBtn)`
     width: 3rem;
     height: 3rem;
+`
+
+export const ColorSquare = styled.div`
+    width: 4rem;
+    height: 4rem;
+    background-color: ${props => props.color || 'blue'};
+    border: 1px solid var(--color-white);
 `
 
 

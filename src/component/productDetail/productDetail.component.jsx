@@ -27,13 +27,13 @@ const ProductDetail = () => {
 
 
     return (
-      <NavFooter>
+      <NavFooter sticky={false}>
         <ProductContainer>
           <ImgContainer>
             <ImgProduct image={product?.imageUrl}/>
             <ImgProduct image={product?.imageUrlHover}/>
           </ImgContainer>
-            <ProductOrder product={product}/>
+          <ProductOrder product={product}/>
         </ProductContainer>
       </NavFooter>
     )

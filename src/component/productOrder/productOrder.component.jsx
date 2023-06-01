@@ -1,11 +1,11 @@
-import { useEffect, useContext, useState } from 'react';
+import { useEffect, useContext } from 'react';
 
 import Typo, {TypoType} from '../typo/typo.component';
 import { shareIcon, heartIcon, heartFull } from "./productOrder.data"
 import BoxBtn, { BoxBtnType } from '../boxBtn/boxBtn.component';
 
+import { OrderContext } from '../../context/order.context';
 import { LikedContext } from '../../context/liked.context';
-import { CartContext } from '../../context/cart.context';
 
 import {    
     PriceContainer,
@@ -16,27 +16,16 @@ import {
     FlexColumn,
     PriceBox,
 } from './productOrder.styled'
-import { OrderContext } from '../../context/order.context';
 
+// TODO CREATE PRODUCT.COLOR AND BRING TO THE COLOR SECTION
 
 const ProductOrder = ({product}) => {
-    const {orderNumber} = useContext(OrderContext)
-    const {isProductLiked , isLiked, openPageLiked} = useContext(LikedContext)
-    const [btnSizeActive, setBtnSizeActive] = useState(0)
-    const heartHandler = () => isProductLiked(product);
-    const newPrice = (product?.price * 90 / 100).toFixed(2);
-    const totalPrice = (newPrice * orderNumber).toFixed(2);
-    
-    const btnHandler = (i) => setBtnSizeActive(i)
+    const {btnSizeHandler,btnSizeActiveNum, isProductDiscount, newPrice, totalPrice,} = useContext(OrderContext)
+    const {likedBtnHandler , isLiked, openPageLiked} = useContext(LikedContext)
 
-    // TODO THIS WILL BE CREATE IN THE ORDERCONTEXT AND SEND AFTER TO THE CART CONTEXT
-    const orderProduct = {
-        ...product,
-        size: product?.size[btnSizeActive] || [],
-        quantity: orderNumber,
-        price: newPrice,
-        totalPrice : totalPrice,
-    }
+    useEffect(() => {
+        isProductDiscount(product)
+    }, [ product, isProductDiscount])
 
     useEffect(() => {
       openPageLiked(product)
@@ -44,28 +33,46 @@ const ProductOrder = ({product}) => {
 
     return (
         <PriceContainer>
+          {/* ICON AND PRODUCT NAME SECTION */}
         <IconContainer>
           <IconCss src={shareIcon} alt="share button" />
-          <IconCss src={isLiked ? heartFull : heartIcon} alt="like button" onClick={heartHandler}/>
+          <IconCss src={isLiked ? heartFull : heartIcon} alt="like button" onClick={() => likedBtnHandler(product)}/>
         </IconContainer>
         <Typo type={TypoType.headline_3}>{product?.name}</Typo>
-        <FlexBoxLine>
-          <Typo type={TypoType.body_4} opacity='.4'>Pre-Order 10% Sale</Typo>
+        {/* PRE-ORDER AND PRODUCT TYPE SECTION */}
+        <FlexBoxLine justify={ !product?.isNew && 'end'}>
+          {product?.isNew && 
+            <Typo type={TypoType.body_4} opacity='.4'>Pre-Order 10% Sale</Typo>
+          }
           <Typo type={TypoType.body_3} opacity='.4'>{product?.type}</Typo>
         </FlexBoxLine>
+        {/* PRICE SECTION */}
         <FlexBoxLine>
           <FlexColumn gap='.3'>
-            <PriceBox> 
-              <Typo type={TypoType.headline_5} opacity='.6'>$</Typo>
-              <Typo type={TypoType.body_3_dash} opacity='.6'>{product?.price}</Typo>
-            </PriceBox>
+            {product?.isNew && 
+              <PriceBox> 
+                <Typo type={TypoType.arialSize} size='1.3' opacity='.6'>$</Typo>
+                <Typo type={TypoType.body_3_dash} opacity='.6'>{product?.price}</Typo>
+              </PriceBox>
+            }
             <PriceBox>
-              <Typo type={TypoType.headline_5}>$</Typo>
+              <Typo type={TypoType.arialSize} size='2'>$</Typo>
               <Typo type={TypoType.headline_4}>{newPrice}</Typo>
             </PriceBox>
           </FlexColumn>
-          <Typo type={TypoType.notoSans}>10%</Typo>
-        </FlexBoxLine>
+          {product?.isNew && 
+            <Typo type={TypoType.notoSans}>10%</Typo>
+          }
+          </FlexBoxLine>
+          {/* COLOR SECTION  TODO CHANGE COLOR="GREEN" FOR PRODUCT.COLOR*/}
+          <FlexBox justify='start' align='start' paddingBottom='0' gap='1.2'>
+              <FlexColumn marginRight='3.1' gap='1.2'>
+                  <Typo type={TypoType.body_5}>Color</Typo>
+                  {/* <Typo type={TypoType.body_5} opacity='.4'>!Color Name!</Typo> */}
+              </FlexColumn>
+              <BoxBtn type={BoxBtnType.color} color='green'/>
+          </FlexBox>
+          {/* SIZE SECTION */}
         { product?.size.length === 0 ? '' :
             <FlexBox justify='start' align='start' paddingBottom='4.6' gap='1.2'>
                 <FlexColumn marginRight='3.1' gap='1.2'>
@@ -73,26 +80,34 @@ const ProductOrder = ({product}) => {
                     <Typo type={TypoType.body_5} opacity='.4'>Size Guide</Typo>
                 </FlexColumn>
                 {product?.size.map((el,i) => {
-                if(btnSizeActive === i) return <div key={i} onClick={() => btnHandler(i)}><BoxBtn type={BoxBtnType.radio_active}>{el}</BoxBtn></div>
-                return <div key={i} onClick={() => btnHandler(i)}><BoxBtn type={BoxBtnType.radio}>{el}</BoxBtn></div>
+                if(btnSizeActiveNum === i) return <div key={i}><BoxBtn type={BoxBtnType.radio_active}>{el}</BoxBtn></div>
+                return <div key={i} onClick={() => btnSizeHandler(i)}><BoxBtn type={BoxBtnType.radio}>{el}</BoxBtn></div>
             })}
             </FlexBox>
         }
+        {/* QUANTITY SECTION */}
         <FlexBox>
-            <Typo type={TypoType.body_2} userSelect='none'>{product?.name}</Typo>
+            <Typo type={TypoType.body_2} userSelect='none'>Quantity</Typo>
             <BoxBtn type={BoxBtnType.sum}>{totalPrice}</BoxBtn>
         </FlexBox>
-        <FlexBoxLine paddingBottom='1.6' justify='end'>
+        {/* ORDER REVIEW SECTION */}
+        <FlexBoxLine paddingBottom='1.6'>
+            <PriceBox gap='4'>
+              <Typo type={TypoType.body_5}>Size :</Typo>
+              <Typo type={TypoType.body_5} opacity='.4'>{product?.size[btnSizeActiveNum]}</Typo>
+            </PriceBox>
             <Typo type={TypoType.body_4} >${newPrice} x</Typo>
         </FlexBoxLine>
+        {/* TOTAL SECTION */}
         <FlexBox paddingTop='6'>
             <Typo type={TypoType.body_2} >Total</Typo>
             <PriceBox gap='4'>
-                <Typo type={TypoType.headline_3}>$</Typo>
-                <Typo type={TypoType.headline_1}>{totalPrice}</Typo>
+                <Typo type={TypoType.arialSize} size='3'>$</Typo>
+                <Typo type={TypoType.arialSize} size='4' weight='700'>{totalPrice}</Typo>
             </PriceBox>
         </FlexBox>
-        <BoxBtn type={BoxBtnType.pay} product={orderProduct}/>
+        {/* ADDING BTN SECTION */}
+        <BoxBtn type={BoxBtnType.pay} product={product}/>
       </PriceContainer>
     )
 }

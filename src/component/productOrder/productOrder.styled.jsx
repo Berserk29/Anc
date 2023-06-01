@@ -35,15 +35,15 @@ export const FlexBoxLine = styled(FlexBox)`
 
 export const FlexColumn = styled.div`
     display: flex;
+    width: 7.9rem;
     flex-direction: column;
     gap: ${props => props.gap || 0}rem;
     align-items: ${props => props.align || 'start'};
-    margin-right: ${props => props.marginRight || 0}rem;
 `
 
 
 export const PriceBox = styled.div`
     display: flex;
     align-items: center;
-    gap: ${props => props.gap || 1}px;
+    gap: ${props => props.gap || 2}px;
 `

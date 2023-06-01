@@ -58,7 +58,7 @@ export const CartProvider = ({children}) => {
     }, [cartItems])
     
     console.log(cartItems)
-
+    
     const addItemToCart = (productToAdd) => setCartItems(addCartItem(cartItems, productToAdd))
     const subtractItemToCart = (productToSubtract) => setCartItems(subtractCartItem(cartItems, productToSubtract))
     const removeItemToCart = (productToRemove) => setCartItems(removeCartItem(cartItems, productToRemove))

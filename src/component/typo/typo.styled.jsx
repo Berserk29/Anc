@@ -9,6 +9,7 @@ const ArialTheme = css`
     line-height: 100%;
     color: ${props => props.color || 'white'};
     align-self : ${props => props.flex };
+    justify-self: ${props => props.justify};
     margin-right: ${props => props.marginRight}rem;
     margin-left: ${props => props.marginLeft}rem;
     max-width: ${props => props.maxWidth}rem;
@@ -32,10 +33,12 @@ const ScheherazadeTheme = css`
     text-transform: uppercase;
     color: ${props => props.color || 'white'};
     align-self : ${props => props.flex };
+    justify-self: ${props => props.justify};
     margin-right: ${props => props.marginRight}rem;
     margin-left: ${props => props.marginLeft}rem;
     max-width: ${props => props.maxWidth}rem;
     opacity: ${props => props.opacity};
+    user-select: ${props => props.userSelect};
     
     ${props => props.hover && `
         cursor: pointer;
@@ -129,7 +132,7 @@ export const Body03 = styled.p`
 
 export const BodyDash03 = styled.p`
     ${ArialTheme}
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 700;
     text-decoration-line: line-through;
     letter-spacing: -0.02em;
@@ -158,6 +161,13 @@ export const Body07 = styled.p`
     font-size: 1.1rem;
     text-transform: capitalize;
 `
+
+export const ArialSize = styled.p`
+    ${ArialTheme}
+    font-size: ${props => props.size}rem;
+    font-weight: ${props => props.weight || 400};
+`
+
 
 export const NotoSans = styled.p`
     font-family: 'Noto Sans';

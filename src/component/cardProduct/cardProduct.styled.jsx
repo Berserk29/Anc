@@ -48,3 +48,9 @@ export const NewContainer = styled.div`
     align-items: center;
     justify-content: center;
 `
+
+export const FlexContainer = styled.div`
+    display: flex;
+    gap: 4px;
+    align-items: center;
+`

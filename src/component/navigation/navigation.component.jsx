@@ -17,7 +17,7 @@ import AncLogo from "../ancLogo/ancLogo.component";
 // TODO DropMenu after clicked Hamburger
 // TODO Created the different stuff after clicking on the navLogo
 
-const Navigation = ({color = 'white'}) => {
+const Navigation = ({color = 'white', sticky = true}) => {
     const [dropMenuOn, setDropMenuOn] = useState(false);
     const [dropMenuAni, setDropMenuAni] = useState(false)
 
@@ -36,7 +36,7 @@ const Navigation = ({color = 'white'}) => {
 
     return (
         <Fragment>
-            <NavbarContainer>
+            <NavbarContainer sticky={sticky}>
                 <HamContainer onClick={hamHandler}>
                     <HamIcon src={color === 'white' || dropMenuOn ? hamLogo.white : hamLogo.black} alt="Ham Icon" />
                     {/* Create the Menu button by styled */}

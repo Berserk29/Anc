@@ -1,24 +1,36 @@
 import { Fragment, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import Typo, {TypoType} from "../typo/typo.component";
 
-import { RadioBtn, RadioBtnActive, FlexContainer, Minus, Plus } from "./boxBtn.styled";
-import { CartContext } from "../../context/cart.context";
+import { RadioBtn, RadioBtnActive, FlexContainer, Minus, Plus, ColorSquare } from "./boxBtn.styled";
 import { OrderContext } from "../../context/order.context";
+import { CartContext } from "../../context/cart.context";
 
 export const BoxBtnType = {
     radio: 'radio',
     radio_active: 'radio_active',
     sum: 'sum',
-    pay: 'pay' 
+    pay: 'pay',
+    color: 'color', 
 }
 
-const BoxBtn = ({type, children, product}) => {
-    const {orderNumber, addOrderNumber, subtractOrderNumber} = useContext(OrderContext)
+const BoxBtn = ({type, children, product, color}) => {
+    const {orderNumber, addOrderNumber, subtractOrderNumber, addProductOrder} = useContext(OrderContext)
     const {addItemToCart} = useContext(CartContext)
+    const navigate = useNavigate()
+
+    const HandlerAddLink = (boolean) => {
+        if(boolean === false) return addItemToCart(addProductOrder(product))
+        else {
+            addItemToCart(addProductOrder(product))
+            return navigate('/account');
+        }
+    }
 
     const BtnChoice = () => {
         if(type === 'radio') return <RadioBtn w="4" h="4"><Typo type={TypoType.body_2}>{children}</Typo></RadioBtn>
         if(type === 'radio_active') return <RadioBtnActive w="4" h="4"><Typo type={TypoType.body_2} color='black'>{children}</Typo></RadioBtnActive>
+        if(type === 'color') return <ColorSquare color={color}/>
         if(type === 'sum') return (
             <FlexContainer>
                 <RadioBtn w="3" h="3"  onClick={subtractOrderNumber}><Minus/></RadioBtn>
@@ -28,11 +40,10 @@ const BoxBtn = ({type, children, product}) => {
         )
         if(type === 'pay') return (
             <FlexContainer justify='space-between'>
-                <RadioBtn w="16.7" h="5.6" onClick={() => addItemToCart(product)}><Typo type={TypoType.body_1}>Add to cart</Typo></RadioBtn>
-                <RadioBtnActive w="16.7" h="5.6"><Typo type={TypoType.body_1} color='black'>Buy Now</Typo></RadioBtnActive>
+                <RadioBtn w="16.7" h="5.6" onClick={() => HandlerAddLink(false)} ><Typo type={TypoType.body_1}>Add to cart</Typo></RadioBtn>
+                <RadioBtnActive w="16.7" h="5.6" onClick={() => HandlerAddLink(true)} ><Typo type={TypoType.body_1} color='black'>Buy Now</Typo></RadioBtnActive>
             </FlexContainer>
         )    
-        
     }
 
     return (

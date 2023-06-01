@@ -11,6 +11,8 @@ const subtractLikedItem = (likedItems, productToSubtract) => {
 export const LikedContext = createContext({
     isLiked: false,
     likedItems: [],
+    likedBtnHandler: (product) => {product},
+    openPageLiked: (product) => {product},
 })
 
 // Provider
@@ -46,12 +48,13 @@ export const LikedProvider = ({children}) => {
         else return setIsLiked(false)
     }
 
+    const likedBtnHandler = (product) => isProductLiked(product);
+    
     const value = {
         isLiked,
-        setIsLiked,
         likedItems,
-        isProductLiked,
         openPageLiked,
+        likedBtnHandler
     }
 
     return <LikedContext.Provider value={value}>{children}</LikedContext.Provider>
