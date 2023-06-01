@@ -398,3 +398,103 @@ export const isNewData = [
       ]    
   }
 ]
+
+export const LOOKBOOK_DATA = [
+  {
+    title: 'lookbook',
+    items: [
+      {
+        id: 1,
+        imageUrl: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/look_1.jpg?alt=media&token=832238df-8d92-478e-8af3-b28eb08f231c&_gl=1*molyol*_ga*MjI2NTU4NzIuMTY4MTY4MjcxNw..*_ga_CW55HF8NVT*MTY4NTYyOTcyMy4xMi4xLjE2ODU2MzAxMzcuMC4wLjA.',
+        ratio: '4/3',
+        column: '1/8',
+        breakColumn: '1/2',
+      },
+      {
+        id: 2,
+        imageUrl: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/look_2.jpg?alt=media&token=d853d62b-d8c1-456c-9e89-482493eaabc4&_gl=1*wcvd43*_ga*MjI2NTU4NzIuMTY4MTY4MjcxNw..*_ga_CW55HF8NVT*MTY4NTYyOTcyMy4xMi4xLjE2ODU2MzEyMjEuMC4wLjA.',
+        ratio: '1/1.38',
+        column: '7/-1',
+        breakColumn: '2/-1',
+      },
+      {
+        id: 3,
+        imageUrl: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_BlackTop_1.jpg?alt=media&token=4863a3a4-8f16-440a-8bbb-cfad3ef566ef&_gl=1*18ir20i*_ga*MjI2NTU4NzIuMTY4MTY4MjcxNw..*_ga_CW55HF8NVT*MTY4NTYyOTcyMy4xMi4xLjE2ODU2MzEyMDEuMC4wLjA.',
+        ratio: '0.69/1',
+        column: '1/5',
+        breakColumn: '1/12',
+      },
+      {
+        id: 4,
+        imageUrl: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_BlackTop_2.jpg?alt=media&token=bcebb486-cf56-4580-80b8-0c3a7b75ee54&_gl=1*1eml9mo*_ga*MjI2NTU4NzIuMTY4MTY4MjcxNw..*_ga_CW55HF8NVT*MTY4NTYyOTcyMy4xMi4xLjE2ODU2MzExODUuMC4wLjA.',
+        ratio: '0.69/1',
+        column: '5/9',
+        breakColumn: '3/-1',
+      },
+      {
+        id: 5,
+        imageUrl: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/look_5.jpg?alt=media&token=b059302a-5044-4958-82b0-78875a4afc6e&_gl=1*n9d6pn*_ga*MjI2NTU4NzIuMTY4MTY4MjcxNw..*_ga_CW55HF8NVT*MTY4NTYyOTcyMy4xMi4xLjE2ODU2MzExNDYuMC4wLjA.',
+        ratio: '16/9',
+        column: '1/-1',
+        breakColumn: '1/-1',
+      },
+      {
+        id: 6,
+        imageUrl: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/look_6.jpg?alt=media&token=7feac282-499c-479b-ac6f-dd5f68bac073&_gl=1*1urkc9m*_ga*MjI2NTU4NzIuMTY4MTY4MjcxNw..*_ga_CW55HF8NVT*MTY4NTYyOTcyMy4xMi4xLjE2ODU2MzExMjYuMC4wLjA.',
+        ratio: '3/4',
+        column: '1/5',
+        breakColumn: '3/-1',
+      },
+      {
+        id: 7,
+        imageUrl: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_KakiShirt_1.jpg?alt=media&token=4d414b67-26b6-40b0-aa35-7bb5cfbb9188&_gl=1*14mf1o5*_ga*MjI2NTU4NzIuMTY4MTY4MjcxNw..*_ga_CW55HF8NVT*MTY4NTYyOTcyMy4xMi4xLjE2ODU2MzEwOTcuMC4wLjA.',
+        ratio: '3/4',
+        column: '9/-1',
+        breakColumn: '1/11',
+      },
+      {
+        id: 8,
+        imageUrl: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_KnitGreen_1.jpg?alt=media&token=7d835341-6af5-4669-94fc-637eece6ded1&_gl=1*1ifj4*_ga*MjI2NTU4NzIuMTY4MTY4MjcxNw..*_ga_CW55HF8NVT*MTY4NTYyOTcyMy4xMi4xLjE2ODU2MzEwNTguMC4wLjA.',
+        ratio: '3/4',
+        column: '5/9',
+        breakColumn: '1/-1',
+      },
+      {
+        id: 9,
+        imageUrl: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_KnitGreen_2.jpg?alt=media&token=ea07fe80-4f98-41da-bf30-5f3bb8eba4ea&_gl=1*18544aq*_ga*MjI2NTU4NzIuMTY4MTY4MjcxNw..*_ga_CW55HF8NVT*MTY4NTYyOTcyMy4xMi4xLjE2ODU2MzEwMzMuMC4wLjA.',
+        ratio: '3/4',
+        column: '9/-1',
+        breakColumn: '3/-1',
+      },
+      {
+        id: 10,
+        imageUrl: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/look_10.jpg?alt=media&token=82d3fd56-4e0e-4b25-b853-335906453466&_gl=1*x3l86q*_ga*MjI2NTU4NzIuMTY4MTY4MjcxNw..*_ga_CW55HF8NVT*MTY4NTYyOTcyMy4xMi4xLjE2ODU2MzA5NTAuMC4wLjA.',
+        ratio: '16/9',
+        column: '1/-1',
+        breakColumn: '1/-1',
+      },
+      {
+        id: 11,
+        imageUrl: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_JacketJean_2.jpg?alt=media&token=bac2167d-d4aa-4fbd-be21-187b4902e1ab&_gl=1*1c19n0*_ga*MjI2NTU4NzIuMTY4MTY4MjcxNw..*_ga_CW55HF8NVT*MTY4NTYyOTcyMy4xMi4xLjE2ODU2MzA5MjMuMC4wLjA.',
+        ratio: '0.72/1',
+        column: '1/7',
+        breakColumn: '1/11',
+      },
+      {
+        id: 12,
+        imageUrl: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_JacketJean_1.jpg?alt=media&token=e7ef7c52-9b2f-4ef6-b30c-cd95e5c8bba8&_gl=1*1p2k0ip*_ga*MjI2NTU4NzIuMTY4MTY4MjcxNw..*_ga_CW55HF8NVT*MTY4NTYyOTcyMy4xMi4xLjE2ODU2MzA4ODQuMC4wLjA.',
+        ratio: '0.72/1',
+        column: '7/-1',
+        breakColumn: '3/-1',
+      },
+      {
+        id: 13,
+        imageUrl: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/look_13.jpg?alt=media&token=09dc3527-fe6a-4b05-8c2c-98a68fd9e75b&_gl=1*1c8gwek*_ga*MjI2NTU4NzIuMTY4MTY4MjcxNw..*_ga_CW55HF8NVT*MTY4NTYyOTcyMy4xMi4xLjE2ODU2MzA4NTIuMC4wLjA.',
+        ratio: '0.69/1',
+        column: '3/11',
+        breakColumn: '1/-1',
+      },
+    ]
+
+  }
+]

@@ -30,8 +30,8 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => 
     console.log('done');
 }
 
-export const getProductsAndDocuments = async () => {
-    const collectionRef = collection(db, 'products');
+export const getProductsAndDocuments = async (firebaseDocumentTitle) => {
+    const collectionRef = collection(db, firebaseDocumentTitle);
     const q = query(collectionRef);
 
     // getDocs ==> fletch method of Firebase

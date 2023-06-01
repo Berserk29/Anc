@@ -1,8 +1,6 @@
-import header from '../../assets/about/about_header.jpg' 
-import about_02 from '../../assets/about/about_02.jpg'
+export const headerAbout = 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/about_header.jpg?alt=media&token=3e25bfcd-6615-4e2b-aaa9-baadf826bfd1&_gl=1*1talohc*_ga*MjI2NTU4NzIuMTY4MTY4MjcxNw..*_ga_CW55HF8NVT*MTY4NTYzODY2NS4xNC4xLjE2ODU2MzkzODMuMC4wLjA.'
+export const aboutImg2 = 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/about_02.jpg?alt=media&token=a883cde7-ff61-4445-b693-19b074344f30&_gl=1*1orqcm1*_ga*MjI2NTU4NzIuMTY4MTY4MjcxNw..*_ga_CW55HF8NVT*MTY4NTYzODY2NS4xNC4xLjE2ODU2Mzk0MjAuMC4wLjA.'
 
-export const headerAbout = header;
-export const aboutImg2 = about_02;
 
 export const aboutInfoArray = [
     {
