@@ -6,7 +6,7 @@
   --color-hover-white: #828282;
   --filter-hover-white: invert(59%) sepia(11%) saturate(20%) hue-rotate(95deg) brightness(85%) contrast(93%);
 
-  font-family: Arial, Inter, system-ui, Avenir, Helvetica, sans-serif;
+  font-family: Arial, Scheherazade, Noto Sans ,Inter, system-ui, Avenir, Helvetica, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
