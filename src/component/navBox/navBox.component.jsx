@@ -47,10 +47,10 @@ const NavBox = ({type}) => {
             <BoxContainer
                 right={tripeChoice(175, 130, 80)}
                 height='80'
-                width='120'
+                width='140'
                 padding='12'
             >
-                <Typo color='black' type={TypoType.body_3}>Your {tripeChoice('cart', 'love', 'cart')} is empty</Typo>
+                <Typo color='black' type={TypoType.body_1}>Your {tripeChoice('cart', 'favorite', 'cart')} is empty</Typo>
             </BoxContainer>    
         }
         </>        

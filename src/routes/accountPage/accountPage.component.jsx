@@ -1,5 +1,5 @@
 import NavFooter from "../../component/navFooter/navFooter.component";
-import { AccountContainer, FlexContainer, GridContainer, SubTitleContainer } from './accountPage.styled'
+import { AccountContainer, FlexContainer, GridContainer, SubTitleContainer, TitleContainer , FaqContainer, AccountBox} from './accountPage.styled'
 import Typo, {TypoType} from "../../component/typo/typo.component";
 import { titleArr, cardArr } from "./accountPage.data";
 import { useNavigate } from "react-router-dom";
@@ -15,8 +15,10 @@ const AccountPage = () => {
         <NavFooter color="white">
             <AccountContainer>
                     <SubTitleContainer>
-                        <Typo type={TypoType.headline_4} color='black'>My Account</Typo>
-                        <div>
+                        <AccountBox>
+                            <Typo type={TypoType.headline_4} color='black'>My Account</Typo>
+                        </AccountBox>
+                        <TitleContainer>
                             {titleArr.map((el,i) => {
                                 return (
                                     <div key={i} onClick={() => titleHandler(el.link)}>
@@ -24,7 +26,11 @@ const AccountPage = () => {
                                     </div>  
                                 )
                             })}
-                        </div>
+                            <FaqContainer>
+                                <Typo type={TypoType.body_3} color='black' hover={true} >FAQ</Typo>
+                                <Typo type={TypoType.body_3} color='black' hover={true} >Logout</Typo>
+                            </FaqContainer>
+                        </TitleContainer>
                     </SubTitleContainer>
                     <FlexContainer>
                         <div>
