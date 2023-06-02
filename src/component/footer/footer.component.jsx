@@ -4,14 +4,13 @@ import Typo , {TypoType} from "../typo/typo.component";
 import { FooterContainer, FooterLink, FooterLinkContainer, AddressContainer} from "./footer.styled";
 import { useNavigate } from 'react-router-dom';
 
-
-import { footerArray } from "./footer.data";
+ import { footerArray } from "./footer.data";
 
 const Footer = () => {
     const navigate = useNavigate();
     
     const linkHandler = (link) => {
-        if(location.pathname === link) return window.location.reload(true) 
+        if(location.pathname === link) window.scrollTo(0,0)
         else navigate(link)
     };
 

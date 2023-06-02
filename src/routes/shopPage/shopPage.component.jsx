@@ -22,7 +22,7 @@ const ShopPage = () => {
     ]
 
     return (
-        <NavFooter>
+        <NavFooter sticky={false}>
              <ProductContainer>
                 <SubTitleContainer>
                     {newTitleOrder.map((el,i) => {

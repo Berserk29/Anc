@@ -18,10 +18,10 @@ export const ProductsProvider = ({children}) => {
     const [isLoading, setIsLoading] = useState(true);
 
     
-    // Only use one time for sending Shop_Data to Firebase //
+    // INFO Only use one time for sending data to Firebase //
     
     // useEffect(() => {
-    //     addCollectionAndDocuments('sectionImg', LOOKBOOK_DATA )
+    //     addCollectionAndDocuments('products', isNewData)
     // }, [])
 
     useEffect(() => {

@@ -3,9 +3,10 @@ import styled from "styled-components";
 export const Section = styled.div`
     position: relative;
     display: flex;
-    scroll-snap-align: start;
     height: 100vh;
     width: 100%;
+    /* INFO (SCROLL BY SECTION) */
+    /* scroll-snap-align: start; */
 `
 
 export const HalfImage = styled.div`

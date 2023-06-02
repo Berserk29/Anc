@@ -20,8 +20,8 @@ import Navigation from "../../component/navigation/navigation.component";
 
  const HomePage = () => {
     const containerRef = useRef(null)
-    const {ref: ref1, inView: inView1} = useInView({threshold: 0.5})
-    const {ref: ref6, inView: inView6} = useInView({threshold: 0.5})
+    const {ref: ref1, inView: inView1} = useInView({threshold: 0.9})
+    const {ref: ref6, inView: inView6} = useInView({threshold: 0.9})
     const {setNumIndex} = useContext(NumContext)
 
     useEffect(() => {
@@ -29,28 +29,29 @@ import Navigation from "../../component/navigation/navigation.component";
         if(inView6) return setNumIndex(totalPage)
     },[inView1, inView6, setNumIndex])
 
-    const smoothScroll = event => {
-        event.preventDefault();
+    /* INFO (SCROLL BY SECTION) */
+    // const smoothScroll = event => {
+    //     event.preventDefault();
         
-        const container = containerRef.current;
-        const containerScrollTop = container.scrollTop;
-        const scrollDistance = event.deltaY * 1.5
+    //     const container = containerRef.current;
+    //     const containerScrollTop = container.scrollTop;
+    //     const scrollDistance = event.deltaY * 1.5
 
-        container.scrollTo({
-            top: containerScrollTop + scrollDistance,
-            behavior: 'smooth'
-          });
-    };
+    //     container.scrollTo({
+    //         top: containerScrollTop + scrollDistance,
+    //         behavior: 'smooth'
+    //       });
+    // };
 
     useEffect(() => {
         const container = containerRef.current;
-        
         container.focus()
-        container.addEventListener('wheel', smoothScroll, { passive: false });
-        
-        return () => {
-            container.removeEventListener('wheel', smoothScroll);
-        };
+
+        /* INFO (SCROLL BY SECTION) */
+        // container.addEventListener('wheel', smoothScroll, { passive: false });        
+        // return () => {
+        //     container.removeEventListener('wheel', smoothScroll);
+        // };
     }, [])
 
 
@@ -74,8 +75,7 @@ import Navigation from "../../component/navigation/navigation.component";
 }
 
 export default HomePage;
-// ref={(element) => {refs.current[6] = element}}
-// TODO delete all npm package not used  
+// TODO delete all npm package not used 
 
 
   

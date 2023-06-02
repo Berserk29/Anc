@@ -12,6 +12,7 @@ const SHOP_DATA = [
           isNew: true,
           isLiked: false,
           type: 'outer',
+          color: '#3A4750',
         },
         {
           id: 2,
@@ -23,6 +24,7 @@ const SHOP_DATA = [
           isNew: true,
           isLiked: false,
           type: 'outer',
+          color: '#407DA4',
         },
         {
           id: 3,
@@ -34,6 +36,7 @@ const SHOP_DATA = [
           isNew: false,
           isLiked: false,
           type: 'outer',
+          color: '#B8A89E',
         },
         {
           id: 4,
@@ -45,6 +48,7 @@ const SHOP_DATA = [
           isNew: false,
           isLiked: false,
           type: 'outer',
+          color: '#BBB9BC',
         },
         {
           id: 5,
@@ -56,6 +60,7 @@ const SHOP_DATA = [
           isNew: false,
           isLiked: false,
           type: 'outer',
+          color: '#D5C4BA',
         },
         {
           id: 6,
@@ -67,6 +72,7 @@ const SHOP_DATA = [
           isNew: false,
           isLiked: false,
           type: 'outer',
+          color: '#746442',
         },
       ],
     },
@@ -83,6 +89,7 @@ const SHOP_DATA = [
           isNew: true,
           isLiked: false,
           type: 'knit',
+          color: '#395162',
         },
         {
           id: 8,
@@ -94,6 +101,7 @@ const SHOP_DATA = [
           isNew: true,
           isLiked: false,
           type: 'knit',
+          color: '#ABA79F',
         },
         {
           id: 9,
@@ -105,6 +113,7 @@ const SHOP_DATA = [
           isNew: false,
           isLiked: false,
           type: 'knit',
+          color: '#2A2C38',
         },
         {
           id: 10,
@@ -116,6 +125,7 @@ const SHOP_DATA = [
           isNew: false,
           isLiked: false,
           type: 'knit',
+          color: '#3A63A3',
         },
       ],
     },
@@ -132,6 +142,7 @@ const SHOP_DATA = [
         isNew: true,
         isLiked: false,
         type: 'top',
+        color: '#607463',
         },
         {
           id: 12,
@@ -143,6 +154,7 @@ const SHOP_DATA = [
           isNew: true,
           isLiked: false,
           type: 'top',
+          color: '#15161A',
         },
         {
           id: 13,
@@ -154,6 +166,7 @@ const SHOP_DATA = [
           isNew: false,
           isLiked: false,
           type: 'top',
+          color: '#C3C6D5',
         },
         {
           id: 14,
@@ -165,6 +178,7 @@ const SHOP_DATA = [
           isNew: false,
           isLiked: false,
           type: 'top',
+          color: '#AB92BA',
         },
         {
           id: 15,
@@ -176,6 +190,7 @@ const SHOP_DATA = [
           isNew: false,
           isLiked: false,
           type: 'top',
+          color: '#0B0A0F',
         },
         {
           id: 16,
@@ -187,6 +202,7 @@ const SHOP_DATA = [
           isNew: false,
           isLiked: false,
           type: 'top',
+          color: '#C8C6CA',
         },
       ],
     },
@@ -203,6 +219,7 @@ const SHOP_DATA = [
         isNew: true,
         isLiked: false,
         type: 'bottom',
+        color: '#CEC1B9',
         },
         {
           id: 18,
@@ -214,6 +231,7 @@ const SHOP_DATA = [
           isNew: false,
           isLiked: false,
           type: 'bottom',
+          color: '#BB9D80',
         },
         {
           id: 19,
@@ -225,6 +243,7 @@ const SHOP_DATA = [
           isNew: false,
           isLiked: false,
           type: 'bottom',
+          color: '#221E1D',
         },
       ],
     },
@@ -241,6 +260,7 @@ const SHOP_DATA = [
           isNew: true,
           isLiked: false,
           type: 'acc',
+          color: '#3E332D',
         },
         {
           id: 21,
@@ -252,6 +272,7 @@ const SHOP_DATA = [
           isNew: true,
           isLiked: false,
           type: 'acc',
+          color: '#CD9E7B',
         },
         {
           id: 22,
@@ -263,6 +284,7 @@ const SHOP_DATA = [
           isNew: false,
           isLiked: false,
           type: 'acc',
+          color: '#46506D',
         },
         {
           id: 23,
@@ -274,6 +296,7 @@ const SHOP_DATA = [
           isNew: false,
           isLiked: false,
           type: 'acc',
+          color: '#746E58',
         },
         {
           id: 24,
@@ -285,6 +308,7 @@ const SHOP_DATA = [
           isNew: false,
           isLiked: false,
           type: 'acc',
+          color: '#0E0D0B',
         },
       ],
     },
@@ -306,6 +330,7 @@ export const isNewData = [
           isNew: true,
           isLiked: false,
           type: 'outer',
+          color: '#3A4750',
         },
         {
           id: 2,
@@ -317,6 +342,7 @@ export const isNewData = [
           isNew: true,
           isLiked: false,
           type: 'outer',
+          color: '#407DA4',
         },
         {
           id: 7,
@@ -328,6 +354,7 @@ export const isNewData = [
           isNew: true,
           isLiked: false,
           type: 'knit',
+          color: '#395162',
         },
         {
           id: 8,
@@ -339,6 +366,7 @@ export const isNewData = [
           isNew: true,
           isLiked: false,
           type: 'knit',
+          color: '#ABA79F',
         },
         {
           id: 11,
@@ -350,6 +378,7 @@ export const isNewData = [
           isNew: true,
           isLiked: false,
           type: 'top',
+          color: '#607463',
           },
           {
             id: 12,
@@ -361,6 +390,7 @@ export const isNewData = [
             isNew: true,
             isLiked: false,
             type: 'top',
+            color: '#15161A',
           },
           {
             id: 17,
@@ -372,6 +402,7 @@ export const isNewData = [
             isNew: true,
             isLiked: false,
             type: 'bottom',
+            color: '#CEC1B9',
             },
             {
               id: 20,
@@ -383,6 +414,7 @@ export const isNewData = [
               isNew: true,
               isLiked: false,
               type: 'acc',
+              color: '#3E332D',
             },
             {
               id: 21,
@@ -394,6 +426,7 @@ export const isNewData = [
               isNew: true,
               isLiked: false,
               type: 'acc',
+              color: '#CD9E7B',
             },
       ]    
   }

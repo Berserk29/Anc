@@ -3,15 +3,15 @@ import styled from "styled-components";
 export const HomePageContainer = styled.div`
     width: 100%;
     height: 100vh;
-    overflow-y: scroll;
+    /* INFO (SCROLL BY SECTION) */
+    /* overflow-y: scroll;
     scroll-snap-type: y mandatory;
     scroll-snap-stop: always;
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; */
 `
 
 export const Header = styled.div`
     position: relative;
-    scroll-snap-align: start;
     height: 100vh;
     width: 100%;
     display: flex;
@@ -23,6 +23,8 @@ export const Header = styled.div`
     background-image: url(${props => props.image});
     background-size: cover;
     background-position: center;
+    /* INFO (SCROLL BY SECTION) */
+    /* scroll-snap-align: start; */
 `
 
 export const ScrollContainer = styled.div`
@@ -39,11 +41,12 @@ export const ArrowDown = styled.img`
 
 export const HomeFooter = styled.div`
     position: relative;
-    scroll-snap-align: start;
     height: 100vh;
     width: 100%;
     background-color: black;
     display: flex;
     align-items: end;
     justify-content: center;
+    /* INFO (SCROLL BY SECTION) */
+    /* scroll-snap-align: start; */
 `
