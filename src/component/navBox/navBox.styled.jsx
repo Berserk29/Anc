@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const BoxContainer = styled.div`
     position: absolute;
     width: ${props => props.width}px;
-    height: ${props => props.height}px;
+    max-height: ${props => props.height}px;
     padding: ${props => props.padding}px;
     display: flex;
     flex-direction: column;
@@ -15,13 +15,12 @@ export const BoxContainer = styled.div`
 `
 
 export const BoxItems = styled.div`
-    /* height: 340px; */
-    height: 300px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     /* overflow: scroll; */
     overflow-y: auto;
-    gap: 1rem;
+    gap: ${props => props.gap}rem                                                                                                                                                                                                                                             ;
 `
 
 export const TotalContainer = styled.div`
@@ -29,5 +28,5 @@ export const TotalContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 6rem;
+    height: 8rem;
 `

@@ -13,12 +13,15 @@ export const LikedContext = createContext({
     likedItems: [],
     likedBtnHandler: (product) => {product},
     openPageLiked: (product) => {product},
+    navButton: 0,
+    setNavButton: () => {},
 })
 
 // Provider
 export const LikedProvider = ({children}) => {
     const [likedItems, setLikedItems] = useState([])
     const [isLiked, setIsLiked] = useState(false);
+    const [navButton, setNavButton] = useState(0)
 
     const addItemToLiked = (productToAdd) => {
         setIsLiked(true)
@@ -54,7 +57,9 @@ export const LikedProvider = ({children}) => {
         isLiked,
         likedItems,
         openPageLiked,
-        likedBtnHandler
+        likedBtnHandler,
+        navButton,
+        setNavButton
     }
 
     return <LikedContext.Provider value={value}>{children}</LikedContext.Provider>

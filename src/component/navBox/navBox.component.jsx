@@ -18,35 +18,42 @@ const NavBox = ({type}) => {
         return ''
     }
 
-
-    // TODO DOING A LINK THE MY ACCOUNT AFTER CLICKING ON THE CHECKOUT BTN
-    // TODO DOING THE LIKED BOX
+    // tripeChoice( userArr , likedItems, cartItems).length ?
 
     return (
-        <BoxContainer 
-            right={tripeChoice(175, 130, 80)} 
-            height={tripeChoice(220, 454, 454)} 
-            width={tripeChoice(156,363,363)}
-            padding={tripeChoice(16, 24, 24)} 
-        >
-            <BoxItems>
-                {tripeChoice(true, false, false) && <Typo type={TypoType.body_1} color='black' marginBottom='1'>My Account</Typo> }
-                { tripeChoice( userArr , likedItems, cartItems).length ? 
-                tripeChoice( userArr , likedItems, cartItems).map((el,i) => <NavBoxItem key={i} props={el} type={type}/>)
-                    : <Typo type={TypoType.headline_3} color='black'>Your cart is empty</Typo>
-                }
-            </BoxItems>
-                {tripeChoice(false, false, true) &&
-                <>
-                    <TotalContainer>
-                        <Typo type={TypoType.arialSize} color='black' size='1.6' weight='700' transform='capitalize'>Total</Typo>
-                        <Typo type={TypoType.arialSize} color='black' size='1.6' weight='700' transform='capitalize'>${cartTotalPrice}</Typo>
-                    </TotalContainer>
-                    <BoxBtn type={BoxBtnType.radio} w='31.5' h='4.8'>Checkout</BoxBtn>
-                </>    
-                }
-        </BoxContainer>
-                
+        <>
+        {tripeChoice( userArr , likedItems, cartItems).length ? 
+            <BoxContainer 
+                right={tripeChoice(175, 130, 80)} 
+                height={tripeChoice(220, 454, 460)} 
+                width={tripeChoice(156,220,363)}
+                padding={tripeChoice(16, 24, 24)} 
+            >
+                <BoxItems gap={tripeChoice(0,2,1)}>
+                    {tripeChoice(true, false, false) && <Typo type={TypoType.body_1} color='black' marginBottom='1'>My Account</Typo> }  
+                    {tripeChoice( userArr , likedItems, cartItems).map((el,i) => <NavBoxItem key={i} props={el} type={type}/>)}
+                </BoxItems>
+                    {tripeChoice(false, false, true) &&
+                    <>
+                        <TotalContainer>
+                            <Typo type={TypoType.arialSize} color='black' size='1.6' weight='700' transform='capitalize'>Total</Typo>
+                            <Typo type={TypoType.arialSize} color='black' size='1.6' weight='700' transform='capitalize'>${cartTotalPrice}</Typo>
+                        </TotalContainer>
+                        <BoxBtn type={BoxBtnType.radio} w='31.5' h='8' link='/account'>Checkout</BoxBtn>
+                    </>    
+                    }
+            </BoxContainer>
+                :
+            <BoxContainer
+                right={tripeChoice(175, 130, 80)}
+                height='80'
+                width='120'
+                padding='12'
+            >
+                <Typo color='black' type={TypoType.body_3}>Your {tripeChoice('cart', 'love', 'cart')} is empty</Typo>
+            </BoxContainer>    
+        }
+        </>        
     )
 }
 

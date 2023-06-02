@@ -14,12 +14,13 @@ import {
  } from "./navigation.styled";
 
 import AncLogo from "../ancLogo/ancLogo.component";
+import { useContext } from "react";
+import { LikedContext } from "../../context/liked.context";
 
 // TODO ANIMATION OF THE HAMBURGER AFTER DROPMENUON ( = -> x )
-// TODO Created the different stuff after clicking on the navLogo
 
 const Navigation = ({color = 'white', sticky = true}) => {
-    const [navButton, setNavButton] = useState(0)
+    const {navButton, setNavButton} = useContext(LikedContext)
     const [dropMenuOn, setDropMenuOn] = useState(false);
     const [dropMenuAni, setDropMenuAni] = useState(false)
 

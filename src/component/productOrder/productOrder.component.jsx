@@ -70,7 +70,7 @@ const ProductOrder = ({product}) => {
                   <Typo type={TypoType.body_5}>Color</Typo>
                   {/* <Typo type={TypoType.body_5} opacity='.4'>!Color Name!</Typo> */}
               </FlexColumn>
-              <BoxBtn type={BoxBtnType.color} color='green'/>
+              <BoxBtn type={BoxBtnType.color} color='blue'/>
           </FlexBox>
           {/* SIZE SECTION */}
         { product?.size.length === 0 ? '' :

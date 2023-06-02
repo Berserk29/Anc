@@ -6,7 +6,7 @@ export const ProductContainer = styled.div`
     width: 100%;
     gap: 1.6rem;
     padding-bottom: 1rem;
-    border-bottom: 1px solid var(--color-hover);
+    border-bottom: ${props => props.border && '1px solid var(--color-hover)'};
 `
 
 export const ImgProduct = styled.div`
@@ -22,6 +22,16 @@ export const FlexContainer = styled.div`
     flex-direction: column;
     gap: ${props => props.gap}rem;
 `
+
+export const LikedImg = styled(ImgProduct)`
+    transition: transform .3s;
+    cursor: pointer;
+    :hover {
+        transform: scale(0.95);
+    }
+`
+
+
 
 
 

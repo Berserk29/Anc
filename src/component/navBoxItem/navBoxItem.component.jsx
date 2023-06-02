@@ -1,8 +1,22 @@
 import Typo, { TypoType } from "../typo/typo.component";
-import { ProductContainer, ImgProduct, FlexContainer } from "./navBoxItem.styled";
+import { useNavigate } from "react-router-dom";
+import { ProductContainer, ImgProduct, FlexContainer, LikedImg} from "./navBoxItem.styled";
+import { useContext } from "react";
+import { LikedContext } from "../../context/liked.context";
 
 const NavBoxItem = ({props, type}) => {
-    const {name, imageUrl, price, quantity, size, totalPrice} = props
+    const {setNavButton} = useContext(LikedContext)
+    const {name, imageUrl, price, quantity, size, totalPrice, imageUrlHover, id, link} = props
+    const navigate = useNavigate()
+
+    const linkHandler = () => {
+        setNavButton(0)
+        navigate(link)
+    }
+    const likedHandler = () => {
+        setNavButton(0)
+        navigate(`/shop/${props.type}${id}`)
+    }
 
     const tripeChoice = (choice1, choice2, choice3) => {
         if(type === 1) return choice1
@@ -10,11 +24,12 @@ const NavBoxItem = ({props, type}) => {
         if(type === 3) return choice3
         return ''
     }
+    
 
     return (
-        <ProductContainer flex={tripeChoice('column','','')} >
-            { tripeChoice(true, false, false) && <Typo type={TypoType.body_4} color='black' hover={true}>{name}</Typo> }
-            { tripeChoice(false,true,true) && 
+        <ProductContainer flex={tripeChoice('column','column','row')} border={tripeChoice(false, true, true)} >
+            { tripeChoice(true, false, false) && <div onClick={linkHandler} ><Typo type={TypoType.body_4} color='black' hover={true} >{name}</Typo></div>}
+            { tripeChoice(false,false,true) && 
             <>
                 <ImgProduct image={imageUrl}/> 
                 <FlexContainer gap='3'>
@@ -30,6 +45,12 @@ const NavBoxItem = ({props, type}) => {
                 </FlexContainer>
 
             </>
+            }
+            { tripeChoice(false, true, false) && 
+                <>
+                    <LikedImg image={imageUrlHover} onClick={likedHandler}/>
+                    <Typo type={TypoType.arialSize} color='black' size='1.4' weight='700' transform='capitalize'>{name}</Typo>
+                </>
             }
         </ProductContainer>
     )
