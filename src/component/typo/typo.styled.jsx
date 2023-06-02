@@ -28,6 +28,7 @@ const ArialTheme = css`
 
 const ScheherazadeTheme = css`
     font-family: 'Scheherazade';
+    src: url();
     font-style: normal;
     font-weight: 400;
     line-height: 100%;
