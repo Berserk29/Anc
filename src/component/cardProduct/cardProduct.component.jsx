@@ -49,8 +49,6 @@ const CardProduct = ({props, aboutPage = false}) => {
             </ImgContainer>
             {!aboutPage ? 
                 <>
-                    {/* <Typo type={TypoType.headline_5}>{name}</Typo>
-                    <Typo type={TypoType.headline_5}>${price}</Typo> */}
                     <NewOrder/>
                 </>
                 :

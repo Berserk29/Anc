@@ -80,7 +80,7 @@ const ProductOrder = ({product}) => {
                     <Typo type={TypoType.body_5} opacity='.4'>Size Guide</Typo>
                 </FlexColumn>
                 {product?.size.map((el,i) => {
-                if(btnSizeActiveNum === i) return <div key={i}><BoxBtn type={BoxBtnType.radio_active}>{el}</BoxBtn></div>
+                if(btnSizeActiveNum === i) return <div key={i}><BoxBtn type={BoxBtnType.radio_active} >{el}</BoxBtn></div>
                 return <div key={i} onClick={() => btnSizeHandler(i)}><BoxBtn type={BoxBtnType.radio}>{el}</BoxBtn></div>
             })}
             </FlexBox>

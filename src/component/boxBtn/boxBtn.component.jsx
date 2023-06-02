@@ -14,7 +14,7 @@ export const BoxBtnType = {
     color: 'color', 
 }
 
-const BoxBtn = ({type, children, product, color}) => {
+const BoxBtn = ({type, children, product, color, w, h}) => {
     const {orderNumber, addOrderNumber, subtractOrderNumber, addProductOrder} = useContext(OrderContext)
     const {addItemToCart} = useContext(CartContext)
     const navigate = useNavigate()
@@ -28,8 +28,9 @@ const BoxBtn = ({type, children, product, color}) => {
     }
 
     const BtnChoice = () => {
-        if(type === 'radio') return <RadioBtn w="4" h="4"><Typo type={TypoType.body_2}>{children}</Typo></RadioBtn>
-        if(type === 'radio_active') return <RadioBtnActive w="4" h="4"><Typo type={TypoType.body_2} color='black'>{children}</Typo></RadioBtnActive>
+
+        if(type === 'radio') return <RadioBtn w={w ? w : 4} h={h ? h : 4}><Typo type={TypoType.body_2}>{children}</Typo></RadioBtn>
+        if(type === 'radio_active') return <RadioBtnActive w={w ? w : 4} h={h ? h : 4}><Typo type={TypoType.body_2} color='black'>{children}</Typo></RadioBtnActive>
         if(type === 'color') return <ColorSquare color={color}/>
         if(type === 'sum') return (
             <FlexContainer>

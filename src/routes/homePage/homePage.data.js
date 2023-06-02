@@ -1,13 +1,11 @@
 import { SectionType } from '../../component/sectionHome/sectionHome.component'
 import arrow from '../../assets/icon/arrow-down.png'
 
-import header from '../../assets/home/home_header.jpg'
-import homeImg2 from '../../assets/home/home_02.jpg'
-import homeImg3 from '../../assets/home/home_03.jpg'
-import homeImg4 from '../../assets/home/home_04.jpg'
-
 export const arrowDown = arrow;
-export const headerImg = header;
+export const headerImg = 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/home_header.jpg?alt=media&token=3fa48345-1a7f-4fd9-8028-3f5da5cf889a&_gl=1*1xj4akn*_ga*MjI2NTU4NzIuMTY4MTY4MjcxNw..*_ga_CW55HF8NVT*MTY4NTY0NjY5OS4xNS4xLjE2ODU2NDY3MTguMC4wLjA.'
+const homeImg2 = 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/home_02.jpg?alt=media&token=05390d48-282b-4ced-9ec2-537ae42af511&_gl=1*b2pxwy*_ga*MjI2NTU4NzIuMTY4MTY4MjcxNw..*_ga_CW55HF8NVT*MTY4NTY0NjY5OS4xNS4xLjE2ODU2NDY3NzkuMC4wLjA.'
+const homeImg3 = 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/home_3.jpg?alt=media&token=8673c317-aa02-4bdf-8179-9f88743813e6&_gl=1*1pgy0sp*_ga*MjI2NTU4NzIuMTY4MTY4MjcxNw..*_ga_CW55HF8NVT*MTY4NTY0NjY5OS4xNS4xLjE2ODU2NDY5MjkuMC4wLjA.'
+const homeImg4 = 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/home_04.jpg?alt=media&token=0bf11087-519e-48ad-a54c-3775e5fd097e&_gl=1*1cshqj6*_ga*MjI2NTU4NzIuMTY4MTY4MjcxNw..*_ga_CW55HF8NVT*MTY4NTY0NjY5OS4xNS4xLjE2ODU2NDY5NTQuMC4wLjA.'
 
 export const sectionArray = [
     {

@@ -12,6 +12,8 @@ const ArialTheme = css`
     justify-self: ${props => props.justify};
     margin-right: ${props => props.marginRight}rem;
     margin-left: ${props => props.marginLeft}rem;
+    margin-bottom: ${props => props.marginBottom}rem;
+    margin-top: ${props => props.marginTop}rem;
     max-width: ${props => props.maxWidth}rem;
     opacity: ${props => props.opacity};
     user-select: ${props => props.userSelect};
@@ -36,6 +38,8 @@ const ScheherazadeTheme = css`
     justify-self: ${props => props.justify};
     margin-right: ${props => props.marginRight}rem;
     margin-left: ${props => props.marginLeft}rem;
+    margin-bottom: ${props => props.marginBottom}rem;
+    margin-top: ${props => props.marginTop}rem;
     max-width: ${props => props.maxWidth}rem;
     opacity: ${props => props.opacity};
     user-select: ${props => props.userSelect};
@@ -164,6 +168,7 @@ export const Body07 = styled.p`
 
 export const ArialSize = styled.p`
     ${ArialTheme}
+    text-transform: ${props => props.transform};
     font-size: ${props => props.size}rem;
     font-weight: ${props => props.weight || 400};
 `

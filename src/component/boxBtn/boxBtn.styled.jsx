@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const RadioBtn = styled.button`
-    width: ${props => props.w}rem;
-    height: ${props => props.h}rem;
+    width: ${props => props.w }rem;
+    height: ${props => props.h }rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: transparent;
+    background-color: var(--color-black);
     border: 1px solid var(--color-white);
     cursor: pointer;
     transition: all .3s;

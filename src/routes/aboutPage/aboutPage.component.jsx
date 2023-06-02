@@ -20,10 +20,8 @@ import { ProductsContext } from "../../context/products.context";
 import CardProduct from "../../component/cardProduct/cardProduct.component";
 
 const AboutPage = () => {
-  const {productsMap, isLoading} = useContext(ProductsContext)
+  const {productsMap} = useContext(ProductsContext)
 
-  console.log(productsMap)
-  console.log(isLoading)
 
   const aboutCard = [
     {

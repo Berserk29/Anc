@@ -46,7 +46,7 @@ export const TypoType = {
     arialSize: 'arialSize'
 };
 
-const Typo = ({type, color, flex, marginLeft, marginRight, opacity, hover, maxWidth , children, userSelect, justify, size, weight}) => {
+const Typo = ({type, color, flex, marginLeft, marginRight,marginBottom, marginTop, opacity, hover, maxWidth , transform, children, userSelect, justify, size, weight}) => {
 
     const commonProps = {
         color: color || undefined,
@@ -58,6 +58,8 @@ const Typo = ({type, color, flex, marginLeft, marginRight, opacity, hover, maxWi
         maxWidth: maxWidth || undefined,
         userSelect: userSelect || undefined,
         justify: justify || undefined,
+        marginBottom: marginBottom || undefined,
+        marginTop: marginTop || undefined,
       };
 
     const TypoChoice = () => {
@@ -78,7 +80,7 @@ const Typo = ({type, color, flex, marginLeft, marginRight, opacity, hover, maxWi
         if(type === 'body_6') return <Body06 {...commonProps}>{children}</Body06>
         if(type === 'body_7') return <Body07 {...commonProps}>{children}</Body07>
         if(type === 'notoSans') return <NotoSans {...commonProps}>{children}</NotoSans>
-        if(type === 'arialSize') return <ArialSize {...commonProps} size={size} weight={weight}>{children}</ArialSize>
+        if(type === 'arialSize') return <ArialSize {...commonProps} size={size} weight={weight} transform={transform}>{children}</ArialSize>
         if(type === 'double') return (
             <DoubleContainer>
                 <Double01 {...commonProps}>{children.slice(0, 2)}</Double01>
