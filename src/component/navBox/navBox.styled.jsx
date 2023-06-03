@@ -9,13 +9,13 @@ export const BoxContainer = styled.div`
     flex-direction: column;
     border: 1px solid black;
     background-color: var(--color-white);
-    top: 90px;
+    top: 40px;
     right: ${props => props.right}px;
     z-index: 2000;
 `
 
 export const BoxItems = styled.div`
-    height: 100%;
+    height: ${props => props.height || '100%'};
     display: flex;
     flex-direction: column;
     /* overflow: scroll; */

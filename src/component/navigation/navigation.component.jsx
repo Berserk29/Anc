@@ -10,17 +10,20 @@ import {
     HamIcon,
     HamContainer,
     IconContainer,
-    MenuBtn
+    MenuBtn,
+    CartNumber,
  } from "./navigation.styled";
 
 import AncLogo from "../ancLogo/ancLogo.component";
 import { useContext } from "react";
 import { LikedContext } from "../../context/liked.context";
+import { CartContext } from "../../context/cart.context";
 
 // TODO ANIMATION OF THE HAMBURGER AFTER DROPMENUON ( = -> x )
 
 const Navigation = ({color = 'white', sticky = true}) => {
     const {navButton, setNavButton} = useContext(LikedContext)
+    const {cartItemsCount} = useContext(CartContext)
     const [dropMenuOn, setDropMenuOn] = useState(false);
     const [dropMenuAni, setDropMenuAni] = useState(false)
 
@@ -52,6 +55,7 @@ const Navigation = ({color = 'white', sticky = true}) => {
                 <AncLogo haveLink={true} color={color} isDropMenuOn={dropMenuOn}/>
                 <IconContainer>
                     {navLogoArray.map((el,i) => <NavIcon key={i} src={color === 'white' || dropMenuOn ? el.white : el.black} onClick={() => IconHandler(i + 1)}/>)}
+                    {cartItemsCount ? <CartNumber onClick={() => IconHandler(3)}>{cartItemsCount}</CartNumber> : ''}
                     {navButton ? <NavBox type={navButton}/> : ''}
                 </IconContainer>
             </NavbarContainer>

@@ -21,21 +21,46 @@ export const HamContainer = styled.div`
     gap: 1.4rem;
 `
 
+export const CartNumber = styled.span`
+    position: absolute;
+    top: -.6rem;
+    right: -1.1rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 700;
+    border: 1px solid var(--color-white);
+    transition: all .3s;
+    cursor: pointer;
+`
+
 export const IconContainer = styled.div`
     display: flex;
     gap: 2.7rem;
+    position: relative;
 `
 
 export const NavIcon = styled.img`
-    width: 2rem;
+    width: 2.4rem;
     cursor: pointer;
+    position: relative;
+    transition: filter .3s;
     :hover {
-        transition: filter .3s;
         filter: var(--filter-hover-white);
+    }
+    :hover + ${CartNumber} {
+        border: 1px solid var(--color-hover);
+        color: var(--color-hover);
     }
 `
 export const HamIcon = styled.img`
-    width: 2rem;
+    width: 2.4rem;
     cursor: pointer;
     margin-bottom: 2px;
 `
