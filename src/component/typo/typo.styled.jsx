@@ -59,6 +59,9 @@ export const Title01 = styled.h1`
     ${ScheherazadeTheme}
     font-size: 9.6rem;
     padding: 1rem;
+    @media ${mediaQuery.styledMobile} {
+       font-size : 7rem ;
+    }
 `
 
 export const DoubleContainer = styled.div`
@@ -87,6 +90,9 @@ export const Title02 = styled.h2`
 export const Title03 = styled.h1`
     ${ArialTheme}
     font-size: 8.6rem;
+    @media ${mediaQuery.styledMobile} {
+       font-size : 6.2rem ;
+    }
 `
 
 export const Headline01 = styled.h2`

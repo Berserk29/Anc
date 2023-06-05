@@ -6,11 +6,15 @@ import Typo, { TypoType } from "../typo/typo.component"
 import { userArr } from "./navBox.data"
 import NavBoxItem from "../navBoxItem/navBoxItem.component"
 import BoxBtn, { BoxBtnType } from "../boxBtn/boxBtn.component"
+import { useMediaQuery } from "react-responsive"
+import mediaQuery from "../../helper/mediaQuery"
 
 const NavBox = ({type}) => {
     const {cartItems, cartTotalPrice} = useContext(CartContext)
     const {likedItems} = useContext(LikedContext)
     
+    const isSmTablet = useMediaQuery(mediaQuery.useSmTablet)
+
     const tripeChoice = (choice1, choice2, choice3) => {
         if(type === 1) return choice1
         if(type === 2) return choice2
@@ -19,6 +23,8 @@ const NavBox = ({type}) => {
     }
 
     // tripeChoice( userArr , likedItems, cartItems).length ?
+    
+    if(isSmTablet && type === 1) return ;
 
     return (
         <>

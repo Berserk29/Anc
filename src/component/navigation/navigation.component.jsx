@@ -1,5 +1,7 @@
 import { Fragment, useState } from "react";
 import { hamLogo, navLogoArray } from "./navigation.data";
+import { useMediaQuery } from "react-responsive";
+import mediaQuery from "../../helper/mediaQuery";
 
 import DropMenu from "../dropMenu/dropMenu.component";
 import NavBox from "../navBox/navBox.component";
@@ -27,6 +29,8 @@ const Navigation = ({color = 'white', sticky = true}) => {
     const {cartItemsCount} = useContext(CartContext)
     const [dropMenuOn, setDropMenuOn] = useState(false);
     const [dropMenuAni, setDropMenuAni] = useState(false)
+
+    const isSmTablet = useMediaQuery(mediaQuery.useSmTablet)
 
     const hamHandler = () => {
         if(!dropMenuOn) {
@@ -57,11 +61,11 @@ const Navigation = ({color = 'white', sticky = true}) => {
             <NavbarContainer sticky={dropMenuOn ? true : sticky} >
                 <HamContainer onClick={hamHandler}>
                     <HamIcon src={color === 'white' || dropMenuOn ? hamLogo.white : hamLogo.black} alt="Ham Icon" />
-                    <MenuBtn color={color === 'white' || dropMenuOn ? 'white' : 'black'}>Menu</MenuBtn>
+                    { !isSmTablet && <MenuBtn color={color === 'white' || dropMenuOn ? 'white' : 'black'}>Menu</MenuBtn>}
                 </HamContainer>
                 <AncLogo haveLink={true} color={color} isDropMenuOn={dropMenuOn}/>
                 <IconContainer>
-                    {navLogoArray.map((el,i) => <NavIcon key={i} src={color === 'white' || dropMenuOn ? el.white : el.black} onClick={() => IconHandler(i + 1)}/>)}
+                    {navLogoArray.map((el,i) =>  isSmTablet && i === 0 ? '' : <NavIcon key={i} src={color === 'white' || dropMenuOn ? el.white : el.black} onClick={() => IconHandler(i + 1)}/> ) }
                     {cartItemsCount ? <CartNumberLogic/> : ''}
                     {navButton ? <NavBox type={navButton}/> : ''}
                 </IconContainer>

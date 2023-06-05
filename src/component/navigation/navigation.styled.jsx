@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import mediaQuery from "../../helper/mediaQuery";
 
 export const NavbarContainer = styled.div`
     display: flex;
@@ -11,6 +12,9 @@ export const NavbarContainer = styled.div`
     padding: 4rem 8rem;
     background-color: transparent;
     z-index: 1000;
+    @media ${mediaQuery.styledSmTablet} {
+        padding: 3rem 3rem;
+    }
 `
 
 export const HamContainer = styled.div`
@@ -19,6 +23,9 @@ export const HamContainer = styled.div`
     align-items: center;
     cursor: pointer;
     gap: 1.4rem;
+    @media ${mediaQuery.styledSmTablet} {
+        width: 7.5rem;
+    }
 `
 
 export const CartNumber = styled.span`

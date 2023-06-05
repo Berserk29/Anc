@@ -1,6 +1,8 @@
 import { useRef, useEffect, useContext} from "react";
 import { useInView } from "react-intersection-observer";
 import NumContext from "../../context/numIndex.context";
+import { useMediaQuery } from "react-responsive";
+import mediaQuery from "../../helper/mediaQuery";
 
 import Typo, {TypoType} from "../../component/typo/typo.component";
 import SectionHome from "../../component/sectionHome/sectionHome.component";
@@ -23,6 +25,8 @@ import Navigation from "../../component/navigation/navigation.component";
     const {ref: ref1, inView: inView1} = useInView({threshold: 0.9})
     const {ref: ref6, inView: inView6} = useInView({threshold: 0.9})
     const {setNumIndex} = useContext(NumContext)
+
+    const isTablet = useMediaQuery(mediaQuery.useTablet)
 
     useEffect(() => {
         if(inView1) return setNumIndex(1)
@@ -58,7 +62,7 @@ import Navigation from "../../component/navigation/navigation.component";
     return (
         <HomePageContainer tabIndex={0}  ref={containerRef}>
             <Navigation />
-            <PageIndex/>
+            { !isTablet && <PageIndex/>}
             <Header ref={ref1} image={headerImg}>
                 <AlwaysHeading/>
                 <ScrollContainer>
