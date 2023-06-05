@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import mediaQuery from "../../helper/mediaQuery";
 
 const ArialTheme = css`
     font-family: 'Arial';
@@ -150,6 +151,9 @@ export const Body04 = styled.p`
     font-size: 1.4rem;
     letter-spacing: -0.01em;
     text-transform: none;
+    @media ${mediaQuery.styledTablet} {
+        font-size: 1.75rem;
+    }
 `
 
 export const Body05 = styled(Body04)`

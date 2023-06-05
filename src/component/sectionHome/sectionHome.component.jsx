@@ -1,6 +1,9 @@
 import { Fragment, useContext, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { useAnimation } from "framer-motion";
+import { useMediaQuery } from "react-responsive";
+import mediaQuery from "../../helper/mediaQuery";
+
 import NumContext from "../../context/numIndex.context";
 
 import Typo, {TypoType} from "../typo/typo.component";
@@ -14,6 +17,8 @@ import {
     FullText,
     FullImage,
     InstaContainer,
+    ResponsiveSection,
+    ResTextContainer
 } from "./sectionHome.styled";
 
 export const SectionType = {
@@ -29,6 +34,8 @@ const SectionHome = ({props}) => {
     const controls = useAnimation();
     const { setNumIndex } = useContext(NumContext)
     
+    const isTablet = useMediaQuery(mediaQuery.useTablet);
+
     useEffect(() => {
         if(inView) {
             setNumIndex(id)
@@ -39,6 +46,18 @@ const SectionHome = ({props}) => {
     }, [controls, inView, setNumIndex, id])
     
     const SectionChoice = () => {
+        if(isTablet && type !== 'noImg' && type !== 'full') 
+        return (
+            <ResponsiveSection image={imageUrl} position={type === 'left' ? 'right' : 'left'}>
+                    <ResTextContainer>
+                        <Typo type={TypoType.double}>{heading}</Typo>
+                        <Typo type={TypoType.body_4}>{text}</Typo>
+                        {link && <ViewBtn link={link}/>}
+                    </ResTextContainer>
+            </ResponsiveSection>
+        )
+
+
         if(type === 'left' || type === 'right') 
         return (
             <Fragment>

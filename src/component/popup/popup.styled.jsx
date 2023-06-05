@@ -6,13 +6,11 @@ export const PopupContainer = styled.div`
     left: 50%;
     width: 50rem;
     height: 20rem;
-    /* border-radius: 10px; */
     transform: translate(-50%, -50%);
     background-color: var(--color-white);
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    /* gap: 5rem; */
 `
 
 export const ImgPopup = styled.img`

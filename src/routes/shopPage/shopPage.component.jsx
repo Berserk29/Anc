@@ -6,9 +6,6 @@ import { FlexContainer, GridContainer, ProductContainer, SubTitleContainer, Prod
 import {ProductsContext} from '../../context/products.context'
 import CardProduct from "../../component/cardProduct/cardProduct.component";
 
-
-// TODO NEED TO DO
-
 const ShopPage = () => {
     const {productsMap} = useContext(ProductsContext)
     const [productChoice, setProductChoice] = useState('new') 

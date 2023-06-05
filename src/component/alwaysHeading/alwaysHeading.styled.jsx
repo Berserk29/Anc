@@ -1,5 +1,6 @@
 import styled from "styled-components"
 
+
 export const TitleContainer = styled.div`
     width: 54.8rem;
     display: flex;

@@ -50,3 +50,19 @@ export const InstaContainer = styled(TextContainer)`
     align-items: center;
     text-align: center;
 `
+
+export const ResponsiveSection = styled.div`
+    width: 100%;
+    background: linear-gradient(to right bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.35)), url(${props => props.image});
+    /* background-size and position always after background */
+    background-size: cover;
+    background-position: ${props => props.position};
+    display: flex;
+    align-items: center;
+    justify-content: start;
+`
+
+export const ResTextContainer = styled(TextContainer)`
+    max-width: 100%;
+    padding: 0 16vw;
+`

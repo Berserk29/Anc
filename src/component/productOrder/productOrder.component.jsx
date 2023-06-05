@@ -18,13 +18,10 @@ import {
 } from './productOrder.styled'
 import Popup from '../popup/popup.component';
 
-// TODO CREATE PRODUCT.COLOR AND BRING TO THE COLOR SECTION
 
 const ProductOrder = ({product}) => {
     const {btnSizeHandler,btnSizeActiveNum, isProductDiscount, newPrice, totalPrice, isPopupOn} = useContext(OrderContext)
     const {likedBtnHandler , isLiked, openPageLiked} = useContext(LikedContext)
-
-    // const clickHandler = () => setIsPopupOn(false)
 
     useEffect(() => {
         isProductDiscount(product)
@@ -68,7 +65,7 @@ const ProductOrder = ({product}) => {
             <Typo type={TypoType.notoSans}>10%</Typo>
           }
           </FlexBoxLine>
-          {/* COLOR SECTION  TODO CHANGE COLOR="GREEN" FOR PRODUCT.COLOR*/}
+          {/* COLOR SECTION */}
           <FlexBox justify='start' align='start' paddingBottom='0' gap='1.2'>
               <FlexColumn marginRight='3.1' gap='1.2'>
                   <Typo type={TypoType.body_5}>Color</Typo>
