@@ -22,7 +22,6 @@ import CardProduct from "../../component/cardProduct/cardProduct.component";
 const AboutPage = () => {
   const {productsMap} = useContext(ProductsContext)
 
-
   const aboutCard = [
     {
     product: productsMap.outer?.[0],
@@ -49,7 +48,7 @@ const AboutPage = () => {
       <AboutContainer>
           <AboutSection>
             <TextSection>
-              <Typo type={TypoType.headline_2} maxWidth='48'>Anc pursues trendy yet comfortable fashion culture</Typo>
+              <Typo type={TypoType.headline_2} maxWidth='60'>Anc pursues trendy yet comfortable fashion culture</Typo>
               <div>
                 {aboutInfoArray.map( el => <InfoSection key={el.id} props={el}/>)}
               </div>

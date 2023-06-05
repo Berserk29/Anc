@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import mediaQuery from "../../helper/mediaQuery";
 
 export const HeadingContainer = styled.div`
     background-color: var(--color-black);
@@ -14,10 +15,12 @@ export const PositionContainer = styled.div`
 
 export const PictureContainer = styled.div`
     background-color: var(--color-black);
-    /* TODO AT THE PHONE BREAKPOINT THIS PADDING WILL GO MUCH SMALLER*/
     padding: 20rem 8rem 0 8rem;
     display: flex;
     flex-direction: column;
+    @media ${mediaQuery.styledSmTablet} {
+        padding: 8rem 2rem 0 2rem;
+    }
 `
 
 export const GridContainer = styled.div`
@@ -25,8 +28,9 @@ export const GridContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: auto;
-    /* TODO AT THE PHONE BREAKPOINT THIS ROW-GAP WILL GO MUCH SMALLER*/
-    /* row-gap: 20rem; */
-    row-gap: 8rem;
+    row-gap: 20rem;
     column-gap: 2rem;
+    @media ${mediaQuery.styledSmTablet} {
+        row-gap: 8rem;  
+    }
 `
