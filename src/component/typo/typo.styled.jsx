@@ -85,6 +85,9 @@ export const Title02 = styled.h2`
     line-height: 120%;
     font-size: 6.6rem;
     letter-spacing: 0;
+    @media ${mediaQuery.styledMobile} {
+       font-size : 5rem ;
+    }
 `
 
 export const Title03 = styled.h1`

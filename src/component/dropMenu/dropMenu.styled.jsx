@@ -1,4 +1,5 @@
 import styled, {keyframes} from "styled-components";
+import mediaQuery from "../../helper/mediaQuery";
 
 const slideInAnimation = keyframes`
   from { transform: translateY(-100%);}
@@ -45,12 +46,16 @@ export const DropMenuContainer = styled.div`
 `;
 
 export const DropSection = styled.div`
-    width: 53.5rem;
+    width: 56rem;
     display: flex;
     gap: 8rem;
     align-items: center;
     overflow: hidden;
     transform-origin: bottom;
+    @media ${mediaQuery.styledMobile} {
+        width: 37rem;
+        gap: 2rem;
+    }
 `;
 
 export const AnimationContainer = styled.div`

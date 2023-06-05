@@ -441,7 +441,7 @@ export const LOOKBOOK_DATA = [
         imageUrl: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/look_1.jpg?alt=media&token=832238df-8d92-478e-8af3-b28eb08f231c&_gl=1*molyol*_ga*MjI2NTU4NzIuMTY4MTY4MjcxNw..*_ga_CW55HF8NVT*MTY4NTYyOTcyMy4xMi4xLjE2ODU2MzAxMzcuMC4wLjA.',
         ratio: '4/3',
         column: '1/8',
-        breakColumn: '1/2',
+        breakColumn: '1/12',
       },
       {
         id: 2,

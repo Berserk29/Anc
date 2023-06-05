@@ -63,7 +63,7 @@ html {
 }
 
 /* font-size --> 8px */
-@media (max-width: 900px) {
+@media (max-width: 992px) {
   html {
     font-size: 50%;
   }
