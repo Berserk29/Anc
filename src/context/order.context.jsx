@@ -33,6 +33,8 @@ export const OrderContext = createContext({
     subtractOrderNumber: () => {},
     isProductDiscount: (product) => {product},
     addProductOrder: (product) => {product},
+    isPopupOn: false,
+    setIsPopupOn: () => {},
 })
 
     // Provider
@@ -41,6 +43,7 @@ export const OrderProvider = ({children}) => {
     const [newPrice, setNewPrice] = useState(0)
     const [totalPrice, setTotalPrice] = useState(0)
     const [btnSizeActiveNum, setBtnSizeActiveNum] = useState(0);
+    const [isPopupOn, setIsPopupOn] = useState(false);
 
     useEffect(() => {
         const total = (newPrice * orderNumber).toFixed(2);
@@ -67,6 +70,8 @@ export const OrderProvider = ({children}) => {
         isProductDiscount,
         newPrice,
         totalPrice,
+        isPopupOn,
+        setIsPopupOn,
     }
 
     return <OrderContext.Provider value={value}>{children}</OrderContext.Provider>

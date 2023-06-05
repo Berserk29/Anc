@@ -23,21 +23,27 @@ export const HamContainer = styled.div`
 
 export const CartNumber = styled.span`
     position: absolute;
-    top: -.6rem;
-    right: -1.1rem;
-    width: 2rem;
-    height: 2rem;
+    top: -.8rem;
+    right: -1.2rem;
+    width: 1.75rem;
+    height: 1.75rem;
     border-radius: 50%;
-    background-color: var(--color-black);
+    background-color: transparent;
     color: var(--color-white);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 700;
-    border: 1px solid var(--color-white);
-    transition: all .3s;
+    outline: 1.5px solid var(--color-white);
+    transition: outline .3s color .3s;
     cursor: pointer;
+`
+
+export const CartNumberReverse = styled(CartNumber)`
+    background-color: transparent;
+    outline: 1.5px solid var(--color-black);
+    color: var(--color-black);
 `
 
 export const IconContainer = styled.div`
@@ -55,7 +61,7 @@ export const NavIcon = styled.img`
         filter: var(--filter-hover-white);
     }
     :hover + ${CartNumber} {
-        border: 1px solid var(--color-hover);
+        outline: 1.5px solid var(--color-hover);
         color: var(--color-hover);
     }
 `

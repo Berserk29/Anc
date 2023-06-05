@@ -16,13 +16,16 @@ export const BoxBtnType = {
 }
 
 const BoxBtn = ({type, children, product, color, w, h, link = false}) => {
-    const {orderNumber, addOrderNumber, subtractOrderNumber, addProductOrder} = useContext(OrderContext)
+    const {orderNumber, addOrderNumber, subtractOrderNumber, addProductOrder, setIsPopupOn} = useContext(OrderContext)
     const {addItemToCart} = useContext(CartContext)
     const { setNavButton } = useContext(LikedContext)
     const navigate = useNavigate()
 
     const HandlerAddLink = (boolean) => {
-        if(boolean === false) return addItemToCart(addProductOrder(product))
+        if(boolean === false) {
+            setIsPopupOn(true)
+            return addItemToCart(addProductOrder(product))
+        }
         else {
             addItemToCart(addProductOrder(product))
             return navigate('/account');

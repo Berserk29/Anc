@@ -12,6 +12,7 @@ import {
     IconContainer,
     MenuBtn,
     CartNumber,
+    CartNumberReverse,
  } from "./navigation.styled";
 
 import AncLogo from "../ancLogo/ancLogo.component";
@@ -45,6 +46,12 @@ const Navigation = ({color = 'white', sticky = true}) => {
         setNavButton(i)
     }
 
+    const CartNumberLogic = () => {
+        const cartLimit = () => cartItemsCount > 99 ? 99 : cartItemsCount
+        if(color === 'white' || dropMenuOn) return <CartNumber onClick={() => IconHandler(3)}>{cartLimit()}</CartNumber>
+        return <CartNumberReverse onClick={() => IconHandler(3)}>{cartLimit()}</CartNumberReverse>
+    }
+
     return (
         <Fragment>
             <NavbarContainer sticky={dropMenuOn ? true : sticky} >
@@ -55,7 +62,7 @@ const Navigation = ({color = 'white', sticky = true}) => {
                 <AncLogo haveLink={true} color={color} isDropMenuOn={dropMenuOn}/>
                 <IconContainer>
                     {navLogoArray.map((el,i) => <NavIcon key={i} src={color === 'white' || dropMenuOn ? el.white : el.black} onClick={() => IconHandler(i + 1)}/>)}
-                    {cartItemsCount ? <CartNumber onClick={() => IconHandler(3)}>{cartItemsCount}</CartNumber> : ''}
+                    {cartItemsCount ? <CartNumberLogic/> : ''}
                     {navButton ? <NavBox type={navButton}/> : ''}
                 </IconContainer>
             </NavbarContainer>

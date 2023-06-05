@@ -16,12 +16,15 @@ import {
     FlexColumn,
     PriceBox,
 } from './productOrder.styled'
+import Popup from '../popup/popup.component';
 
 // TODO CREATE PRODUCT.COLOR AND BRING TO THE COLOR SECTION
 
 const ProductOrder = ({product}) => {
-    const {btnSizeHandler,btnSizeActiveNum, isProductDiscount, newPrice, totalPrice,} = useContext(OrderContext)
+    const {btnSizeHandler,btnSizeActiveNum, isProductDiscount, newPrice, totalPrice, isPopupOn} = useContext(OrderContext)
     const {likedBtnHandler , isLiked, openPageLiked} = useContext(LikedContext)
+
+    // const clickHandler = () => setIsPopupOn(false)
 
     useEffect(() => {
         isProductDiscount(product)
@@ -33,6 +36,7 @@ const ProductOrder = ({product}) => {
 
     return (
         <PriceContainer>
+          {isPopupOn ? <Popup props={product} /> : ''}
           {/* ICON AND PRODUCT NAME SECTION */}
         <IconContainer>
           <IconCss src={shareIcon} alt="share button" />

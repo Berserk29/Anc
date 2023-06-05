@@ -11,9 +11,11 @@ import NavFooter from '../../component/navFooter/navFooter.component'
 import ProductOrder from "../productOrder/productOrder.component"
 
 import { ProductsContext } from "../../context/products.context"
+import { OrderContext } from "../../context/order.context"
 
 const ProductDetail = () => {
     const {productsMap} = useContext(ProductsContext)
+    const {setIsPopupOn, isPopupOn} = useContext(OrderContext)
     const {id} = useParams();
     
     // Determine the product by checking the url
@@ -25,10 +27,14 @@ const ProductDetail = () => {
     }
     const product = ProductChoice();
 
+     const clickHandler = () => {
+      if(!isPopupOn) return;
+      return setIsPopupOn(false)
+     }
 
     return (
       <NavFooter sticky={false}>
-        <ProductContainer>
+        <ProductContainer onClick={clickHandler}>
           <ImgContainer>
             <ImgProduct image={product?.imageUrl}/>
             <ImgProduct image={product?.imageUrlHover}/>
