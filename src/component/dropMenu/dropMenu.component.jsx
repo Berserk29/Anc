@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { dropMenuArray } from "./dropMenu.data.js"
 import Typo, { TypoType } from '../../component/typo/typo.component'
 
-import { DropMenuContainer, DropSection, AnimationContainer } from "./dropMenu.styled"
+import { DropMenuContainer, DropSection, AnimationContainer} from "./dropMenu.styled"
 
 const DropMenu = ({isOpen}) => {
     const navigate = useNavigate()
