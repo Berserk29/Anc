@@ -15,7 +15,7 @@ export const AboutContainer = styled.div`
         padding: 20rem 6rem 0 6rem;
     }
     @media ${mediaQuery.styledMobile} {
-        padding: 20rem 3rem 0 3rem;
+        padding: 20rem 2rem 0 2rem;
     }
 `
 
@@ -66,11 +66,18 @@ export const CardContainer = styled.div`
     gap: 2rem;
     @media ${mediaQuery.styledSmLaptop} {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        row-gap: 8rem;
-        column-gap: 4rem;
+        width: 100%;
+        justify-content: center;
+        justify-items: center;
+        grid-template-columns: repeat(2, 30.5rem);
+        row-gap: 4rem;
+        column-gap: 3rem;
     }
     @media ${mediaQuery.styledSmTablet} {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 28rem);
+        column-gap: 2rem;
+    }
+    @media ${mediaQuery.styledMobile} {
+        grid-template-columns: repeat(auto-fit, minmax( 20rem, 20rem ))
     }
 `

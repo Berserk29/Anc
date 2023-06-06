@@ -1,4 +1,5 @@
 import styled, {css} from "styled-components";
+import mediaQuery from "../../helper/mediaQuery";
 
 export const CardContainer = styled.div`
     display: flex;
@@ -10,6 +11,15 @@ export const ImgContainer = styled.div`
     position: relative;
     width: 30.5rem;
     height: 43rem;
+    @media ${mediaQuery.styledSmTablet} {
+        width: 28rem;
+        height: 40rem;
+    }
+
+    @media ${mediaQuery.styledMobile} {
+        width: 20rem;
+        height: 31rem;
+    }
 `
 
 const cardCss = css`
@@ -24,6 +34,12 @@ const cardCss = css`
     cursor: pointer;
     display: flex;
     justify-content: space-between;
+    @media ${mediaQuery.styledSmTablet} {
+        height: 39rem;
+    }
+    @media ${mediaQuery.styledMobile} {
+        height: 30rem;
+    }
 `
 
 export const CardImg = styled.div`

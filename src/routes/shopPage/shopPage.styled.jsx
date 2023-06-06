@@ -17,7 +17,10 @@ export const SubTitleContainer = styled.div`
 export const SubTitleBreak = styled.div`
     display: flex;
     width: 100%;
-    gap: 3rem;
+    gap: 4rem;
+    @media ${mediaQuery.styledMobile} {
+        gap: 2rem;
+    }
 `
 
 export const FlexContainer = styled.div`
@@ -40,20 +43,23 @@ export const GridContainer = styled.div`
         justify-content: center;
         grid-template-columns: repeat( auto-fit, minmax( 30.5rem , 30.5rem) );
     }
+    @media ${mediaQuery.styledMobile} {
+        justify-content: center;
+        grid-template-columns: repeat( auto-fit, minmax(20rem , 20rem) );
+    }
 `
 
 export const ProductBtn = styled.a`
     font-family: Arial;
     font-style: normal;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 1.6rem;
     line-height: 100%;
     letter-spacing: -0.01em;
     text-transform: uppercase;
     color: var(--color-hover);
     transition: color .2s;
     cursor: pointer;
-    
     :hover {
         color: var(--color-white);
     }
