@@ -14,13 +14,15 @@
   font-family: 'Scheherazade' ;
   font-weight: 400 ;
   src: url('./assets/fonts/scheherazade-regular-webfont.woff2') format('woff2')
-      url('./assets/fonts/scheherazade-regular-webfont.woff') format('woff');
+      url('./assets/fonts/scheherazade-regular-webfont.woff') format('woff')
+      url('./assets/fonts/Scheherazade-Regular.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Scheherazade' ;
   font-weight: 700 ;
   src: url('./assets/fonts/scheherazade-bold-webfont.woff2') format('woff2')
-      url('./assets/fonts/scheherazade-bold-webfont.woff') format('woff');
+      url('./assets/fonts/scheherazade-bold-webfont.woff') format('woff')
+      url('./assets/fonts/Scheherazade-Bold.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Noto Sans' ;
