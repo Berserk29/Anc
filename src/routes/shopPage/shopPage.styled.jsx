@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import mediaQuery from "../../helper/mediaQuery";
 
 export const ProductContainer = styled.div`
     display: flex;
@@ -7,18 +8,27 @@ export const ProductContainer = styled.div`
 `
 
 export const SubTitleContainer = styled.div`
-    padding-top: 20.6rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
     padding: 20.6rem 20.6rem 0 0;
 ` 
 
+export const SubTitleBreak = styled.div`
+    display: flex;
+    width: 100%;
+    gap: 3rem;
+`
+
 export const FlexContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 8rem;
     padding-top: 11rem;
+    @media ${mediaQuery.styledTablet} {
+        width: 100%;
+        padding: 11rem 1rem 0 1rem;
+    }
 `
 
 export const GridContainer = styled.div`
@@ -26,10 +36,14 @@ export const GridContainer = styled.div`
     grid-template-columns: repeat(3, 30.5rem);
     column-gap: 2rem;
     row-gap: 4rem;
+    @media ${mediaQuery.styledTablet} {
+        justify-content: center;
+        grid-template-columns: repeat( auto-fit, minmax( 30.5rem , 30.5rem) );
+    }
 `
 
 export const ProductBtn = styled.a`
-    font-family: 'Arial';
+    font-family: Arial;
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
@@ -48,6 +62,12 @@ export const ProductBtn = styled.a`
 export const BtnActive = styled(ProductBtn)`
     color: var(--color-white);
     text-decoration-line: underline;
+`
+
+export const TitleBreakContainer = styled.div`
+    display: grid;
+    gap: 6rem;
+    justify-content: center;
 `
 
 

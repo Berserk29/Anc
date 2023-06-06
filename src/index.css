@@ -1,35 +1,39 @@
 @font-face {
-  font-family: 'Arial' ;
-  font-weight: 400 ;
-  src: url('./assets/fonts/arial-webfont.woff2') format('woff2')
-      url('./assets/fonts/arial-webfont.woff') format('woff');
+  font-family: "Arial" ;
+  font-weight: normal ;
+  font-style: normal;
+  src: url("./assets/fonts/arial-webfont.woff2") format("woff2")
+      url("./assets/fonts/arial-webfont.woff") format("woff");
 }
 @font-face {
-  font-family: 'Arial' ;
-  font-weight: 700 ;
-  src: url('./assets/fonts/arialbd_1-webfont.woff2') format('woff2')
-      url('./assets/fonts/arialbd_1-webfont.woff') format('woff');
+  font-family: "Arial" ;
+  font-weight: bold ;
+  font-style: normal;
+  src: url("./assets/fonts/arialbd_1-webfont.woff2") format("woff2")
+      url("./assets/fonts/arialbd_1-webfont.woff") format("woff");
 }
 @font-face {
-  font-family: 'Scheherazade' ;
-  font-weight: 400 ;
-  src: url('./assets/fonts/scheherazade-regular-webfont.woff2') format('woff2')
-      url('./assets/fonts/scheherazade-regular-webfont.woff') format('woff')
-      url('./assets/fonts/Scheherazade-Regular.ttf') format('truetype');
+  font-family: "Scheherazade" ;
+  font-weight: normal ;
+  font-style: normal;
+  src: url("./assets/fonts/scheherazade-regular-webfont.woff2") format("woff2")
+      url("./assets/fonts/scheherazade-regular-webfont.woff") format("woff")
+      url("./assets/fonts/Scheherazade-Regular.ttf") format("truetype");
 }
 @font-face {
-  font-family: 'Scheherazade' ;
-  font-weight: 700 ;
-  src: url('./assets/fonts/scheherazade-bold-webfont.woff2') format('woff2')
-      url('./assets/fonts/scheherazade-bold-webfont.woff') format('woff')
-      url('./assets/fonts/Scheherazade-Bold.ttf') format('truetype');
+  font-family: "Scheherazade" ;
+  font-weight: bold ;
+  font-style: normal;
+  src: url("./assets/fonts/scheherazade-bold-webfont.woff2") format("woff2")
+      url("./assets/fonts/scheherazade-bold-webfont.woff") format("woff")
+      url("./assets/fonts/Scheherazade-Bold.ttf") format("truetype");
 }
 @font-face {
-  font-family: 'Noto Sans' ;
+  font-family: "Noto Sans" ;
+  font-weight: lighter ;
   font-style: italic;
-  font-weight: 200 ;
-  src: url('./assets/fonts/notosans-extralightitalic-webfont.woff2') format('woff2')
-      url('./assets/fonts/notosans-extralightitalic-webfont.woff') format('woff');
+  src: url("./assets/fonts/notosans-extralightitalic-webfont.woff2") format("woff2")
+      url("./assets/fonts/notosans-extralightitalic-webfont.woff") format("woff");
 }
 
 :root {
@@ -40,18 +44,12 @@
   --color-hover-white: #828282;
   --filter-hover-white: invert(59%) sepia(11%) saturate(20%) hue-rotate(95deg) brightness(85%) contrast(93%);
 
-  font-family: Arial, 'Scheherazade', 'Noto Sans' , Inter, system-ui, Avenir, Helvetica, sans-serif;
+  /* font-family: Arial, "Scheherazade", "Noto Sans" , Inter, system-ui, Avenir, Helvetica, sans-serif; */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-}
-
-/* TESTING */
-h3 {
-  font-family: 'Scheherazade';
-  font-weight: 400;
 }
 
 ::-webkit-scrollbar{

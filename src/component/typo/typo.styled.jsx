@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import mediaQuery from "../../helper/mediaQuery";
 
 const ArialTheme = css`
-    font-family: 'Arial';
+    font-family: Arial;
     font-style: normal;
     font-weight: 700;
     letter-spacing: -0.01em;
