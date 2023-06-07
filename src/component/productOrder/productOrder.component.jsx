@@ -6,6 +6,8 @@ import BoxBtn, { BoxBtnType } from '../boxBtn/boxBtn.component';
 
 import { OrderContext } from '../../context/order.context';
 import { LikedContext } from '../../context/liked.context';
+import { useMediaQuery } from 'react-responsive';
+import mediaQuery from '../../helper/mediaQuery';
 
 import {    
     PriceContainer,
@@ -20,16 +22,22 @@ import Popup from '../popup/popup.component';
 
 
 const ProductOrder = ({product}) => {
-    const {btnSizeHandler,btnSizeActiveNum, isProductDiscount, newPrice, totalPrice, isPopupOn} = useContext(OrderContext)
+    const {btnSizeHandler, btnSizeActiveNum, isProductDiscount, newPrice, totalPrice, isPopupOn, setOrderNumber} = useContext(OrderContext)
     const {likedBtnHandler , isLiked, openPageLiked} = useContext(LikedContext)
+
+    const isTablet = useMediaQuery(mediaQuery.useTablet)
+    const isSmTablet = useMediaQuery(mediaQuery.useSmTablet)
+
+    // Init initial value
+    useEffect(() => {
+      btnSizeHandler(0)
+      setOrderNumber(1)
+    },[])
 
     useEffect(() => {
         isProductDiscount(product)
-    }, [ product, isProductDiscount])
-
-    useEffect(() => {
-      openPageLiked(product)
-    }, [openPageLiked, product])
+        openPageLiked(product)
+    }, [ product, isProductDiscount, openPageLiked])
 
     return (
         <PriceContainer>
@@ -52,12 +60,12 @@ const ProductOrder = ({product}) => {
           <FlexColumn gap='.3'>
             {product?.isNew && 
               <PriceBox> 
-                <Typo type={TypoType.arialSize} size='1.3' opacity='.6'>$</Typo>
+                <Typo type={TypoType.arialSize} size={isTablet ? 1.625 : 1.3} opacity='.6'>$</Typo>
                 <Typo type={TypoType.body_3_dash} opacity='.6'>{product?.price}</Typo>
               </PriceBox>
             }
             <PriceBox>
-              <Typo type={TypoType.arialSize} size='2'>$</Typo>
+              <Typo type={TypoType.arialSize} size={isTablet ? 2.5 : 2}>$</Typo>
               <Typo type={TypoType.headline_4}>{newPrice}</Typo>
             </PriceBox>
           </FlexColumn>
@@ -69,9 +77,8 @@ const ProductOrder = ({product}) => {
           <FlexBox justify='start' align='start' paddingBottom='0' gap='1.2'>
               <FlexColumn marginRight='3.1' gap='1.2'>
                   <Typo type={TypoType.body_5}>Color</Typo>
-                  {/* <Typo type={TypoType.body_5} opacity='.4'>!Color Name!</Typo> */}
               </FlexColumn>
-              <BoxBtn type={BoxBtnType.color} color={product?.color}/>
+              <BoxBtn type={BoxBtnType.color} color={product?.color} w={isTablet && 5} h={isTablet && 5}/>
           </FlexBox>
           {/* SIZE SECTION */}
         { product?.size.length === 0 ? '' :
@@ -81,15 +88,15 @@ const ProductOrder = ({product}) => {
                     <Typo type={TypoType.body_5} opacity='.4'>Size Guide</Typo>
                 </FlexColumn>
                 {product?.size.map((el,i) => {
-                if(btnSizeActiveNum === i) return <div key={i}><BoxBtn type={BoxBtnType.radio_active} >{el}</BoxBtn></div>
-                return <div key={i} onClick={() => btnSizeHandler(i)}><BoxBtn type={BoxBtnType.radio}>{el}</BoxBtn></div>
+                if(btnSizeActiveNum === i) return <div key={i}><BoxBtn type={BoxBtnType.radio_active} w={isTablet && 5} h={isTablet && 5 } >{el}</BoxBtn></div>
+                return <div key={i} onClick={() => btnSizeHandler(i)}><BoxBtn type={BoxBtnType.radio} w={isTablet && 5} h={isTablet && 5 } >{el}</BoxBtn></div>
             })}
             </FlexBox>
         }
         {/* QUANTITY SECTION */}
         <FlexBox>
             <Typo type={TypoType.body_2} userSelect='none'>Quantity</Typo>
-            <BoxBtn type={BoxBtnType.sum}>{totalPrice}</BoxBtn>
+            <BoxBtn type={BoxBtnType.sum} w={isTablet && 3.75} h={isTablet && 3.75 }>{totalPrice}</BoxBtn>
         </FlexBox>
         {/* ORDER REVIEW SECTION */}
         <FlexBoxLine paddingBottom='1.6'>
@@ -108,7 +115,7 @@ const ProductOrder = ({product}) => {
             </PriceBox>
         </FlexBox>
         {/* ADDING BTN SECTION */}
-        <BoxBtn type={BoxBtnType.pay} product={product}/>
+        <BoxBtn type={BoxBtnType.pay} product={product} w={isSmTablet && 33}/>
       </PriceContainer>
     )
 }

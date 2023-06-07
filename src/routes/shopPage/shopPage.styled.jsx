@@ -17,7 +17,7 @@ export const SubTitleContainer = styled.div`
 export const SubTitleBreak = styled.div`
     display: flex;
     width: 100%;
-    gap: 4rem;
+    gap: 5rem;
     @media ${mediaQuery.styledMobile} {
         gap: 2rem;
     }
@@ -43,8 +43,10 @@ export const GridContainer = styled.div`
         justify-content: center;
         grid-template-columns: repeat( auto-fit, minmax( 30.5rem , 30.5rem) );
     }
+    @media ${mediaQuery.styledSmTablet} {
+        grid-template-columns: repeat( auto-fit, minmax(28rem , 28rem) );
+    }
     @media ${mediaQuery.styledMobile} {
-        justify-content: center;
         grid-template-columns: repeat( auto-fit, minmax(20rem , 20rem) );
     }
 `
@@ -74,6 +76,7 @@ export const TitleBreakContainer = styled.div`
     display: grid;
     gap: 6rem;
     justify-content: center;
+    text-align: center;
 `
 
 

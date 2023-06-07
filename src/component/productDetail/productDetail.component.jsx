@@ -5,6 +5,7 @@ import {
     ImgProduct,
     ProductContainer,
     ImgContainer,
+    OrderContainer
 } from "./productDetail.styled"
 
 import NavFooter from '../../component/navFooter/navFooter.component'
@@ -39,7 +40,9 @@ const ProductDetail = () => {
             <ImgProduct image={product?.imageUrl}/>
             <ImgProduct image={product?.imageUrlHover}/>
           </ImgContainer>
-          <ProductOrder product={product}/>
+          <OrderContainer>
+            <ProductOrder product={product}/>
+          </OrderContainer>
         </ProductContainer>
       </NavFooter>
     )

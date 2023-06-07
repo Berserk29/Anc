@@ -21,11 +21,11 @@ const NavBox = ({type}) => {
         if(type === 3) return choice3
         return ''
     }
-
-    // tripeChoice( userArr , likedItems, cartItems).length ?
     
     if(isSmTablet && type === 1) return ;
 
+    // TODO DOING THE MEDIA QUERY
+    
     return (
         <>
         {tripeChoice( userArr , likedItems, cartItems).length ? 

@@ -120,6 +120,9 @@ export const Headline04 = styled.h4`
     font-size: 2.6rem;
     line-height: 120%;
     text-transform: none;
+    @media ${mediaQuery.styledTablet} {
+        font-size: 3.25rem;
+    }
 `
 
 export const Headline05 = styled.h5`
@@ -142,6 +145,9 @@ export const Body03 = styled.p`
     ${ArialTheme}
     line-height: 160%;
     font-size: 1.4rem;
+    @media ${mediaQuery.styledTablet} {
+        font-size: 1.75rem;
+    }
 `
 
 export const BodyDash03 = styled.p`
@@ -150,6 +156,9 @@ export const BodyDash03 = styled.p`
     font-weight: 700;
     text-decoration-line: line-through;
     letter-spacing: -0.02em;
+    @media ${mediaQuery.styledTablet} {
+        font-size: 1.75rem;
+    }
 `
 
 export const Body04 = styled.p`
@@ -166,6 +175,9 @@ export const Body04 = styled.p`
 
 export const Body05 = styled(Body04)`
     font-size: 1.3rem;
+    @media ${mediaQuery.styledTablet} {
+        font-size: 1.625rem;
+    }
 `
 
 export const Body06 = styled.p`

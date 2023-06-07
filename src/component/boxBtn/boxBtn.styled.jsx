@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const RadioBtn = styled.button`
-    width: ${props => props.w }rem;
-    height: ${props => props.h }rem;
+    width: ${props => props.w || 4}rem;
+    height: ${props => props.h || 4}rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,19 +22,22 @@ export const RadioBtnActive = styled(RadioBtn)`
 export const FlexContainer = styled.div`
     display: flex;
     justify-content: ${props => props.justify};
+    gap: ${props => props.gap}rem;
 `
 
 export const SumBtn = styled(RadioBtn)`
-    width: 3rem;
-    height: 3rem;
+    width: ${props => props.w || 3}rem;
+    height: ${props => props.h || 3}rem;
 `
 
 export const ColorSquare = styled.div`
-    width: 4rem;
-    height: 4rem;
+    width: ${props => props.w || 4}rem;
+    height: ${props => props.h || 4}rem;
     background-color: ${props => props.color || 'blue'};
     border: 1px solid var(--color-white);
 `
+
+
 
 
 export const Minus = styled.span`

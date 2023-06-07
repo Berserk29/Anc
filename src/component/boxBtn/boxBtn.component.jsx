@@ -1,8 +1,8 @@
-import { Fragment, useContext } from "react";
+import { Fragment, useContext} from "react";
 import { useNavigate } from "react-router-dom";
 import Typo, {TypoType} from "../typo/typo.component";
 
-import { RadioBtn, RadioBtnActive, FlexContainer, Minus, Plus, ColorSquare } from "./boxBtn.styled";
+import { RadioBtn, RadioBtnActive, FlexContainer, Minus, Plus, ColorSquare, SumBtn } from "./boxBtn.styled";
 import { OrderContext } from "../../context/order.context";
 import { CartContext } from "../../context/cart.context";
 import { LikedContext } from "../../context/liked.context";
@@ -41,28 +41,28 @@ const BoxBtn = ({type, children, product, color, w, h, link = false}) => {
     const BtnChoice = () => {
 
         if(type === 'radio') return (
-            <RadioBtn w={w ? w : 4} h={h ? h : 4} onClick={() => navigateLink(link)}>
+            <RadioBtn w={w} h={h} onClick={() => navigateLink(link)}>
                 <Typo type={TypoType.body_2}>{children}</Typo>
             </RadioBtn>
         )
         if(type === 'radio_active') return (
-            <RadioBtnActive w={w ? w : 4} h={h ? h : 4} onClick={() => navigateLink(link)}>
+            <RadioBtnActive w={w} h={h} onClick={() => navigateLink(link)}>
                 <Typo type={TypoType.body_2} color='black'>{children}</Typo>
             </RadioBtnActive>
         )
-        if(type === 'color') return <ColorSquare color={color}/>
+        if(type === 'color') return <ColorSquare w={w} h={h} color={color}/>
 
         if(type === 'sum') return (
             <FlexContainer>
-                <RadioBtn w="3" h="3"  onClick={subtractOrderNumber}><Minus/></RadioBtn>
-                <RadioBtn w="3" h="3"><Typo type={TypoType.body_3} userSelect='none'>{orderNumber}</Typo></RadioBtn>
-                <RadioBtn w="3" h="3" onClick={addOrderNumber}><Plus/></RadioBtn>
+                <SumBtn w={w} h={h}  onClick={subtractOrderNumber}><Minus/></SumBtn>
+                <SumBtn w={w} h={h}><Typo type={TypoType.body_3} userSelect='none'>{orderNumber}</Typo></SumBtn>
+                <SumBtn w={w} h={h} onClick={addOrderNumber}><Plus/></SumBtn>
             </FlexContainer>
         )
         if(type === 'pay') return (
-            <FlexContainer justify='space-between'>
-                <RadioBtn w="16.7" h="5.6" onClick={() => HandlerAddLink(false)} ><Typo type={TypoType.body_1}>Add to cart</Typo></RadioBtn>
-                <RadioBtnActive w="16.7" h="5.6" onClick={() => HandlerAddLink(true)} ><Typo type={TypoType.body_1} color='black'>Buy Now</Typo></RadioBtnActive>
+            <FlexContainer justify='center' gap='1'>
+                <RadioBtn  w={w ? w : 16.7} h={h ? h : 5.6} onClick={() => HandlerAddLink(false)} ><Typo type={TypoType.body_1}>Add to cart</Typo></RadioBtn>
+                <RadioBtnActive w={w ? w : 16.7} h={h ? h : 5.6} onClick={() => HandlerAddLink(true)} ><Typo type={TypoType.body_1} color='black'>Buy Now</Typo></RadioBtnActive>
             </FlexContainer>
         )    
     }

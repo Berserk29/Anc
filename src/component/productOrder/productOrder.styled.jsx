@@ -1,9 +1,13 @@
 import styled from "styled-components";
+import mediaQuery from "../../helper/mediaQuery";
 
 export const PriceContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 34.5rem;
+    @media ${mediaQuery.styledSmTablet} {
+        width: 100%;
+    }
 `
 
 export const IconContainer = styled.div`
@@ -39,6 +43,9 @@ export const FlexColumn = styled.div`
     flex-direction: column;
     gap: ${props => props.gap || 0}rem;
     align-items: ${props => props.align || 'start'};
+    @media ${mediaQuery.styledTablet} {
+        width: 8.5rem;
+    }
 `
 
 

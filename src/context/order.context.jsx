@@ -26,6 +26,7 @@ const addProductLogic = (productToAdd, sizeNum, orderNum, newPrice) => {
 // Context
 export const OrderContext = createContext({
     orderNumber: 1,
+    setOrderNumber: (number) => {number},
     btnSizeActiveNum: 0,
     orderProduct: (product) => {product},
     btnSizeHandler: (i) => {i},
@@ -34,7 +35,7 @@ export const OrderContext = createContext({
     isProductDiscount: (product) => {product},
     addProductOrder: (product) => {product},
     isPopupOn: false,
-    setIsPopupOn: () => {},
+    setIsPopupOn: (bolean) => {bolean},
 })
 
     // Provider
@@ -58,10 +59,11 @@ export const OrderProvider = ({children}) => {
     const addOrderNumber = () => setOrderNumber(orderNumLogic(orderNumber + 1));
     const subtractOrderNumber = () => setOrderNumber(orderNumLogic(orderNumber - 1));
     const btnSizeHandler = (i) => setBtnSizeActiveNum(i);
-    const isProductDiscount = (product) => setNewPrice(priceDiscountLogic(product))
+    const isProductDiscount = (product) => setNewPrice(priceDiscountLogic(product));
 
     const value = {
         orderNumber,
+        setOrderNumber,
         addOrderNumber,
         subtractOrderNumber,
         btnSizeHandler,
