@@ -7,7 +7,7 @@ import { useMediaQuery } from "react-responsive";
 import mediaQuery from "../../helper/mediaQuery";
 
 const ImgLookbook = ({props}) => {
-    const {column, ratio, imageUrl, id, breakColumn} = props
+    const {column, ratio, imageUrl, id, breakColumn} = props;
 
     const isTablet = useMediaQuery(mediaQuery.useTablet)
 

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import mediaQuery from "../../helper/mediaQuery";
 
 export const SectionContainer = styled.div`
     width: 100%;
@@ -14,6 +15,9 @@ export const ContactContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 4rem;
+    @media ${mediaQuery.styledTablet} {
+        transform: translateX(0);
+    }
 `
 
 export const InfoContainer = styled.div`
