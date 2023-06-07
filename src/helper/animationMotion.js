@@ -19,7 +19,7 @@ export const variantUp3 = {
 }
 
 export const variantUp4 = {
-    visible: {opacity: 1, y: 0, transition: {duration: .5, delay: .5}},
+    visible: {opacity: 1, y: 0, transition: {duration: .5, delay: .2}},
     hidden: {opacity: 0, y: "20%"}
 }
 export const variantUp5 = {

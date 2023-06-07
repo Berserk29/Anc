@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import mediaQuery from "../../helper/mediaQuery";
 
 export const Section = styled.div`
     position: relative;
@@ -43,6 +44,9 @@ export const CarouselBtnContainer = styled(motion.div)`
     flex-direction: row;
     gap: 2rem;
     z-index: 2;
+    @media ${mediaQuery.styledTablet} {
+        gap: 8rem;
+    }
 `
 
 export const CarouselBtn = styled.div`
@@ -55,6 +59,10 @@ export const CarouselBtn = styled.div`
     outline: 1px solid var(--color-hover);
     :hover {
         opacity: 1;
+    }
+    @media ${mediaQuery.styledTablet} {
+        width: 2rem;
+        height: 2rem;
     }
 `
 

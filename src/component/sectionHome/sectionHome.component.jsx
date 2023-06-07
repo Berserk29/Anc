@@ -103,9 +103,9 @@ const SectionHome = ({props}) => {
                     <Typo type={TypoType.title_2}>Corduroy</Typo>
                     <Typo type={TypoType.body_3}>for the 23 SS Season</Typo>
                 </CarouselText>
-                <CarouselImg image={imageUrl} opacity={imgControl(0, 1, 0)} />
+                <CarouselImg image={imageUrl} opacity={imgControl(0, 1, 0)} position='30%'/>
                 <CarouselImg image={imageUrl2} opacity={imgControl(1, 1, 0)} position='left'/>
-                <CarouselImg image={imageUrl3} opacity={imgControl(2, 1, 0)} />
+                <CarouselImg image={imageUrl3} opacity={imgControl(2, 1, 0)} position='70% '/>
                 <CarouselBtnContainer variants={variantUp5} initial='hidden' animate={control}>
                     <CarouselBtn onClick={() => BtnHandler(0)} opacity={imgControl(0, 1, .6)}/>
                     <CarouselBtn onClick={() => BtnHandler(1)} opacity={imgControl(1, 1, .6)}/>
