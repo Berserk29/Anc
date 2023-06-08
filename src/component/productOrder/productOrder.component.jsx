@@ -1,13 +1,14 @@
 import { useEffect, useContext } from 'react';
+import { useMediaQuery } from 'react-responsive';
+import mediaQuery from '../../helper/mediaQuery';
 
+import Popup from '../popup/popup.component';
 import Typo, {TypoType} from '../typo/typo.component';
-import { shareIcon, heartIcon, heartFull } from "./productOrder.data"
 import BoxBtn, { BoxBtnType } from '../boxBtn/boxBtn.component';
+import { shareIcon, heartIcon, heartFull } from "./productOrder.data"
 
 import { OrderContext } from '../../context/order.context';
 import { LikedContext } from '../../context/liked.context';
-import { useMediaQuery } from 'react-responsive';
-import mediaQuery from '../../helper/mediaQuery';
 
 import {    
     PriceContainer,
@@ -18,7 +19,6 @@ import {
     FlexColumn,
     PriceBox,
 } from './productOrder.styled'
-import Popup from '../popup/popup.component';
 
 
 const ProductOrder = ({product}) => {
@@ -41,6 +41,7 @@ const ProductOrder = ({product}) => {
 
     return (
         <PriceContainer>
+          {/* POPUP COMPONENT */}
           {isPopupOn ? <Popup props={product} /> : ''}
           {/* ICON AND PRODUCT NAME SECTION */}
         <IconContainer>
@@ -96,7 +97,7 @@ const ProductOrder = ({product}) => {
         {/* QUANTITY SECTION */}
         <FlexBox>
             <Typo type={TypoType.body_2} userSelect='none'>Quantity</Typo>
-            <BoxBtn type={BoxBtnType.sum} w={isTablet && 3.75} h={isTablet && 3.75 }>{totalPrice}</BoxBtn>
+            <BoxBtn type={BoxBtnType.sum} w={isTablet && 3.75} h={isTablet && 3.75 } />
         </FlexBox>
         {/* ORDER REVIEW SECTION */}
         <FlexBoxLine paddingBottom='1.6'>

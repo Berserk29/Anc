@@ -4,29 +4,29 @@ export const PopupContainer = styled.div`
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 50rem;
-    height: 20rem;
+    padding: 2.4rem;
+    z-index: 5;
     transform: translate(-50%, -50%);
     background-color: var(--color-white);
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
 `
 
 export const ImgPopup = styled.img`
-    width: 15rem;
-    height: 15rem;
+    width: 9.3rem;
+    height: 12rem;
     object-fit: cover;
 `
 
-export const IconImg = styled.img`
-    width: 1.5rem;
-    height: 1.5rem;
+export const CloseBtn = styled.img`
+   width : 2.4rem;
+   height: 2.4rem;
+   cursor: pointer;
 `
 
-export const TextContainer = styled.div`
+export const FlexContainer = styled.div`
     display: flex;
+    width: 100%;
     flex-direction: ${props => props.flex || 'row'};
-    gap: ${props => props.gap}rem;
-    align-items: center;
+    justify-content: ${props => props.justify || 'space-between'};
+    align-items: ${props => props.align || 'center'};
+    gap: ${props => props.gap || 1.6}rem;
 `

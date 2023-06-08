@@ -41,6 +41,7 @@ export const CartNumber = styled.span`
     align-items: center;
     justify-content: center;
     font-size: 1.2rem;
+    font-family: Arial;
     font-weight: 700;
     outline: 1.5px solid var(--color-white);
     transition: outline .3s color .3s;
@@ -66,10 +67,6 @@ export const NavIcon = styled.img`
     transition: filter .3s;
     :hover {
         filter: var(--filter-hover-white);
-    }
-    :hover + ${CartNumber} {
-        outline: 1.5px solid var(--color-hover);
-        color: var(--color-hover);
     }
 `
 export const HamIcon = styled.img`

@@ -27,17 +27,17 @@ const NavBoxItem = ({props, type}) => {
     
 
     return (
-        <ProductContainer flex={tripeChoice('column','column','row')} border={tripeChoice(false, true, true)} >
+        <ProductContainer flex={tripeChoice('column','column','row')} border={tripeChoice(false, true, true)} datatype="navBox" >
             { tripeChoice(true, false, false) && <div onClick={linkHandler} ><Typo type={TypoType.body_4} color='black' hover={true} >{name}</Typo></div>}
             { tripeChoice(false,false,true) && 
             <>
                 <ImgProduct image={imageUrl}/> 
-                <FlexContainer gap='3'>
-                    <FlexContainer gap='.8'>
+                <FlexContainer gap='3' datatype="navBox">
+                    <FlexContainer gap='.8' datatype="navBox">
                         <Typo type={TypoType.arialSize} color='black' size='1.4' weight='700' transform='capitalize'>{name}</Typo>
                         <Typo type={TypoType.arialSize} color='black' size='1.4' weight='700'>${price}</Typo>
                     </FlexContainer>
-                    <FlexContainer gap='.5'>
+                    <FlexContainer gap='.5' datatype="navBox">
                         <Typo type={TypoType.arialSize} color='black' size='1.2' weight='400' transform='capitalize'>Quantity: {quantity}</Typo>
                         <Typo type={TypoType.arialSize} color='black' size='1.2' weight='400' transform='capitalize'>Size: {size}</Typo>
                         <Typo type={TypoType.arialSize} color='black' size='1.2' weight='700' transform='capitalize'>Total: ${totalPrice}</Typo>

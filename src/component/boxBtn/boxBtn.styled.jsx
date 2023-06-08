@@ -17,6 +17,7 @@ export const RadioBtn = styled.button`
 
 export const RadioBtnActive = styled(RadioBtn)`
     background-color: var(--color-white);
+    outline: 1px solid var(--color-black);
 `
 
 export const FlexContainer = styled.div`

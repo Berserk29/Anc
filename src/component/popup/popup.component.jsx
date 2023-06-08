@@ -1,36 +1,68 @@
-import { useContext, useEffect } from "react";
-import { IconImg, ImgPopup, PopupContainer, TextContainer } from "./popup.styled";
-import { OrderContext } from "../../context/order.context";
+import { useContext, useEffect} from "react";
+import { useNavigate } from "react-router-dom";
+
+import BoxBtn, { BoxBtnType } from "../boxBtn/boxBtn.component";
 import Typo, { TypoType } from "../typo/typo.component";
+import closeBtn from '../../assets/icon/x-close.jpg'
 
-import checkIcon from '../../assets/icon/checked.png'
+import { OrderContext } from "../../context/order.context";
 
-// TODO TESTING THE DESIGN WILL CHANGE...
+import { ImgPopup, PopupContainer, FlexContainer, CloseBtn } from "./popup.styled";
+
 
 const Popup = ({props}) => {
-    const {imageUrl, name} = props
-    const {setIsPopupOn} = useContext(OrderContext)
+    const {imageUrl, name, size} = props
+    const {orderNumber, btnSizeActiveNum, setIsPopupOn} = useContext(OrderContext)
+    const navigate = useNavigate();
 
+    // TODO NAVIGATE TO THE PROPER PAGE WHEN IT'S CREATE
+    const cartHandler = () => navigate('/account');
+
+    // Timeout to takeout the popup
     useEffect(() => {
-        setTimeout(() => {
-            setIsPopupOn(false)
-        }, [3500])
-    },[setIsPopupOn])
+        let timeoutId = null;
+    
+        const resetTimeout = () => {
+          clearTimeout(timeoutId);
+          timeoutId = setTimeout(() => {
+            setIsPopupOn(false);
+          }, 6000);
+        };
+    
+        resetTimeout(); // Call it initially
+    
+        return () => {
+          clearTimeout(timeoutId); // Cleanup on component unmount
+        };
+      }, []);
 
+    const closeHandler = () => setIsPopupOn(false)  
 
     return (
         <PopupContainer>
-            <ImgPopup src={imageUrl}/>
-            <TextContainer flex='column' gap='2'>
-                <TextContainer gap='1'>
-                    <IconImg src={checkIcon}/>
-                    <Typo type={TypoType.headline_5} color='black'>Added to Cart</Typo>
-                </TextContainer>
-                <TextContainer gap='.5'>
-                    <Typo type={TypoType.arialSize} size='1.3' weight='700' transform='capitalize' color='black'>Name:</Typo>
-                    <Typo type={TypoType.body_5} color='black'>{name}</Typo>
-                </TextContainer>
-            </TextContainer>
+            <FlexContainer flex='column'>
+                <FlexContainer>
+                    <Typo type={TypoType.arialSize} size='1.6' transform='uppercase' weight='700' color='black'>Added to your cart</Typo>
+                    <CloseBtn src={closeBtn} alt="close button" onClick={closeHandler}/>
+                </FlexContainer>
+                <FlexContainer align='start'>
+                    <ImgPopup src={imageUrl}/>
+                    <FlexContainer flex='column' align='start'>
+                        <Typo type={TypoType.arialSize} size='1.4' transform='capitalize' weight='700' color='black'>{name}</Typo>
+                        <FlexContainer gap='.8' justify='start'>
+                            <Typo type={TypoType.arialSize} size='1.2' transform='none' color='black'>Size:</Typo>
+                            <Typo type={TypoType.arialSize} size='1.2' color='black'>{size[btnSizeActiveNum]}</Typo>
+                        </FlexContainer>
+                        <FlexContainer gap='.8' justify='start'>
+                            <Typo type={TypoType.arialSize} size='1.2' transform='none' color='black'>Quantity:</Typo>
+                            <Typo type={TypoType.arialSize} size='1.2' color='black'>{orderNumber}</Typo>
+                        </FlexContainer>
+                    </FlexContainer>
+                </FlexContainer>
+                <div onClick={cartHandler}>
+                    <BoxBtn type={BoxBtnType.radio_active} w='31.5' h='4.8' typoType='body_1' >See Shopping Cart</BoxBtn>
+                </div>
+            </FlexContainer>
         </PopupContainer>
     )
 }

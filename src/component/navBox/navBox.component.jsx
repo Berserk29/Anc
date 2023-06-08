@@ -30,18 +30,19 @@ const NavBox = ({type}) => {
         <>
         {tripeChoice( userArr , likedItems, cartItems).length ? 
             <BoxContainer 
-                right={tripeChoice(100, 50, 0)} 
-                height={tripeChoice(220, 454, 460)} 
-                width={tripeChoice(156,205,363)}
-                padding={tripeChoice(16, 24, 24)} 
+                right={tripeChoice(10, 5, 0)} 
+                height={tripeChoice(24, 45.4, 46)} 
+                width={tripeChoice(18,20.5,36.3)}
+                padding={tripeChoice(1.6, 2.4, 2.4)}
+                datatype="navBox" 
             >
-                <BoxItems gap={tripeChoice(0,2,1)} height={tripeChoice('','','350px')}>
+                <BoxItems gap={tripeChoice(0,2,1)} height={tripeChoice('','','35rem')} datatype="navBox">
                     {tripeChoice(true, false, false) && <Typo type={TypoType.body_1} color='black' marginBottom='1'>My Account</Typo> }  
                     {tripeChoice( userArr , likedItems, cartItems).map((el,i) => <NavBoxItem key={i} props={el} type={type}/>)}
                 </BoxItems>
                     {tripeChoice(false, false, true) &&
                     <>
-                        <TotalContainer>
+                        <TotalContainer datatype="navBox">
                             <Typo type={TypoType.arialSize} color='black' size='1.6' weight='700' transform='capitalize'>Total</Typo>
                             <Typo type={TypoType.arialSize} color='black' size='1.6' weight='700' transform='capitalize'>${cartTotalPrice}</Typo>
                         </TotalContainer>
@@ -51,10 +52,11 @@ const NavBox = ({type}) => {
             </BoxContainer>
                 :
             <BoxContainer
-                right={tripeChoice(100,50,0)}
-                height='100'
-                width='140'
-                padding='12'
+                right={tripeChoice(10,5,0)}
+                height='10'
+                width='14'
+                padding='1.2'
+                datatype="navBox"
             >
                 <Typo color='black' type={TypoType.body_1}>Your {tripeChoice('cart', 'favorite', 'cart')} is empty</Typo>
             </BoxContainer>    

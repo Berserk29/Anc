@@ -15,7 +15,7 @@ export const BoxBtnType = {
     color: 'color', 
 }
 
-const BoxBtn = ({type, children, product, color, w, h, link = false}) => {
+const BoxBtn = ({type, children, product, color, w, h, link = false, typoType = 'body_2'}) => {
     const {orderNumber, addOrderNumber, subtractOrderNumber, addProductOrder, setIsPopupOn} = useContext(OrderContext)
     const {addItemToCart} = useContext(CartContext)
     const { setNavButton } = useContext(LikedContext)
@@ -42,12 +42,12 @@ const BoxBtn = ({type, children, product, color, w, h, link = false}) => {
 
         if(type === 'radio') return (
             <RadioBtn w={w} h={h} onClick={() => navigateLink(link)}>
-                <Typo type={TypoType.body_2}>{children}</Typo>
+                <Typo type={TypoType[typoType]}>{children}</Typo>
             </RadioBtn>
         )
         if(type === 'radio_active') return (
             <RadioBtnActive w={w} h={h} onClick={() => navigateLink(link)}>
-                <Typo type={TypoType.body_2} color='black'>{children}</Typo>
+                <Typo type={TypoType[typoType]} color='black'>{children}</Typo>
             </RadioBtnActive>
         )
         if(type === 'color') return <ColorSquare w={w} h={h} color={color}/>
