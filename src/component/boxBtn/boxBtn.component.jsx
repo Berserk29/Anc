@@ -1,8 +1,17 @@
-import { Fragment, useContext} from "react";
+import { Fragment, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Typo, {TypoType} from "../typo/typo.component";
 
-import { RadioBtn, RadioBtnActive, FlexContainer, Minus, Plus, ColorSquare, SumBtn } from "./boxBtn.styled";
+import { 
+    RadioBtn, 
+    RadioBtnActive, 
+    FlexContainer, 
+    Minus, 
+    Plus, 
+    ColorSquare, 
+    SumBtn,
+} from "./boxBtn.styled";
+
 import { OrderContext } from "../../context/order.context";
 import { CartContext } from "../../context/cart.context";
 import { LikedContext } from "../../context/liked.context";
@@ -13,12 +22,14 @@ export const BoxBtnType = {
     sum: 'sum',
     pay: 'pay',
     color: 'color', 
+    sign: 'sign'
 }
 
 const BoxBtn = ({type, children, product, color, w, h, link = false, typoType = 'body_2'}) => {
     const {orderNumber, addOrderNumber, subtractOrderNumber, addProductOrder, setIsPopupOn} = useContext(OrderContext)
     const {addItemToCart} = useContext(CartContext)
     const { setNavButton } = useContext(LikedContext)
+
     const navigate = useNavigate()
 
     const HandlerAddLink = (boolean) => {
@@ -64,7 +75,7 @@ const BoxBtn = ({type, children, product, color, w, h, link = false, typoType = 
                 <RadioBtn  w={w ? w : 16.7} h={h ? h : 5.6} onClick={() => HandlerAddLink(false)} ><Typo type={TypoType.body_1}>Add to cart</Typo></RadioBtn>
                 <RadioBtnActive w={w ? w : 16.7} h={h ? h : 5.6} onClick={() => HandlerAddLink(true)} ><Typo type={TypoType.body_1} color='black'>Buy Now</Typo></RadioBtnActive>
             </FlexContainer>
-        )    
+        )     
     }
 
     return (

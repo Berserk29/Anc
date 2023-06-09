@@ -38,9 +38,6 @@ export const ColorSquare = styled.div`
     border: 1px solid var(--color-white);
 `
 
-
-
-
 export const Minus = styled.span`
     width: 10px;
     height: 2px;

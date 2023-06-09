@@ -8,6 +8,7 @@ import AccountRoute from "./routes/accountRoute/accountRoute.component";
 import ContactPage from "./routes/contactPage/contactPage.component";
 import LookbookPage from "./routes/lookbookPage/lookbookPage.component";
 import ShopRoute from "./routes/shopRoute/shopRoute.component";
+import SignInPage from "./routes/signInPage/signInPage.component";
 
 
 function App() {
@@ -25,10 +26,11 @@ const clickHandler = (e) => {
     <Routes>
       <Route path="/" element={<HomePage/>}/>
       <Route path="about" element={<AboutPage/>}/>
-      <Route path="account/*" element={<AccountRoute/>}/>
       <Route path="contact" element={<ContactPage/>}/>
       <Route path="shop/*" element={<ShopRoute/>}/>
       <Route path="lookbook" element={<LookbookPage/>}/>
+      <Route path="sign" element={<SignInPage/>}/>
+      <Route path="account/*" element={<AccountRoute/>}/>
     </Routes>
     </div>
   )
