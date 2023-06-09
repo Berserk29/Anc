@@ -17,16 +17,6 @@ export const NavbarContainer = styled.div`
     }
 `
 
-export const HamContainer = styled.div`
-    display: flex;
-    width: 11.4rem;
-    align-items: center;
-    cursor: pointer;
-    gap: 1.4rem;
-    @media ${mediaQuery.styledSmTablet} {
-        width: 7.5rem;
-    }
-`
 
 export const CartNumber = styled.span`
     position: absolute;
@@ -46,19 +36,19 @@ export const CartNumber = styled.span`
     outline: 1.5px solid var(--color-white);
     transition: outline .3s color .3s;
     cursor: pointer;
-`
+    `
 
 export const CartNumberReverse = styled(CartNumber)`
     background-color: transparent;
     outline: 1.5px solid var(--color-black);
     color: var(--color-black);
-`
+    `
 
 export const IconContainer = styled.div`
     display: flex;
     gap: 2.7rem;
     position: relative;
-`
+    `
 
 export const NavIcon = styled.img`
     width: 2.4rem;
@@ -68,17 +58,59 @@ export const NavIcon = styled.img`
     :hover {
         filter: var(--filter-hover-white);
     }
-`
+    `
 export const HamIcon = styled.img`
     width: 2.4rem;
     cursor: pointer;
     margin-bottom: 2px;
 `
 
+export const HamBox = styled.div`
+    width: 20px;
+    height: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: ${({ animation }) => (animation ? 'space-between' : 'center')};
+    @media ${mediaQuery.styledTablet} {
+        margin-top: .2rem;
+    }
+`
+
+export const HamburgerLine = styled.span`
+    width: 20px;
+    height: 2px;
+    background-color: ${props => props.color};
+    display: inline-block;
+    transition: transform .4s;
+    transform-origin: left;
+
+    &.first-line {
+        transform: ${({ animation }) => (animation ? 'rotate(45deg)' : 'rotate(0)')};
+    }
+
+    &.last-line {
+        transform: ${({ animation }) => (animation ? 'rotate(-45deg)' : 'rotate(0)')};
+    }
+`
+
+export const HamContainer = styled.div`
+    display: flex;
+    width: 11.4rem;
+    align-items: center;
+    cursor: pointer;
+    gap: 1.4rem;
+    @media ${mediaQuery.styledSmTablet} {
+        width: 7.5rem;
+    }
+`
+
+
 export const MenuBtn = styled.button`
     font-weight: 'Arial';
-    font-size: 1.6rem;
+    font-size: 16px;
     font-weight: 700;
+    margin-top: .1rem;
     color: ${props => props.color};
     letter-spacing: -0.02em;
     text-transform: uppercase;

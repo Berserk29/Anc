@@ -11,7 +11,6 @@ import ShopRoute from "./routes/shopRoute/shopRoute.component";
 
 
 function App() {
-
 const {navButton, setNavButton} = useContext(LikedContext)
 
 // This handler close the navBox if clicking anywhere beside Parent Object having datatype='navBox'

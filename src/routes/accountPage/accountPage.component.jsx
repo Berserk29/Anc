@@ -1,9 +1,19 @@
+import { useNavigate } from "react-router-dom";
+
 import NavFooter from "../../component/navFooter/navFooter.component";
-import { AccountContainer, FlexContainer, GridContainer, SubTitleContainer, TitleContainer , FaqContainer, AccountBox} from './accountPage.styled'
+import CardAccount from "../../component/cardAccount/cardAccount.component";
 import Typo, {TypoType} from "../../component/typo/typo.component";
 import { titleArr, cardArr } from "./accountPage.data";
-import { useNavigate } from "react-router-dom";
-import CardAccount from "../../component/cardAccount/cardAccount.component";
+
+import { 
+    AccountContainer,
+    FlexContainer,
+    GridContainer,
+    SubTitleContainer,
+    TitleContainer,
+    FaqContainer,
+    AccountBox
+} from './accountPage.styled'
 
 
 const AccountPage = () => {

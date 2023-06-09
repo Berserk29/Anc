@@ -24,6 +24,8 @@ export const FlexContainer = styled.div`
 `
 
 export const LikedImg = styled(ImgProduct)`
+    width: 100%;
+    
     transition: transform .3s;
     cursor: pointer;
     :hover {

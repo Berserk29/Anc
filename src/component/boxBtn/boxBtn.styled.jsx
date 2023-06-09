@@ -9,7 +9,7 @@ export const RadioBtn = styled.button`
     background-color: var(--color-black);
     border: 1px solid var(--color-white);
     cursor: pointer;
-    transition: all .3s;
+    transition: background-color .3s;
     :active {
         background-color: var(--color-white);
     }

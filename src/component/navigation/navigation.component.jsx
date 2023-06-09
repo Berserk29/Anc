@@ -1,5 +1,5 @@
 import { Fragment, useState } from "react";
-import { hamLogo, navLogoArray } from "./navigation.data";
+import { navLogoArray } from "./navigation.data";
 import { useMediaQuery } from "react-responsive";
 import mediaQuery from "../../helper/mediaQuery";
 
@@ -9,8 +9,9 @@ import NavBox from "../navBox/navBox.component";
 import { 
     NavbarContainer,
     NavIcon,
-    HamIcon,
     HamContainer,
+    HamburgerLine,
+    HamBox,
     IconContainer,
     MenuBtn,
     CartNumber,
@@ -22,13 +23,11 @@ import { useContext } from "react";
 import { LikedContext } from "../../context/liked.context";
 import { CartContext } from "../../context/cart.context";
 
-// TODO ANIMATION OF THE HAMBURGER AFTER DROPMENUON ( = -> x )
-
 const Navigation = ({color = 'white', sticky = true}) => {
     const {navButton, setNavButton} = useContext(LikedContext)
     const {cartItemsCount} = useContext(CartContext)
     const [dropMenuOn, setDropMenuOn] = useState(false);
-    const [dropMenuAni, setDropMenuAni] = useState(false)
+    const [dropMenuAni, setDropMenuAni] = useState(false);
 
     const isSmTablet = useMediaQuery(mediaQuery.useSmTablet)
 
@@ -60,7 +59,10 @@ const Navigation = ({color = 'white', sticky = true}) => {
         <Fragment>
             <NavbarContainer sticky={dropMenuOn ? true : sticky} >
                 <HamContainer onClick={hamHandler}>
-                    <HamIcon src={color === 'white' || dropMenuOn ? hamLogo.white : hamLogo.black} alt="Ham Icon" />
+                    <HamBox animation={dropMenuAni}>
+                        <HamburgerLine animation={dropMenuAni}  color={color === 'white' || dropMenuOn ? 'white' : 'black'} className="first-line"/>
+                        <HamburgerLine animation={dropMenuAni}  color={color === 'white' || dropMenuOn ? 'white' : 'black'} className="last-line"/>
+                    </HamBox>
                     { !isSmTablet && <MenuBtn color={color === 'white' || dropMenuOn ? 'white' : 'black'}>Menu</MenuBtn>}
                 </HamContainer>
                 <AncLogo haveLink={true} color={color} isDropMenuOn={dropMenuOn}/>
