@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const RadioBtn = styled.button`
-    width: ${props => props.w || 4}rem;
-    height: ${props => props.h || 4}rem;
+    width: ${props => props.w || '4rem'};
+    height: ${props => props.h || '4rem'};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,13 +27,13 @@ export const FlexContainer = styled.div`
 `
 
 export const SumBtn = styled(RadioBtn)`
-    width: ${props => props.w || 3}rem;
-    height: ${props => props.h || 3}rem;
+    width: ${props => props.w || '3rem'};
+    height: ${props => props.h || '3rem'};
 `
 
 export const ColorSquare = styled.div`
-    width: ${props => props.w || 4}rem;
-    height: ${props => props.h || 4}rem;
+    width: ${props => props.w || '4rem'};
+    height: ${props => props.h || '4rem'};
     background-color: ${props => props.color || 'blue'};
     border: 1px solid var(--color-white);
 `

@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
+import mediaQuery from '../../helper/mediaQuery';
 
 import Typo, {TypoType} from '../../component/typo/typo.component';
 import NavFooter from "../../component/navFooter/navFooter.component"
@@ -35,6 +37,7 @@ const SignInPage = () => {
     const [formSign, setFormSign] = useState(defaultFormSign);
     const [formCreate, setFormCreate] = useState(defaultFormCreate);
 
+    const isSmTablet = useMediaQuery(mediaQuery.useSmTablet)
 
     const resetFormFields = () => {
         setFormSign(defaultFormSign);
@@ -192,7 +195,7 @@ const SignInPage = () => {
                         </FormContainer>
                         { errMessage ? <ErrorBox>{errMessage}</ErrorBox> : ''} 
                         { btnNum }
-                        <BoxBtn type={BoxBtnType.radio_active} w='63' h='5.6' typoType='body_1'>Continue</BoxBtn>
+                        <BoxBtn type={BoxBtnType.radio_active} w={isSmTablet ? '100%' : '63rem'} h='5.6rem' typoType='body_1'>Continue</BoxBtn>
                     </form>
                 </SignContainer>
             </SectionContainer>

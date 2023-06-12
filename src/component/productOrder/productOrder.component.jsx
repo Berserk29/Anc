@@ -79,7 +79,7 @@ const ProductOrder = ({product}) => {
               <FlexColumn marginRight='3.1' gap='1.2'>
                   <Typo type={TypoType.body_5}>Color</Typo>
               </FlexColumn>
-              <BoxBtn type={BoxBtnType.color} color={product?.color} w={isTablet && 5} h={isTablet && 5}/>
+              <BoxBtn type={BoxBtnType.color} color={product?.color} w={isTablet && '5rem'} h={isTablet && '5rem'}/>
           </FlexBox>
           {/* SIZE SECTION */}
         { product?.size.length === 0 ? '' :
@@ -89,15 +89,15 @@ const ProductOrder = ({product}) => {
                     <Typo type={TypoType.body_5} opacity='.4'>Size Guide</Typo>
                 </FlexColumn>
                 {product?.size.map((el,i) => {
-                if(btnSizeActiveNum === i) return <div key={i}><BoxBtn type={BoxBtnType.radio_active} w={isTablet && 5} h={isTablet && 5 } >{el}</BoxBtn></div>
-                return <div key={i} onClick={() => btnSizeHandler(i)}><BoxBtn type={BoxBtnType.radio} w={isTablet && 5} h={isTablet && 5 } >{el}</BoxBtn></div>
+                if(btnSizeActiveNum === i) return <div key={i}><BoxBtn type={BoxBtnType.radio_active} w={isTablet && '5rem'} h={isTablet && '5rem' } >{el}</BoxBtn></div>
+                return <div key={i} onClick={() => btnSizeHandler(i)}><BoxBtn type={BoxBtnType.radio} w={isTablet && '5rem'} h={isTablet && '5rem' } >{el}</BoxBtn></div>
             })}
             </FlexBox>
         }
         {/* QUANTITY SECTION */}
         <FlexBox>
             <Typo type={TypoType.body_2} userSelect='none'>Quantity</Typo>
-            <BoxBtn type={BoxBtnType.sum} w={isTablet && 3.75} h={isTablet && 3.75 } />
+            <BoxBtn type={BoxBtnType.sum} w={isTablet && '3.75rem'} h={isTablet && '3.75rem' } />
         </FlexBox>
         {/* ORDER REVIEW SECTION */}
         <FlexBoxLine paddingBottom='1.6'>
@@ -116,7 +116,7 @@ const ProductOrder = ({product}) => {
             </PriceBox>
         </FlexBox>
         {/* ADDING BTN SECTION */}
-        <BoxBtn type={BoxBtnType.pay} product={product} w={isSmTablet && 33}/>
+        <BoxBtn type={BoxBtnType.pay} product={product} w={isSmTablet && '100%'}/>
       </PriceContainer>
     )
 }

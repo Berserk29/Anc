@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import mediaQuery from "../../helper/mediaQuery";
 
 export const SectionContainer = styled.div`
     width: 100%;
@@ -6,6 +7,9 @@ export const SectionContainer = styled.div`
     background-color: var(--color-black);
     display: flex;
     justify-content: center;
+    @media ${mediaQuery.styledSmLaptop} {
+        padding: 8rem 4rem 11rem 4rem;
+    }
 `
 
 export const SignContainer = styled.div`
@@ -14,6 +18,9 @@ export const SignContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 4rem;
+    @media ${mediaQuery.styledSmTablet} {
+        width: 100%;
+    }
 `
 
 export const FlexContainer = styled.div`

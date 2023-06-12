@@ -72,8 +72,8 @@ const BoxBtn = ({type, children, product, color, w, h, link = false, typoType = 
         )
         if(type === 'pay') return (
             <FlexContainer justify='center' gap='1'>
-                <RadioBtn  w={w ? w : 16.7} h={h ? h : 5.6} onClick={() => HandlerAddLink(false)} ><Typo type={TypoType.body_1}>Add to cart</Typo></RadioBtn>
-                <RadioBtnActive w={w ? w : 16.7} h={h ? h : 5.6} onClick={() => HandlerAddLink(true)} ><Typo type={TypoType.body_1} color='black'>Buy Now</Typo></RadioBtnActive>
+                <RadioBtn  w={w ? w : '16.7rem'} h={h ? h : '5.6rem'} onClick={() => HandlerAddLink(false)} ><Typo type={TypoType.body_1}>Add to cart</Typo></RadioBtn>
+                <RadioBtnActive w={w ? w : '16.7rem'} h={h ? h : '5.6rem'} onClick={() => HandlerAddLink(true)} ><Typo type={TypoType.body_1} color='black'>Buy Now</Typo></RadioBtnActive>
             </FlexContainer>
         )     
     }

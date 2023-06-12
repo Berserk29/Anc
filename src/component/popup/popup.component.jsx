@@ -60,7 +60,7 @@ const Popup = ({props}) => {
                     </FlexContainer>
                 </FlexContainer>
                 <div onClick={cartHandler}>
-                    <BoxBtn type={BoxBtnType.radio_active} w='31.5' h='4.8' typoType='body_1' >See Shopping Cart</BoxBtn>
+                    <BoxBtn type={BoxBtnType.radio_active} w='31.5rem' h='4.8rem' typoType='body_1' >See Shopping Cart</BoxBtn>
                 </div>
             </FlexContainer>
         </PopupContainer>

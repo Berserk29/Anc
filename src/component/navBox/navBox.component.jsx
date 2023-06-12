@@ -46,10 +46,10 @@ const NavBox = ({type}) => {
                             <Typo type={TypoType.arialSize} color='black' size='1.6' weight='700' transform='capitalize'>Total</Typo>
                             <Typo type={TypoType.arialSize} color='black' size='1.6' weight='700' transform='capitalize'>${cartTotalPrice}</Typo>
                         </TotalContainer>
-                        <BoxBtn type={BoxBtnType.radio} w='31.5' h='6' link='/account'>Checkout</BoxBtn>
+                        <BoxBtn type={BoxBtnType.radio} w='31.5rem' h='6rem' link='/account'>Checkout</BoxBtn>
                     </>    
                     }
-                    { currentUser ? '' : tripeChoice(true, false, false) && <SignInContainer><BoxBtn type={BoxBtnType.radio} w='15' h='4' link='/account'  >Sign In</BoxBtn></SignInContainer> }
+                    { currentUser ? '' : tripeChoice(true, false, false) && <SignInContainer><BoxBtn type={BoxBtnType.radio} w='15rem' h='4rem' link='/account'  >Sign In</BoxBtn></SignInContainer> }
             </BoxContainer>
                 :
             <BoxContainer
