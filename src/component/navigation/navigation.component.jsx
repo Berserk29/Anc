@@ -67,7 +67,7 @@ const Navigation = ({color = 'white', sticky = true}) => {
                 </HamContainer>
                 <AncLogo haveLink={true} color={color} isDropMenuOn={dropMenuOn}/>
                 <IconContainer datatype="navBox">
-                    {navLogoArray.map((el,i) =>  isSmTablet && i === 0 ? '' : <NavIcon key={i} src={color === 'white' || dropMenuOn ? el.white : el.black} onClick={() => IconHandler(i + 1)} /> ) }
+                    {navLogoArray.map((el,i) =>  isSmTablet && i === 1 ? '' : <NavIcon key={i} src={color === 'white' || dropMenuOn ? el.white : el.black} onClick={() => IconHandler(i + 1)} /> ) }
                     {cartItemsCount ? <CartNumberLogic/> : ''}
                     {navButton ? <NavBox type={navButton}/> : ''}
                 </IconContainer>

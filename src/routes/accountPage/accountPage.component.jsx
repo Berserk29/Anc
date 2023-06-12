@@ -1,4 +1,6 @@
 import { useNavigate } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
+import mediaQuery from "../../helper/mediaQuery";
 
 import NavFooter from "../../component/navFooter/navFooter.component";
 import CardAccount from "../../component/cardAccount/cardAccount.component";
@@ -17,32 +19,40 @@ import {
 
 
 const AccountPage = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const isTablet = useMediaQuery(mediaQuery.useTablet)
+
 
     const titleHandler = (link) => navigate(`/account${link}`)
+
+    const subTitleChoice = () => {
+        return (
+            <SubTitleContainer>
+                <AccountBox>
+                    <Typo type={TypoType.headline_4} color='black'>My Account</Typo>
+                </AccountBox>
+                <TitleContainer>
+                    {titleArr.map((el,i) => {
+                        return (
+                            <div key={i} onClick={() => titleHandler(el.link)}>
+                                <Typo type={TypoType.body_3} color='black' hover={true} >{el.title}</Typo>
+                            </div>  
+                        )
+                    })}
+                    <FaqContainer>
+                        <Typo type={TypoType.body_3} color='black' hover={true} >FAQ</Typo>
+                        <Typo type={TypoType.body_3} color='black' hover={true} >Logout</Typo>
+                    </FaqContainer>
+                </TitleContainer>
+            </SubTitleContainer>
+        )
+    }
 
     return (
         <NavFooter color="white">
             <AccountContainer>
-                    <SubTitleContainer>
-                        <AccountBox>
-                            <Typo type={TypoType.headline_4} color='black'>My Account</Typo>
-                        </AccountBox>
-                        <TitleContainer>
-                            {titleArr.map((el,i) => {
-                                return (
-                                    <div key={i} onClick={() => titleHandler(el.link)}>
-                                        <Typo type={TypoType.body_3} color='black' hover={true} >{el.title}</Typo>
-                                    </div>  
-                                )
-                            })}
-                            <FaqContainer>
-                                <Typo type={TypoType.body_3} color='black' hover={true} >FAQ</Typo>
-                                <Typo type={TypoType.body_3} color='black' hover={true} >Logout</Typo>
-                            </FaqContainer>
-                        </TitleContainer>
-                    </SubTitleContainer>
-                    <FlexContainer>
+                { !isTablet ? subTitleChoice() : ''}
+                <FlexContainer>
                         <div>
                             <Typo type={TypoType.headline_1} color='black'>Hi, User</Typo>
                             <Typo type={TypoType.body_5} color='black'>What would you like to do today?</Typo>

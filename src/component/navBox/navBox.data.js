@@ -19,6 +19,5 @@ export const userArr = [
     },
     {
         name: 'Logout',
-        link: '/account',
     },
 ]

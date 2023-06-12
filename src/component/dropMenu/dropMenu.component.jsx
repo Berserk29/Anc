@@ -8,7 +8,7 @@ const DropMenu = ({isOpen}) => {
     const navigate = useNavigate()
 
     const linkHandler = (link) => {
-        if(location.pathname === link) return window.location.reload(true) 
+        if(location.pathname === link) return window.location.reload(true)
         else navigate(link)
     };
 

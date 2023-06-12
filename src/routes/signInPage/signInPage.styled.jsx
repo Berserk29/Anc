@@ -59,3 +59,14 @@ export const FormInput = styled.input`
 export const FormContainer = styled.div`
     padding-bottom: 4rem;
 `
+
+export const ErrorBox = styled.div`
+    width: 100%;
+    padding: 2rem;
+    color: var(--color-white);
+    font-size: 14px;
+    font-family: 'Arial';
+    font-weight: 700;
+    background-color: var(--color-black);
+    border: 1px solid var(--color-hover);
+`

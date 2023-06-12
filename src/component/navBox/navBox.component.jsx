@@ -1,7 +1,8 @@
 import { useContext } from "react"
-import { BoxContainer, BoxItems, TotalContainer } from "./navBox.styled"
+import { BoxContainer, BoxItems, TotalContainer, SignInContainer } from "./navBox.styled"
 import { CartContext } from "../../context/cart.context"
 import { LikedContext } from "../../context/liked.context"
+import { UserContext } from "../../context/user.context"
 import Typo, { TypoType } from "../typo/typo.component"
 import { userArr } from "./navBox.data"
 import NavBoxItem from "../navBoxItem/navBoxItem.component"
@@ -10,8 +11,9 @@ import { useMediaQuery } from "react-responsive"
 import mediaQuery from "../../helper/mediaQuery"
 
 const NavBox = ({type}) => {
-    const {cartItems, cartTotalPrice} = useContext(CartContext)
-    const {likedItems} = useContext(LikedContext)
+    const { currentUser } = useContext(UserContext)
+    const { cartItems, cartTotalPrice } = useContext(CartContext)
+    const { likedItems } = useContext(LikedContext)
     
     const isSmTablet = useMediaQuery(mediaQuery.useSmTablet)
 
@@ -22,23 +24,21 @@ const NavBox = ({type}) => {
         return ''
     }
     
-    if(isSmTablet && type === 1) return ;
-
-    // TODO DOING THE MEDIA QUERY
+    if(isSmTablet && type === 2) return ;
     
     return (
         <>
         {tripeChoice( userArr , likedItems, cartItems).length ? 
             <BoxContainer 
-                right={tripeChoice(10, 5, 0)} 
+                right={tripeChoice(isSmTablet ? 5 : 10, 5, 0)} 
                 height={tripeChoice(24, 45.4, 46)} 
                 width={tripeChoice(18,20.5,36.3)}
                 padding={tripeChoice(1.6, 2.4, 2.4)}
                 datatype="navBox" 
             >
                 <BoxItems gap={tripeChoice(0,2,1)} height={tripeChoice('','','35rem')} datatype="navBox">
-                    {tripeChoice(true, false, false) && <Typo type={TypoType.body_1} color='black' marginBottom='1'>My Account</Typo> }  
-                    {tripeChoice( userArr , likedItems, cartItems).map((el,i) => <NavBoxItem key={i} props={el} type={type}/>)}
+                    {tripeChoice(true, false, false) && <Typo type={TypoType.body_1} color='black' marginBottom='1'>{currentUser ? 'My Account' : 'Sign In'}</Typo> }  
+                    {tripeChoice( currentUser ? userArr : [] , likedItems, cartItems).map((el,i) => <NavBoxItem key={i} props={el} type={type}/>)}
                 </BoxItems>
                     {tripeChoice(false, false, true) &&
                     <>
@@ -49,13 +49,14 @@ const NavBox = ({type}) => {
                         <BoxBtn type={BoxBtnType.radio} w='31.5' h='6' link='/account'>Checkout</BoxBtn>
                     </>    
                     }
+                    { currentUser ? '' : tripeChoice(true, false, false) && <SignInContainer><BoxBtn type={BoxBtnType.radio} w='15' h='4' link='/account'  >Sign In</BoxBtn></SignInContainer> }
             </BoxContainer>
                 :
             <BoxContainer
-                right={tripeChoice(10,5,0)}
+                right={tripeChoice(isSmTablet ? 5 : 10, 5, 0)}
                 height='10'
-                width='14'
-                padding='1.2'
+                width='23'
+                padding='2.5'
                 datatype="navBox"
             >
                 <Typo color='black' type={TypoType.body_1}>Your {tripeChoice('cart', 'favorite', 'cart')} is empty</Typo>

@@ -57,7 +57,7 @@ export const cardArr = [
     },
     {
         title: 'FAQ',
-        text: 'Do you need helf?',
+        text: 'Do you need help?',
         imageUrl: cardImg6,
     },
 ]

@@ -12,7 +12,8 @@ import {
     SignBtnActive,
     SignBtnNotActive,
     FormInput,
-    FormContainer
+    FormContainer,
+    ErrorBox
 } from "./signInPage.styled";
 import BoxBtn, { BoxBtnType } from '../../component/boxBtn/boxBtn.component';
 
@@ -30,11 +31,11 @@ const defaultFormCreate = {
 
 const SignInPage = () => {
     const [ btnNum, setBtnNum ] = useState(0);
+    const [errMessage , setErrMessage] = useState(false)
     const [formSign, setFormSign] = useState(defaultFormSign);
     const [formCreate, setFormCreate] = useState(defaultFormCreate);
-    
 
-    
+
     const resetFormFields = () => {
         setFormSign(defaultFormSign);
         setFormCreate(defaultFormCreate)
@@ -49,13 +50,13 @@ const SignInPage = () => {
         } catch(err){
             switch(err.code) {
                 case 'auth/wrong-password' :
-                    alert('Incorrect password or email');
+                    setErrMessage('Incorrect password or email');
                     break;
                 case 'auth/user-not-found' :
-                    alert('No user associated with this email');
+                    setErrMessage('Incorrect password or email');
                     break;
                 default :
-                    console.error(err);
+                    setErrMessage('Sign in connection encountered an error');
             }
         }
     }
@@ -65,7 +66,7 @@ const SignInPage = () => {
         const {password, confirmPassword, email, displayName} = formCreate
 
         if(password !== confirmPassword){
-            alert('password do not match');
+            setErrMessage('Password do not match');
             return ;
         }
         try{
@@ -74,17 +75,22 @@ const SignInPage = () => {
 
             resetFormFields();
             
-        }catch(err){
-            if(err.code === 'auth/email-already-in-use') {
-                alert('Cannot create user, email already in use');
-            }
-            else{
-                console.log('user creation encountered an error', err)
+        } catch(err){
+            switch(err.code){
+                case 'auth/weak-password' :
+                    setErrMessage('Password should be at least 6 characters')
+                    break;
+                case 'auth/email-already-in-use' :
+                    setErrMessage('Cannot create user, email already in use')
+                    break;
+                default:
+                    setErrMessage('User creation encountered an error');
             }
         }
     }
 
     const handleChange = (event) => {
+        if(errMessage) setErrMessage(false);
         const {name, value} = event.target;
         if(btnNum === 0) {
             setFormSign({...formSign, [name]: value});
@@ -97,6 +103,7 @@ const SignInPage = () => {
     const BtnChoice = () => {
         const signHandler = (i) => {
             resetFormFields()
+            setErrMessage(false)
             setBtnNum(i)
         }; 
 
@@ -183,6 +190,7 @@ const SignInPage = () => {
                         <FormContainer>
                             {formChoice()}
                         </FormContainer>
+                        { errMessage ? <ErrorBox>{errMessage}</ErrorBox> : ''} 
                         { btnNum }
                         <BoxBtn type={BoxBtnType.radio_active} w='63' h='5.6' typoType='body_1'>Continue</BoxBtn>
                     </form>

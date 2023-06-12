@@ -30,3 +30,9 @@ export const TotalContainer = styled.div`
     width: 100%;
     height: 8rem;
 `
+
+export const SignInContainer = styled(TotalContainer)`
+    justify-content: center;
+    align-items: end;
+    height: 6rem;
+`
