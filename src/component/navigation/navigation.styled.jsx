@@ -55,10 +55,13 @@ export const NavIcon = styled.img`
     cursor: pointer;
     position: relative;
     transition: filter .3s;
-    :hover {
-        filter: var(--filter-hover-white);
+    /* Only work if I can hover --> touch cannot hover */
+    @media (hover: hover) {
+        :hover {
+            filter: var(--filter-hover-white);
+        }
     }
-    `
+`
 export const HamIcon = styled.img`
     width: 2.4rem;
     cursor: pointer;

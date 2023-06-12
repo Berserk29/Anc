@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import mediaQuery from "../../helper/mediaQuery";
 
 export const FooterContainer = styled.div`
     display: flex;
@@ -35,4 +36,8 @@ export const AddressContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: .8rem;
+    @media ${mediaQuery.styledMobile} {
+        text-align: center;
+        padding: 2rem;
+    }
 `
