@@ -38,24 +38,32 @@ export const CartContext = createContext({
     addItemToCart: () => {},
     subtractItemToCart: () => {},
     removeItemToCart: () => {},
+    shippingCost: 0,
+    totalBeforeTax: 0,
 })
 
 // Provider
 export const CartProvider = ({children}) => {
     const [isCartOpen, setCartOpen] = useState(false)
     const [cartItems, setCartItems] = useState([])
+    const [shippingCost, setShippingCost] = useState(0)
     const [cartItemsCount, setCartItemsCount] = useState(0);
     const [cartTotalPrice, setCartTotalPrice] = useState(0);
+
+
 
     useEffect(() => {
         const totalCartItems = cartItems.reduce((acc, curEl) => acc + curEl.quantity, 0)
         setCartItemsCount(totalCartItems)
+        setShippingCost(totalCartItems * 1.40 )
     }, [cartItems])
 
     useEffect(() => {
         const totalCartPrice = cartItems.reduce((acc, curEl) => acc + (curEl.quantity * curEl.price), 0);
         setCartTotalPrice(totalCartPrice)
     }, [cartItems])
+
+    const totalBeforeTax = cartTotalPrice + shippingCost;
     
     const addItemToCart = (productToAdd, quantity) => setCartItems(addCartItem(cartItems, productToAdd, quantity))
     const subtractItemToCart = (productToSubtract) => setCartItems(subtractCartItem(cartItems, productToSubtract))
@@ -71,6 +79,8 @@ export const CartProvider = ({children}) => {
         removeItemToCart,
         cartItemsCount,
         cartTotalPrice,
+        shippingCost,
+        totalBeforeTax,
     }
 
     return <CartContext.Provider value={value}>{children}</CartContext.Provider>

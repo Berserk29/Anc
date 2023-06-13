@@ -1,16 +1,26 @@
 import { useContext } from "react";
 import CheckoutProduct from "../../component/checkoutProduct/checkoutProduct.component";
 import NavFooter from "../../component/navFooter/navFooter.component"
-import { Section } from "./checkoutPage.styled";
 import { CartContext } from "../../context/cart.context";
+import Summary from "../../component/summary/summary.component";
+
+import { Section, ProductContainer, OrderContainer} from "./checkoutPage.styled";
+
+const titleArr = ['product', 'quantity', 'price']
 
 const CheckoutPage = () => {
     const {cartItems} = useContext(CartContext)
-    console.log(cartItems)
+
     return (
         <NavFooter color="white">
             <Section>
-                { cartItems?.map((el,i) => <CheckoutProduct key={i} props={el}/>)}
+                    <ProductContainer>
+                        <CheckoutProduct title={titleArr} props={''}/>
+                        { cartItems?.map((el,i) => <CheckoutProduct key={i} props={el}/>)}
+                    </ProductContainer>
+                    <OrderContainer>
+                        <Summary btnText='Procceed To Checkout' taxSummary={false}/>
+                    </OrderContainer>
             </Section>
         </NavFooter>
     )

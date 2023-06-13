@@ -43,10 +43,8 @@ const NavBox = ({type}) => {
                     {tripeChoice(false, false, true) &&
                     <>
                         <TotalContainer datatype="navBox">
-                            <Typo type={TypoType.arialSize} color='black' size='1.6' weight='700' transform='capitalize'>Total</Typo>
-                            <Typo type={TypoType.arialSize} color='black' size='1.6' weight='700' transform='capitalize'>${cartTotalPrice}</Typo>
+                            <BoxBtn type={BoxBtnType.radio} w='31.5rem' h='6rem' link='/checkout'>Checkout</BoxBtn>
                         </TotalContainer>
-                        <BoxBtn type={BoxBtnType.radio} w='31.5rem' h='6rem' link='/checkout'>Checkout</BoxBtn>
                     </>    
                     }
                     { currentUser ? '' : tripeChoice(true, false, false) && <SignInContainer><BoxBtn type={BoxBtnType.radio} w='15rem' h='4rem' link='/account'  >Sign In</BoxBtn></SignInContainer> }
