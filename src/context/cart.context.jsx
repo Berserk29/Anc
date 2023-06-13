@@ -1,26 +1,34 @@
 import { createContext, useState, useEffect} from "react";
 
-// TODO NEED TO DO RESEARCH BY ID AND SIZE! Modify addCartItem and SubtractCartItem!!!!!
+const cartLogic = (bolean, cartItem, product) => {
+    if(bolean) return cartItem.id === product.id && cartItem.size === product.size;
+    if(!bolean) return !(cartItem.id === product.id && cartItem.size === product.size);
+}
 
-const addCartItem = (cartItems, productToAdd) => {    
+const addCartItem = (cartItems, productToAdd, quantity) => {
+    const existingCartItem = cartItems.find((cartItem) => cartLogic(true, cartItem, productToAdd));
+    
+    if(existingCartItem) {
+        return cartItems.map((cartItem) => cartLogic(true, cartItem, productToAdd) ? {...cartItem, quantity: cartItem.quantity + +quantity} : cartItem)
+    }
+
     return [...cartItems, {...productToAdd}];
 }
 
 const subtractCartItem = (cartItems, productToSubtract) => {
-    const existingCartItem = cartItems.find((cartItem) => 
-    cartItem.id === productToSubtract.id);
+    const existingCartItem = cartItems.find((cartItem) => cartLogic(true, cartItem, productToSubtract));
     
     if(existingCartItem.quantity === 1) {
-        return cartItems.filter((cartItem) => cartItem.id !== productToSubtract.id )
+        return cartItems.filter((cartItem) => cartLogic(false, cartItem, productToSubtract))
     }
     
-    return cartItems.map((cartItem) => cartItem.id === productToSubtract.id ?
-    {...cartItem, quantity: cartItem.quantity - 1} : cartItem );
-    
+    return cartItems.map((cartItem) => cartLogic(true, cartItem, productToSubtract) ?
+        {...cartItem, quantity: cartItem.quantity - 1} : cartItem 
+    )
+       
 }
 
-const removeCartItem = (cartItems, productToRemove) => 
-cartItems.filter((cartItem) => cartItem.id !== productToRemove.id )
+const removeCartItem = (cartItems, productToRemove) => cartItems.filter((cartItem) => cartLogic(false, cartItem, productToRemove) )
 
 export const CartContext = createContext({
     isCartOpen: false,
@@ -49,7 +57,7 @@ export const CartProvider = ({children}) => {
         setCartTotalPrice(totalCartPrice)
     }, [cartItems])
     
-    const addItemToCart = (productToAdd) => setCartItems(addCartItem(cartItems, productToAdd))
+    const addItemToCart = (productToAdd, quantity) => setCartItems(addCartItem(cartItems, productToAdd, quantity))
     const subtractItemToCart = (productToSubtract) => setCartItems(subtractCartItem(cartItems, productToSubtract))
     const removeItemToCart = (productToRemove) => setCartItems(removeCartItem(cartItems, productToRemove))
     

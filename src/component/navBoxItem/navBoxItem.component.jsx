@@ -7,7 +7,7 @@ import { signOutUser } from "../../utiles/firebase/firebase.utiles";
 
 const NavBoxItem = ({props, type}) => {
     const {setNavButton} = useContext(LikedContext)
-    const {name, imageUrl, price, quantity, size, totalPrice, imageUrlHover, id, link} = props
+    const {name, imageUrl, price, quantity, size, imageUrlHover, id, link} = props
     const navigate = useNavigate()
 
 
@@ -43,7 +43,7 @@ const NavBoxItem = ({props, type}) => {
                     <FlexContainer gap='.5' datatype="navBox">
                         <Typo type={TypoType.arialSize} color='black' size='1.2' weight='400' transform='capitalize'>Quantity: {quantity}</Typo>
                         <Typo type={TypoType.arialSize} color='black' size='1.2' weight='400' transform='capitalize'>Size: {size}</Typo>
-                        <Typo type={TypoType.arialSize} color='black' size='1.2' weight='700' transform='capitalize'>Total: ${totalPrice}</Typo>
+                        <Typo type={TypoType.arialSize} color='black' size='1.2' weight='700' transform='capitalize'>Total: ${quantity * price}</Typo>
                     </FlexContainer>
                 </FlexContainer>
 

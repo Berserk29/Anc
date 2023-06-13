@@ -41,7 +41,7 @@ const BoxBtn = ({type, children, product, color, w, h, link = false, typoType = 
     const HandlerAddLink = (boolean) => {
         if(boolean === false) {
             setIsPopupOn(true)
-            return addItemToCart(addProductOrder(product))
+            return addItemToCart(addProductOrder(product), orderNumber)
         }
         else {
             addItemToCart(addProductOrder(product))
@@ -85,7 +85,7 @@ const BoxBtn = ({type, children, product, color, w, h, link = false, typoType = 
             <FlexContainer>
                 <SumBtnWhite w={w} h={h}  onClick={() => subtractItemToCart(product)}><MinusReverse/></SumBtnWhite>
                 <SumBtnWhite w={w} h={h}><Typo type={TypoType.body_3} userSelect='none' color='black' >{children}</Typo></SumBtnWhite>
-                <SumBtnWhite w={w} h={h} onClick={() => addItemToCart(product)}><PlusReverse/></SumBtnWhite>
+                <SumBtnWhite w={w} h={h} onClick={() => addItemToCart(product, 1)}><PlusReverse/></SumBtnWhite>
             </FlexContainer>
         )
         if(type === 'pay') return (

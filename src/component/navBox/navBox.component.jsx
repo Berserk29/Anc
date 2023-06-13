@@ -12,7 +12,7 @@ import mediaQuery from "../../helper/mediaQuery"
 
 const NavBox = ({type}) => {
     const { currentUser } = useContext(UserContext)
-    const { cartItems, cartTotalPrice } = useContext(CartContext)
+    const { cartItems , cartTotalPrice} = useContext(CartContext)
     const { likedItems } = useContext(LikedContext)
     
     const isSmTablet = useMediaQuery(mediaQuery.useSmTablet)

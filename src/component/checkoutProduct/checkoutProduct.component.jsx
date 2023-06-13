@@ -8,8 +8,6 @@ import mediaQuery from "../../helper/mediaQuery";
 const CheckoutProduct = ({props}) => {
 const {name, price, quantity, imageUrl, size} = props;
 
-console.log(quantity)
-
 const isTablet = useMediaQuery(mediaQuery.useTablet)
 
     return (
