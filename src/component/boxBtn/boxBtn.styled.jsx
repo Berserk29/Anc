@@ -20,6 +20,10 @@ export const RadioBtnActive = styled(RadioBtn)`
     outline: 1px solid var(--color-black);
 `
 
+export const RadioHover = styled(RadioBtnActive)`
+    outline: 1px solid var(--color-hover);
+`
+
 export const FlexContainer = styled.div`
     display: flex;
     justify-content: ${props => props.justify};
@@ -29,6 +33,11 @@ export const FlexContainer = styled.div`
 export const SumBtn = styled(RadioBtn)`
     width: ${props => props.w || '3rem'};
     height: ${props => props.h || '3rem'};
+`
+
+export const SumBtnWhite = styled(SumBtn)`
+    background-color: var(--color-white);
+    outline: 1px solid var(--color-black);
 `
 
 export const ColorSquare = styled.div`
@@ -54,5 +63,16 @@ export const Plus = styled(Minus)`
         width: 2px;
         height: 10px;
         background-color: var(--color-white);
+    }
+`
+
+export const MinusReverse = styled(Minus)`
+    background-color: var(--color-black);
+`
+
+export const PlusReverse = styled(Plus)`
+    background-color: var(--color-black);
+    ::before {
+        background-color: var(--color-black);
     }
 `

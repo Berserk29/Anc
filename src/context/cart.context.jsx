@@ -1,5 +1,7 @@
 import { createContext, useState, useEffect} from "react";
 
+// TODO NEED TO DO RESEARCH BY ID AND SIZE! Modify addCartItem and SubtractCartItem!!!!!
+
 const addCartItem = (cartItems, productToAdd) => {    
     return [...cartItems, {...productToAdd}];
 }

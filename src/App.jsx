@@ -9,10 +9,15 @@ import ContactPage from "./routes/contactPage/contactPage.component";
 import LookbookPage from "./routes/lookbookPage/lookbookPage.component";
 import ShopRoute from "./routes/shopRoute/shopRoute.component";
 import SignInPage from "./routes/signInPage/signInPage.component";
+import CheckoutPage from "./routes/checkoutPage/checkoutPage.component";
+import OrderPage from "./routes/orderPage/orderPage.component";
+
+import { UserContext } from "./context/user.context";
 
 
 function App() {
 const {navButton, setNavButton} = useContext(LikedContext)
+const {currentUser} = useContext(UserContext)
 
 // This handler close the navBox if clicking anywhere beside Parent Object having datatype='navBox'
 const clickHandler = (e) => {
@@ -29,8 +34,17 @@ const clickHandler = (e) => {
       <Route path="contact" element={<ContactPage/>}/>
       <Route path="shop/*" element={<ShopRoute/>}/>
       <Route path="lookbook" element={<LookbookPage/>}/>
-      <Route path="sign" element={<SignInPage/>}/>
-      <Route path="account/*" element={<AccountRoute/>}/>
+      <Route path="checkout" element={<CheckoutPage/>}/>
+      { currentUser ?
+        <>
+          <Route path="account/*" element={<AccountRoute/>}/>
+          <Route path='checkout/order' element={<OrderPage/>}/>
+        </> :
+        <>
+          <Route path="account/*" element={<SignInPage/>}/>
+          <Route path="checkout/order" element={<SignInPage/>}/>
+        </>
+      }
     </Routes>
     </div>
   )

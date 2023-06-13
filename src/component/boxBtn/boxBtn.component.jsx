@@ -10,6 +10,10 @@ import {
     Plus, 
     ColorSquare, 
     SumBtn,
+    SumBtnWhite,
+    MinusReverse,
+    PlusReverse,
+    RadioHover
 } from "./boxBtn.styled";
 
 import { OrderContext } from "../../context/order.context";
@@ -19,7 +23,9 @@ import { LikedContext } from "../../context/liked.context";
 export const BoxBtnType = {
     radio: 'radio',
     radio_active: 'radio_active',
+    radio_checkout: 'radio_checkout',
     sum: 'sum',
+    sum_checkout: 'sum_checkout',
     pay: 'pay',
     color: 'color', 
     sign: 'sign'
@@ -27,7 +33,7 @@ export const BoxBtnType = {
 
 const BoxBtn = ({type, children, product, color, w, h, link = false, typoType = 'body_2'}) => {
     const {orderNumber, addOrderNumber, subtractOrderNumber, addProductOrder, setIsPopupOn} = useContext(OrderContext)
-    const {addItemToCart} = useContext(CartContext)
+    const {addItemToCart, removeItemToCart, subtractItemToCart} = useContext(CartContext)
     const { setNavButton } = useContext(LikedContext)
 
     const navigate = useNavigate()
@@ -61,6 +67,11 @@ const BoxBtn = ({type, children, product, color, w, h, link = false, typoType = 
                 <Typo type={TypoType[typoType]} color='black'>{children}</Typo>
             </RadioBtnActive>
         )
+        if(type === 'radio_checkout') return (
+            <RadioHover w={w} h={h} onClick={() => removeItemToCart(product)}>
+                <Typo type={TypoType[typoType]} color='var(--color-hover)'>{children}</Typo>
+            </RadioHover>
+        )
         if(type === 'color') return <ColorSquare w={w} h={h} color={color}/>
 
         if(type === 'sum') return (
@@ -68,6 +79,13 @@ const BoxBtn = ({type, children, product, color, w, h, link = false, typoType = 
                 <SumBtn w={w} h={h}  onClick={subtractOrderNumber}><Minus/></SumBtn>
                 <SumBtn w={w} h={h}><Typo type={TypoType.body_3} userSelect='none'>{orderNumber}</Typo></SumBtn>
                 <SumBtn w={w} h={h} onClick={addOrderNumber}><Plus/></SumBtn>
+            </FlexContainer>
+        )
+        if(type === 'sum_checkout') return (
+            <FlexContainer>
+                <SumBtnWhite w={w} h={h}  onClick={() => subtractItemToCart(product)}><MinusReverse/></SumBtnWhite>
+                <SumBtnWhite w={w} h={h}><Typo type={TypoType.body_3} userSelect='none' color='black' >{children}</Typo></SumBtnWhite>
+                <SumBtnWhite w={w} h={h} onClick={() => addItemToCart(product)}><PlusReverse/></SumBtnWhite>
             </FlexContainer>
         )
         if(type === 'pay') return (
