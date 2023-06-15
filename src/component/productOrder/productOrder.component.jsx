@@ -22,7 +22,7 @@ import {
 
 
 const ProductOrder = ({product}) => {
-    const {btnSizeHandler, btnSizeActiveNum, isProductDiscount, newPrice, totalPrice, isPopupOn, setOrderNumber} = useContext(OrderContext)
+    const {btnSizeHandler, btnSizeActiveNum, isProductDiscount, newPrice, totalPrice, isPopupOn, setOrderNumber, setIsPopupOn} = useContext(OrderContext)
     const {likedBtnHandler , isLiked, openPageLiked} = useContext(LikedContext)
 
     const isTablet = useMediaQuery(mediaQuery.useTablet)
@@ -32,6 +32,7 @@ const ProductOrder = ({product}) => {
     useEffect(() => {
       btnSizeHandler(0)
       setOrderNumber(1)
+      setIsPopupOn(false)
     },[])
 
     useEffect(() => {
@@ -82,7 +83,7 @@ const ProductOrder = ({product}) => {
               <BoxBtn type={BoxBtnType.color} color={product?.color} w={isTablet && '5rem'} h={isTablet && '5rem'}/>
           </FlexBox>
           {/* SIZE SECTION */}
-        { product?.size.length === 0 ? '' :
+        { product?.size[0] === 'regular' ? '' :
             <FlexBox justify='start' align='start' paddingBottom='4.6' gap='1.2'>
                 <FlexColumn marginRight='3.1' gap='1.2'>
                     <Typo type={TypoType.body_5}>Size</Typo>

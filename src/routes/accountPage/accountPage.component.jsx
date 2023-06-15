@@ -16,12 +16,16 @@ import {
     FaqContainer,
     AccountBox
 } from './accountPage.styled'
+import { useContext } from "react";
+import { UserContext } from "../../context/user.context";
 
 
 const AccountPage = () => {
+    const {currentUser} = useContext(UserContext)
     const navigate = useNavigate();
     const isTablet = useMediaQuery(mediaQuery.useTablet)
 
+    console.log(currentUser)
 
     const titleHandler = (link) => navigate(`/account${link}`)
 

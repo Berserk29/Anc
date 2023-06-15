@@ -1,14 +1,26 @@
 import { useContext } from "react"
+import { useNavigate } from "react-router-dom"
+
 import { UserContext } from "../../context/user.context"
+import { CartContext } from "../../context/cart.context"
+
 import BoxBtn, { BoxBtnType } from "../boxBtn/boxBtn.component"
 import Typo, { TypoType } from "../typo/typo.component"
 
 import { Container, DetailContainer, TotalContainer, Line } from "./summary.styled"
-import { CartContext } from "../../context/cart.context"
 
-const Summary = ({btnText, taxSummary}) => {
+const Summary = ({btnText, taxSummary, onSubmit}) => {
     const {currentUser} = useContext(UserContext)
-    const {cartItemsCount, cartTotalPrice, shippingCost, totalBeforeTax} = useContext(CartContext)
+    const {cartItemsCount, cartTotalPrice, shippingCost, totalBeforeTax, federalTax, provincialTax , totalAfterTax} = useContext(CartContext)
+    const navigate = useNavigate()
+
+    const btnHandler = () => {
+        if(taxSummary) {
+            onSubmit()
+        } else {
+            navigate('/checkout/order')
+        }
+    }
 
     return (
         <Container>
@@ -26,24 +38,29 @@ const Summary = ({btnText, taxSummary}) => {
                     <>
                     <Line>
                         <Typo type={TypoType.body_4} color='black' >Total before tax</Typo>
-                        <Typo type={TypoType.body_4} color='black' >$ (shipping + price)</Typo>
+                        <Typo type={TypoType.body_4} color='black' >${totalBeforeTax.toFixed(2)}</Typo>
                     </Line>
                     <Line>
                         <Typo type={TypoType.body_4} color='black' >Estimated GST/HST</Typo>
-                        <Typo type={TypoType.body_4} color='black' >$ (tax)</Typo>
+                        <Typo type={TypoType.body_4} color='black' >{federalTax !== 0 ? `$${federalTax.toFixed(2)}` : "-----"}</Typo>
                     </Line>
-                    <Line>
-                        <Typo type={TypoType.body_4} color='black' >Estimated PST/RST/QST:</Typo>
-                        <Typo type={TypoType.body_4} color='black' >$ (tax)</Typo>
-                    </Line>
+                    {  !provincialTax ? '' 
+                        :
+                        <Line>
+                            <Typo type={TypoType.body_4} color='black' >Estimated PST/RST/QST:</Typo>
+                            <Typo type={TypoType.body_4} color='black' >${provincialTax.toFixed(2)}</Typo>
+                        </Line>
+                    }
                     </> : ''                    
                 }
             </DetailContainer>
             <TotalContainer>
                 <Typo type={TypoType.arialSize} size={taxSummary ? 2.3 : 1.6} weight='700' transform='none' color='black' >{taxSummary ? 'Total' : 'Total before tax'}</Typo>
-                <Typo type={TypoType.headline_4} color='black' >${taxSummary ? '999$' : totalBeforeTax.toFixed(2)}</Typo>
+                <Typo type={TypoType.headline_4} color='black' >${taxSummary ?  federalTax !== 0 ? totalAfterTax.toFixed(2) : '----' : totalBeforeTax.toFixed(2)}</Typo>
             </TotalContainer>
-            <BoxBtn type={BoxBtnType.radio} w='100%' h='4.8rem' typoType="body_1">{currentUser ? btnText : 'Sign In'}</BoxBtn>
+            <div onClick={btnHandler} >
+                <BoxBtn type={BoxBtnType.radio} w='100%' h='4.8rem' typoType="body_1">{currentUser ? btnText : 'Sign In'}</BoxBtn>
+            </div>
         </Container>
     )
 }

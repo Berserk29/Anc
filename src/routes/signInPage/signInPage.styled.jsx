@@ -57,6 +57,14 @@ export const FormInput = styled.input`
     border-bottom: 1px solid var(--color-hover);
     padding: 10px;
     transition: all .2s;
+    :-webkit-autofill,
+    :-webkit-autofill:hover,
+    :-webkit-autofill:focus,
+    :-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+        -webkit-text-fill-color: var(--color-white);
+    }
+
     &:focus {
         outline: none;
         border-bottom: 1px solid var(--color-white);

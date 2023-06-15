@@ -16,7 +16,7 @@ const Popup = ({props}) => {
     const navigate = useNavigate();
 
     // TODO NAVIGATE TO THE PROPER PAGE WHEN IT'S CREATE
-    const cartHandler = () => navigate('/account');
+    const cartHandler = () => navigate('/checkout');
 
     // Timeout to takeout the popup
     useEffect(() => {

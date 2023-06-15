@@ -10,7 +10,7 @@ export const Section = styled.div`
 `
 
 export const ProductContainer = styled.div`
-    flex: 140rem 0 1;
+    flex: 120rem 0 1;
     width: 100%;
 `
 

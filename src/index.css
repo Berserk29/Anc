@@ -41,6 +41,8 @@
   --color-white: rgb(255,255,255);
   --color-grey: rgb(102, 102, 102);
   --color-hover: #757575;
+  --color-grey-light: #f0f0f0;
+  --color-grey-light-2: #9b9b9b;
   --color-hover-white: #828282;
   --filter-hover-white: invert(59%) sepia(11%) saturate(20%) hue-rotate(95deg) brightness(85%) contrast(93%);
 
@@ -52,16 +54,6 @@
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
 }
-
-/* Take out the brownser autofill background color */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0px 1000px #000 inset;
-  -webkit-text-fill-color: var(--color-white)
-}
-
 
 ::-webkit-scrollbar{
   display: none;

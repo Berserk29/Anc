@@ -1,4 +1,6 @@
-// TODO THE MULTIPLE PAGE ON MEDIAQUERY
+// TODO Make sure to not proceed to checkout if there's no product (Checkout Page)
+
+// TODO USING COOKIE TO KEEP CARTITEMS 
 
 // TODO MAKE THE FONT WORK ON ANDROID
 

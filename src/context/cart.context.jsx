@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect} from "react";
+import { provinceArr } from "../routes/orderPage/orderPage.data";
 
 const cartLogic = (bolean, cartItem, product) => {
     if(bolean) return cartItem.id === product.id && cartItem.size === product.size;
@@ -40,22 +41,26 @@ export const CartContext = createContext({
     removeItemToCart: () => {},
     shippingCost: 0,
     totalBeforeTax: 0,
+    federalTax: 0,
+    provincialTax: 0,
+    taxLogic: () => {},
+    totalAfterTax: 0,
 })
 
 // Provider
 export const CartProvider = ({children}) => {
     const [isCartOpen, setCartOpen] = useState(false)
     const [cartItems, setCartItems] = useState([])
-    const [shippingCost, setShippingCost] = useState(0)
     const [cartItemsCount, setCartItemsCount] = useState(0);
     const [cartTotalPrice, setCartTotalPrice] = useState(0);
+    const [federalTax, setFederalTax] = useState(0);
+    const [provincialTax, setProvincialTax] = useState(0);
 
 
 
     useEffect(() => {
         const totalCartItems = cartItems.reduce((acc, curEl) => acc + curEl.quantity, 0)
         setCartItemsCount(totalCartItems)
-        setShippingCost(totalCartItems * 1.40 )
     }, [cartItems])
 
     useEffect(() => {
@@ -63,8 +68,23 @@ export const CartProvider = ({children}) => {
         setCartTotalPrice(totalCartPrice)
     }, [cartItems])
 
+    // shippingCost = (item * 1.40$) + (0.5% cartTotalPrice) 
+    const shippingCost = (cartItemsCount * 1.40) + (cartTotalPrice * 0.5 / 100);
     const totalBeforeTax = cartTotalPrice + shippingCost;
+
+    const taxLogic = (province) => {
+        if(!province) {
+            setFederalTax(0)
+            setProvincialTax(0)
+            return ;
+        }
+        const findArr = provinceArr.find((el) => el.name === province)
+        setFederalTax(+(totalBeforeTax * findArr.federalTax / 100).toFixed(2))
+        setProvincialTax(+(totalBeforeTax * findArr.provincialTax / 100).toFixed(2))
+    }
     
+    const totalAfterTax = totalBeforeTax + federalTax + provincialTax;
+
     const addItemToCart = (productToAdd, quantity) => setCartItems(addCartItem(cartItems, productToAdd, quantity))
     const subtractItemToCart = (productToSubtract) => setCartItems(subtractCartItem(cartItems, productToSubtract))
     const removeItemToCart = (productToRemove) => setCartItems(removeCartItem(cartItems, productToRemove))
@@ -81,7 +101,19 @@ export const CartProvider = ({children}) => {
         cartTotalPrice,
         shippingCost,
         totalBeforeTax,
+        federalTax,
+        provincialTax,
+        taxLogic,
+        totalAfterTax,
     }
+
+    // const taxLogic = (federalTax = true) => {
+    //     if(!province) return "--"
+        
+    //     const findArr = provinceArr.find((el) => el.name === province)
+    //     if(federalTax) return  (totalBeforeTax * findArr.federalTax / 100).toFixed(2)
+    //     if(!federalTax) return (totalBeforeTax * findArr.provincialTax / 100).toFixed(2)
+    // }
 
     return <CartContext.Provider value={value}>{children}</CartContext.Provider>
 }
