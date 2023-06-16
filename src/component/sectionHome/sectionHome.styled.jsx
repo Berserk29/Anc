@@ -9,7 +9,7 @@ export const Section = styled.div`
     width: 100%;
     background-color: black;
     /* INFO (SCROLL BY SECTION) */
-    scroll-snap-align: start;
+    /* scroll-snap-align: start; */
 `
 
 export const HalfImage = styled.div`
