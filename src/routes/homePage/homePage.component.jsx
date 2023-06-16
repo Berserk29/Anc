@@ -34,28 +34,30 @@ import Navigation from "../../component/navigation/navigation.component";
     },[inView1, inView6, setNumIndex])
 
     /* INFO (SCROLL BY SECTION) */
-    // const smoothScroll = event => {
-    //     event.preventDefault();
+    const smoothScroll = event => {
+        event.preventDefault();
         
-    //     const container = containerRef.current;
-    //     const containerScrollTop = container.scrollTop;
-    //     const scrollDistance = event.deltaY * 1.5
+        const container = containerRef.current;
+        const containerScrollTop = container.scrollTop;
+        const scrollDistance = event.deltaY * 1.5
 
-    //     container.scrollTo({
-    //         top: containerScrollTop + scrollDistance,
-    //         behavior: 'smooth'
-    //       });
-    // };
+        container.scrollTo({
+            top: containerScrollTop + scrollDistance,
+            behavior: 'smooth'
+          });
+    };
+    // TESTING END OF IT
 
     useEffect(() => {
         const container = containerRef.current;
         container.focus()
 
         /* INFO (SCROLL BY SECTION) */
-        // container.addEventListener('wheel', smoothScroll, { passive: false });        
-        // return () => {
-        //     container.removeEventListener('wheel', smoothScroll);
-        // };
+        container.addEventListener('wheel', smoothScroll, { passive: false });        
+        return () => {
+            container.removeEventListener('wheel', smoothScroll);
+        };
+        // TESTING (END OF IT)
     }, [])
 
 
@@ -79,7 +81,3 @@ import Navigation from "../../component/navigation/navigation.component";
 }
 
 export default HomePage;
-// TODO delete all npm package not used 
-
-
-  

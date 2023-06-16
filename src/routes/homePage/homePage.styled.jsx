@@ -4,10 +4,10 @@ export const HomePageContainer = styled.div`
     width: 100%;
     height: 100vh;
     /* INFO (SCROLL BY SECTION) */
-    /* overflow-y: scroll;
+    overflow-y: scroll; 
     scroll-snap-type: y mandatory;
     scroll-snap-stop: always;
-    scroll-behavior: smooth; */
+    scroll-behavior: smooth;
 `
 
 export const Header = styled.div`
@@ -24,7 +24,7 @@ export const Header = styled.div`
     background-size: cover;
     background-position: center;
     /* INFO (SCROLL BY SECTION) */
-    /* scroll-snap-align: start; */
+    scroll-snap-align: start;
 `
 
 export const ScrollContainer = styled.div`
@@ -48,5 +48,5 @@ export const HomeFooter = styled.div`
     align-items: end;
     justify-content: center;
     /* INFO (SCROLL BY SECTION) */
-    /* scroll-snap-align: start; */
+    scroll-snap-align: start;
 `
