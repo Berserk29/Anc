@@ -1,9 +1,5 @@
-// TODO Make sure to not proceed to checkout if there's no product (Checkout Page)
-
 // TODO USING COOKIE TO KEEP CARTITEMS 
 
 // TODO MAKE THE FONT WORK ON ANDROID
 
 // TODO THE SIGN IN GOOGLE AND FACEBOOK
-
-// TODO DISPLAY NAME DON'T WORK WHEN CREATE AN ACCOUNT

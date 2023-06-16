@@ -22,10 +22,10 @@ import { UserContext } from "../../context/user.context";
 
 const AccountPage = () => {
     const {currentUser} = useContext(UserContext)
+    const {displayName} = currentUser
+   
     const navigate = useNavigate();
     const isTablet = useMediaQuery(mediaQuery.useTablet)
-
-    console.log(currentUser)
 
     const titleHandler = (link) => navigate(`/account${link}`)
 
@@ -58,7 +58,7 @@ const AccountPage = () => {
                 { !isTablet ? subTitleChoice() : ''}
                 <FlexContainer>
                         <div>
-                            <Typo type={TypoType.headline_1} color='black'>Hi, User</Typo>
+                            <Typo type={TypoType.headline_1} color='black'>Hi, {displayName ? displayName : 'User'}</Typo>
                             <Typo type={TypoType.body_5} color='black'>What would you like to do today?</Typo>
                         </div>
                     <GridContainer>

@@ -10,7 +10,7 @@ import { CartContext } from "../../context/cart.context";
 const OrderPage = () => {
     const formRef = useRef(null);
     const {formAdress, setFormAdress} = useContext(UserContext)
-    const {taxLogic} = useContext(CartContext)
+    const {taxLogic, cartItems} = useContext(CartContext)
     const {fullName, phoneNumber, address, city, postal} = formAdress;
 
 
@@ -111,7 +111,7 @@ const OrderPage = () => {
 
                 </ProductContainer>
                 <OrderContainer>
-                    <Summary btnText='Payment' taxSummary={true} onSubmit={handleFormSubmit}/>
+                    <Summary btnText={cartItems.length === 0 ? 'Return to the Shopping Page' : 'Payment'} taxSummary={true} onSubmit={handleFormSubmit}/>
                 </OrderContainer>
             </Section>
         </NavFooter>

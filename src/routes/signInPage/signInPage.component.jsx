@@ -66,7 +66,7 @@ const SignInPage = () => {
 
     const handleCreate = async (event) => {
         event.preventDefault();
-        const {password, confirmPassword, email, displayName} = formCreate
+        const {password, confirmPassword, email, displayName} = formCreate;
 
         if(password !== confirmPassword){
             setErrMessage('Password do not match');
@@ -74,7 +74,11 @@ const SignInPage = () => {
         }
         try{
             const {user} = await createAuthUserWithEmailAndPassword(email,password);
-            await createUserDocumentFromAuth(user, {displayName});
+            
+            console.log(displayName)
+
+            await createUserDocumentFromAuth({...user, displayName});
+
 
             resetFormFields();
             

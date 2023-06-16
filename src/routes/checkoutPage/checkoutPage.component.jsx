@@ -19,7 +19,7 @@ const CheckoutPage = () => {
                         { cartItems?.map((el,i) => <CheckoutProduct key={i} props={el}/>)}
                     </ProductContainer>
                     <OrderContainer>
-                        <Summary btnText='Procceed To Checkout' taxSummary={false}/>
+                        <Summary btnText={cartItems.length !== 0 ? 'Procceed To Checkout' : 'Return to the Shopping page'} taxSummary={false}/>
                     </OrderContainer>
             </Section>
         </NavFooter>

@@ -11,15 +11,16 @@ import { Container, DetailContainer, TotalContainer, Line } from "./summary.styl
 
 const Summary = ({btnText, taxSummary, onSubmit}) => {
     const {currentUser} = useContext(UserContext)
-    const {cartItemsCount, cartTotalPrice, shippingCost, totalBeforeTax, federalTax, provincialTax , totalAfterTax} = useContext(CartContext)
+    const {cartItemsCount, cartTotalPrice, shippingCost, totalBeforeTax, federalTax, provincialTax , totalAfterTax, cartItems} = useContext(CartContext)
     const navigate = useNavigate()
 
     const btnHandler = () => {
-        if(taxSummary) {
-            onSubmit()
-        } else {
+        if(cartItems.length === 0) return navigate('/shop')
+        if(taxSummary) return onSubmit()
+        else {
             navigate('/checkout/order')
-        }
+        }    
+        
     }
 
     return (

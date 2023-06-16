@@ -9,6 +9,7 @@ import {
     signInWithEmailAndPassword,
     signOut,
     onAuthStateChanged,
+    updateProfile,
 } from 'firebase/auth';
 
 const firebaseConfig = {
@@ -80,12 +81,16 @@ export const getProductsAndDocuments = async (firebaseDocumentTitle) => {
         const userSnapshot = await getDoc(userDocRef);
       
         if(!userSnapshot.exists()) {
-          const { displayName, email } = userAuth;
+          const { email, displayName } = userAuth;
           const createdAt = new Date();
-      
+            
+            await updateProfile(auth.currentUser, {
+                displayName: displayName,
+            }) .catch((err) => console.log('error created', err))
+
           try {
             await setDoc(userDocRef, {
-              displayName,
+              displayName,  
               email,
               createdAt,
               ...additionalDetails,

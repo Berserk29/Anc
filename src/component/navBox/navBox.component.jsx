@@ -12,7 +12,7 @@ import mediaQuery from "../../helper/mediaQuery"
 
 const NavBox = ({type}) => {
     const { currentUser } = useContext(UserContext)
-    const { cartItems , cartTotalPrice} = useContext(CartContext)
+    const { cartItems } = useContext(CartContext)
     const { likedItems } = useContext(LikedContext)
     
     const isSmTablet = useMediaQuery(mediaQuery.useSmTablet)
@@ -43,7 +43,7 @@ const NavBox = ({type}) => {
                     {tripeChoice(false, false, true) &&
                     <>
                         <TotalContainer datatype="navBox">
-                            <BoxBtn type={BoxBtnType.radio} w='31.5rem' h='6rem' link='/checkout'>Checkout</BoxBtn>
+                            <BoxBtn type={BoxBtnType.radio} w='31.5rem' h='6rem' link='/checkout'>See Shopping Cart</BoxBtn>
                         </TotalContainer>
                     </>    
                     }
