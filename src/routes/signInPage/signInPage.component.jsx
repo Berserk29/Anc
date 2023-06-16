@@ -7,6 +7,7 @@ import NavFooter from "../../component/navFooter/navFooter.component"
 
 import { signInAuthUserWithEmailAndPassword, signInWithGooglePopup, createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../../utiles/firebase/firebase.utiles';
 
+
 import { 
     SectionContainer,
     SignContainer,

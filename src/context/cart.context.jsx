@@ -31,6 +31,11 @@ const subtractCartItem = (cartItems, productToSubtract) => {
 
 const removeCartItem = (cartItems, productToRemove) => cartItems.filter((cartItem) => cartLogic(false, cartItem, productToRemove) )
 
+const getInitialState = () => {
+    const cartItemsData = localStorage.getItem('CART_ITEMS')
+    return cartItemsData ? JSON.parse(cartItemsData) : [];
+}
+
 export const CartContext = createContext({
     isCartOpen: false,
     cartItems: [],
@@ -50,23 +55,27 @@ export const CartContext = createContext({
 // Provider
 export const CartProvider = ({children}) => {
     const [isCartOpen, setCartOpen] = useState(false)
-    const [cartItems, setCartItems] = useState([])
+    const [cartItems, setCartItems] = useState(getInitialState);
     const [cartItemsCount, setCartItemsCount] = useState(0);
     const [cartTotalPrice, setCartTotalPrice] = useState(0);
     const [federalTax, setFederalTax] = useState(0);
     const [provincialTax, setProvincialTax] = useState(0);
-
-
+    
+    
+    useEffect(() => {
+        console.log(cartItems)
+        localStorage.setItem('CART_ITEMS', JSON.stringify( cartItems ))
+    },[cartItems])
 
     useEffect(() => {
         const totalCartItems = cartItems.reduce((acc, curEl) => acc + curEl.quantity, 0)
-        setCartItemsCount(totalCartItems)
-    }, [cartItems])
-
-    useEffect(() => {
         const totalCartPrice = cartItems.reduce((acc, curEl) => acc + (curEl.quantity * curEl.price), 0);
+        setCartItemsCount(totalCartItems)
         setCartTotalPrice(totalCartPrice)
     }, [cartItems])
+    
+    
+
 
     // shippingCost = (item * 1.40$) + (0.5% cartTotalPrice) 
     const shippingCost = (cartItemsCount * 1.40) + (cartTotalPrice * 0.5 / 100);
