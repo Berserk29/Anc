@@ -1,3 +1,6 @@
+import cvv from '../../assets/icon/cvv.png'
+export const cvvIcon = cvv;
+
 export const provinceArr = [
     {
         name: 'Quebec',
@@ -65,3 +68,54 @@ export const provinceArr = [
         provincialTax: '7',
     },
 ]
+
+export const adressInputArr = [
+    {
+        heading: 'Full Name *',
+        id: 'fullName',
+        type: 'text',
+    },
+    {
+        heading: 'Phone number *',
+        id: 'phoneNumber',
+        type: 'tel',
+    },
+    {
+        heading: 'Address *',
+        id: 'address',
+        type: 'text',
+    },
+    {
+        heading: 'City *',
+        id: 'city',
+        type: 'text',
+    },
+    {
+        heading: 'Province *',
+        id: 'province',
+        type: 'text',
+    },
+    {
+        heading: 'Postal Code *',
+        id: 'postal',
+        type: 'text',
+    },
+]
+
+export const CreditInputArr = [
+    {
+        heading: 'Full Name',
+        id: 'fullName',
+        type: 'text',
+    },
+    {
+        heading: 'Expiration date *',
+        id: 'fullName',
+        type: 'date',
+    },
+]
+
+export const monthArr = ['01','02','03','04','05','06','07','08','09','10','11','12'];
+
+export const yearArr = [2023,2024,2025,2026,2027,2028,2029,2030,2031,2032,2033];
+

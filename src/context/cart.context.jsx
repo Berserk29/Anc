@@ -63,19 +63,13 @@ export const CartProvider = ({children}) => {
     
     
     useEffect(() => {
-        console.log(cartItems)
         localStorage.setItem('CART_ITEMS', JSON.stringify( cartItems ))
-    },[cartItems])
-
-    useEffect(() => {
         const totalCartItems = cartItems.reduce((acc, curEl) => acc + curEl.quantity, 0)
         const totalCartPrice = cartItems.reduce((acc, curEl) => acc + (curEl.quantity * curEl.price), 0);
         setCartItemsCount(totalCartItems)
         setCartTotalPrice(totalCartPrice)
     }, [cartItems])
     
-    
-
 
     // shippingCost = (item * 1.40$) + (0.5% cartTotalPrice) 
     const shippingCost = (cartItemsCount * 1.40) + (cartTotalPrice * 0.5 / 100);
@@ -115,14 +109,6 @@ export const CartProvider = ({children}) => {
         taxLogic,
         totalAfterTax,
     }
-
-    // const taxLogic = (federalTax = true) => {
-    //     if(!province) return "--"
-        
-    //     const findArr = provinceArr.find((el) => el.name === province)
-    //     if(federalTax) return  (totalBeforeTax * findArr.federalTax / 100).toFixed(2)
-    //     if(!federalTax) return (totalBeforeTax * findArr.provincialTax / 100).toFixed(2)
-    // }
 
     return <CartContext.Provider value={value}>{children}</CartContext.Provider>
 }

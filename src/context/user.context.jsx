@@ -11,19 +11,30 @@ const defaultFormAdress = {
     postal: '',
 }
 
+const defaultFormCard = {
+    cardNumber: '0000-0000-0000-0000',
+    fullName: '',
+    month: '',
+    year: '',
+    security: '',
+}
+
 // as the actual value you want to access
 export const UserContext = createContext({
     currentUser: null,
     setCurrentUser: () => null,
     formAdress: defaultFormAdress,
+    formCard: defaultFormCard,
     setFormAdress: () => {},
+    setFormCard: () => {},
 });
 
 export const UserProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(null);
     const [formAdress, setFormAdress] = useState(defaultFormAdress)
+    const [formCard, setFormCard] = useState(defaultFormCard)
 
-    const value = {currentUser, setCurrentUser, formAdress, setFormAdress};
+    const value = {currentUser, setCurrentUser, formAdress, setFormAdress, formCard, setFormCard};
 
     // Keep track (Observer) of all change for Auth! 
     useEffect(() => {

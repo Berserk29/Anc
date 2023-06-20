@@ -51,7 +51,7 @@ export const Input = styled.input`
 export const BoxSelect = styled.div`
     display: flex;
     width: 100%;
-    height: 8rem;
+    height: 7rem;
     background-color: var(--color-white);
     align-items: center;
     border-bottom: 1px solid var(--color-grey-light-2);
@@ -88,4 +88,28 @@ export const SelectCss = styled.select`
         calc(100% - 11px) calc(1em + 2px),
         calc(100% - 4rem) 0.5em;
     }
+`
+
+export const Expiration = styled(SelectCss)`
+    width: 12rem;
+`
+
+export const CvvInput = styled.input`
+    width: 5rem;
+    height: 3rem;
+    text-align: center;
+    margin-left: 1.5rem;
+    font-size: 1.5rem;
+`
+
+export const CvvContainer = styled.div`
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--color-grey-light-2) ;
+    gap: 2rem;
+`
+
+export const ImgIcon = styled.img`
+    width: 3.2rem;
 `

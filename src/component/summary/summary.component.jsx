@@ -57,7 +57,7 @@ const Summary = ({btnText, taxSummary, onSubmit}) => {
             </DetailContainer>
             <TotalContainer>
                 <Typo type={TypoType.arialSize} size={taxSummary ? 2.3 : 1.6} weight='700' transform='none' color='black' >{taxSummary ? 'Total' : 'Total before tax'}</Typo>
-                <Typo type={TypoType.headline_4} color='black' >${taxSummary ?  federalTax !== 0 ? totalAfterTax.toFixed(2) : '----' : totalBeforeTax.toFixed(2)}</Typo>
+                <Typo type={TypoType.headline_4} color='black' >{taxSummary ?  federalTax !== 0 ? `$${totalAfterTax.toFixed(2)}` : '-----' : `$${totalBeforeTax.toFixed(2)}`}</Typo>
             </TotalContainer>
             <div onClick={btnHandler} >
                 <BoxBtn type={BoxBtnType.radio} w='100%' h='4.8rem' typoType="body_1">{currentUser ? btnText : 'Sign In'}</BoxBtn>
