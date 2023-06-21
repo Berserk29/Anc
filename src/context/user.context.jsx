@@ -13,7 +13,7 @@ const defaultFormAdress = {
 
 const defaultFormCard = {
     cardNumber: '0000-0000-0000-0000',
-    fullName: '',
+    nameOnCard: '',
     month: '',
     year: '',
     security: '',

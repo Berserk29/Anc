@@ -1,13 +1,13 @@
-import { Fragment, useContext, useRef, useState } from "react";
+import { Fragment, useContext, useRef, useState} from "react";
 import NavFooter from "../../component/navFooter/navFooter.component"
 import Summary from "../../component/summary/summary.component";
 import Table, { TableType } from "../../component/table/table.component";
-import { Section, ProductContainer, OrderContainer, GridContainer, Input, SelectCss, BoxSelect, Expiration, CvvContainer, CvvInput, ImgIcon} from "./orderPage.styled";
+import { Section, ProductContainer, OrderContainer, GridContainer, Input, SelectCss, BoxSelect, Expiration, CvvContainer, CvvInput, ImgIcon, SpaceContainer} from "./orderPage.styled";
 import { UserContext } from "../../context/user.context";
 import { CartContext } from "../../context/cart.context";
 import { provinceArr, adressInputArr, monthArr , yearArr, cvvIcon} from "./orderPage.data";
 import Typo, { TypoType } from "../../component/typo/typo.component";
-import { event } from "jquery";
+import { ErrorBoxWhite } from "../signInPage/signInPage.styled";
 
 
 const OrderPage = () => {
@@ -15,60 +15,65 @@ const OrderPage = () => {
     const {formAdress, setFormAdress} = useContext(UserContext)
     const {formCard, setFormCard} = useContext(UserContext)
     const {taxLogic, cartItems} = useContext(CartContext)
+    const [errMessage, setErrMessage] = useState(false)
 
 
     // TODO ALL THE ADRESS LOGIC
     const submitHandler = (event) => {
         event.preventDefault();
-        console.log(formAdress)
+        const {phoneNumber} = formAdress
+
+        if(phoneNumber.match(/[^0-9/()//-]/)) {
+            console.log('sfd')
+            setErrMessage('Wrong phone number')
+            return;
+        }
+        setErrMessage(false)
     }
 
     // TODO ALL THE CARD LOGIC
     const submitCardHandler = (event) => {
         event.preventDefault();
-        const {month, year} = formCard;
+        const {month, year, security} = formCard;
         const inputDay = new Date(`${year}-${ month }-01`).getTime();
         const today = new Date().getTime() - (1000 * 60 * 60 * 24 * 30);
-        
-        if(today > inputDay) return console.log('Wrong expiration!')
 
-        
-        console.log(formCard)
+        if(today > inputDay) {
+            setErrMessage('Your card is expirated')
+            return;
+        }
+
+        if(security.match(/[A-z]/) || security.length < 3 || security.length > 4) {
+            setErrMessage('Wrong security card')
+            return;
+        }
+        setErrMessage(false)
     }
 
-    const handleChangeAdress = (event) => {
-        const {id, value} = event.target;
-        setFormAdress({...formAdress, [id]: value});
-    }
-
-    const handleChangeCard = (event) => {
-        const {id, value} = event.target;
-        setFormCard({...formCard, [id]: value});
-    }
-
-
-
-    const handleChangeProvince = (event) => {
-        const {id, value} = event.target;
-        setFormAdress({...formAdress, [id]: value});
-        taxLogic(value)
-    }
-
+    // TODO HANDLE SUBMIT AND HANDLE PROBLEM
     const handleFormSubmit = () => {
-        const isSomeFieldEmpty = Object.values(formAdress).some((el) => el === '');
-        
-        if(isSomeFieldEmpty) {
-            const emptyValueOrder = Object.values(formAdress).map((el,i) => el === '' ? i : '').filter(el => el !== '')
-            console.log(emptyValueOrder)
+        const isSomeAdressEmpty = Object.values(formAdress).some((el) => el === '');
+        const isSomeCardEmpty = Object.values(formCard).some((el) => el === '');
+        if(isSomeAdressEmpty || isSomeCardEmpty) {
+            setErrMessage('Some input field are empty')
+            return;
         }
-        if(!isSomeFieldEmpty) {
-            console.log('Good!')
-        }
-      };
-
+        const event = { preventDefault: () => {} }; // Create a dummy event object
+        submitHandler(event);
+        submitCardHandler(event);
+        if(errMessage) return console.log('Wrong')
+        // TESTING
+        console.log('Good')
+    };
+    
+    const handleChange = (setForm, form, event) => {
+        const {id, value} = event.target;
+        setForm({...form, [id]: value});
+        if(id === 'province') taxLogic(value)
+    }
 
     return (
-        <NavFooter color="white">
+        <NavFooter color="white" sticky={false}>
             <Section>
                 <ProductContainer>
                     {/* Adress Info !!!!!!!!!!!*/}
@@ -86,7 +91,7 @@ const OrderPage = () => {
                                             <Input 
                                                 type={type}
                                                 id={id}
-                                                required onChange={handleChangeAdress}
+                                                required onChange={(event) => handleChange(setFormAdress, formAdress, event)}
                                                 value={formAdress[id]}
                                             />
                                         </Fragment>
@@ -94,7 +99,7 @@ const OrderPage = () => {
                                     <Fragment key={i}>
                                         <Table type={TableType.heading} id={id}>{heading}</Table>
                                         <BoxSelect>
-                                            <SelectCss id={id} onChange={handleChangeProvince} required defaultValue={formAdress.province}>
+                                            <SelectCss id={id} onChange={(event) => handleChange(setFormAdress, formAdress, event)} required defaultValue={formAdress.province}>
                                                 <option value='' >Select</option>
                                                 {provinceArr.map((el,i) => <option key={i} value={el.name}>{el.name}</option>)}
                                             </SelectCss>
@@ -105,10 +110,12 @@ const OrderPage = () => {
                     </GridContainer>                        
                         <button>Using this adress</button>
                     </form>
-
+                        <SpaceContainer>
+                            { errMessage ? <ErrorBoxWhite>{errMessage}</ErrorBoxWhite> : ''}
+                        </SpaceContainer>
                     {/* Credit Info !!!!!!!!!!!*/}
                     <form onSubmit={submitCardHandler}  ref={formRef}>
-                        <Typo type={TypoType.headline_4} color='black' marginBottom='1.6' marginTop='1.6'>Credit or Debit card</Typo>
+                        <Typo type={TypoType.headline_4} color='black' marginBottom='1.6'>Credit or Debit card</Typo>
                     <GridContainer>
 
                         {/* Fixed Card Number */}
@@ -116,22 +123,22 @@ const OrderPage = () => {
                         <Table type={TableType.fixed}>0000-0000-0000-0000</Table>
 
                         {/* FullName */}
-                        <Table type={TableType.heading} id='fullName'>Full Name *</Table>
+                        <Table type={TableType.heading} id='nameOnCard'>Name On The Card *</Table>
                         <Input
                             type="text"
-                            id='fullName'
-                            required onChange={handleChangeCard}
+                            id='nameOnCard'
+                            required onChange={(event) => handleChange(setFormCard, formCard, event)}
                             value={formCard.fullName}
                         />
 
                         {/* Expiration */}
                         <Table type={TableType.heading} id='month'>Expiration date *</Table>
                         <BoxSelect>
-                        <Expiration onChange={handleChangeCard} id="month" required defaultValue={formCard.month}>
+                        <Expiration onChange={(event) => handleChange(setFormCard, formCard, event)} id="month" required defaultValue={formCard.month}>
                             <option value='' >MM</option>
                             {monthArr.map((el,i) => <option key={i} value={el}>{el}</option>)}
                         </Expiration>
-                        <Expiration onChange={handleChangeCard} id="year" required defaultValue={formCard.year}>
+                        <Expiration onChange={(event) => handleChange(setFormCard, formCard, event)} id="year" required defaultValue={formCard.year}>
                             <option value=''>YYYY</option>
                             {yearArr.map((el,i) => <option key={i} value={el}>{el}</option>)}
                         </Expiration>
@@ -145,7 +152,7 @@ const OrderPage = () => {
                                 pattern="\d*"
                                 maxLength="4"
                                 id="security"
-                                required onChange={handleChangeCard}
+                                required onChange={(event) => handleChange(setFormCard, formCard, event)}
                                 value={formCard.security}
                             />
                             <ImgIcon src={cvvIcon} alt="cvv icon" />

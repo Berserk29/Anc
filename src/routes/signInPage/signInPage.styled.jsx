@@ -85,3 +85,10 @@ export const ErrorBox = styled.div`
     background-color: var(--color-black);
     border: 1px solid var(--color-hover);
 `
+
+export const ErrorBoxWhite = styled(ErrorBox)`
+    font-size: 16px;
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border: 1.5px solid var(--color-black);
+`
