@@ -5,7 +5,12 @@ import mediaQuery from '../../helper/mediaQuery';
 import Typo, {TypoType} from '../../component/typo/typo.component';
 import NavFooter from "../../component/navFooter/navFooter.component"
 
-import { signInAuthUserWithEmailAndPassword, signInWithGooglePopup, createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../../utiles/firebase/firebase.utiles';
+import { 
+    signInAuthUserWithEmailAndPassword,
+    // signInWithGooglePopup,
+    createAuthUserWithEmailAndPassword,
+    createUserDocumentFromAuth
+} from '../../utiles/firebase/firebase.utiles';
 
 
 import { 

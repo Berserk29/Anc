@@ -1,4 +1,5 @@
 import { Fragment, useContext, useRef, useState} from "react";
+import { phone } from 'phone';
 import NavFooter from "../../component/navFooter/navFooter.component"
 import Summary from "../../component/summary/summary.component";
 import Table, { TableType } from "../../component/table/table.component";
@@ -12,23 +13,41 @@ import { ErrorBoxWhite } from "../signInPage/signInPage.styled";
 
 const OrderPage = () => {
     const formRef = useRef(null);
-    const {formAdress, setFormAdress} = useContext(UserContext)
-    const {formCard, setFormCard} = useContext(UserContext)
+    const {formAddress, setFormAddress, formCard, setFormCard, currentUser} = useContext(UserContext)
     const {taxLogic, cartItems} = useContext(CartContext)
     const [errMessage, setErrMessage] = useState(false)
 
+    // TESTING FOR THE PAYMENT DOCUMENT
+    const createPaymentDocument = (formAddress, formCard, cartItems, currentUser) => {
+        const paymentDocument = [
+         {
+             title: 'address',
+             items: [formAddress]
+         },
+         {
+             title: 'card',
+             items: [formCard]
+         },
+         {
+             title: 'cartItems',
+             items: [cartItems]
+         },
+         {
+             title: 'user',
+             items: [currentUser]
+         },
+         ]
+         console.log(paymentDocument)
+     }
 
     // TODO ALL THE ADRESS LOGIC
     const submitHandler = (event) => {
         event.preventDefault();
-        const {phoneNumber} = formAdress
+        const {phoneNumber} = formAddress
+        const resultPhone = phone(phoneNumber, {country: 'Canada'})
 
-        if(phoneNumber.match(/[^0-9/()//-]/)) {
-            console.log('sfd')
-            setErrMessage('Wrong phone number')
-            return;
-        }
-        setErrMessage(false)
+        if(phoneNumber.trim().match(/[^0-9/()+//-]/) || phoneNumber.length < 8 || !resultPhone.isValid) throw new Error('Invalid phone number')
+
     }
 
     // TODO ALL THE CARD LOGIC
@@ -38,32 +57,30 @@ const OrderPage = () => {
         const inputDay = new Date(`${year}-${ month }-01`).getTime();
         const today = new Date().getTime() - (1000 * 60 * 60 * 24 * 30);
 
-        if(today > inputDay) {
-            setErrMessage('Your card is expirated')
-            return;
-        }
-
-        if(security.match(/[A-z]/) || security.length < 3 || security.length > 4) {
-            setErrMessage('Wrong security card')
-            return;
-        }
-        setErrMessage(false)
+        if(today > inputDay) throw new Error('Your card is expirated')
+        if(security.match(/[A-z]/) || security.length < 3 || security.length > 4) throw new Error('CVV Validation Error')
+        
     }
 
     // TODO HANDLE SUBMIT AND HANDLE PROBLEM
     const handleFormSubmit = () => {
-        const isSomeAdressEmpty = Object.values(formAdress).some((el) => el === '');
-        const isSomeCardEmpty = Object.values(formCard).some((el) => el === '');
-        if(isSomeAdressEmpty || isSomeCardEmpty) {
-            setErrMessage('Some input field are empty')
+        try{
+            const isSomeAdressEmpty = Object.values(formAddress).some((el) => el.trim() === '');
+            const isSomeCardEmpty = Object.values(formCard).some((el) => el.trim() === '');
+
+            if(isSomeAdressEmpty || isSomeCardEmpty) throw new Error('Some input field are empty')
+            
+            const event = { preventDefault: () => {} }; // Create a dummy event object
+            submitHandler(event);
+            submitCardHandler(event);
+
+        } catch(err) {
+            setErrMessage(err.message)
             return;
         }
-        const event = { preventDefault: () => {} }; // Create a dummy event object
-        submitHandler(event);
-        submitCardHandler(event);
-        if(errMessage) return console.log('Wrong')
-        // TESTING
-        console.log('Good')
+
+        setErrMessage(false)
+        createPaymentDocument(formAddress, formCard, cartItems, currentUser)
     };
     
     const handleChange = (setForm, form, event) => {
@@ -83,23 +100,24 @@ const OrderPage = () => {
                         <Table type={TableType.heading}>Country</Table>
                         <Table type={TableType.fixed}>Canada</Table>
                         { adressInputArr.map((el,i) => {
-                            const {id, heading, type} = el;
+                            const {id, heading, type, autoComplete} = el;
                             return (
                                 el.id !== 'province' ? 
                                         <Fragment key={i}>
-                                            <Table type={TableType.heading} id={id}>{heading}</Table>
+                                            <Table type={TableType.label_heading} id={id}>{heading}</Table>
                                             <Input 
                                                 type={type}
                                                 id={id}
-                                                required onChange={(event) => handleChange(setFormAdress, formAdress, event)}
-                                                value={formAdress[id]}
-                                            />
+                                                required onChange={(event) => handleChange(setFormAddress, formAddress, event)}
+                                                value={formAddress[id]}
+                                                autoComplete={autoComplete}
+                                                />
                                         </Fragment>
                                     :
                                     <Fragment key={i}>
                                         <Table type={TableType.heading} id={id}>{heading}</Table>
                                         <BoxSelect>
-                                            <SelectCss id={id} onChange={(event) => handleChange(setFormAdress, formAdress, event)} required defaultValue={formAdress.province}>
+                                            <SelectCss id={id} onChange={(event) => handleChange(setFormAddress, formAddress, event)} required defaultValue={formAddress.province}>
                                                 <option value='' >Select</option>
                                                 {provinceArr.map((el,i) => <option key={i} value={el.name}>{el.name}</option>)}
                                             </SelectCss>
@@ -108,11 +126,9 @@ const OrderPage = () => {
                             )          
                         })}
                     </GridContainer>                        
-                        <button>Using this adress</button>
+                        {/* <button>Using this adress</button> */}
                     </form>
-                        <SpaceContainer>
-                            { errMessage ? <ErrorBoxWhite>{errMessage}</ErrorBoxWhite> : ''}
-                        </SpaceContainer>
+                        <SpaceContainer />
                     {/* Credit Info !!!!!!!!!!!*/}
                     <form onSubmit={submitCardHandler}  ref={formRef}>
                         <Typo type={TypoType.headline_4} color='black' marginBottom='1.6'>Credit or Debit card</Typo>
@@ -123,7 +139,7 @@ const OrderPage = () => {
                         <Table type={TableType.fixed}>0000-0000-0000-0000</Table>
 
                         {/* FullName */}
-                        <Table type={TableType.heading} id='nameOnCard'>Name On The Card *</Table>
+                        <Table type={TableType.label_heading} id='nameOnCard'>Name On The Card *</Table>
                         <Input
                             type="text"
                             id='nameOnCard'
@@ -132,7 +148,7 @@ const OrderPage = () => {
                         />
 
                         {/* Expiration */}
-                        <Table type={TableType.heading} id='month'>Expiration date *</Table>
+                        <Table type={TableType.label_heading} id='month'>Expiration date *</Table>
                         <BoxSelect>
                         <Expiration onChange={(event) => handleChange(setFormCard, formCard, event)} id="month" required defaultValue={formCard.month}>
                             <option value='' >MM</option>
@@ -145,7 +161,7 @@ const OrderPage = () => {
                         </BoxSelect>
 
                         {/* CVV */}
-                        <Table type={TableType.heading} id='security' >Security Code (CVV) *</Table>
+                        <Table type={TableType.label_heading} id='security' >Security Code (CVV) *</Table>
                         <CvvContainer>
                             <CvvInput
                                 type="tel"
@@ -159,12 +175,14 @@ const OrderPage = () => {
                         </CvvContainer>
 
                     </GridContainer>                        
-                        <button>Using this adress</button>
                     </form>
 
                 </ProductContainer>
                 <OrderContainer>
                     <Summary btnText={cartItems.length === 0 ? 'Return to the Shopping Page' : 'Payment'} taxSummary={true} onSubmit={handleFormSubmit}/>
+                    <SpaceContainer>
+                        {errMessage ? <ErrorBoxWhite>{errMessage}</ErrorBoxWhite> : ''}
+                    </SpaceContainer>
                 </OrderContainer>
             </Section>
         </NavFooter>

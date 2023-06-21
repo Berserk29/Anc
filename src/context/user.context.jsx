@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import { onAuthStateChangedListener, createUserDocumentFromAuth} from '../utiles/firebase/firebase.utiles'
+import { onAuthStateChangedListener, createUserDocumentFromAuth, addCollectionAndDocuments} from '../utiles/firebase/firebase.utiles'
 
 const defaultFormAdress = {
     country: 'Canada',
@@ -19,22 +19,45 @@ const defaultFormCard = {
     security: '',
 }
 
+// TESTING TODO Create a payment document
+const createPaymentDocument = (formAddress, formCard, cartItems, currentUser) => {
+   const paymentDocument = [
+    {
+        title: 'address',
+        items: [formAddress]
+    },
+    {
+        title: 'card',
+        items: [formCard]
+    },
+    {
+        title: 'cartItems',
+        items: [cartItems]
+    },
+    {
+        title: 'user',
+        items: [currentUser]
+    },
+    ]
+    return paymentDocument;
+}
+
 // as the actual value you want to access
 export const UserContext = createContext({
     currentUser: null,
     setCurrentUser: () => null,
-    formAdress: defaultFormAdress,
+    formAddress: defaultFormAdress,
     formCard: defaultFormCard,
-    setFormAdress: () => {},
+    setFormAddress: () => {},
     setFormCard: () => {},
 });
 
 export const UserProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(null);
-    const [formAdress, setFormAdress] = useState(defaultFormAdress)
+    const [formAddress, setFormAddress] = useState(defaultFormAdress)
     const [formCard, setFormCard] = useState(defaultFormCard)
 
-    const value = {currentUser, setCurrentUser, formAdress, setFormAdress, formCard, setFormCard};
+    const value = {currentUser, setCurrentUser, formAddress, setFormAddress, formCard, setFormCard};
 
     // Keep track (Observer) of all change for Auth! 
     useEffect(() => {
@@ -47,6 +70,8 @@ export const UserProvider = ({ children }) => {
 
         return unsubscribe
     }, [])
+
+
 
     return <UserContext.Provider value={value}>{children}</UserContext.Provider>
 }

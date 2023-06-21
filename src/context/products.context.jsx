@@ -4,8 +4,6 @@ import { getProductsAndDocuments } from "../utiles/firebase/firebase.utiles";
 // import SHOP_DATA, { isNewData, LOOKBOOK_DATA } from "../../shop-data";
 
 
-
-
 export const ProductsContext = createContext({
     productsMap: {},
     sectionImgMap: {},

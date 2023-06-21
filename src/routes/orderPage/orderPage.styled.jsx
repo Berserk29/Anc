@@ -116,7 +116,7 @@ export const ImgIcon = styled.img`
 
 export const SpaceContainer = styled.div`
     width: 100%;
-    height: 10rem;
+    height: 8rem;
     display: flex;
     justify-content: center;
     align-items: center;

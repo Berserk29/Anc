@@ -74,43 +74,49 @@ export const adressInputArr = [
         heading: 'Full Name *',
         id: 'fullName',
         type: 'text',
+        autoComplete: 'name',
     },
     {
         heading: 'Phone number *',
         id: 'phoneNumber',
         type: 'tel',
+        autoComplete: 'tel',
     },
     {
         heading: 'Address *',
         id: 'address',
         type: 'text',
+        autoComplete: 'street-address',
     },
     {
         heading: 'City *',
         id: 'city',
         type: 'text',
+        autoComplete: 'address-level2'
     },
     {
         heading: 'Province *',
         id: 'province',
         type: 'text',
+        autoComplete: 'address-level1'
     },
     {
         heading: 'Postal Code *',
         id: 'postal',
         type: 'text',
+        autoComplete: 'postal-code',
     },
 ]
 
 export const CreditInputArr = [
     {
-        heading: 'Full Name',
-        id: 'fullName',
+        heading: 'Name On The Card *',
+        id: 'nameOnCard',
         type: 'text',
     },
     {
         heading: 'Expiration date *',
-        id: 'fullName',
+        id: 'month',
         type: 'date',
     },
 ]
