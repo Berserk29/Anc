@@ -12,7 +12,7 @@ const CheckoutPage = () => {
     const {cartItems} = useContext(CartContext)
 
     return (
-        <NavFooter color="white">
+        <NavFooter color="white" sticky={false}>
             <Section>
                     <ProductContainer>
                         <CheckoutProduct title={titleArr} props={''}/>

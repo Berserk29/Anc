@@ -8,6 +8,15 @@ export const Section = styled.div`
     padding: 15.8rem 8rem;
     background-color: var(--color-white);
     align-items: start;
+    @media ${mediaQuery.styledTablet} {
+        flex-direction: column;
+        align-items: end;
+        padding: 5rem;
+        gap: 3rem;
+    }
+    @media ${mediaQuery.styledMobile} {
+        padding: 1.5rem;
+    }
 `
 
 export const GridContainer = styled.div`
@@ -15,15 +24,27 @@ export const GridContainer = styled.div`
     width: 100%;
     grid-template-columns: 21.5rem 1fr;
     border-top: 1px solid var(--color-black);
+    @media ${mediaQuery.styledMobile} {
+        grid-template-columns: 13rem 1fr;
+    }
 `
 
 export const ProductContainer = styled.div`
     flex: 100rem 0 1;
     width: 100%;
+    @media ${mediaQuery.styledTablet} {
+        flex: none;
+    }
 `
 
 export const OrderContainer = styled.div`
     width: 30.5rem;
+    @media ${mediaQuery.styledTablet} {
+        width: 40rem;
+    }
+    @media ${mediaQuery.styledMobile} {
+        width: 100%;
+    }
 `
 
 export const Input = styled.input`
@@ -51,10 +72,17 @@ export const Input = styled.input`
 export const BoxSelect = styled.div`
     display: flex;
     width: 100%;
-    height: 7rem;
+    height: 100%;
+    padding: 1rem 0;
     background-color: var(--color-white);
     align-items: center;
     border-bottom: 1px solid var(--color-grey-light-2);
+    @media ${mediaQuery.styledMobile} {
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        gap: 1rem;
+    }
 `
 
 export const SelectCss = styled.select`
@@ -88,6 +116,11 @@ export const SelectCss = styled.select`
         calc(100% - 11px) calc(1em + 2px),
         calc(100% - 4rem) 0.5em;
     }
+    @media ${mediaQuery.styledMobile} {
+        max-width: 30rem;
+        width: 90%;
+        font-size: 1.4rem;
+    }
 `
 
 export const Expiration = styled(SelectCss)`
@@ -120,4 +153,13 @@ export const SpaceContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    @media ${mediaQuery.styledTablet} {
+        height: 5rem;
+    }
+`
+
+export const ErrorContainer = styled(SpaceContainer)`
+    @media ${mediaQuery.styledTablet} {
+        height: 10rem;
+    }
 `

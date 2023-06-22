@@ -18,7 +18,8 @@ import {
     CvvContainer,
     CvvInput,
     ImgIcon,
-    SpaceContainer
+    SpaceContainer,
+    ErrorContainer
 } from "./orderPage.styled";
 import { ErrorBoxWhite } from "../signInPage/signInPage.styled";
 
@@ -182,9 +183,9 @@ const OrderPage = () => {
                     </ProductContainer>
                     <OrderContainer>
                         <Summary btnText={cartItems.length === 0 ? 'Return to the Shopping Page' : 'Payment'} taxSummary={true} onSubmit={handleFormSubmit}/>
-                        <SpaceContainer>
+                        <ErrorContainer>
                             {errMessage ? <ErrorBoxWhite>{errMessage}</ErrorBoxWhite> : ''}
-                        </SpaceContainer>
+                        </ErrorContainer>
                     </OrderContainer>
                 </>    
                 }
