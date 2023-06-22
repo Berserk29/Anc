@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect} from "react";
 import { onAuthStateChangedListener, createUserDocumentFromAuth, addCollectionAndDocuments} from '../utiles/firebase/firebase.utiles'
 
 const defaultFormAdress = {
@@ -19,28 +19,6 @@ const defaultFormCard = {
     security: '',
 }
 
-// TESTING TODO Create a payment document
-const createPaymentDocument = (formAddress, formCard, cartItems, currentUser) => {
-   const paymentDocument = [
-    {
-        title: 'address',
-        items: [formAddress]
-    },
-    {
-        title: 'card',
-        items: [formCard]
-    },
-    {
-        title: 'cartItems',
-        items: [cartItems]
-    },
-    {
-        title: 'user',
-        items: [currentUser]
-    },
-    ]
-    return paymentDocument;
-}
 
 // as the actual value you want to access
 export const UserContext = createContext({
@@ -50,14 +28,28 @@ export const UserContext = createContext({
     formCard: defaultFormCard,
     setFormAddress: () => {},
     setFormCard: () => {},
+    paymentPageComplete: false,
+    setPaymentPageComplete: () => {},
 });
 
 export const UserProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(null);
     const [formAddress, setFormAddress] = useState(defaultFormAdress)
     const [formCard, setFormCard] = useState(defaultFormCard)
+    const [paymentPageComplete, setPaymentPageComplete] = useState(false)
 
-    const value = {currentUser, setCurrentUser, formAddress, setFormAddress, formCard, setFormCard};
+
+    const createPaymentDocument = async (address, card, items, userEmail) => {
+        const date = new Date().getTime()
+        const paymentDocument = [{
+            title: `${userEmail}:${date}`,
+            items: {address, card, items, userEmail}
+        }]
+        await addCollectionAndDocuments('payment', paymentDocument)
+        setPaymentPageComplete(true)
+    };
+
+    const value = {currentUser, setCurrentUser, formAddress, setFormAddress, formCard, setFormCard, createPaymentDocument, paymentPageComplete, setPaymentPageComplete};
 
     // Keep track (Observer) of all change for Auth! 
     useEffect(() => {
@@ -70,7 +62,6 @@ export const UserProvider = ({ children }) => {
 
         return unsubscribe
     }, [])
-
 
 
     return <UserContext.Provider value={value}>{children}</UserContext.Provider>

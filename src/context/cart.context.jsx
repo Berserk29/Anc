@@ -50,6 +50,7 @@ export const CartContext = createContext({
     provincialTax: 0,
     taxLogic: () => {},
     totalAfterTax: 0,
+    removeAllItems: () => {}
 })
 
 // Provider
@@ -70,6 +71,7 @@ export const CartProvider = ({children}) => {
         setCartTotalPrice(totalCartPrice)
     }, [cartItems])
     
+    const removeAllItems = () => setCartItems([])
 
     // shippingCost = (item * 1.40$) + (0.5% cartTotalPrice) 
     const shippingCost = (cartItemsCount * 1.40) + (cartTotalPrice * 0.5 / 100);
@@ -108,6 +110,7 @@ export const CartProvider = ({children}) => {
         provincialTax,
         taxLogic,
         totalAfterTax,
+        removeAllItems        
     }
 
     return <CartContext.Provider value={value}>{children}</CartContext.Provider>

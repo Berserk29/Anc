@@ -1,46 +1,44 @@
-import { Fragment, useContext, useRef, useState} from "react";
+import { Fragment, useContext, useEffect, useRef, useState} from "react";
 import { phone } from 'phone';
+
+import Typo, { TypoType } from "../../component/typo/typo.component";
+import Table, { TableType } from "../../component/table/table.component";
 import NavFooter from "../../component/navFooter/navFooter.component"
 import Summary from "../../component/summary/summary.component";
-import Table, { TableType } from "../../component/table/table.component";
-import { Section, ProductContainer, OrderContainer, GridContainer, Input, SelectCss, BoxSelect, Expiration, CvvContainer, CvvInput, ImgIcon, SpaceContainer} from "./orderPage.styled";
+
+import { 
+    Section,
+    ProductContainer,
+    OrderContainer,
+    GridContainer,
+    Input,
+    SelectCss,
+    BoxSelect,
+    Expiration,
+    CvvContainer,
+    CvvInput,
+    ImgIcon,
+    SpaceContainer
+} from "./orderPage.styled";
+import { ErrorBoxWhite } from "../signInPage/signInPage.styled";
+
 import { UserContext } from "../../context/user.context";
 import { CartContext } from "../../context/cart.context";
 import { provinceArr, adressInputArr, monthArr , yearArr, cvvIcon} from "./orderPage.data";
-import Typo, { TypoType } from "../../component/typo/typo.component";
-import { ErrorBoxWhite } from "../signInPage/signInPage.styled";
+import PaymentComplete from "../../component/paymentComplete/paymentComplete.component";
 
 
 const OrderPage = () => {
     const formRef = useRef(null);
-    const {formAddress, setFormAddress, formCard, setFormCard, currentUser} = useContext(UserContext)
-    const {taxLogic, cartItems} = useContext(CartContext)
+    const {formAddress, setFormAddress, formCard, setFormCard, currentUser, createPaymentDocument, paymentPageComplete, setPaymentPageComplete} = useContext(UserContext)
+    const {taxLogic, cartItems, removeAllItems} = useContext(CartContext)
     const [errMessage, setErrMessage] = useState(false)
 
-    // TESTING FOR THE PAYMENT DOCUMENT
-    const createPaymentDocument = (formAddress, formCard, cartItems, currentUser) => {
-        const paymentDocument = [
-         {
-             title: 'address',
-             items: [formAddress]
-         },
-         {
-             title: 'card',
-             items: [formCard]
-         },
-         {
-             title: 'cartItems',
-             items: [cartItems]
-         },
-         {
-             title: 'user',
-             items: [currentUser]
-         },
-         ]
-         console.log(paymentDocument)
-     }
+    useEffect(() => {
+        setPaymentPageComplete(false)
+    }, [])
 
-    // TODO ALL THE ADRESS LOGIC
+    // FORMADDRESS LOGIC
     const submitHandler = (event) => {
         event.preventDefault();
         const {phoneNumber} = formAddress
@@ -50,7 +48,7 @@ const OrderPage = () => {
 
     }
 
-    // TODO ALL THE CARD LOGIC
+    // FORMCARD LOGIC
     const submitCardHandler = (event) => {
         event.preventDefault();
         const {month, year, security} = formCard;
@@ -62,8 +60,7 @@ const OrderPage = () => {
         
     }
 
-    // TODO HANDLE SUBMIT AND HANDLE PROBLEM
-    const handleFormSubmit = () => {
+    const handleFormSubmit = async () => {
         try{
             const isSomeAdressEmpty = Object.values(formAddress).some((el) => el.trim() === '');
             const isSomeCardEmpty = Object.values(formCard).some((el) => el.trim() === '');
@@ -80,7 +77,8 @@ const OrderPage = () => {
         }
 
         setErrMessage(false)
-        createPaymentDocument(formAddress, formCard, cartItems, currentUser)
+        await createPaymentDocument(formAddress, formCard, cartItems, currentUser.email)
+        removeAllItems()
     };
     
     const handleChange = (setForm, form, event) => {
@@ -89,101 +87,107 @@ const OrderPage = () => {
         if(id === 'province') taxLogic(value)
     }
 
+    const formInput = () => {
+        return (
+        <>
+            {/* FORMADDRESS */}
+            <form 
+            onSubmit={submitHandler}  
+            ref={formRef}
+            >
+                <Typo type={TypoType.headline_4} color='black' marginBottom='1.6'>Adress Information</Typo>
+                <GridContainer>
+                    <Table type={TableType.heading}>Country</Table>
+                    <Table type={TableType.fixed}>Canada</Table>
+                    { adressInputArr.map((el,i) => {
+                        const {id, heading, type, autoComplete} = el;
+                        return (
+                            el.id !== 'province' ? 
+                                    <Fragment key={i}>
+                                        <Table type={TableType.label_heading} id={id}>{heading}</Table>
+                                        <Input 
+                                            type={type}
+                                            id={id}
+                                            required onChange={(event) => handleChange(setFormAddress, formAddress, event)}
+                                            value={formAddress[id]}
+                                            autoComplete={autoComplete}
+                                            />
+                                    </Fragment>
+                                :
+                                <Fragment key={i}>
+                                    <Table type={TableType.heading} id={id}>{heading}</Table>
+                                    <BoxSelect>
+                                        <SelectCss id={id} onChange={(event) => handleChange(setFormAddress, formAddress, event)} required defaultValue={formAddress.province}>
+                                            <option value='' >Select</option>
+                                            {provinceArr.map((el,i) => <option key={i} value={el.name}>{el.name}</option>)}
+                                        </SelectCss>
+                                    </BoxSelect>
+                                </Fragment>
+                        )          
+                    })}
+                </GridContainer>                        
+            </form>
+            <SpaceContainer />
+            {/* FORMCARD */}
+            <form onSubmit={submitCardHandler}  ref={formRef}>
+                <Typo type={TypoType.headline_4} color='black' marginBottom='1.6'>Credit or Debit card</Typo>
+                <GridContainer>
+                    <Table type={TableType.heading}>Card Number</Table>
+                    <Table type={TableType.fixed}>0000-0000-0000-0000</Table>
+                    {/* NameOnCard */}
+                    <Table type={TableType.label_heading} id='nameOnCard'>Name On The Card *</Table>
+                    <Input
+                        type="text"
+                        id='nameOnCard'
+                        required onChange={(event) => handleChange(setFormCard, formCard, event)}
+                        value={formCard.fullName}
+                    />
+                    {/* Expiration */}
+                    <Table type={TableType.label_heading} id='month'>Expiration date *</Table>
+                    <BoxSelect>
+                    <Expiration onChange={(event) => handleChange(setFormCard, formCard, event)} id="month" required defaultValue={formCard.month}>
+                        <option value='' >MM</option>
+                        {monthArr.map((el,i) => <option key={i} value={el}>{el}</option>)}
+                    </Expiration>
+                    <Expiration onChange={(event) => handleChange(setFormCard, formCard, event)} id="year" required defaultValue={formCard.year}>
+                        <option value=''>YYYY</option>
+                        {yearArr.map((el,i) => <option key={i} value={el}>{el}</option>)}
+                    </Expiration>
+                    </BoxSelect>
+                    {/* CVV */}
+                    <Table type={TableType.label_heading} id='security' >Security Code (CVV) *</Table>
+                    <CvvContainer>
+                        <CvvInput
+                            type="tel"
+                            id="security"
+                            required onChange={(event) => handleChange(setFormCard, formCard, event)}
+                            value={formCard.security}
+                        />
+                        <ImgIcon src={cvvIcon} alt="cvv icon" />
+                    </CvvContainer>
+                </GridContainer>                        
+            </form>
+        </>
+        )
+    }
+
     return (
         <NavFooter color="white" sticky={false}>
             <Section>
-                <ProductContainer>
-                    {/* Adress Info !!!!!!!!!!!*/}
-                    <form onSubmit={submitHandler}  ref={formRef}>
-                        <Typo type={TypoType.headline_4} color='black' marginBottom='1.6'>Adress Information</Typo>
-                    <GridContainer>
-                        <Table type={TableType.heading}>Country</Table>
-                        <Table type={TableType.fixed}>Canada</Table>
-                        { adressInputArr.map((el,i) => {
-                            const {id, heading, type, autoComplete} = el;
-                            return (
-                                el.id !== 'province' ? 
-                                        <Fragment key={i}>
-                                            <Table type={TableType.label_heading} id={id}>{heading}</Table>
-                                            <Input 
-                                                type={type}
-                                                id={id}
-                                                required onChange={(event) => handleChange(setFormAddress, formAddress, event)}
-                                                value={formAddress[id]}
-                                                autoComplete={autoComplete}
-                                                />
-                                        </Fragment>
-                                    :
-                                    <Fragment key={i}>
-                                        <Table type={TableType.heading} id={id}>{heading}</Table>
-                                        <BoxSelect>
-                                            <SelectCss id={id} onChange={(event) => handleChange(setFormAddress, formAddress, event)} required defaultValue={formAddress.province}>
-                                                <option value='' >Select</option>
-                                                {provinceArr.map((el,i) => <option key={i} value={el.name}>{el.name}</option>)}
-                                            </SelectCss>
-                                        </BoxSelect>
-                                    </Fragment>
-                            )          
-                        })}
-                    </GridContainer>                        
-                        {/* <button>Using this adress</button> */}
-                    </form>
-                        <SpaceContainer />
-                    {/* Credit Info !!!!!!!!!!!*/}
-                    <form onSubmit={submitCardHandler}  ref={formRef}>
-                        <Typo type={TypoType.headline_4} color='black' marginBottom='1.6'>Credit or Debit card</Typo>
-                    <GridContainer>
-
-                        {/* Fixed Card Number */}
-                        <Table type={TableType.heading}>Card Number</Table>
-                        <Table type={TableType.fixed}>0000-0000-0000-0000</Table>
-
-                        {/* FullName */}
-                        <Table type={TableType.label_heading} id='nameOnCard'>Name On The Card *</Table>
-                        <Input
-                            type="text"
-                            id='nameOnCard'
-                            required onChange={(event) => handleChange(setFormCard, formCard, event)}
-                            value={formCard.fullName}
-                        />
-
-                        {/* Expiration */}
-                        <Table type={TableType.label_heading} id='month'>Expiration date *</Table>
-                        <BoxSelect>
-                        <Expiration onChange={(event) => handleChange(setFormCard, formCard, event)} id="month" required defaultValue={formCard.month}>
-                            <option value='' >MM</option>
-                            {monthArr.map((el,i) => <option key={i} value={el}>{el}</option>)}
-                        </Expiration>
-                        <Expiration onChange={(event) => handleChange(setFormCard, formCard, event)} id="year" required defaultValue={formCard.year}>
-                            <option value=''>YYYY</option>
-                            {yearArr.map((el,i) => <option key={i} value={el}>{el}</option>)}
-                        </Expiration>
-                        </BoxSelect>
-
-                        {/* CVV */}
-                        <Table type={TableType.label_heading} id='security' >Security Code (CVV) *</Table>
-                        <CvvContainer>
-                            <CvvInput
-                                type="tel"
-                                pattern="\d*"
-                                maxLength="4"
-                                id="security"
-                                required onChange={(event) => handleChange(setFormCard, formCard, event)}
-                                value={formCard.security}
-                            />
-                            <ImgIcon src={cvvIcon} alt="cvv icon" />
-                        </CvvContainer>
-
-                    </GridContainer>                        
-                    </form>
-
-                </ProductContainer>
-                <OrderContainer>
-                    <Summary btnText={cartItems.length === 0 ? 'Return to the Shopping Page' : 'Payment'} taxSummary={true} onSubmit={handleFormSubmit}/>
-                    <SpaceContainer>
-                        {errMessage ? <ErrorBoxWhite>{errMessage}</ErrorBoxWhite> : ''}
-                    </SpaceContainer>
-                </OrderContainer>
+                {paymentPageComplete ? 
+                <PaymentComplete /> :
+                <>
+                    <ProductContainer>
+                        {formInput()}
+                    </ProductContainer>
+                    <OrderContainer>
+                        <Summary btnText={cartItems.length === 0 ? 'Return to the Shopping Page' : 'Payment'} taxSummary={true} onSubmit={handleFormSubmit}/>
+                        <SpaceContainer>
+                            {errMessage ? <ErrorBoxWhite>{errMessage}</ErrorBoxWhite> : ''}
+                        </SpaceContainer>
+                    </OrderContainer>
+                </>    
+                }
             </Section>
         </NavFooter>
     )
