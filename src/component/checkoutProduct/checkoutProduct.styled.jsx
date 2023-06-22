@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import mediaQuery from "../../helper/mediaQuery";
 
 export const Container = styled.div`
     display: flex;
@@ -25,6 +26,10 @@ export const DetailContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    @media ${mediaQuery.styledSmTablet} {
+        justify-content: center;
+        gap: 2.5rem;
+    }
 `
 
 export const FlexContainer = styled.div`
@@ -32,4 +37,9 @@ export const FlexContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    @media ${mediaQuery.styledSmTablet} {
+        flex-direction: column;
+        gap: 4rem;
+        width: 15rem;
+    }
 `

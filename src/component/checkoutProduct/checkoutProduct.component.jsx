@@ -9,6 +9,7 @@ const CheckoutProduct = ({props, title = false}) => {
 const {name, price, quantity, imageUrl, size} = props;
 
 const isTablet = useMediaQuery(mediaQuery.useTablet)
+const isSmallTablet = useMediaQuery(mediaQuery.useSmTablet)
 
     return (
         <Container>
@@ -22,24 +23,43 @@ const isTablet = useMediaQuery(mediaQuery.useTablet)
                         <BoxBtn type={BoxBtnType.radio_checkout} w='6.5rem' h='2.5rem' product={props}>Delete</BoxBtn>
                     </DetailContainer>
                 </ProductContainer>
-                <FlexContainer>
-                    <BoxBtn type={BoxBtnType.sum_checkout} product={props}>{quantity}</BoxBtn>
-                </FlexContainer>
-                <FlexContainer>
-                    <Typo type={TypoType.body_2} color='black'>${price.toFixed(2)}</Typo>
-                </FlexContainer>
+                {
+                    !isSmallTablet ?
+                    <>
+                    <FlexContainer>
+                        <BoxBtn type={BoxBtnType.sum_checkout} product={props}>{quantity}</BoxBtn>
+                    </FlexContainer>
+                    <FlexContainer>
+                        <Typo type={TypoType.body_2} color='black'>${price.toFixed(2)}</Typo>
+                    </FlexContainer>
+                    </> 
+                    :
+                    <FlexContainer>
+                        <BoxBtn type={BoxBtnType.sum_checkout} product={props}>{quantity}</BoxBtn>
+                        <Typo type={TypoType.body_2} color='black'>${price.toFixed(2)}</Typo>
+                    </FlexContainer>
+                }
             </>
             : 
             <>
                 <ProductContainer>
                     <Typo type={TypoType.arialSize} size='1.6' transform='capitalize' color='black'>{title[0]}</Typo>
                 </ProductContainer>
-                <FlexContainer>
-                    <Typo type={TypoType.arialSize} size='1.6' transform='capitalize' color='black'>{title[1]}</Typo>
-                </FlexContainer>
-                <FlexContainer>
-                    <Typo type={TypoType.arialSize} size='1.6' transform='capitalize' color='black'>{title[2]}</Typo>
-                </FlexContainer>
+                {
+                    !isSmallTablet ?
+                    <>
+                    <FlexContainer>
+                        <Typo type={TypoType.arialSize} size='1.6' transform='capitalize' color='black'>{title[1]}</Typo>
+                    </FlexContainer>
+                    <FlexContainer>
+                        <Typo type={TypoType.arialSize} size='1.6' transform='capitalize' color='black'>{title[2]}</Typo>
+                    </FlexContainer>
+                    </> 
+                    :
+                    <FlexContainer>
+                        <Typo type={TypoType.arialSize} size='1.6' transform='capitalize' color='black'>{title[1]} / {title[2]}</Typo>
+                    </FlexContainer>
+                }
             </>
 
         }

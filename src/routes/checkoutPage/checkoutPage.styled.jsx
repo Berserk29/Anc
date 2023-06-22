@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import mediaQuery from "../../helper/mediaQuery";
 
 export const Section = styled.div`
     display: flex;
@@ -7,13 +8,30 @@ export const Section = styled.div`
     padding: 15.8rem 8rem;
     background-color: var(--color-white);
     align-items: start;
+    @media ${mediaQuery.styledTablet} {
+        flex-direction: column;
+        align-items: end;
+        padding: 5rem;
+    }
+    @media ${mediaQuery.styledMobile} {
+        padding: 2rem;
+    }
 `
 
 export const ProductContainer = styled.div`
     flex: 120rem 0 1;
     width: 100%;
+    @media ${mediaQuery.styledTablet} {
+        flex: none;
+    }
 `
 
 export const OrderContainer = styled.div`
     width: 30.5rem;
+    @media ${mediaQuery.styledTablet} {
+        width: 40rem;
+    }
+    @media ${mediaQuery.styledMobile} {
+        width: 100%;
+    }
 `

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import mediaQuery from "../../helper/mediaQuery";
 
 export const Container = styled.div`
     display: flex;
@@ -8,6 +9,12 @@ export const Container = styled.div`
     border: 1px solid var(--color-hover);
     background-color: var(--color-white);
     padding: 2.9rem 1.7rem;
+    @media ${mediaQuery.styledTablet} {
+        width: 40rem;
+    }
+    @media ${mediaQuery.styledMobile} {
+        width: 100%;
+    }
 `
 
 export const DetailContainer = styled.div`
