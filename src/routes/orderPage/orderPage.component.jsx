@@ -19,7 +19,8 @@ import {
     CvvInput,
     ImgIcon,
     SpaceContainer,
-    ErrorContainer
+    ErrorContainer,
+    PaymentSection
 } from "./orderPage.styled";
 import { ErrorBoxWhite } from "../signInPage/signInPage.styled";
 
@@ -174,10 +175,12 @@ const OrderPage = () => {
 
     return (
         <NavFooter color="white" sticky={false}>
-            <Section>
                 {paymentPageComplete ? 
-                <PaymentComplete /> :
-                <>
+                <PaymentSection>
+                    <PaymentComplete /> 
+                </PaymentSection>
+                :
+                <Section>
                     <ProductContainer>
                         {formInput()}
                     </ProductContainer>
@@ -187,9 +190,8 @@ const OrderPage = () => {
                             {errMessage ? <ErrorBoxWhite>{errMessage}</ErrorBoxWhite> : ''}
                         </ErrorContainer>
                     </OrderContainer>
-                </>    
+                </Section>  
                 }
-            </Section>
         </NavFooter>
     )
 }

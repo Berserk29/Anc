@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const RadioBtn = styled.button`
     width: ${props => props.w || '4rem'};
     height: ${props => props.h || '4rem'};
+    max-width: ${props => props.maxWidth || 'none'};
     display: flex;
     align-items: center;
     justify-content: center;

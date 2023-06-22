@@ -11,6 +11,11 @@ export const FooterContainer = styled.div`
     background-color: var(--color-black);
     gap: 3.2rem;
     padding: 8rem 0;
+    @media ${mediaQuery.styledMobile} {
+        padding: 0;
+        justify-content: center;
+        height: 40rem;
+    }
 `
 
 export const FooterLinkContainer = styled.div`

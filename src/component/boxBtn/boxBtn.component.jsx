@@ -31,7 +31,7 @@ export const BoxBtnType = {
     sign: 'sign'
 }
 
-const BoxBtn = ({type, children, product, color, w, h, link = false, typoType = 'body_2'}) => {
+const BoxBtn = ({type, children, product, color, w, h, link = false, typoType = 'body_2', maxWidth}) => {
     const {orderNumber, addOrderNumber, subtractOrderNumber, addProductOrder, setIsPopupOn} = useContext(OrderContext)
     const {addItemToCart, removeItemToCart, subtractItemToCart} = useContext(CartContext)
     const { setNavButton } = useContext(LikedContext)
@@ -58,12 +58,12 @@ const BoxBtn = ({type, children, product, color, w, h, link = false, typoType = 
     const BtnChoice = () => {
 
         if(type === 'radio') return (
-            <RadioBtn w={w} h={h} onClick={() => navigateLink(link)}>
+            <RadioBtn w={w} h={h} maxWidth={maxWidth} onClick={() => navigateLink(link)}>
                 <Typo type={TypoType[typoType]}>{children}</Typo>
             </RadioBtn>
         )
         if(type === 'radio_active') return (
-            <RadioBtnActive w={w} h={h} onClick={() => navigateLink(link)}>
+            <RadioBtnActive w={w} h={h} maxWidth={maxWidth} onClick={() => navigateLink(link)}>
                 <Typo type={TypoType[typoType]} color='black'>{children}</Typo>
             </RadioBtnActive>
         )

@@ -1,13 +1,17 @@
-import styled from "styled-components"
+import styled, {css} from "styled-components"
 import mediaQuery from "../../helper/mediaQuery"
 
-export const Section = styled.div`
+const SectionCss = css`
     display: flex;
     justify-content: center;
     gap: 2rem;
     padding: 15.8rem 8rem;
     background-color: var(--color-white);
     align-items: start;
+`
+
+export const Section = styled.div`
+    ${SectionCss}
     @media ${mediaQuery.styledTablet} {
         flex-direction: column;
         align-items: end;
@@ -16,6 +20,13 @@ export const Section = styled.div`
     }
     @media ${mediaQuery.styledMobile} {
         padding: 1.5rem;
+    }
+`
+
+export const PaymentSection = styled.div`
+    ${SectionCss}
+    @media ${mediaQuery.styledMobile} {
+        padding: 10rem 3rem;
     }
 `
 

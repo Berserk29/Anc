@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import mediaQuery from "../../helper/mediaQuery";
 
 export const Section = styled.div`
     display: flex;
@@ -14,4 +15,7 @@ export const TextContainer = styled.div`
     flex-direction: column;
     width: 52rem;
     gap: 1.6rem;
+    @media ${mediaQuery.styledMobile} {
+        width: 100%;
+    }
 `
