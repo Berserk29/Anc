@@ -53,8 +53,8 @@ export const DropSection = styled.div`
     overflow: hidden;
     transform-origin: bottom;
     @media ${mediaQuery.styledMobile} {
-        width: 37rem;
-        gap: 2rem;
+        width: 33.125rem;
+        gap: 0;
     }
 `;
 

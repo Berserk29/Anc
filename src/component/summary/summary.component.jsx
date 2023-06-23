@@ -25,7 +25,7 @@ const Summary = ({btnText, taxSummary, onSubmit}) => {
 
     return (
         <Container>
-            <Typo type={TypoType.arialSize} size='2.3' weight='700' transform='none' color='black' >Order summary</Typo>
+            <Typo type={TypoType.arialSize} size='2.3rem' weight='700' transform='none' color='black' >Order summary</Typo>
             <DetailContainer>
                 <Line>
                     <Typo type={TypoType.body_4} color='black' >Item ({cartItemsCount})</Typo>
@@ -56,11 +56,11 @@ const Summary = ({btnText, taxSummary, onSubmit}) => {
                 }
             </DetailContainer>
             <TotalContainer>
-                <Typo type={TypoType.arialSize} size={taxSummary ? 2.3 : 1.6} weight='700' transform='none' color='black' >{taxSummary ? 'Total' : 'Total before tax'}</Typo>
+                <Typo type={TypoType.arialSize} size={taxSummary ? '2.3rem' : '1.6rem'} weight='700' transform='none' color='black' >{taxSummary ? 'Total' : 'Total before tax'}</Typo>
                 <Typo type={TypoType.headline_4} color='black' >{taxSummary ?  federalTax !== 0 ? `$${totalAfterTax.toFixed(2)}` : '-----' : `$${totalBeforeTax.toFixed(2)}`}</Typo>
             </TotalContainer>
             <div onClick={btnHandler} >
-                <BoxBtn type={BoxBtnType.radio} w='100%' h='4.8rem' typoType="body_1">{currentUser ? btnText : 'Sign In'}</BoxBtn>
+                <BoxBtn type={BoxBtnType.radio} w='100%' h='48px' typoType="arialSize" size='16px' weight='700' transform='capitalize' >{currentUser ? btnText : 'Sign In'}</BoxBtn>
             </div>
         </Container>
     )

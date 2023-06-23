@@ -15,7 +15,8 @@ export const AboutContainer = styled.div`
         padding: 20rem 6rem 0 6rem;
     }
     @media ${mediaQuery.styledMobile} {
-        padding: 20rem 2rem 0 2rem;
+        padding: 15rem 2rem 0 2rem;
+        gap: 10rem;
     }
 `
 

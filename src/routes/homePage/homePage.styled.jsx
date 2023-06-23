@@ -33,7 +33,7 @@ export const HomeFooter = styled.div`
     width: 100%;
     background-color: black;
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     justify-content: center;
     /* INFO (SCROLL BY SECTION) */
     /* scroll-snap-align: start; */

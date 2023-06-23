@@ -31,7 +31,7 @@ export const BoxBtnType = {
     sign: 'sign'
 }
 
-const BoxBtn = ({type, children, product, color, w, h, link = false, typoType = 'body_2', maxWidth}) => {
+const BoxBtn = ({type, children, product, color, w, h, link = false, typoType = 'body_2', maxWidth, size, weight, transform}) => {
     const {orderNumber, addOrderNumber, subtractOrderNumber, addProductOrder, setIsPopupOn} = useContext(OrderContext)
     const {addItemToCart, removeItemToCart, subtractItemToCart} = useContext(CartContext)
     const { setNavButton } = useContext(LikedContext)
@@ -59,17 +59,17 @@ const BoxBtn = ({type, children, product, color, w, h, link = false, typoType = 
 
         if(type === 'radio') return (
             <RadioBtn w={w} h={h} maxWidth={maxWidth} onClick={() => navigateLink(link)}>
-                <Typo type={TypoType[typoType]}>{children}</Typo>
+                <Typo type={TypoType[typoType]} size={size} weight={weight} transform={transform} >{children}</Typo>
             </RadioBtn>
         )
         if(type === 'radio_active') return (
             <RadioBtnActive w={w} h={h} maxWidth={maxWidth} onClick={() => navigateLink(link)}>
-                <Typo type={TypoType[typoType]} color='black'>{children}</Typo>
+                <Typo type={TypoType[typoType]} size={size} weight={weight} transform={transform} color='black'>{children}</Typo>
             </RadioBtnActive>
         )
         if(type === 'radio_checkout') return (
             <RadioHover w={w} h={h} onClick={() => removeItemToCart(product)}>
-                <Typo type={TypoType[typoType]} color='var(--color-hover)'>{children}</Typo>
+                <Typo type={TypoType[typoType]} size={size} weight={weight} transform={transform} color='var(--color-hover)'>{children}</Typo>
             </RadioHover>
         )
         if(type === 'color') return <ColorSquare w={w} h={h} color={color}/>

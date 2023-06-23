@@ -1,9 +1,11 @@
-import { useContext} from "react";
+import { useContext } from "react";
+
 import AlwaysHeading from "../../component/alwaysHeading/alwaysHeading.component";
 import ImgFull from "../../component/imgFull/imgFull.component";
 import InfoSection from "../../component/infoSection/infoSection.component";
 import NavFooter from "../../component/navFooter/navFooter.component";
 import Typo, { TypoType } from "../../component/typo/typo.component";
+import CardProduct from "../../component/cardProduct/cardProduct.component";
 
 import { headerAbout, aboutImg2, aboutInfoArray } from "./aboutPage.data";
 
@@ -17,10 +19,8 @@ import {
 
 import { ProductsContext } from "../../context/products.context";
 
-import CardProduct from "../../component/cardProduct/cardProduct.component";
-
 const AboutPage = () => {
-  const {productsMap} = useContext(ProductsContext)
+  const { productsMap } = useContext(ProductsContext)
 
   const aboutCard = [
     {
@@ -40,7 +40,6 @@ const AboutPage = () => {
     aboutTitle: 'Casual'  
     },
   ]
-
 
   return (
     <NavFooter color="black">

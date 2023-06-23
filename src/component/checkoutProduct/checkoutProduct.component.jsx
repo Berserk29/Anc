@@ -8,8 +8,9 @@ import mediaQuery from "../../helper/mediaQuery";
 const CheckoutProduct = ({props, title = false}) => {
 const {name, price, quantity, imageUrl, size} = props;
 
-const isTablet = useMediaQuery(mediaQuery.useTablet)
 const isSmallTablet = useMediaQuery(mediaQuery.useSmTablet)
+const isMobile = useMediaQuery(mediaQuery.useMobile)
+
 
     return (
         <Container>
@@ -18,7 +19,7 @@ const isSmallTablet = useMediaQuery(mediaQuery.useSmTablet)
                 <ProductContainer>
                     <ImgCss src={imageUrl} alt="product image" />
                     <DetailContainer>
-                        <Typo type={TypoType.arialSize} size={!isTablet ? 1.6 : 2} transform='capitalize' color='black'>{name}</Typo>
+                        <Typo type={TypoType.arialSize} size={isMobile ? '14px' : '16px'} transform='capitalize' color='black'>{name}</Typo>
                         <Typo type={TypoType.body_5} color='var(--color-hover)'>Size: {size}</Typo>
                         <BoxBtn type={BoxBtnType.radio_checkout} w='6.5rem' h='2.5rem' product={props}>Delete</BoxBtn>
                     </DetailContainer>
@@ -43,21 +44,21 @@ const isSmallTablet = useMediaQuery(mediaQuery.useSmTablet)
             : 
             <>
                 <ProductContainer>
-                    <Typo type={TypoType.arialSize} size='1.6' transform='capitalize' color='black'>{title[0]}</Typo>
+                    <Typo type={TypoType.arialSize} size='1.6rem' transform='capitalize' color='black'>{title[0]}</Typo>
                 </ProductContainer>
                 {
                     !isSmallTablet ?
                     <>
                     <FlexContainer>
-                        <Typo type={TypoType.arialSize} size='1.6' transform='capitalize' color='black'>{title[1]}</Typo>
+                        <Typo type={TypoType.arialSize} size='1.6rem' transform='capitalize' color='black'>{title[1]}</Typo>
                     </FlexContainer>
                     <FlexContainer>
-                        <Typo type={TypoType.arialSize} size='1.6' transform='capitalize' color='black'>{title[2]}</Typo>
+                        <Typo type={TypoType.arialSize} size='1.6rem' transform='capitalize' color='black'>{title[2]}</Typo>
                     </FlexContainer>
                     </> 
                     :
                     <FlexContainer>
-                        <Typo type={TypoType.arialSize} size='1.6' transform='capitalize' color='black'>{title[1]} / {title[2]}</Typo>
+                        <Typo type={TypoType.arialSize} size='1.6rem' transform='capitalize' color='black'>{title[1]} / {title[2]}</Typo>
                     </FlexContainer>
                 }
             </>

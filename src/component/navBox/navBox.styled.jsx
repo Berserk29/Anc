@@ -25,7 +25,7 @@ export const BoxItems = styled.div`
 
 export const TotalContainer = styled.div`
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     justify-content: space-between;
     width: 100%;
     height: 10rem;
@@ -33,6 +33,6 @@ export const TotalContainer = styled.div`
 
 export const SignInContainer = styled(TotalContainer)`
     justify-content: center;
-    align-items: end;
+    align-items: flex-end;
     height: 6rem;
 `

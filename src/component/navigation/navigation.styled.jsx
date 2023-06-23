@@ -20,27 +20,26 @@ export const NavbarContainer = styled.div`
 
 export const CartNumber = styled.span`
     position: absolute;
-    top: -.8rem;
-    right: -1.2rem;
-    width: 1.75rem;
-    height: 1.75rem;
+    top: -.9rem;
+    right: -1.5rem;
+    width: 2.2rem;
+    height: 2.2rem;
     border-radius: 50%;
     background-color: transparent;
     color: var(--color-white);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-family: Arial;
     font-weight: 700;
-    outline: 1.5px solid var(--color-white);
-    transition: outline .3s color .3s;
+    border: 2px solid var(--color-white);
     cursor: pointer;
     `
 
 export const CartNumberReverse = styled(CartNumber)`
     background-color: transparent;
-    outline: 1.5px solid var(--color-black);
+    border: 2px solid var(--color-black);
     color: var(--color-black);
     `
 

@@ -7,14 +7,14 @@ export const Section = styled.div`
     gap: 2rem;
     padding: 15.8rem 8rem;
     background-color: var(--color-white);
-    align-items: start;
+    align-items: flex-start;
     @media ${mediaQuery.styledTablet} {
         flex-direction: column;
-        align-items: end;
+        align-items: center;
         padding: 5rem;
     }
     @media ${mediaQuery.styledMobile} {
-        padding: 2rem;
+        padding: 1rem;
     }
 `
 
@@ -29,7 +29,7 @@ export const ProductContainer = styled.div`
 export const OrderContainer = styled.div`
     width: 30.5rem;
     @media ${mediaQuery.styledTablet} {
-        width: 40rem;
+        width: 50rem;
     }
     @media ${mediaQuery.styledMobile} {
         width: 100%;

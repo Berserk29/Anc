@@ -42,20 +42,20 @@ const Popup = ({props}) => {
         <PopupContainer>
             <FlexContainer flex='column'>
                 <FlexContainer>
-                    <Typo type={TypoType.arialSize} size='1.6' transform='uppercase' weight='700' color='black'>Added to your cart</Typo>
+                    <Typo type={TypoType.arialSize} size='1.6rem' transform='uppercase' weight='700' color='black'>Added to your cart</Typo>
                     <CloseBtn src={closeBtn} alt="close button" onClick={closeHandler}/>
                 </FlexContainer>
-                <FlexContainer align='start'>
+                <FlexContainer align='flex-start'>
                     <ImgPopup src={imageUrl}/>
-                    <FlexContainer flex='column' align='start'>
-                        <Typo type={TypoType.arialSize} size='1.4' transform='capitalize' weight='700' color='black'>{name}</Typo>
-                        <FlexContainer gap='.8' justify='start'>
-                            <Typo type={TypoType.arialSize} size='1.2' transform='none' color='black'>Size:</Typo>
-                            <Typo type={TypoType.arialSize} size='1.2' color='black'>{size[btnSizeActiveNum]}</Typo>
+                    <FlexContainer flex='column' align='flex-start'>
+                        <Typo type={TypoType.arialSize} size='1.4rem' transform='capitalize' weight='700' color='black'>{name}</Typo>
+                        <FlexContainer gap='.8' justify='flex-start'>
+                            <Typo type={TypoType.arialSize} size='1.2rem' transform='none' color='black'>Size:</Typo>
+                            <Typo type={TypoType.arialSize} size='1.2rem' color='black'>{size[btnSizeActiveNum]}</Typo>
                         </FlexContainer>
-                        <FlexContainer gap='.8' justify='start'>
-                            <Typo type={TypoType.arialSize} size='1.2' transform='none' color='black'>Quantity:</Typo>
-                            <Typo type={TypoType.arialSize} size='1.2' color='black'>{orderNumber}</Typo>
+                        <FlexContainer gap='.8' justify='flex-start'>
+                            <Typo type={TypoType.arialSize} size='1.2rem' transform='none' color='black'>Quantity:</Typo>
+                            <Typo type={TypoType.arialSize} size='1.2rem' color='black'>{orderNumber}</Typo>
                         </FlexContainer>
                     </FlexContainer>
                 </FlexContainer>

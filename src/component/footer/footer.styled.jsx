@@ -7,14 +7,13 @@ export const FooterContainer = styled.div`
     width: 100%;
     flex-direction: column;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
     background-color: var(--color-black);
     gap: 3.2rem;
     padding: 8rem 0;
     @media ${mediaQuery.styledMobile} {
         padding: 0;
         justify-content: center;
-        height: 40rem;
     }
 `
 

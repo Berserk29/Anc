@@ -11,7 +11,7 @@ export const PriceContainer = styled.div`
 `
 
 export const IconContainer = styled.div`
-    align-self: end;
+    align-self: flex-end;
     display: flex;
     gap: 2rem;
     padding-bottom: 6rem;
@@ -42,7 +42,7 @@ export const FlexColumn = styled.div`
     width: 7.9rem;
     flex-direction: column;
     gap: ${props => props.gap || 0}rem;
-    align-items: ${props => props.align || 'start'};
+    align-items: ${props => props.align || 'flex-start'};
     @media ${mediaQuery.styledTablet} {
         width: 8.5rem;
     }

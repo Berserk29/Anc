@@ -22,7 +22,7 @@ export const ImgContainer = styled.div`
     flex-direction: column;
     gap: 4rem;
     width: 50%;
-    align-items: end;
+    align-items: flex-end;
     @media ${mediaQuery.styledTablet} {
         width: 50%;
     }

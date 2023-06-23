@@ -196,7 +196,7 @@ export const Body07 = styled.p`
 export const ArialSize = styled.p`
     ${ArialTheme}
     text-transform: ${props => props.transform};
-    font-size: ${props => props.size}rem;
+    font-size: ${props => props.size};
     font-weight: ${props => props.weight || 400};
 `
 

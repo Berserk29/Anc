@@ -37,13 +37,13 @@ const NavBoxItem = ({props, type}) => {
                 <ImgProduct image={imageUrl}/> 
                 <FlexContainer gap='3' datatype="navBox">
                     <FlexContainer gap='.8' datatype="navBox">
-                        <Typo type={TypoType.arialSize} color='black' size='1.4' weight='700' transform='capitalize'>{name}</Typo>
-                        <Typo type={TypoType.arialSize} color='black' size='1.4' weight='700'>${price}</Typo>
+                        <Typo type={TypoType.arialSize} color='black' size='1.4rem' weight='700' transform='capitalize'>{name}</Typo>
+                        <Typo type={TypoType.arialSize} color='black' size='1.4rem' weight='700'>${price}</Typo>
                     </FlexContainer>
                     <FlexContainer gap='.5' datatype="navBox">
-                        <Typo type={TypoType.arialSize} color='black' size='1.2' weight='400' transform='capitalize'>Quantity: {quantity}</Typo>
-                        <Typo type={TypoType.arialSize} color='black' size='1.2' weight='400' transform='capitalize'>Size: {size}</Typo>
-                        <Typo type={TypoType.arialSize} color='black' size='1.2' weight='700' transform='capitalize'>Total: ${quantity * price}</Typo>
+                        <Typo type={TypoType.arialSize} color='black' size='1.2rem' weight='400' transform='capitalize'>Quantity: {quantity}</Typo>
+                        <Typo type={TypoType.arialSize} color='black' size='1.2rem' weight='400' transform='capitalize'>Size: {size}</Typo>
+                        <Typo type={TypoType.arialSize} color='black' size='1.2rem' weight='700' transform='capitalize'>Total: ${quantity * price}</Typo>
                     </FlexContainer>
                 </FlexContainer>
 
@@ -52,7 +52,7 @@ const NavBoxItem = ({props, type}) => {
             { tripeChoice(false, true, false) && 
                 <>
                     <LikedImg image={imageUrlHover} onClick={likedHandler}/>
-                    <Typo type={TypoType.arialSize} color='black' size='1.4' weight='700' transform='capitalize'>{name}</Typo>
+                    <Typo type={TypoType.arialSize} color='black' size='1.4rem' weight='700' transform='capitalize'>{name}</Typo>
                 </>
             }
         </ProductContainer>

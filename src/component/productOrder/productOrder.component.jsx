@@ -62,12 +62,12 @@ const ProductOrder = ({product}) => {
           <FlexColumn gap='.3'>
             {product?.isNew && 
               <PriceBox> 
-                <Typo type={TypoType.arialSize} size={isTablet ? 1.625 : 1.3} opacity='.6'>$</Typo>
+                <Typo type={TypoType.arialSize} size='13px' opacity='.6'>$</Typo>
                 <Typo type={TypoType.body_3_dash} opacity='.6'>{product?.price}</Typo>
               </PriceBox>
             }
             <PriceBox>
-              <Typo type={TypoType.arialSize} size={isTablet ? 2.5 : 2}>$</Typo>
+              <Typo type={TypoType.arialSize} size='20px'>$</Typo>
               <Typo type={TypoType.headline_4}>{newPrice}</Typo>
             </PriceBox>
           </FlexColumn>
@@ -76,7 +76,7 @@ const ProductOrder = ({product}) => {
           }
           </FlexBoxLine>
           {/* COLOR SECTION */}
-          <FlexBox justify='start' align='start' paddingBottom='0' gap='1.2'>
+          <FlexBox justify='flex-start' align='flex-start' paddingBottom='0' gap='1.2'>
               <FlexColumn marginRight='3.1' gap='1.2'>
                   <Typo type={TypoType.body_5}>Color</Typo>
               </FlexColumn>
@@ -84,14 +84,14 @@ const ProductOrder = ({product}) => {
           </FlexBox>
           {/* SIZE SECTION */}
         { product?.size[0] === 'regular' ? '' :
-            <FlexBox justify='start' align='start' paddingBottom='4.6' gap='1.2'>
+            <FlexBox justify='flex-start' align='flex-start' paddingBottom='4.6' gap='1.2'>
                 <FlexColumn marginRight='3.1' gap='1.2'>
                     <Typo type={TypoType.body_5}>Size</Typo>
                     <Typo type={TypoType.body_5} opacity='.4'>Size Guide</Typo>
                 </FlexColumn>
                 {product?.size.map((el,i) => {
-                if(btnSizeActiveNum === i) return <div key={i}><BoxBtn type={BoxBtnType.radio_active} w={isTablet && '5rem'} h={isTablet && '5rem' } >{el}</BoxBtn></div>
-                return <div key={i} onClick={() => btnSizeHandler(i)}><BoxBtn type={BoxBtnType.radio} w={isTablet && '5rem'} h={isTablet && '5rem' } >{el}</BoxBtn></div>
+                if(btnSizeActiveNum === i) return <div key={i}><BoxBtn type={BoxBtnType.radio_active} w={isTablet && '5rem'} h={isTablet && '5rem' } typoType='arialSize' size='16px'>{el}</BoxBtn></div>
+                return <div key={i} onClick={() => btnSizeHandler(i)}><BoxBtn type={BoxBtnType.radio} w={isTablet && '5rem'} h={isTablet && '5rem' } typoType='arialSize' size='16px' >{el}</BoxBtn></div>
             })}
             </FlexBox>
         }
@@ -112,8 +112,8 @@ const ProductOrder = ({product}) => {
         <FlexBox paddingTop='6'>
             <Typo type={TypoType.body_2} >Total</Typo>
             <PriceBox gap='4'>
-                <Typo type={TypoType.arialSize} size='3'>$</Typo>
-                <Typo type={TypoType.arialSize} size='4' weight='700'>{totalPrice}</Typo>
+                <Typo type={TypoType.arialSize} size='3rem'>$</Typo>
+                <Typo type={TypoType.arialSize} size='4rem' weight='700'>{totalPrice}</Typo>
             </PriceBox>
         </FlexBox>
         {/* ADDING BTN SECTION */}

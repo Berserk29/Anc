@@ -5,16 +5,16 @@ const SectionCss = css`
     display: flex;
     justify-content: center;
     gap: 2rem;
-    padding: 15.8rem 8rem;
+    padding: 15.8rem 5rem;
     background-color: var(--color-white);
-    align-items: start;
+    align-items: flex-start;
 `
 
 export const Section = styled.div`
     ${SectionCss}
     @media ${mediaQuery.styledTablet} {
         flex-direction: column;
-        align-items: end;
+        align-items: center;
         padding: 5rem;
         gap: 3rem;
     }
@@ -51,7 +51,7 @@ export const ProductContainer = styled.div`
 export const OrderContainer = styled.div`
     width: 30.5rem;
     @media ${mediaQuery.styledTablet} {
-        width: 40rem;
+        width: 50rem;
     }
     @media ${mediaQuery.styledMobile} {
         width: 100%;
@@ -91,7 +91,7 @@ export const BoxSelect = styled.div`
     @media ${mediaQuery.styledMobile} {
         flex-direction: column;
         justify-content: center;
-        align-items: start;
+        align-items: flex-start;
         gap: 1rem;
     }
 `

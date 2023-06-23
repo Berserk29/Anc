@@ -16,7 +16,7 @@ const AlwaysHeading = () => {
             <Typo type={TypoType.title_3}>New</Typo>
             <Typo type={TypoType.body_3}>Urban style</Typo>
         </NewContainer>
-        <Typo type={TypoType.title_1} flex='end'>Creative</Typo>
+        <Typo type={TypoType.title_1} flex='flex-end'>Creative</Typo>
     </TitleContainer>  
     )
 }

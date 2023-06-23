@@ -10,7 +10,7 @@ export const Container = styled.div`
     background-color: var(--color-white);
     padding: 2.9rem 1.7rem;
     @media ${mediaQuery.styledTablet} {
-        width: 40rem;
+        width: 50rem;
     }
     @media ${mediaQuery.styledMobile} {
         width: 100%;

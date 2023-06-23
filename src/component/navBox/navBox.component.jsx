@@ -1,14 +1,17 @@
+import { useMediaQuery } from "react-responsive"
 import { useContext } from "react"
-import { BoxContainer, BoxItems, TotalContainer, SignInContainer } from "./navBox.styled"
+import mediaQuery from "../../helper/mediaQuery"
+
 import { CartContext } from "../../context/cart.context"
 import { LikedContext } from "../../context/liked.context"
 import { UserContext } from "../../context/user.context"
-import Typo, { TypoType } from "../typo/typo.component"
-import { userArr } from "./navBox.data"
+
 import NavBoxItem from "../navBoxItem/navBoxItem.component"
+import Typo, { TypoType } from "../typo/typo.component"
 import BoxBtn, { BoxBtnType } from "../boxBtn/boxBtn.component"
-import { useMediaQuery } from "react-responsive"
-import mediaQuery from "../../helper/mediaQuery"
+
+import { BoxContainer, BoxItems, TotalContainer, SignInContainer } from "./navBox.styled"
+import { userArr } from "./navBox.data"
 
 const NavBox = ({type}) => {
     const { currentUser } = useContext(UserContext)
@@ -16,6 +19,7 @@ const NavBox = ({type}) => {
     const { likedItems } = useContext(LikedContext)
     
     const isSmTablet = useMediaQuery(mediaQuery.useSmTablet)
+    const isMobile = useMediaQuery(mediaQuery.useMobile)
 
     const tripeChoice = (choice1, choice2, choice3) => {
         if(type === 1) return choice1
@@ -26,13 +30,15 @@ const NavBox = ({type}) => {
     
     if(isSmTablet && type === 2) return ;
     
+    // 36.3
+
     return (
         <>
         {tripeChoice( userArr , likedItems, cartItems).length ? 
             <BoxContainer 
                 right={tripeChoice(isSmTablet ? 5 : 10, 5, 0)} 
                 height={tripeChoice(24, 45.4, 46)} 
-                width={tripeChoice(18,20.5,36.3)}
+                width={tripeChoice(18, 20.5, isMobile ? 32 : 36.3)}
                 padding={tripeChoice(1.6, 2.4, 2.4)}
                 datatype="navBox" 
             >
@@ -43,7 +49,7 @@ const NavBox = ({type}) => {
                     {tripeChoice(false, false, true) &&
                     <>
                         <TotalContainer datatype="navBox">
-                            <BoxBtn type={BoxBtnType.radio} w='31.5rem' h='6rem' link='/checkout'>See Shopping Cart</BoxBtn>
+                            <BoxBtn type={BoxBtnType.radio} w='31.5rem' h='6rem' typoType="arialSize" size='16px' weight='700' transform='capitalize' link='/checkout'>See Shopping Cart</BoxBtn>
                         </TotalContainer>
                     </>    
                     }

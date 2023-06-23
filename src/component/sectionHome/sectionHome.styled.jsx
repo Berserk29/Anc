@@ -40,9 +40,9 @@ export const CarouselBtnContainer = styled(motion.div)`
     position: absolute;
     top: 90vh;
     display: flex;
-    justify-self: end;
+    justify-self: flex-end;
     flex-direction: row;
-    gap: 2rem;
+    gap: 5rem;
     z-index: 2;
     @media ${mediaQuery.styledTablet} {
         gap: 8rem;
@@ -50,13 +50,13 @@ export const CarouselBtnContainer = styled(motion.div)`
 `
 
 export const CarouselBtn = styled.div`
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.7rem;
+    height: 1.7rem;
     background-color: var(--color-white);
     border-radius: 50%;
     transition: opacity .3s;
     opacity: ${props => props.opacity};
-    outline: 1px solid var(--color-hover);
+    border: 1px solid var(--color-hover);
     :hover {
         opacity: 1;
     }
@@ -98,7 +98,7 @@ export const TextContainer = styled.div`
     flex-direction: column;
     max-width: 39rem;
     gap: 3rem;
-    align-items: start;
+    align-items: flex-start;
 `
 
 export const InstaContainer = styled(TextContainer)`
@@ -114,7 +114,7 @@ export const ResponsiveSection = styled.div`
     background-position: ${props => props.position};
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
 `
 
 export const ResTextContainer = styled(TextContainer)`
