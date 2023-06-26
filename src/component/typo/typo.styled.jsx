@@ -78,7 +78,7 @@ export const Title02 = styled.h2`
     font-size: 8.6rem;
     letter-spacing: 0;
     @media ${mediaQuery.styledMobile} {
-        font-size : 5rem ;
+        font-size: 5.8rem;
     }
     `
 

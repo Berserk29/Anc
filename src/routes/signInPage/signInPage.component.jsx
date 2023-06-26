@@ -7,11 +7,11 @@ import NavFooter from "../../component/navFooter/navFooter.component"
 
 import { 
     signInAuthUserWithEmailAndPassword,
-    // signInWithGooglePopup,
+    signInWithGooglePopup,
+    signInWithFacebookPopup,
     createAuthUserWithEmailAndPassword,
     createUserDocumentFromAuth
 } from '../../utiles/firebase/firebase.utiles';
-
 
 import { 
     SectionContainer,
@@ -192,6 +192,10 @@ const SignInPage = () => {
         
     }
 
+    const signInWithGoogle = async () => await signInWithGooglePopup();
+    const signInWithFacebook = async () => await signInWithFacebookPopup();
+
+
     return (
         <NavFooter>
             <SectionContainer>
@@ -207,6 +211,12 @@ const SignInPage = () => {
                         { btnNum }
                         <BoxBtn type={BoxBtnType.radio_active} w={isSmTablet ? '100%' : '63rem'} h='5.6rem' typoType='body_1'>Continue</BoxBtn>
                     </form>
+                    { btnNum === 0 &&
+                        <div>
+                            <button onClick={signInWithGoogle}>GOOGLE</button>
+                            <button onClick={signInWithFacebook}>FACEBOOK</button>
+                        </div>
+                    }
                 </SignContainer>
             </SectionContainer>
         </NavFooter>

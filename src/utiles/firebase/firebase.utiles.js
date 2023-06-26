@@ -5,6 +5,7 @@ import {
     signInWithRedirect,
     signInWithPopup,
     GoogleAuthProvider,
+    FacebookAuthProvider,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     signOut,
@@ -27,7 +28,8 @@ initializeApp(firebaseConfig);
 export const db = getFirestore();
 
 /// DB --> dataBase
-// Product
+
+// PRODUCT
 
 export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
     const collectionRef = collection(db, collectionKey);
@@ -57,8 +59,9 @@ export const getProductsAndDocuments = async (firebaseDocumentTitle) => {
     return productMap;
 }
 
-// Authentication
+// AUTHENTICATION
     const googleProvider = new GoogleAuthProvider();
+    const facebookProvider = new FacebookAuthProvider();
 
     googleProvider.setCustomParameters({
         prompt: 'select_account'
@@ -66,13 +69,11 @@ export const getProductsAndDocuments = async (firebaseDocumentTitle) => {
 
     export const auth = getAuth();
 
-    export const signInWithGooglePopup = () => {
-        return signInWithPopup(auth, googleProvider);  
-    };
+    export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider);  
 
-    export const signInWithGoogleRedirect = () => {
-        return signInWithRedirect(auth, googleProvider);
-    };
+    export const signInWithFacebookPopup = () => signInWithPopup(auth, facebookProvider);
+
+    export const signInWithGoogleRedirect = () => signInWithRedirect(auth, googleProvider);
 
     export const createUserDocumentFromAuth = async (userAuth, additionalDetails = {}) => {
         if(!userAuth) return;
@@ -120,7 +121,6 @@ export const getProductsAndDocuments = async (firebaseDocumentTitle) => {
     export const signOutUser = async () => signOut(auth);
       
     export const onAuthStateChangedListener = (callback) => {
-        // if(!callback) return;
         onAuthStateChanged(auth, callback); 
     }
       
