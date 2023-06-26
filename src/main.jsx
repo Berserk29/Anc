@@ -10,11 +10,13 @@ import { CartProvider } from './context/cart.context.jsx'
 import { LikedProvider } from './context/liked.context.jsx'
 import { OrderProvider } from './context/order.context.jsx'
 import { UserProvider } from './context/user.context.jsx';
+import GlobalStyles from './globalStyles.js'
 
 import ScrollToTop from './helper/scrollToTop.js'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <GlobalStyles/>
     <BrowserRouter>
       <UserProvider>
         <NumContextProvider>

@@ -15,7 +15,6 @@ const Popup = ({props}) => {
     const {orderNumber, btnSizeActiveNum, setIsPopupOn} = useContext(OrderContext)
     const navigate = useNavigate();
 
-    // TODO NAVIGATE TO THE PROPER PAGE WHEN IT'S CREATE
     const cartHandler = () => navigate('/checkout');
 
     // Timeout to takeout the popup

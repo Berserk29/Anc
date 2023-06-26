@@ -17,30 +17,27 @@ export const NavbarContainer = styled.div`
     }
 `
 
-
 export const CartNumber = styled.span`
     position: absolute;
-    top: -.9rem;
-    right: -1.5rem;
-    width: 2.2rem;
-    height: 2.2rem;
+    top: -.4rem;
+    right: -1rem;
+    width: 1.8rem;
+    height: 1.8rem;
     border-radius: 50%;
-    background-color: transparent;
-    color: var(--color-white);
+    background-color: var(--color-white);
+    color: var(--color-black);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
+    font-size: 11px;
     font-family: Arial;
     font-weight: 700;
-    border: 2px solid var(--color-white);
     cursor: pointer;
-    `
+`
 
 export const CartNumberReverse = styled(CartNumber)`
-    background-color: transparent;
-    border: 2px solid var(--color-black);
-    color: var(--color-black);
+    background-color: var(--color-black);
+    color: var(--color-white);
     `
 
 export const IconContainer = styled.div`

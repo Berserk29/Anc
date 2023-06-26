@@ -43,6 +43,9 @@ export const DropMenuContainer = styled.div`
     z-index: 150;
     animation: ${({ isOpen }) =>
     isOpen ? slideInAnimation : slideOutAnimation} 1s ease-in-out forwards;
+    @media ${mediaQuery.styledMobile} {
+        gap: 1rem;
+    }
 `;
 
 export const DropSection = styled.div`
@@ -53,8 +56,8 @@ export const DropSection = styled.div`
     overflow: hidden;
     transform-origin: bottom;
     @media ${mediaQuery.styledMobile} {
-        width: 33.125rem;
-        gap: 0;
+        width: 29.5rem;
+        gap: 2rem;
     }
 `;
 

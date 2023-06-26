@@ -19,7 +19,7 @@ export const Section = styled.div`
         gap: 3rem;
     }
     @media ${mediaQuery.styledMobile} {
-        padding: 1.5rem;
+        padding: 2rem;
     }
 `
 

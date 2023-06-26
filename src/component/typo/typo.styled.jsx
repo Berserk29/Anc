@@ -1,8 +1,13 @@
 import styled, { css } from "styled-components";
 import mediaQuery from "../../helper/mediaQuery";
 
+export const DoubleContainer = styled.div`
+    display: flex;
+    align-items: center;
+`
+
 const ArialTheme = css`
-    font-family: Arial;
+    font-family: 'Arial';
     font-style: normal;
     font-weight: 700;
     letter-spacing: -0.01em;
@@ -27,10 +32,8 @@ const ArialTheme = css`
     `}
 `
 
-// 'Scheherazade'
-
 const ScheherazadeTheme = css`
-    font-family: 'Scheherazade','Lora';
+    font-family: 'Scheherazade';
     font-style: normal;
     font-weight: 400;
     line-height: 100%;
@@ -58,37 +61,31 @@ const ScheherazadeTheme = css`
 
 export const Title01 = styled.h1`
     ${ScheherazadeTheme}
-    font-size: 9.6rem;
-    padding: 1rem;
+    font-size: 12rem;
     @media ${mediaQuery.styledMobile} {
-       font-size : 7rem ;
+       font-size : 8.65rem ;
     }
-`
-
-export const DoubleContainer = styled.div`
-    display: flex;
-    align-items: center;
 `
 
 export const Double01 = styled.h3`
     ${ScheherazadeTheme}
-    font-size: 3.8rem;
+    font-size: 5.2rem;
     letter-spacing: 0.02em;
-`
-
-export const Double02 = styled.h3`
-    ${ArialTheme}
-    font-size: 3.6rem;
 `
 
 export const Title02 = styled.h2`
     ${ScheherazadeTheme}
-    line-height: 120%;
-    font-size: 6.6rem;
+    font-size: 8.6rem;
     letter-spacing: 0;
     @media ${mediaQuery.styledMobile} {
-       font-size : 5rem ;
+        font-size : 5rem ;
     }
+    `
+
+export const Double02 = styled.h3`
+    ${ArialTheme}
+    font-size: 3.6rem;
+    margin-bottom: .35rem;
 `
 
 export const Title03 = styled.h1`

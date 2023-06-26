@@ -14,7 +14,7 @@ export const Section = styled.div`
         padding: 5rem;
     }
     @media ${mediaQuery.styledMobile} {
-        padding: 1rem;
+        padding: 2rem;
     }
 `
 

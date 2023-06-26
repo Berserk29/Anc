@@ -67,9 +67,6 @@ const SectionHome = ({props}) => {
     const BtnHandler = (i) => setCarouselNum(i)
 
     // To make the sectionChoice animation work --> sectionChoice need to be used as a function and not a Component
-    
-    // TODO THE FULLIMG IS A CAROUSEL
-
 
     const sectionChoice = () => {
         if(isTablet && type !== 'noImg' && type !== 'carousel') 

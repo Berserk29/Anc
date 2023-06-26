@@ -11,12 +11,12 @@ const AlwaysHeading = () => {
 
     return (
     <TitleContainer>
-        <Typo type={TypoType.title_1} flex='center' marginRight={!isMobile ? 6 : 2}>Always</Typo>
+        <Typo type={TypoType.title_1} flex='center' marginRight={!isMobile ? 6 : 0}>Always</Typo>
         <NewContainer>
             <Typo type={TypoType.title_3}>New</Typo>
             <Typo type={TypoType.body_3}>Urban style</Typo>
         </NewContainer>
-        <Typo type={TypoType.title_1} flex='flex-end'>Creative</Typo>
+        <Typo type={TypoType.title_1} flex='flex-end' marginRight={!isMobile ? 2 : 0}>Creative</Typo>
     </TitleContainer>  
     )
 }
