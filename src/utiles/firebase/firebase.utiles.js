@@ -11,7 +11,6 @@ import {
     signOut,
     onAuthStateChanged,
     updateProfile,
-
 } from 'firebase/auth';
 
 const firebaseConfig = {
@@ -70,8 +69,12 @@ export const getProductsAndDocuments = async (firebaseDocumentTitle) => {
     export const auth = getAuth();
 
     export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider);  
-
-    export const signInWithFacebookPopup = () => signInWithPopup(auth, facebookProvider);
+  
+    // TESTING TODO
+    export const signInWithFacebookPopup = () => {
+      const fbresult = signInWithPopup(auth, facebookProvider);
+      return fbresult;
+    } 
 
     export const signInWithGoogleRedirect = () => signInWithRedirect(auth, googleProvider);
 

@@ -45,11 +45,34 @@ const SignInPage = () => {
 
     const isSmTablet = useMediaQuery(mediaQuery.useSmTablet)
 
+    
     const resetFormFields = () => {
         setFormSign(defaultFormSign);
         setFormCreate(defaultFormCreate)
     }
-
+    
+    const switchFunction = (err) => {
+        switch(err.code){
+            case 'auth/weak-password' :
+                setErrMessage('Password should be at least 6 characters')
+                break;
+            case 'auth/email-already-in-use' :
+                setErrMessage('Cannot create user, email already in use')
+                break;
+            case 'auth/account-exists-with-different-credential' :
+                setErrMessage('This account exists with a different credential')
+                break;
+            case 'auth/wrong-password' :
+                setErrMessage('Incorrect password or email');
+                break;
+            case 'auth/user-not-found' :
+                setErrMessage('Incorrect password or email');
+                break;
+            default:
+                setErrMessage('User creation encountered an error');
+        }        
+    }
+    
     const handleSubmit = async (event) => {
         event.preventDefault();
         const {email, password} = formSign
@@ -57,16 +80,7 @@ const SignInPage = () => {
             await signInAuthUserWithEmailAndPassword(email, password)
             resetFormFields();    
         } catch(err){
-            switch(err.code) {
-                case 'auth/wrong-password' :
-                    setErrMessage('Incorrect password or email');
-                    break;
-                case 'auth/user-not-found' :
-                    setErrMessage('Incorrect password or email');
-                    break;
-                default :
-                    setErrMessage('Sign in connection encountered an error');
-            }
+            switchFunction(err)
         }
     }
 
@@ -80,25 +94,10 @@ const SignInPage = () => {
         }
         try{
             const {user} = await createAuthUserWithEmailAndPassword(email,password);
-            
-            console.log(displayName)
-
             await createUserDocumentFromAuth({...user, displayName});
-
-
             resetFormFields();
-            
-        } catch(err){
-            switch(err.code){
-                case 'auth/weak-password' :
-                    setErrMessage('Password should be at least 6 characters')
-                    break;
-                case 'auth/email-already-in-use' :
-                    setErrMessage('Cannot create user, email already in use')
-                    break;
-                default:
-                    setErrMessage('User creation encountered an error');
-            }
+        } catch(err) {
+            switchFunction(err)
         }
     }
 
@@ -192,8 +191,21 @@ const SignInPage = () => {
         
     }
 
-    const signInWithGoogle = async () => await signInWithGooglePopup();
-    const signInWithFacebook = async () => await signInWithFacebookPopup();
+    const signInWithGoogle = async () => {
+        try{
+            await signInWithGooglePopup();
+        }catch(err) {
+            switchFunction(err)
+        }
+    }
+    
+    const signInWithFacebook = async () => {
+        try{
+            await signInWithFacebookPopup()
+        } catch(err) {
+            switchFunction(err)
+        }
+    };
 
 
     return (
