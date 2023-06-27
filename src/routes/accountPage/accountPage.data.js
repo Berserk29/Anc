@@ -3,9 +3,8 @@ import cardImg2 from '../../assets/icon/account_2.png'
 import cardImg3 from '../../assets/icon/account_3.png'
 import cardImg4 from '../../assets/icon/account_4.png'
 import cardImg5 from '../../assets/icon/account_5.png'
-import cardImg6 from '../../assets/icon/account_6.png'
+import logoutIcon from '../../assets/icon/logout.png'
 
-// TESTING TODO CHANGING LINK WHEN THE PAGE ARE READY
 export const titleArr = [
     {
     title: 'Orders',
@@ -13,19 +12,19 @@ export const titleArr = [
     },
     {
     title: 'Profile',
-    link: '/orders'
+    link: '/profile'
     },
     {
-    title: 'Addresses',
-    link: '/orders'
+    title: 'Address',
+    link: '/address'
     },
     {
-    title: 'Payment settings',
-    link: '/orders'
+    title: 'Payment',
+    link: '/payment'
     },
     {
     title: 'Favorite',
-    link: '/orders'
+    link: '/favorite'
     },
 ]
 
@@ -34,30 +33,35 @@ export const cardArr = [
         title: 'Orders',
         text: 'Review your purchases made online or in-stores',
         imageUrl: cardImg1,
+        link: '/orders'
     },
     {
         title: 'Profile',
         text: 'Manage your password and communication preferences',
         imageUrl: cardImg2,
+        link: '/profile'
     },
     {
-        title: 'Addresses',
+        title: 'Address',
         text: 'Manage your shipping addresses',
         imageUrl: cardImg3,
+        link: '/address'
     },
     {
         title: 'Payment settings',
-        text: 'Manage your credit card info & preferred methods of payment',
+        text: 'Manage your preferred methods of payment',
         imageUrl: cardImg4,
+        link: '/payment'
     },
     {
         title: 'Favorite',
         text: 'All your favorite items in one place',
         imageUrl: cardImg5,
+        link: '/favorite'
     },
     {
-        title: 'FAQ',
-        text: 'Do you need help?',
-        imageUrl: cardImg6,
+        title: 'Logout',
+        text: 'Logout your account',
+        imageUrl: logoutIcon,
     },
 ]

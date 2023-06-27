@@ -1,5 +1,6 @@
 import { useMediaQuery } from "react-responsive"
 import { useContext } from "react"
+import { useNavigate } from "react-router-dom"
 import mediaQuery from "../../helper/mediaQuery"
 
 import { CartContext } from "../../context/cart.context"
@@ -17,7 +18,8 @@ const NavBox = ({type}) => {
     const { currentUser } = useContext(UserContext)
     const { cartItems } = useContext(CartContext)
     const { likedItems } = useContext(LikedContext)
-    
+
+    const navigate = useNavigate()
     const isSmTablet = useMediaQuery(mediaQuery.useSmTablet)
     const isMobile = useMediaQuery(mediaQuery.useMobile)
 
@@ -28,9 +30,13 @@ const NavBox = ({type}) => {
         return ''
     }
     
+    const clickHandler = () => { 
+        if(!currentUser) return;
+        navigate('/account')
+    }
+
     if(isSmTablet && type === 2) return ;
     
-    // 36.3
 
     return (
         <>
@@ -43,7 +49,7 @@ const NavBox = ({type}) => {
                 datatype="navBox" 
             >
                 <BoxItems gap={tripeChoice(0,2,1)} height={tripeChoice('','','35rem')} datatype="navBox">
-                    {tripeChoice(true, false, false) && <Typo type={TypoType.body_1} color='black' marginBottom='1'>{currentUser ? 'My Account' : 'Sign In'}</Typo> }  
+                    {tripeChoice(true, false, false) &&  <div onClick={clickHandler}><Typo type={TypoType.body_1} color='black' marginBottom='1' hover={currentUser ? true : false}>{currentUser ? 'My Account' : 'Sign In'}</Typo></div> }  
                     {tripeChoice( currentUser ? userArr : [] , likedItems, cartItems).map((el,i) => <NavBoxItem key={i} props={el} type={type}/>)}
                 </BoxItems>
                     {tripeChoice(false, false, true) &&

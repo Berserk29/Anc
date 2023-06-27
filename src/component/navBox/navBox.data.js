@@ -2,20 +2,20 @@
 // TODO CHANGING THE LINK WHEN THE PAGE IS READY
 export const userArr = [
     {
-        name: 'Payment settings',
-        link: '/account',
+        name: 'My favorite',
+        link: '/account/favorite',
     },
     {
         name: 'My orders',
-        link: '/account',
+        link: '/account/orders',
     },
     {
         name: 'My profile',
-        link: '/account',
+        link: '/account/profile',
     },
     {
-        name: 'My addresses',
-        link: '/account',
+        name: 'My address',
+        link: '/account/address',
     },
     {
         name: 'Logout',

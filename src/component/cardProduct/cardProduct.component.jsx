@@ -4,7 +4,7 @@ import { CardContainer, ImgContainer, CardImg, CardHover, NewContainer, FlexCont
 import Typo, {TypoType} from "../typo/typo.component";
 
 
-const CardProduct = ({props, aboutPage = false}) => {
+const CardProduct = ({props, aboutPage = false, isWhitoutText = false}) => {
     const navigate = useNavigate()
 
     if(props === undefined) return ''
@@ -47,7 +47,8 @@ const CardProduct = ({props, aboutPage = false}) => {
                     <IsNewChoice/>
                 </CardHover>
             </ImgContainer>
-            {!aboutPage ? 
+            {  !isWhitoutText &&
+                !aboutPage ? 
                 <>
                     <NewOrder/>
                 </>
