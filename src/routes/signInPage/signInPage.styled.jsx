@@ -25,8 +25,11 @@ export const SignContainer = styled.div`
 
 export const FlexContainer = styled.div`
     display: flex;
-    justify-content: ${props => props.justify};
+    width: 100%;
+    flex-direction: ${props => props.direction};
+    align-items: center;
     gap: ${props => props.gap}rem;
+    justify-content: center;
 `
 
 export const SignBtnActive = styled.button`
@@ -84,6 +87,7 @@ export const ErrorBox = styled.div`
     font-weight: 700;
     background-color: var(--color-black);
     border: 1px solid var(--color-hover);
+    margin-bottom: 1rem;
 `
 
 export const ErrorBoxWhite = styled(ErrorBox)`
@@ -92,3 +96,4 @@ export const ErrorBoxWhite = styled(ErrorBox)`
     color: var(--color-black);
     border: 1.5px solid var(--color-black);
 `
+

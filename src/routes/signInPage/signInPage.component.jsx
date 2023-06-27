@@ -2,13 +2,14 @@ import { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import mediaQuery from '../../helper/mediaQuery';
 
+import BoxBtn, { BoxBtnType } from '../../component/boxBtn/boxBtn.component';
 import Typo, {TypoType} from '../../component/typo/typo.component';
 import NavFooter from "../../component/navFooter/navFooter.component"
+import ProviderSignIn from '../../component/providerSignIn/providerSignIn.component';
+import { signInArr } from './signInPage.data';
 
 import { 
     signInAuthUserWithEmailAndPassword,
-    signInWithGooglePopup,
-    signInWithFacebookPopup,
     createAuthUserWithEmailAndPassword,
     createUserDocumentFromAuth
 } from '../../utiles/firebase/firebase.utiles';
@@ -21,9 +22,8 @@ import {
     SignBtnNotActive,
     FormInput,
     FormContainer,
-    ErrorBox
+    ErrorBox,
 } from "./signInPage.styled";
-import BoxBtn, { BoxBtnType } from '../../component/boxBtn/boxBtn.component';
 
 const defaultFormSign = {
     email: '',
@@ -60,13 +60,16 @@ const SignInPage = () => {
                 setErrMessage('Cannot create user, email already in use')
                 break;
             case 'auth/account-exists-with-different-credential' :
-                setErrMessage('This account exists with a different credential')
+                setErrMessage('This account exists with a different sign in option')
                 break;
             case 'auth/wrong-password' :
                 setErrMessage('Incorrect password or email');
                 break;
             case 'auth/user-not-found' :
                 setErrMessage('Incorrect password or email');
+                break;
+            case 'auth/popup-closed-by-user' :
+                setErrMessage('Sign in popup closed by the user');
                 break;
             default:
                 setErrMessage('User creation encountered an error');
@@ -191,23 +194,6 @@ const SignInPage = () => {
         
     }
 
-    const signInWithGoogle = async () => {
-        try{
-            await signInWithGooglePopup();
-        }catch(err) {
-            switchFunction(err)
-        }
-    }
-    
-    const signInWithFacebook = async () => {
-        try{
-            await signInWithFacebookPopup()
-        } catch(err) {
-            switchFunction(err)
-        }
-    };
-
-
     return (
         <NavFooter>
             <SectionContainer>
@@ -224,10 +210,9 @@ const SignInPage = () => {
                         <BoxBtn type={BoxBtnType.radio_active} w={isSmTablet ? '100%' : '63rem'} h='5.6rem' typoType='body_1'>Continue</BoxBtn>
                     </form>
                     { btnNum === 0 &&
-                        <div>
-                            <button onClick={signInWithGoogle}>GOOGLE</button>
-                            <button onClick={signInWithFacebook}>FACEBOOK</button>
-                        </div>
+                        <FlexContainer direction={ isSmTablet ? 'column' : 'row'}>
+                            { signInArr.map((el,i) => <ProviderSignIn key={i} props={el} switchFunction={switchFunction}/>) }
+                        </FlexContainer>
                     }
                 </SignContainer>
             </SectionContainer>
