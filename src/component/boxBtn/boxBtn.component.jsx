@@ -44,8 +44,8 @@ const BoxBtn = ({type, children, product, color, w, h, link = false, typoType = 
             return addItemToCart(addProductOrder(product), orderNumber)
         }
         else {
-            addItemToCart(addProductOrder(product))
-            return navigate('/account');
+            addItemToCart(addProductOrder(product), orderNumber)
+            return navigate('/checkout');
         }
     }
 

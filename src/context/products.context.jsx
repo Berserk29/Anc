@@ -7,6 +7,7 @@ import { getProductsAndDocuments } from "../utiles/firebase/firebase.utiles";
 export const ProductsContext = createContext({
     productsMap: {},
     sectionImgMap: {},
+    paymentMap: {},
     isLoading: true,
 });
 
@@ -17,7 +18,6 @@ export const ProductsProvider = ({children}) => {
 
     
     // INFO Only use one time for sending data to Firebase //
-    
     // useEffect(() => {
     //     addCollectionAndDocuments('products', isNewData)
     // }, [])

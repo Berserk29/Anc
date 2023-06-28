@@ -38,12 +38,12 @@ export const UserProvider = ({ children }) => {
     const [formCard, setFormCard] = useState(defaultFormCard)
     const [paymentPageComplete, setPaymentPageComplete] = useState(false)
 
-
+    // TESTING TODO REDOO THE PAYMENT
     const createPaymentDocument = async (address, card, items, userEmail) => {
         const date = new Date().getTime()
         const paymentDocument = [{
-            title: `${userEmail}:${date}`,
-            items: {address, card, items, userEmail}
+            title: `${userEmail}`,
+            items: {address, card, items, userEmail, date}
         }]
         await addCollectionAndDocuments('payment', paymentDocument)
         setPaymentPageComplete(true)

@@ -19,8 +19,8 @@ const AccBoilerplate = ({children, heading, text, media = false}) => {
     const subTitleChoice = () => {
         return (
             <SubTitleContainer>
-                <AccountBox>
-                    <Typo type={TypoType.headline_4} color='black'>My Account</Typo>
+                <AccountBox onClick={() => titleHandler('')}>
+                    <Typo type={TypoType.headline_4} color='black' hover={true}>My Account</Typo>
                 </AccountBox>
                 <TitleContainer>
                     {titleArr.map((el,i) => {

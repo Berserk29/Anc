@@ -70,7 +70,6 @@ export const getProductsAndDocuments = async (firebaseDocumentTitle) => {
 
     export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider);  
   
-    // TESTING TODO
     export const signInWithFacebookPopup = () => {
       const fbresult = signInWithPopup(auth, facebookProvider);
       return fbresult;
