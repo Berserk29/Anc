@@ -4,6 +4,10 @@ export const HeadingContainer = styled.div`
     padding: 2rem 1.6rem;
     background-color: var(--color-grey-light);
     border-bottom: 1px solid var(--color-grey-light-2);
+    `
+
+export const FixedContainer = styled(HeadingContainer)`
+    background-color: var(--color-white);
 `
 
 export const Input = styled.input`
@@ -28,6 +32,15 @@ export const Input = styled.input`
     }
 `
 
-export const FixedContainer = styled(HeadingContainer)`
+
+export const SmallHeading = styled.div`
+    padding: 1.2rem 1.6rem;
     background-color: var(--color-white);
+`
+
+export const SmallFixed = styled.div`
+    background-color: var(--color-grey-light);
+    border-bottom: 1px solid var(--color-grey-light-2);
+    padding: 1.2rem 1.6rem;
+    margin-bottom: 2.5rem;
 `

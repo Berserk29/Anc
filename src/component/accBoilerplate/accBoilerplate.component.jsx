@@ -43,7 +43,7 @@ const AccBoilerplate = ({children, heading, text, media = false}) => {
             { media && isTablet ? '' : subTitleChoice() }
             <FlexContainer>
                 <div>
-                    <Typo type={TypoType.arialSize} size='4rem' transform='capitalize' weight='700' color='black'>{heading}</Typo>
+                    <Typo type={TypoType.arialSize} size='4rem' weight='700' color='black'>{heading}</Typo>
                     <Typo type={TypoType.arialSize} size='1.6rem' transform='none' color='var(--color-hover)' marginTop='1.6'>{text}</Typo>
                 </div>
                 {children}

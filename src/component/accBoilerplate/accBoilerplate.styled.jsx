@@ -25,7 +25,7 @@ export const SubTitleContainer = styled.div`
     gap: 6.4rem;
     padding: 11.5rem 13rem 0 0;
     @media ${mediaQuery.styledTablet} {
-        padding: 2rem;
+        padding: 10rem 0 0 0;
         align-items: center;
     }
 ` 
@@ -42,7 +42,6 @@ export const AccountBox = styled.div`
         text-align: center;
     }
     @media ${mediaQuery.styledMobile} {
-        padding: 2rem 0;
         width: 25rem;
     }
 `
