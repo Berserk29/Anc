@@ -3,11 +3,16 @@ import mediaQuery from "../../helper/mediaQuery";
 
 export const GridContainer = styled.div`
     display: grid;
-    width: 100%;
-    grid-template-columns: 20rem 45rem;
+    width: 95.5rem;
+    grid-template-columns: 20rem 1fr;
     justify-content: center;
     text-align: start;
+    @media ${mediaQuery.styledSmLaptop} {
+        width: 63rem;
+        grid-template-columns: 15rem 1fr;
+    }
     @media ${mediaQuery.styledTablet} {
+        width: 100%;
         grid-template-columns: 20rem 75%;
     }
     @media ${mediaQuery.styledSmTablet} {

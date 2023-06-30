@@ -41,7 +41,6 @@ const AccProfile = () => {
     return (
         <AccBoilerplate heading='My Profile' text='Manage your password and communication preferences'>
             <GridContainer>
-
                 <Table type={tableTypeChoice()}>Name</Table>
                 <Table type={tableTypeChoice(false)}>{displayName ? displayName : 'User'}</Table>
 

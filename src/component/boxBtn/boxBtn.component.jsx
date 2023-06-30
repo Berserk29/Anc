@@ -31,7 +31,7 @@ export const BoxBtnType = {
     sign: 'sign'
 }
 
-const BoxBtn = ({type, children, product, color, w, h, link = false, typoType = 'body_2', maxWidth, size, weight, transform}) => {
+const BoxBtn = ({type, children, product, color, w, h, link = false, typoType = 'body_1', maxWidth, size, weight, transform}) => {
     const {orderNumber, addOrderNumber, subtractOrderNumber, addProductOrder, setIsPopupOn} = useContext(OrderContext)
     const {addItemToCart, removeItemToCart, subtractItemToCart} = useContext(CartContext)
     const { setNavButton } = useContext(LikedContext)

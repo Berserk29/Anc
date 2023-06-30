@@ -1,6 +1,3 @@
-import cvv from '../../assets/icon/cvv.png'
-export const cvvIcon = cvv;
-
 export const provinceArr = [
     {
         name: 'Quebec',
@@ -69,46 +66,41 @@ export const provinceArr = [
     },
 ]
 
-export const adressInputArr = [
+export const addressInputArr = [
     {
-        heading: 'Full Name *',
+        heading: 'Full Name',
         id: 'fullName',
         type: 'text',
         autoComplete: 'name',
     },
     {
-        heading: 'Phone number *',
+        heading: 'Phone number',
         id: 'phoneNumber',
         type: 'tel',
         autoComplete: 'tel',
     },
     {
-        heading: 'Address *',
+        heading: 'Address',
         id: 'address',
         type: 'text',
         autoComplete: 'street-address',
     },
     {
-        heading: 'City *',
+        heading: 'City',
         id: 'city',
         type: 'text',
         autoComplete: 'address-level2'
     },
     {
-        heading: 'Province *',
+        heading: 'Province',
         id: 'province',
         type: 'text',
         autoComplete: 'address-level1'
     },
     {
-        heading: 'Postal Code *',
+        heading: 'Postal Code',
         id: 'postal',
         type: 'text',
         autoComplete: 'postal-code',
     },
 ]
-
-export const monthArr = ['01','02','03','04','05','06','07','08','09','10','11','12'];
-
-export const yearArr = [2023,2024,2025,2026,2027,2028,2029,2030,2031,2032,2033];
-

@@ -4,6 +4,7 @@ import mediaQuery from '../../helper/mediaQuery';
 
 import BoxBtn, { BoxBtnType } from '../../component/boxBtn/boxBtn.component';
 import Typo, {TypoType} from '../../component/typo/typo.component';
+import BoxMessage, { BoxMessageType } from '../../component/boxMessage/boxMessage.component';
 import NavFooter from "../../component/navFooter/navFooter.component"
 import ProviderSignIn from '../../component/providerSignIn/providerSignIn.component';
 import { signInArr } from './signInPage.data';
@@ -22,7 +23,6 @@ import {
     SignBtnNotActive,
     FormInput,
     FormContainer,
-    ErrorBox,
 } from "./signInPage.styled";
 
 const defaultFormSign = {
@@ -205,7 +205,7 @@ const SignInPage = () => {
                         <FormContainer>
                             {formChoice()}
                         </FormContainer>
-                        { errMessage ? <ErrorBox>{errMessage}</ErrorBox> : ''} 
+                        { errMessage ? <BoxMessage type={BoxMessageType.err_black}>{errMessage}</BoxMessage> : ''} 
                         { btnNum }
                         <BoxBtn type={BoxBtnType.radio_active} w={isSmTablet ? '100%' : '63rem'} h='5.6rem' typoType='body_1'>Continue</BoxBtn>
                     </form>

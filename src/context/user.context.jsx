@@ -13,7 +13,7 @@ const defaultFormAdress = {
 
 const defaultFormCard = {
     cardNumber: '0000-0000-0000-0000',
-    nameOnCard: '',
+    name: '',
     month: '',
     year: '',
     security: '',
@@ -30,6 +30,7 @@ export const UserContext = createContext({
     setFormCard: () => {},
     paymentPageComplete: false,
     setPaymentPageComplete: () => {},
+    setInputIntoForm: () => {}
 });
 
 export const UserProvider = ({ children }) => {
@@ -39,7 +40,7 @@ export const UserProvider = ({ children }) => {
     const [paymentPageComplete, setPaymentPageComplete] = useState(false)
 
     // TESTING TODO REDOO THE PAYMENT
-    const createPaymentDocument = async (address, card, items, userEmail) => {
+    const createPaymentDocument = async (address, card, items, userEmail) => {  
         const date = new Date().getTime()
         const paymentDocument = [{
             title: `${userEmail}`,
@@ -49,8 +50,8 @@ export const UserProvider = ({ children }) => {
         setPaymentPageComplete(true)
     };
 
-    const value = {currentUser, setCurrentUser, formAddress, setFormAddress, formCard, setFormCard, createPaymentDocument, paymentPageComplete, setPaymentPageComplete};
-
+    useEffect(() => { console.log(formAddress) },[formAddress])
+    
     // Keep track (Observer) of all change for Auth! 
     useEffect(() => {
         const unsubscribe = onAuthStateChangedListener((user) => {
@@ -59,10 +60,21 @@ export const UserProvider = ({ children }) => {
             }
             setCurrentUser(user);
         })
-
+        
         return unsubscribe
     }, [])
-
+    
+    const value = {
+        currentUser,
+        setCurrentUser,
+        formAddress,
+        setFormAddress,
+        formCard,
+        setFormCard,
+        createPaymentDocument,
+        paymentPageComplete,
+        setPaymentPageComplete,
+    };
 
     return <UserContext.Provider value={value}>{children}</UserContext.Provider>
 }

@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect} from "react";
-import { provinceArr } from "../routes/orderPage/orderPage.data";
+import { provinceArr } from "../component/formAddress/formAddress.data";
 
 const cartLogic = (bolean, cartItem, product) => {
     if(bolean) return cartItem.id === product.id && cartItem.size === product.size;

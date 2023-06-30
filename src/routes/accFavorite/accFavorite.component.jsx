@@ -10,7 +10,7 @@ const AccFavorite = () => {
 
     return (
         <AccBoilerplate heading='My Favorite' text='All your favorite items in one place'>
-                { likedItems.length !== 0 ? 
+                { likedItems.length ? 
                     <GridContainer>
                         {likedItems.map((el) => <CardProduct key={el.id} props={el} isWhitoutText={true}/>)}
                     </GridContainer>
