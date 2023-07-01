@@ -42,6 +42,7 @@ const OrderPage = () => {
 
         setErrMessage(false)
         await createPaymentDocument(formAddress, formCard, cartItems, currentUser.email)
+
         removeAllItems()
     };
 

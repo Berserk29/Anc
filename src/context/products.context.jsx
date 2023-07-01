@@ -7,13 +7,14 @@ import { getProductsAndDocuments } from "../utiles/firebase/firebase.utiles";
 export const ProductsContext = createContext({
     productsMap: {},
     sectionImgMap: {},
-    paymentMap: {},
+    // orderHistoryMap: {},
     isLoading: true,
 });
 
 export const ProductsProvider = ({children}) => {
     const [productsMap, setProductsMap] = useState({});
     const [sectionImgMap, setSectionImgMap] = useState({})
+    // const [orderHistoryMap, setOrderHistoryMap] = useState([])
     const [isLoading, setIsLoading] = useState(true);
 
     
@@ -29,6 +30,8 @@ export const ProductsProvider = ({children}) => {
             setProductsMap(productMap);
             const sectionImg = await getProductsAndDocuments('sectionImg');
             setSectionImgMap(sectionImg)
+            // const orderHistory = await getProductsAndDocuments('orderHistory');
+            // setOrderHistoryMap(orderHistory)
             setIsLoading(false)
         }
         getProductsMap();
@@ -36,7 +39,7 @@ export const ProductsProvider = ({children}) => {
 
 
 
-    const value = { productsMap, sectionImgMap, isLoading };
+    const value = { productsMap, sectionImgMap, isLoading};
     return (
         <ProductsContext.Provider value={value}>
             {children}

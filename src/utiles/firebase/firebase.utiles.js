@@ -1,5 +1,5 @@
-import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, writeBatch, doc, query, getDocs, getDoc, setDoc } from "firebase/firestore";
+import  { initializeApp } from 'firebase/app';
+import { getFirestore, collection, writeBatch, doc, query, getDocs, getDoc, setDoc, arrayUnion, updateDoc } from "firebase/firestore";
 import {
     getAuth,
     signInWithRedirect,
@@ -30,6 +30,30 @@ export const db = getFirestore();
 
 // PRODUCT
 
+export const addPaymentDocument = async (collectionKey, objectsToAdd) => {
+  const collectionRef = collection(db, collectionKey);
+  const batch = writeBatch(db);
+
+  for (const object of objectsToAdd) {
+    const docRef = doc(collectionRef, object.title.toLowerCase());
+
+    const docSnapshot = await getDoc(docRef);
+    // if the collection exist arrayUnion(add another array) the object with items(as a name)
+    if (docSnapshot.exists()) {
+      const updateObject = {
+        items: arrayUnion(...object.items),
+      };
+      updateDoc(docRef, updateObject);
+    } else {
+      // if the collection do not exist, create a new one
+      batch.set(docRef, object);
+    }
+  }
+
+  await batch.commit();
+  console.log('done');
+}
+
 export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
     const collectionRef = collection(db, collectionKey);
     const batch = writeBatch(db);
@@ -51,7 +75,7 @@ export const getProductsAndDocuments = async (firebaseDocumentTitle) => {
     const querySnapshot = await getDocs(q);
     const productMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
         const { title, items } = docSnapshot.data();
-        acc[title.toLowerCase()] = items;
+        acc[title?.toLowerCase()] = items;
         return acc;
     }, {})
 

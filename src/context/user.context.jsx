@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect} from "react";
-import { onAuthStateChangedListener, createUserDocumentFromAuth, addCollectionAndDocuments} from '../utiles/firebase/firebase.utiles'
+import { onAuthStateChangedListener, createUserDocumentFromAuth, addPaymentDocument, getProductsAndDocuments} from '../utiles/firebase/firebase.utiles'
 
 const defaultFormAdress = {
     country: 'Canada',
@@ -30,7 +30,8 @@ export const UserContext = createContext({
     setFormCard: () => {},
     paymentPageComplete: false,
     setPaymentPageComplete: () => {},
-    setInputIntoForm: () => {}
+    setInputIntoForm: () => {},
+    ordersMap: {},
 });
 
 export const UserProvider = ({ children }) => {
@@ -38,19 +39,25 @@ export const UserProvider = ({ children }) => {
     const [formAddress, setFormAddress] = useState(defaultFormAdress)
     const [formCard, setFormCard] = useState(defaultFormCard)
     const [paymentPageComplete, setPaymentPageComplete] = useState(false)
+    const [ ordersMap, setOrdersMap ] = useState([])
 
-    // TESTING TODO REDOO THE PAYMENT
-    const createPaymentDocument = async (address, card, items, userEmail) => {  
+    const createPaymentDocument = async (address, card, cartItems, userEmail) => {  
         const date = new Date().getTime()
         const paymentDocument = [{
-            title: `${userEmail}`,
-            items: {address, card, items, userEmail, date}
+            title: currentUser.uid,
+            items: [{address, card, cartItems, userEmail, date}]
         }]
-        await addCollectionAndDocuments('payment', paymentDocument)
+        const orderHistory = [{
+            title: currentUser.uid,
+            items: [{ date, cartItems }] 
+        }]
+        
+        await addPaymentDocument('orderHistory', orderHistory);
+        await addPaymentDocument('payment', paymentDocument);
+        
+        window.scrollTo(0, 0);
         setPaymentPageComplete(true)
     };
-
-    useEffect(() => { console.log(formAddress) },[formAddress])
     
     // Keep track (Observer) of all change for Auth! 
     useEffect(() => {
@@ -63,6 +70,17 @@ export const UserProvider = ({ children }) => {
         
         return unsubscribe
     }, [])
+
+    // Bring orderHistory and connect with currentUser
+    useEffect(() => {
+        const getProductsMap = async () => {
+            const orderHistory = await getProductsAndDocuments('orderHistory');
+            const curUid = currentUser?.uid.toLowerCase()
+            if(!orderHistory || !curUid) return ;
+            setOrdersMap(orderHistory[curUid])
+        }
+        getProductsMap();
+    }, [currentUser])
     
     const value = {
         currentUser,
@@ -74,6 +92,7 @@ export const UserProvider = ({ children }) => {
         createPaymentDocument,
         paymentPageComplete,
         setPaymentPageComplete,
+        ordersMap,
     };
 
     return <UserContext.Provider value={value}>{children}</UserContext.Provider>
