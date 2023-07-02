@@ -7,7 +7,7 @@ import { AccountContainer, SubTitleContainer, AccountBox, TitleContainer, Logout
 import { titleArr } from "../../routes/accountPage/accountPage.data"
 import { signOutUser } from "../../utiles/firebase/firebase.utiles"
 
-const AccBoilerplate = ({children, heading, text, media = false}) => {
+const AccBoilerplate = ({children, heading, text, gap , media = false}) => {
     const navigate = useNavigate();
 
     const isTablet = useMediaQuery(mediaQuery.useTablet)
@@ -41,7 +41,7 @@ const AccBoilerplate = ({children, heading, text, media = false}) => {
     return (
         <AccountContainer>
             { media && isTablet ? '' : subTitleChoice() }
-            <FlexContainer>
+            <FlexContainer gap={gap}>
                 <div>
                     <Typo type={TypoType.arialSize} size='4rem' weight='700' color='black'>{heading}</Typo>
                     <Typo type={TypoType.arialSize} size='1.6rem' transform='none' color='var(--color-hover)' marginTop='1.6'>{text}</Typo>

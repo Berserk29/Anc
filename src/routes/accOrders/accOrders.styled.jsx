@@ -14,3 +14,8 @@ export const FlexContainer = styled.div`
         width: 100%;
     }
 `
+
+export const TitleContainer = styled.div`
+    width: 100%;
+    border-bottom: 1.5px solid var(--color-hover);
+`

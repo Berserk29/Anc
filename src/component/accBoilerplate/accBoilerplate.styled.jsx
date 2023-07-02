@@ -72,7 +72,7 @@ export const LogoutContainer = styled.div`
 export const FlexContainer = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 8rem;
+    gap: ${props => props.gap || '6.4rem'};
     @media ${mediaQuery.styledTablet} {
         text-align: center;
     }

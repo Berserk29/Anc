@@ -39,7 +39,7 @@ export const UserProvider = ({ children }) => {
     const [formAddress, setFormAddress] = useState(defaultFormAdress)
     const [formCard, setFormCard] = useState(defaultFormCard)
     const [paymentPageComplete, setPaymentPageComplete] = useState(false)
-    const [ ordersMap, setOrdersMap ] = useState([])
+    const [ordersMap, setOrdersMap] = useState([])
 
     const createPaymentDocument = async (address, card, cartItems, userEmail) => {  
         const date = new Date().getTime()
