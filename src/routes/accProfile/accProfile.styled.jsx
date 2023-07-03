@@ -7,6 +7,7 @@ export const GridContainer = styled.div`
     grid-template-columns: 20rem 1fr;
     justify-content: center;
     text-align: start;
+    border-top: 1.5px solid var(--color-hover);
     @media ${mediaQuery.styledSmLaptop} {
         width: 63rem;
         grid-template-columns: 15rem 1fr;
@@ -14,6 +15,7 @@ export const GridContainer = styled.div`
     @media ${mediaQuery.styledTablet} {
         width: 100%;
         grid-template-columns: 20rem 75%;
+        border-top: none;
     }
     @media ${mediaQuery.styledSmTablet} {
         grid-template-columns: max-content 1fr;

@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 
-import NavFooter from "../../component/navFooter/navFooter.component";
 import AccountPage from "../accountPage/accountPage.component";
 
 import AccFavorite from "../accFavorite/accFavorite.component";
@@ -13,7 +12,6 @@ import AccProfile from "../accProfile/accProfile.component"
 const AccountRoute = () => {
 
     return (
-        <NavFooter color="white">
             <Routes>
                 <Route index element={<AccountPage/>}/>
                 <Route path="favorite" element={<AccFavorite/>}/>
@@ -22,7 +20,6 @@ const AccountRoute = () => {
                 <Route path="address" element={<AccAddress/>}/>
                 <Route path="profile" element={<AccProfile/>}/>
             </Routes>
-        </NavFooter>
     )
 }
 

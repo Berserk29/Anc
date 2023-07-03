@@ -7,6 +7,7 @@ export const FlexContainer = styled.div`
     width: 95.5rem;
     justify-content: center;
     text-align: start;
+    gap: 2rem;
     @media ${mediaQuery.styledSmLaptop} {
         width: 63rem;
     }

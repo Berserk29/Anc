@@ -9,8 +9,8 @@ const AccFavorite = () => {
     const { likedItems } = useContext(LikedContext)
 
     return (
-        <AccBoilerplate heading='My Favorite' text='All your favorite items in one place'>
-                { likedItems.length ? 
+        <AccBoilerplate heading='My Favorite' gap={likedItems?.length ? '6.4rem' : '10rem'} text='All your favorite items in one place'>
+                { likedItems?.length ? 
                     <GridContainer>
                         {likedItems.map((el) => <CardProduct key={el.id} props={el} isWhitoutText={true}/>)}
                     </GridContainer>

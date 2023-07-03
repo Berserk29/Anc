@@ -17,6 +17,7 @@ export const GridContainer = styled.div`
         grid-template-columns: repeat( auto-fit, minmax(25rem , 25rem) );
     }
     @media ${mediaQuery.styledMobile} {
-        grid-template-columns: repeat( auto-fit, minmax(20rem , 20rem) );
+        grid-template-columns: 1fr;
+        padding: 0 10%;
     }
 `

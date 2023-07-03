@@ -39,21 +39,21 @@ const AccProfile = () => {
     }
 
     return (
-        <AccBoilerplate heading='My Profile' text='Manage your password and communication preferences'>
-            <GridContainer>
-                <Table type={tableTypeChoice()}>Name</Table>
-                <Table type={tableTypeChoice(false)}>{displayName ? displayName : 'User'}</Table>
+            <AccBoilerplate heading='My Profile' text='Manage your password and communication preferences' mobileColor='white'>
+                <GridContainer>
+                    <Table type={tableTypeChoice()}>Name</Table>
+                    <Table type={tableTypeChoice(false)}>{displayName ? displayName : 'User'}</Table>
 
-                <Table type={tableTypeChoice()}>Email</Table>
-                <Table type={tableTypeChoice(false)}>{email}</Table>
+                    <Table type={tableTypeChoice()}>Email</Table>
+                    <Table type={tableTypeChoice(false)}>{email}</Table>
 
-                <Table type={tableTypeChoice()}>Creation date</Table>
-                <Table type={tableTypeChoice(false)}>{timeCreation()}</Table>
+                    <Table type={tableTypeChoice()}>Creation date</Table>
+                    <Table type={tableTypeChoice(false)}>{timeCreation()}</Table>
 
-                <Table type={tableTypeChoice()}>Creation type</Table>
-                <Table type={tableTypeChoice(false)}>{typeCreation()}</Table>
-            </GridContainer>
-        </AccBoilerplate>
+                    <Table type={tableTypeChoice()}>Creation type</Table>
+                    <Table type={tableTypeChoice(false)}>{typeCreation()}</Table>
+                </GridContainer>
+            </AccBoilerplate>
     )
 }
 

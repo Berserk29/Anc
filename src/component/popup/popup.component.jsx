@@ -11,7 +11,7 @@ import { ImgPopup, PopupContainer, FlexContainer, CloseBtn } from "./popup.style
 
 
 const Popup = ({props}) => {
-    const {imageUrl, name, size} = props
+    const {imageUrlHover, name, size} = props
     const {orderNumber, btnSizeActiveNum, setIsPopupOn} = useContext(OrderContext)
     const navigate = useNavigate();
 
@@ -45,7 +45,7 @@ const Popup = ({props}) => {
                     <CloseBtn src={closeBtn} alt="close button" onClick={closeHandler}/>
                 </FlexContainer>
                 <FlexContainer align='flex-start'>
-                    <ImgPopup src={imageUrl}/>
+                    <ImgPopup src={imageUrlHover}/>
                     <FlexContainer flex='column' align='flex-start'>
                         <Typo type={TypoType.arialSize} size='1.4rem' transform='capitalize' weight='700' color='black'>{name}</Typo>
                         <FlexContainer gap='.8' justify='flex-start'>

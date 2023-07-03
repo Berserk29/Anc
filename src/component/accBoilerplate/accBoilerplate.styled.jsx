@@ -3,7 +3,7 @@ import mediaQuery from "../../helper/mediaQuery"
 
 export const AccountContainer = styled.div`
     display: flex;
-    background-color: var(--color-white);
+    background-color: var(--color-cream);
     width: 100%;
     height: 100%;
     justify-content: center;
@@ -15,6 +15,9 @@ export const AccountContainer = styled.div`
     @media ${mediaQuery.styledSmTablet} {
         flex-direction: column-reverse;
         padding: 7rem 1rem;
+    }
+    @media ${mediaQuery.styledMobile} {
+        background-color: ${props => props.mobileColor};
     }
 `
 

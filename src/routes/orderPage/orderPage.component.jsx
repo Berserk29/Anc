@@ -1,4 +1,6 @@
 import { useContext, useEffect, useState} from "react";
+import { useMediaQuery } from "react-responsive";
+import mediaQuery from "../../helper/mediaQuery";
 import { phone } from 'phone';
 
 import BoxMessage, { BoxMessageType } from "../../component/boxMessage/boxMessage.component";
@@ -22,9 +24,11 @@ import FormCard from "../../component/formCard/formCard.component";
 import { addressHandler, cardHandler } from "../../helper/formFunction";
 
 const OrderPage = () => {
-    const {formAddress, formCard, currentUser, createPaymentDocument, paymentPageComplete, setPaymentPageComplete} = useContext(UserContext)
+    const {formAddress, formCard, currentUser, createPaymentDocument, paymentPageComplete, setPaymentPageComplete, setRefreshOrder, refreshOrder} = useContext(UserContext)
     const { cartItems, removeAllItems} = useContext(CartContext)
     const [errMessage, setErrMessage] = useState(false)
+
+    const isMobile = useMediaQuery(mediaQuery.useMobile)
 
     useEffect(() => {
         setPaymentPageComplete(false)
@@ -42,12 +46,12 @@ const OrderPage = () => {
 
         setErrMessage(false)
         await createPaymentDocument(formAddress, formCard, cartItems, currentUser.email)
-
         removeAllItems()
+        setRefreshOrder(refreshOrder + 1)       
     };
 
     return (
-        <NavFooter color="white" sticky={false}>
+        <NavFooter color={isMobile ? 'white' : "var(--color-cream)"} sticky={false}>
                 {paymentPageComplete ? 
                 <PaymentSection>
                     <PaymentComplete /> 

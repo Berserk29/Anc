@@ -54,6 +54,7 @@ export const CvvContainer = styled.div`
     display: flex;
     align-items: center;
     border-bottom: 1px solid var(--color-grey-light-2) ;
+    background-color: var(--color-white);
     gap: 2rem;
     @media ${mediaQuery.styledMobile} {
         background-color: var(--color-grey-light);

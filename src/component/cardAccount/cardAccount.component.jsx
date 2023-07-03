@@ -18,7 +18,7 @@ const CardAccount = ({props}) => {
         <CardContainer onClick={clickHandle}>
             <CardImg src={imageUrl}/>
             <Typo type={TypoType.body_1} color='black'>{title}</Typo>
-            <Typo type={TypoType.body_4} color='black'>{text}</Typo>
+            <Typo type={TypoType.body_5} color='black'>{text}</Typo>
         </CardContainer>
     )
 }

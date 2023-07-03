@@ -6,7 +6,7 @@ export const Section = styled.div`
     justify-content: center;
     gap: 2rem;
     padding: 15.8rem 8rem;
-    background-color: var(--color-white);
+    background-color: var(--color-cream);
     align-items: flex-start;
     @media ${mediaQuery.styledTablet} {
         flex-direction: column;

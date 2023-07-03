@@ -14,6 +14,7 @@ export const ProductContainer = styled.div`
     display: flex;
     margin-right: auto;
     gap: 1.6rem;
+    background-color: ${props => props.color};
     @media ${mediaQuery.styledMobile} {
         gap: 1.2rem;
     }
@@ -23,6 +24,7 @@ export const ImgCss = styled.img`
     width: 11rem;
     height: 14.3rem;
     object-fit: cover;
+    transform: translate3d(0px, 0px, 0.1px);
 `
 
 export const DetailContainer = styled.div`

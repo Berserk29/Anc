@@ -21,7 +21,7 @@ const isMobile = useMediaQuery(mediaQuery.useMobile)
                     <DetailContainer>
                         <Typo type={TypoType.arialSize} size={isMobile ? '14px' : '16px'} transform='capitalize' color='black'>{name}</Typo>
                         <Typo type={TypoType.body_5} color='var(--color-hover)'>Size: {size}</Typo>
-                        <BoxBtn type={BoxBtnType.radio_checkout} w='6.5rem' h='2.5rem' product={props}>Delete</BoxBtn>
+                        <BoxBtn type={BoxBtnType.radio_checkout} w='6.5rem' h='2.5rem' product={props} typoType="body_2">Delete</BoxBtn>
                     </DetailContainer>
                 </ProductContainer>
                 {

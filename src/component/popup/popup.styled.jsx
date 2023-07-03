@@ -14,6 +14,7 @@ export const ImgPopup = styled.img`
     width: 9.3rem;
     height: 12rem;
     object-fit: cover;
+    transform: translate3d(0px, 0px, 0.1px);
 `
 
 export const CloseBtn = styled.img`

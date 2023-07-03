@@ -32,6 +32,8 @@ export const UserContext = createContext({
     setPaymentPageComplete: () => {},
     setInputIntoForm: () => {},
     ordersMap: {},
+    setRefreshOrder: () => {},
+    refreshOrder: 0
 });
 
 export const UserProvider = ({ children }) => {
@@ -40,6 +42,7 @@ export const UserProvider = ({ children }) => {
     const [formCard, setFormCard] = useState(defaultFormCard)
     const [paymentPageComplete, setPaymentPageComplete] = useState(false)
     const [ordersMap, setOrdersMap] = useState([])
+    const [refreshOrder, setRefreshOrder] = useState(0)
 
     const createPaymentDocument = async (address, card, cartItems, userEmail) => {  
         const date = new Date().getTime()
@@ -80,7 +83,8 @@ export const UserProvider = ({ children }) => {
             setOrdersMap(orderHistory[curUid])
         }
         getProductsMap();
-    }, [currentUser])
+
+    }, [currentUser, refreshOrder])
     
     const value = {
         currentUser,
@@ -93,6 +97,8 @@ export const UserProvider = ({ children }) => {
         paymentPageComplete,
         setPaymentPageComplete,
         ordersMap,
+        setRefreshOrder,
+        refreshOrder
     };
 
     return <UserContext.Provider value={value}>{children}</UserContext.Provider>

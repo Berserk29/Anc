@@ -18,7 +18,7 @@ const AccAddress = () => {
     const [successMessage, setSuccessMessage] = useState(false)
 
     return (
-        <AccBoilerplate heading='My Address' text='Manage your shipping addresses'>
+        <AccBoilerplate heading='My Address' text='Manage your shipping addresses' mobileColor='white'>
             <Container>
                 <form onSubmit={(event) => submitHandler(event, setSuccessMessage, setErrMessage, formAddress, true, phone)}>
                     <FormAddress />

@@ -22,7 +22,7 @@ export const CardContainer = styled.div`
         padding: 3rem;
     }
     @media ${mediaQuery.styledMobile} {
-        width: 20rem;
+        width: 100%;
     }
 `
 

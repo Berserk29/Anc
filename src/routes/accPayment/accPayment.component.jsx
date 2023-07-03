@@ -16,7 +16,7 @@ const AccPayment = () => {
     const [successMessage, setSuccessMessage] = useState(false)
 
     return (
-        <AccBoilerplate heading='My Payment Settings' text='Manage your credit card & preferred methods of payment'>
+        <AccBoilerplate heading='My Payment Settings' text='Manage your credit card & preferred methods of payment' mobileColor='white'>
             <Container>
                 <form onSubmit={(event) => submitHandler(event, setSuccessMessage, setErrMessage, formCard)}>
                     <FormCard />

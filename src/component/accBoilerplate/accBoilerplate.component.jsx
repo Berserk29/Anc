@@ -3,17 +3,16 @@ import { useMediaQuery } from "react-responsive"
 import mediaQuery from "../../helper/mediaQuery"
 
 import Typo, {TypoType} from "../typo/typo.component"
+import NavFooter from "../navFooter/navFooter.component"
 import { AccountContainer, SubTitleContainer, AccountBox, TitleContainer, LogoutContainer, FlexContainer } from "./accBoilerplate.styled"
 import { titleArr } from "../../routes/accountPage/accountPage.data"
 import { signOutUser } from "../../utiles/firebase/firebase.utiles"
 
-const AccBoilerplate = ({children, heading, text, gap , media = false}) => {
+const AccBoilerplate = ({children, heading, text, gap , mobileColor , media = false}) => {
     const navigate = useNavigate();
-
-    const isTablet = useMediaQuery(mediaQuery.useTablet)
-
+    const isTablet = useMediaQuery(mediaQuery.useTablet);
+    const isMobile = useMediaQuery(mediaQuery.useMobile);
     const titleHandler = (link) => navigate(`/account${link}`)
-
     const logoutHandler = () => signOutUser();
 
     const subTitleChoice = () => {
@@ -39,16 +38,18 @@ const AccBoilerplate = ({children, heading, text, gap , media = false}) => {
     }
 
     return (
-        <AccountContainer>
-            { media && isTablet ? '' : subTitleChoice() }
-            <FlexContainer gap={gap}>
-                <div>
-                    <Typo type={TypoType.arialSize} size='4rem' weight='700' color='black'>{heading}</Typo>
-                    <Typo type={TypoType.arialSize} size='1.6rem' transform='none' color='var(--color-hover)' marginTop='1.6'>{text}</Typo>
-                </div>
-                {children}
-            </FlexContainer>
-        </AccountContainer>
+        <NavFooter color={isMobile && mobileColor ? mobileColor : 'var(--color-cream)' }>
+            <AccountContainer mobileColor={mobileColor}>
+                { media && isTablet ? '' : subTitleChoice() }
+                <FlexContainer gap={gap}>
+                    <div>
+                        <Typo type={TypoType.arialSize} size='4rem' weight='700' color='black'>{heading}</Typo>
+                        <Typo type={TypoType.arialSize} size='1.6rem' transform='none' color='var(--color-hover)' marginTop='1.6'>{text}</Typo>
+                    </div>
+                    {children}
+                </FlexContainer>
+            </AccountContainer>
+        </NavFooter>
     )
 }
 
