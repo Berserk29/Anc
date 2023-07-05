@@ -23,7 +23,6 @@ const OrderCard = ({props}) => {
 
     const totalItem = cartItems?.reduce((acc, curEL) => acc += curEL.quantity , 0)
 
-    // TODO I NEED TO SHOW THE CARTITEMS DATA
     const clickHandle = () => {
         if(!isViewOpen) return  setIsViewOpen(true)
         else {
@@ -31,7 +30,6 @@ const OrderCard = ({props}) => {
         }
     }
 
-    console.log(cartItems)
     return (
         <Container>
             <FlexContainer gap='1.6rem' >

@@ -35,7 +35,7 @@ export const addPaymentDocument = async (collectionKey, objectsToAdd) => {
   const batch = writeBatch(db);
 
   for (const object of objectsToAdd) {
-    const docRef = doc(collectionRef, object.title.toLowerCase());
+    const docRef = doc(collectionRef, object.title);
 
     const docSnapshot = await getDoc(docRef);
     // if the collection exist arrayUnion(add another array) the object with items(as a name)
@@ -49,9 +49,7 @@ export const addPaymentDocument = async (collectionKey, objectsToAdd) => {
       batch.set(docRef, object);
     }
   }
-
   await batch.commit();
-  console.log('done');
 }
 
 export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
@@ -64,7 +62,6 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => 
     });
   
     await batch.commit();
-    console.log('done');
 }
 
 export const getProductsAndDocuments = async (firebaseDocumentTitle) => {

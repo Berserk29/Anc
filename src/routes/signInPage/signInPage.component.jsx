@@ -148,6 +148,7 @@ const SignInPage = () => {
             required onChange={handleChange}
             name='email'
             value={formSign.email}
+            autoComplete='email'
             />
             <FormInput 
                 placeholder='Password'
@@ -155,6 +156,7 @@ const SignInPage = () => {
                 required onChange={handleChange}
                 name='password'
                 value={formSign.password}
+                autoComplete='new-password'
             />
          </>   
         )
@@ -162,18 +164,12 @@ const SignInPage = () => {
         return (
          <>
             <FormInput 
-                placeholder='Your Name' 
-                type='type'
-                required onChange={handleChange}
-                name='displayName'
-                value={formCreate.displayName}
-            />
-            <FormInput 
                 placeholder='Email'
                 type='email' 
                 required onChange={handleChange}
                 name='email'
                 value={formCreate.email}
+                autoComplete='email'
             />
             <FormInput
                 placeholder='Password'
@@ -181,6 +177,7 @@ const SignInPage = () => {
                 required onChange={handleChange}
                 name="password"
                 value={formCreate.password}
+                autoComplete='new-password'
             />
             <FormInput
                 placeholder='Confirm Password'
@@ -188,6 +185,16 @@ const SignInPage = () => {
                 required onChange={handleChange}
                 name="confirmPassword"
                 value={formCreate.confirmPassword}
+                autoComplete='new-password'
+            />
+            <FormInput 
+                placeholder='Your Name' 
+                type='text'
+                maxLength='20'
+                required onChange={handleChange}
+                name='displayName'
+                value={formCreate.displayName}
+                autoComplete='name'
             />
          </>   
         )
@@ -201,7 +208,7 @@ const SignInPage = () => {
                     <FlexContainer>
                         <BtnChoice />
                     </FlexContainer>
-                    <form onSubmit={btnNum === 0 ? handleSubmit : handleCreate}>
+                    <form onSubmit={btnNum === 0 ? handleSubmit : handleCreate} >
                         <FormContainer>
                             {formChoice()}
                         </FormContainer>
