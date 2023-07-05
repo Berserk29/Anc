@@ -7,10 +7,16 @@ export const HeadingContainer = styled.div`
     height: 31rem;
     display: flex;
     justify-content: center;
+    @media ${mediaQuery.styledMobile} {
+        height: 23rem;
+    }
 `
 
 export const PositionContainer = styled.div`
     transform: translateY(3rem);
+    @media ${mediaQuery.styledMobile} {
+        
+    }
 `
 
 export const PictureContainer = styled.div`

@@ -200,7 +200,7 @@ const SignInPage = () => {
         )
         
     }
-
+    
     return (
         <NavFooter>
             <SectionContainer>
@@ -208,7 +208,7 @@ const SignInPage = () => {
                     <FlexContainer>
                         <BtnChoice />
                     </FlexContainer>
-                    <form onSubmit={btnNum === 0 ? handleSubmit : handleCreate} >
+                    <form onSubmit={btnNum === 0 ? handleSubmit : handleCreate} autoComplete='off'>
                         <FormContainer>
                             {formChoice()}
                         </FormContainer>

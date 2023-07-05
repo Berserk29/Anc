@@ -26,7 +26,7 @@ export const BoxSelect = styled.div`
     align-items: center;
     border-bottom: 1px solid var(--color-grey-light-2);
     @media ${mediaQuery.styledMobile} {
-        justify-content: start;
+        justify-content: flex-start;
         align-items: flex-start;
         gap: 0;
         background-color: var(--color-grey-light);

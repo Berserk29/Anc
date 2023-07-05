@@ -77,7 +77,7 @@ const BoxBtn = ({type, children, product, color, w, h, link = false, typoType = 
         if(type === 'sum') return (
             <FlexContainer>
                 <SumBtn w={w} h={h}  onClick={subtractOrderNumber}><Minus/></SumBtn>
-                <SumBtn w={w} h={h}><Typo type={TypoType.body_3} userSelect='none'>{orderNumber}</Typo></SumBtn>
+                <SumBtn w={w} h={h}><Typo type={TypoType.arialSize} size='16px' weight='700' userSelect='none'>{orderNumber}</Typo></SumBtn>
                 <SumBtn w={w} h={h} onClick={addOrderNumber}><Plus/></SumBtn>
             </FlexContainer>
         )
