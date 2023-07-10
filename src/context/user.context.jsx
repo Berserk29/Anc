@@ -47,11 +47,13 @@ export const UserProvider = ({ children }) => {
     const createPaymentDocument = async (address, card, cartItems, userEmail) => {  
         const date = new Date().getTime()
         const paymentDocument = [{
-            title: currentUser.uid,
+            title: currentUser.uid.toLowerCase(),
+            owner: currentUser.uid,
             items: [{address, card, cartItems, userEmail, date}]
         }]
         const orderHistory = [{
-            title: currentUser.uid,
+            title: currentUser.uid.toLowerCase(),
+            owner: currentUser.uid,
             items: [{ date, cartItems }] 
         }]
         
@@ -76,6 +78,7 @@ export const UserProvider = ({ children }) => {
 
     // Bring orderHistory and connect with currentUser
     useEffect(() => {
+        if(!currentUser) return;
         const getProductsMap = async () => {
             const orderHistory = await getProductsAndDocuments('orderHistory');
             const curUid = currentUser?.uid.toLowerCase()
