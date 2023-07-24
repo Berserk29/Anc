@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import mediaQuery from "../../helper/mediaQuery";
+import { SnapCss } from "../../routes/homePage/homePage.styled";
+
+
 
 export const Section = styled.div`
     position: relative;
@@ -9,7 +12,7 @@ export const Section = styled.div`
     width: 100%;
     background-color: black;
     /* INFO (SCROLL BY SECTION) */
-    /* scroll-snap-align: start; */
+    ${SnapCss}
 `
 
 export const HalfImage = styled.div`
@@ -57,6 +60,7 @@ export const CarouselBtn = styled.div`
     transition: opacity .3s;
     opacity: ${props => props.opacity};
     border: 1px solid var(--color-hover);
+    cursor: pointer;
     :hover {
         opacity: 1;
     }

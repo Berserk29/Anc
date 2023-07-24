@@ -37,9 +37,8 @@ const SectionHome = ({props}) => {
     const {imageUrl, imageUrl2, imageUrl3, type, text, heading, id, link = false } = props;
     const { setNumIndex } = useContext(NumContext)
     const [carouselNum, setCarouselNum] = useState(0);
-
     
-    const {ref , inView} = useInView({threshold: 0.7});
+    const {ref , inView} = useInView({threshold: 0.05});
     const control = useAnimation();
 
     const isTablet = useMediaQuery(mediaQuery.useTablet);
@@ -49,6 +48,7 @@ const SectionHome = ({props}) => {
             setNumIndex(id)
             control.start('visible');
         }
+
     },[control, inView])
     
     const typoSection = () => (

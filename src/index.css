@@ -33,6 +33,11 @@ html {
   font-size: 62.5%;
 }
 
+/* For scroll-snap-align weird behavior */
+html, body {
+  overscroll-behavior-y: none;
+}
+
 /* font-size --> 8px */
 @media (max-width: 992px) {
   html {

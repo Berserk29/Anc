@@ -1,13 +1,36 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
+import { detect } from "detect-browser";
+const browser = detect();
 
 export const HomePageContainer = styled.div`
     width: 100%;
     height: 100vh;
     /* INFO (SCROLL BY SECTION) */
-    /* overflow-y: scroll; 
-    scroll-snap-type: y mandatory;
+     /* Disable Scroll-snap for 'safari */
+    ${() => {
+        if(browser && browser.name !== 'safari') {
+            return `
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            scroll-snap-stop: always;
+            scroll-behavior: smooth;
+            `
+        }
+    }}
+`
+
+export const SnapCss = css`
+    scroll-snap-align: center;
     scroll-snap-stop: always;
-    scroll-behavior: smooth; */
+    /* Disable Scroll-snap for 'safari */
+    ${() => {
+        if(browser && browser.name === 'safari') {
+            return `
+            scroll-snap-align: none;
+            scroll-snap-stop: none;
+            `
+        }
+    }}
 `
 
 export const Header = styled.div`
@@ -24,7 +47,7 @@ export const Header = styled.div`
     background-size: cover;
     background-position: center;
     /* INFO (SCROLL BY SECTION) */
-    /* scroll-snap-align: start; */
+    ${SnapCss}
 `
 
 export const HomeFooter = styled.div`
@@ -36,7 +59,7 @@ export const HomeFooter = styled.div`
     align-items: flex-end;
     justify-content: center;
     /* INFO (SCROLL BY SECTION) */
-    /* scroll-snap-align: start; */
+    ${SnapCss}
 `
 
 export const ScrollContainer = styled.div`
