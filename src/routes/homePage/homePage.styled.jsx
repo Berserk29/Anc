@@ -1,5 +1,6 @@
 import styled, {css} from "styled-components";
 import { detect } from "detect-browser";
+import mediaQuery from "../../helper/mediaQuery";
 const browser = detect();
 
 export const HomePageContainer = styled.div`
@@ -69,7 +70,14 @@ export const ScrollContainer = styled.div`
     align-items: center;
     gap: 1.4rem;
     bottom: 40px;
+    @media ${mediaQuery.styledTablet} {
+        bottom: 60px
+    }
+    @media ${mediaQuery.styledMobile} {
+        bottom: 80px
+    }
 `
+
 export const ArrowDown = styled.img`
     width: 1.2rem;
 `

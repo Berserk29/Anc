@@ -45,10 +45,10 @@ export const CarouselBtnContainer = styled(motion.div)`
     display: flex;
     justify-self: flex-end;
     flex-direction: row;
-    gap: 5rem;
+    gap: 8rem;
     z-index: 2;
     @media ${mediaQuery.styledTablet} {
-        gap: 8rem;
+        top: 85vh;
     }
 `
 
@@ -58,12 +58,16 @@ export const CarouselBtn = styled.div`
     background-color: var(--color-white);
     border-radius: 50%;
     transition: opacity .3s;
-    opacity: ${props => props.opacity};
+    opacity: ${props => props.isActive ? 1 : .4};
     border: 1px solid var(--color-hover);
     cursor: pointer;
-    :hover {
-        opacity: 1;
+    /* INFO MAKE THE TOUCH NOT HOVER */
+    @media (hover: hover) {
+        :hover {
+            opacity: 1;
+        }
     }
+
     @media ${mediaQuery.styledTablet} {
         width: 2rem;
         height: 2rem;
@@ -71,7 +75,7 @@ export const CarouselBtn = styled.div`
 `
 
 export const CarouselImg = styled.div`
-    opacity: ${props => props.opacity};
+    opacity: ${props => props.isActive ? 1 : 0};
     background-image: url(${props => props.image});
     background-size: cover;
     background-position: ${props => props.position || 'center'};

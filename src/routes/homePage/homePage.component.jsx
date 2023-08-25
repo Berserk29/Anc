@@ -29,8 +29,8 @@ import Navigation from "../../component/navigation/navigation.component";
     const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
     const control = useAnimation();
     const containerRef = useRef(null)
-    const {ref: ref1, inView: inView1} = useInView({threshold: 1})
-    const {ref: ref6, inView: inView6} = useInView({threshold: 1})
+    const {ref: ref1, inView: inView1} = useInView({threshold: 0.5})
+    const {ref: ref6, inView: inView6} = useInView({threshold: 0.5})
     const {setNumIndex} = useContext(NumContext)
 
     const isTablet = useMediaQuery(mediaQuery.useTablet)
