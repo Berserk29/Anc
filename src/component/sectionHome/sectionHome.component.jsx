@@ -1,7 +1,7 @@
 import { Fragment, useContext, useEffect, useState} from "react";
 import { useInView } from "react-intersection-observer";
 import { useAnimation, motion } from "framer-motion";
-import { variantUp1, variantUp2, variantUp3, variantUp4, variantUp5, scaleUp} from "../../helper/animationMotion";
+import { variantUp1, variantUp2, variantUp3, variantUp4, scaleUp} from "../../helper/animationMotion";
 import { useMediaQuery } from "react-responsive";
 import mediaQuery from "../../helper/mediaQuery";
 
@@ -47,6 +47,9 @@ const SectionHome = ({props}) => {
         if(inView) {
             setNumIndex(id)
             control.start('visible');
+        }
+        else {
+            control.start('hidden')
         }
 
     },[control, inView])
@@ -95,7 +98,7 @@ const SectionHome = ({props}) => {
         if(type === 'carousel') 
         return (
             <CarouselContainer variants={scaleUp} initial='hidden' animate={control}>
-                <CarouselText variants={variantUp5} initial='hidden' animate={control}>
+                <CarouselText variants={variantUp4} initial='hidden' animate={control}>
                     <Typo type={TypoType.body_3}>01</Typo>
                     <Typo type={TypoType.title_2}>Corduroy</Typo>
                     <Typo type={TypoType.body_3}>for the 23 SS Season</Typo>
@@ -103,7 +106,7 @@ const SectionHome = ({props}) => {
                 <CarouselImg image={imageUrl} opacity={imgControl(0, 1, 0)} position='30%'/>
                 <CarouselImg image={imageUrl2} opacity={imgControl(1, 1, 0)} position='left'/>
                 <CarouselImg image={imageUrl3} opacity={imgControl(2, 1, 0)} position='70% '/>
-                <CarouselBtnContainer variants={variantUp5} initial='hidden' animate={control}>
+                <CarouselBtnContainer variants={variantUp4} initial='hidden' animate={control}>
                     <CarouselBtn onClick={() => BtnHandler(0)} opacity={imgControl(0, 1, .6)}/>
                     <CarouselBtn onClick={() => BtnHandler(1)} opacity={imgControl(1, 1, .6)}/>
                     <CarouselBtn onClick={() => BtnHandler(2)} opacity={imgControl(2, 1, .6)}/>
@@ -113,7 +116,7 @@ const SectionHome = ({props}) => {
 
         if(type === 'noImg')
         return (
-            <FullText variants={variantUp4} initial='hidden' animate={control}>
+            <FullText variants={variantUp2} initial='hidden' animate={control}>
                 <InstaContainer>
                     <Typo type={TypoType.double}>{heading}</Typo>
                     <Typo type={TypoType.body_4}>{text}</Typo>
