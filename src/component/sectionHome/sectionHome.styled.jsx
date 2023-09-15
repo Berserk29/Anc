@@ -64,7 +64,7 @@ export const CarouselBtn = styled.div`
     /* INFO MAKE THE TOUCH NOT HOVER */
     @media (hover: hover) {
         :hover {
-            opacity: 1;
+            opacity: 0.6;
         }
     }
 

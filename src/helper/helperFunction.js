@@ -24,7 +24,6 @@ export const homeDebounce = (callbackFn, delay = 250) => {
             readyToCall = true
         }, delay)
     }
-
 }
 
 

@@ -25,8 +25,6 @@ import {
 import Navigation from "../../component/navigation/navigation.component";
 
  const HomePage = () => {
-    const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
-    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
     const control = useAnimation();
     const containerRef = useRef(null)
     const {ref: ref1, inView: inView1} = useInView({threshold: 0.5})
@@ -46,19 +44,18 @@ import Navigation from "../../component/navigation/navigation.component";
         }
     },[inView1, inView6, setNumIndex, control])
 
+
+    // SCROLLING (WHEEL EVENT)
     useEffect(() => {
         const container = containerRef.current;
-        container.focus()
-    }, [])    
-
-
-    // INFO SCROLLING (WHEEL EVENT)
-    useEffect(() => {
-        const container = containerRef.current;
-        container.focus()
+        const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+        const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
         let containerScrollTop;
         let scrollDistance;
         let prevDeltaY = 0;
+
+        // To focus the container do not forget to add tabIndex="0" on the element
+        container.focus()
 
         const scrolling = () => {
             container.scrollTo({
@@ -70,12 +67,12 @@ import Navigation from "../../component/navigation/navigation.component";
 
         const smoothScroll = event => {
 
-            // INFO Firefox && Safari bug when preventDefault
+            // Firefox && Safari bug when preventDefault
             if(!isFirefox && !isSafari) {
                 event.preventDefault();
             }
             
-            // INFO To limit the amount of touchpad wheel event
+            // To limit the amount of touchpad wheel event
             if(event.deltaY === prevDeltaY ) return;
             if(event.deltaY <= 29 && event.deltaY >= -29) return;
             
