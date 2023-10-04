@@ -1,5 +1,5 @@
-export const headerAbout = 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/about_header.jpg?alt=media&token=3e25bfcd-6615-4e2b-aaa9-baadf826bfd1&_gl=1*1talohc*_ga*MjI2NTU4NzIuMTY4MTY4MjcxNw..*_ga_CW55HF8NVT*MTY4NTYzODY2NS4xNC4xLjE2ODU2MzkzODMuMC4wLjA.'
-export const aboutImg2 = 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/about_02.jpg?alt=media&token=a883cde7-ff61-4445-b693-19b074344f30&_gl=1*1orqcm1*_ga*MjI2NTU4NzIuMTY4MTY4MjcxNw..*_ga_CW55HF8NVT*MTY4NTYzODY2NS4xNC4xLjE2ODU2Mzk0MjAuMC4wLjA.'
+export const headerAbout = 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/about_header.jpg?alt=media&token=ceb65e59-f894-44d3-8cc2-904732f2ffb3&_gl=1*1rki868*_ga*ODEyNTY3MTg5LjE2OTY0NTM0NDc.*_ga_CW55HF8NVT*MTY5NjQ1MzQ0Ny4xLjEuMTY5NjQ1NTU0My41Mi4wLjA.'
+export const aboutImg2 = 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/about_02.jpg?alt=media&token=4a153729-ec42-49a0-8a32-6302133c2a5f&_gl=1*t2o2rp*_ga*ODEyNTY3MTg5LjE2OTY0NTM0NDc.*_ga_CW55HF8NVT*MTY5NjQ1MzQ0Ny4xLjEuMTY5NjQ1NTU2NC4zMS4wLjA.'
 
 
 export const aboutInfoArray = [

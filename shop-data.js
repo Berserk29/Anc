@@ -5,8 +5,8 @@ const SHOP_DATA = [
         {
           id: 1,
           name: 'Blue Cotton Jacket',
-          imageUrl: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_JacketBlue_1.jpg?alt=media&token=0d11bcee-62c2-4ab5-a543-6569d935bfec',
-          imageUrlHover: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_JacketBlue_2.jpg?alt=media&token=5a9a24e5-e120-4744-8dd2-3e8f6353f004',
+          imageUrl: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_JacketBlue_1.jpg?alt=media&token=592f500e-a5ef-44b6-9cb8-f47e7b7c38cf&_gl=1*1e852nw*_ga*ODEyNTY3MTg5LjE2OTY0NTM0NDc.*_ga_CW55HF8NVT*MTY5NjQ1MzQ0Ny4xLjEuMTY5NjQ1NzA2OC4xMy4wLjA.',
+          imageUrlHover: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/img_JacketBlue_2.jpg?alt=media&token=4f5fe87b-f805-41ac-bb28-238ec017b262&_gl=1*1x2njw0*_ga*ODEyNTY3MTg5LjE2OTY0NTM0NDc.*_ga_CW55HF8NVT*MTY5NjQ1MzQ0Ny4xLjEuMTY5NjQ1NzE0Ni4xMi4wLjA.',
           price: 65,
           size: ['S', 'M', 'L'],
           isNew: true,
