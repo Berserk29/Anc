@@ -1,6 +1,6 @@
-const homeCarousel1 = 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/image_1630941045802_2500%202.jpg?alt=media&token=b10147f6-2266-4880-9eaf-edad033ac498&_gl=1*1hz9g5z*_ga*MjI2NTU4NzIuMTY4MTY4MjcxNw..*_ga_CW55HF8NVT*MTY4NjE2NTUxNS4yMC4xLjE2ODYxNjU2MTMuMC4wLjA.'
-const homeCarousel2 = 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/image_1631613861180_2500%201.jpg?alt=media&token=86740e24-3262-4408-b94a-78d689039d43&_gl=1*1xlh66y*_ga*MjI2NTU4NzIuMTY4MTY4MjcxNw..*_ga_CW55HF8NVT*MTY4NjE2NTUxNS4yMC4xLjE2ODYxNjU2MjkuMC4wLjA.'
-const homeCarousel3 = 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/look_10.jpg?alt=media&token=82d3fd56-4e0e-4b25-b853-335906453466&_gl=1*1fmgnx*_ga*MjI2NTU4NzIuMTY4MTY4MjcxNw..*_ga_CW55HF8NVT*MTY4NjE2NTUxNS4yMC4xLjE2ODYxNjU1NjYuMC4wLjA.'
+const homeCarousel1 = 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/carousel_01.jpg?alt=media&token=33fc634c-c9d1-4016-9a06-2652b1b689ce&_gl=1*q19h6l*_ga*ODEyNTY3MTg5LjE2OTY0NTM0NDc.*_ga_CW55HF8NVT*MTY5NjQ1MzQ0Ny4xLjEuMTY5NjQ1NDgzNS4zMS4wLjA.'
+const homeCarousel2 = 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/carousel_02.jpg?alt=media&token=41f520b3-c979-450c-b0d2-127724c0e03e&_gl=1*1luai00*_ga*ODEyNTY3MTg5LjE2OTY0NTM0NDc.*_ga_CW55HF8NVT*MTY5NjQ1MzQ0Ny4xLjEuMTY5NjQ1NDg1MS4xNS4wLjA.'
+const homeCarousel3 = 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/look_10.jpg?alt=media&token=49dbb4e9-88b2-4317-b476-242d00501dde&_gl=1*xpduy1*_ga*ODEyNTY3MTg5LjE2OTY0NTM0NDc.*_ga_CW55HF8NVT*MTY5NjQ1MzQ0Ny4xLjEuMTY5NjQ1NDkxNS41OS4wLjA.'
 
 export const carouselBtnArr = [0,1,2]
 

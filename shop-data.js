@@ -468,7 +468,7 @@ export const LOOKBOOK_DATA = [
       },
       {
         id: 10,
-        imageUrl: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/look_10.jpg?alt=media&token=82d3fd56-4e0e-4b25-b853-335906453466&_gl=1*x3l86q*_ga*MjI2NTU4NzIuMTY4MTY4MjcxNw..*_ga_CW55HF8NVT*MTY4NTYyOTcyMy4xMi4xLjE2ODU2MzA5NTAuMC4wLjA.',
+        imageUrl: 'https://firebasestorage.googleapis.com/v0/b/anc-project-93a41.appspot.com/o/look_10.jpg?alt=media&token=49dbb4e9-88b2-4317-b476-242d00501dde&_gl=1*xpduy1*_ga*ODEyNTY3MTg5LjE2OTY0NTM0NDc.*_ga_CW55HF8NVT*MTY5NjQ1MzQ0Ny4xLjEuMTY5NjQ1NDkxNS41OS4wLjA.',
         ratio: '16/9',
         column: '1/-1',
         breakColumn: '1/-1',
