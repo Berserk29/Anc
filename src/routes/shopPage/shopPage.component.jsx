@@ -8,13 +8,21 @@ import CardProduct from "../../component/cardProduct/cardProduct.component";
 import { useMediaQuery } from "react-responsive";
 import mediaQuery from "../../helper/mediaQuery";
 
+const getInitialState = () => {
+    const sessionData = sessionStorage.getItem('SHOP_CAT')
+    return sessionData ? JSON.parse(sessionData) : 'new';
+}
+
 const ShopPage = () => {
     const {productsMap} = useContext(ProductsContext)
-    const [productChoice, setProductChoice] = useState('new') 
+    const [productChoice, setProductChoice] = useState(getInitialState) 
 
     const isSmLaptop = useMediaQuery(mediaQuery.useSmLaptop)
 
-    const productHandler = (product) => setProductChoice(product)
+    const productHandler = (product) => {
+        setProductChoice(product)
+        sessionStorage.setItem('SHOP_CAT', JSON.stringify(product))
+    }
 
     // Change new to be the first in the array
     const newTitleOrder = [
