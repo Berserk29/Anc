@@ -39,6 +39,8 @@ const BoxBtn = ({type, children, product, color, w, h, link = false, typoType = 
     const navigate = useNavigate()
 
     const HandlerAddLink = (boolean) => {
+        // return at /shop if there's no product
+        if(!product) return navigate('/shop')
         if(boolean === false) {
             setIsPopupOn(true)
             return addItemToCart(addProductOrder(product), orderNumber)

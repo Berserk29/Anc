@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useParams} from "react-router-dom"
 import { useContext} from "react"
 
 import {
@@ -17,7 +17,7 @@ import { ProductsContext } from "../../context/products.context"
 const ProductDetail = () => {
     const {productsMap} = useContext(ProductsContext)
     const {id} = useParams();
-    
+
     // Determine the product by checking the url
     const ProductChoice = () => {
         const productType = id.replace(/[^a-z]/g, "");

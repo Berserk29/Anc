@@ -35,6 +35,7 @@ const clickHandler = (e) => {
       <Route path="shop/*" element={<ShopRoute/>}/>
       <Route path="lookbook" element={<LookbookPage/>}/>
       <Route path="checkout" element={<CheckoutPage/>}/>
+      <Route path="*" element={<HomePage/>}/>
       { currentUser ?
         <>
           <Route path="account/*" element={<AccountRoute/>}/>
